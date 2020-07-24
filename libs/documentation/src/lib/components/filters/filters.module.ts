@@ -15,6 +15,8 @@ import { FiltersOptional } from './demos/optional/filters-optional.component';
 import { FiltersOptionalModule } from './demos/optional/filters-optional.module';
 import { FiltersConfig } from './demos/config/filter-config.component';
 import { FiltersConfigModule } from './demos/config/filter-config.module';
+import { FiltersSearchconfig } from './demos/searchconfig/filters-searchconfig.component';
+import { FiltersSearchconfigModule } from './demos/searchconfig/filters-searchconfig.module';
 
 declare var require: any;
 const DEMOS = {
@@ -39,6 +41,13 @@ const DEMOS = {
     markup: require('!!raw-loader!./demos/config/filter-config.component.html'),
     path: 'libs/documentation/src/lib/components/filters/demos/config'
   },
+  searchconfig: {
+    title: 'Multiple level configuration Filters',
+    type: FiltersSearchconfig,
+    code: require('!!raw-loader!./demos/searchconfig/filters-searchconfig.component'),
+    markup: require('!!raw-loader!./demos/searchconfig/filters-searchconfig.component.html'),
+    path: 'libs/documentation/src/lib/components/filters/demos/searchconfig'
+  }
 };
 
 export const ROUTES = [
@@ -70,7 +79,8 @@ export const ROUTES = [
     DocumentationComponentsSharedModule,
     FiltersBasicModule,
     FiltersOptionalModule,
-    FiltersConfigModule
+    FiltersConfigModule,
+    FiltersSearchconfigModule
   ]
 })
 export class FiltersModule {
