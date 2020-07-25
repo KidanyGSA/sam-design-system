@@ -38,7 +38,7 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/config/filter-config.component'),
     markup: require('!!raw-loader!./demos/config/filter-config.component.html'),
     path: 'libs/documentation/src/lib/components/filters/demos/config'
-  },
+  }
 };
 
 export const ROUTES = [

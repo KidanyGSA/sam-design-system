@@ -10,7 +10,6 @@ import { SdsAdvancedFiltersService } from '../formly-filters/advanced-filters/sd
   selector: 'sds-formly-dialog',
   templateUrl: './formly-dialog.component.html'
 })
-
 export class SdsFormlyDialogComponent implements OnInit {
   form: FormGroup;
   model: any;
@@ -18,6 +17,7 @@ export class SdsFormlyDialogComponent implements OnInit {
   fields: FormlyFieldConfig[];
   cancel: string;
   submit: string;
+  selectAll: boolean = false;
 
   constructor(
     public advancedFiltersService: SdsAdvancedFiltersService,
@@ -36,9 +36,23 @@ export class SdsFormlyDialogComponent implements OnInit {
 
   onSubmit() {
     if (this.form.valid) {
-      const results = this.advancedFiltersService.updateFields(this.model, this.data.originalFields, this.data.originalModel);
+      const results = this.advancedFiltersService.updateFields(
+        this.model,
+        this.data.originalFields,
+        this.data.originalModel
+      );
       this.dialogRef.close(results);
     }
+  }
+
+  onSelectAllChange(ev) {
+    this.selectAll = !this.selectAll;
+    this.fields.forEach(field => {
+      if (field.type == 'checkbox') {
+        this.form.get(field.key).setValue(this.selectAll);
+      } else if (field.type == 'multicheckbox') {
+      }
+    });
   }
 
   onCancel() {
