@@ -14,7 +14,7 @@ import { AutocompleteSampleDataService } from './services/autocomplete-sample.se
   providers: [AutocompleteSampleDataService],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FiltersSearchconfig implements OnInit {
+export class FiltersSearchconfig {
   results: any = {};
   form = new FormGroup({});
   model: any = {};
