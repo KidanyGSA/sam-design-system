@@ -17,7 +17,7 @@ export class SdsFormlyDialogComponent implements OnInit {
   fields: FormlyFieldConfig[];
   cancel: string;
   submit: string;
-  selectAll: boolean = false;
+  selectAll: boolean = true;
 
   constructor(
     public advancedFiltersService: SdsAdvancedFiltersService,
@@ -48,9 +48,22 @@ export class SdsFormlyDialogComponent implements OnInit {
   onSelectAllChange(ev) {
     this.selectAll = !this.selectAll;
     this.fields.forEach(field => {
-      if (field.type == 'checkbox') {
+      if (field.type === 'checkbox') {
         this.form.get(field.key).setValue(this.selectAll);
-      } else if (field.type == 'multicheckbox') {
+      } else {
+        if (this.selectAll) {
+          let currentField = this.data.fields.find(
+            item => item.key === field.key
+          );
+          if (currentField.templateOptions.options instanceof Array) {
+            let value = currentField.templateOptions.options.map(
+              ({ key }) => key
+            );
+            this.form.get(field.key).setValue(value);
+          }
+        } else {
+          this.form.get(field.key).setValue([]);
+        }
       }
     });
   }
