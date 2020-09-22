@@ -166,6 +166,7 @@ export class FilterService {
           type: 'autocomplete',
           templateOptions: {
             label: 'State / Province',
+            maxLength: 5,
             hideOptional: true,
             service: this.service,
             configuration: this.settings,

@@ -12,7 +12,7 @@ import {
 } from '@gsa-sam/components';
 
 import { FIELD_TYPE_COMPONENTS, FORMLY_CONFIG } from './formly.config';
-import { maxDateValidator, minDateValidator } from './formly.validators';
+import { maxDateValidator, minDateValidator, autocompleteMaxLength } from './formly.validators';
 import { AnimationWrapperComponent } from './wrappers/form-field.animation';
 
 // Validate the min length of the character
@@ -66,7 +66,7 @@ export function animationExtension(field: FormlyFieldConfig) {
 
   field.wrappers = ['animation', ...(field.wrappers || [])];
 }
-export { maxDateValidator, minDateValidator } from './formly.validators';
+export { maxDateValidator, minDateValidator, autocompleteMaxLength } from './formly.validators';
 
 
 @NgModule({
@@ -103,7 +103,8 @@ export { maxDateValidator, minDateValidator } from './formly.validators';
       ],
       validators: [
         { name: 'minDate', validation: minDateValidator },
-        { name: 'maxDate', validation: maxDateValidator }
+        { name: 'maxDate', validation: maxDateValidator },
+        { name: 'autocompleteMaxLength', validation: autocompleteMaxLength }
       ],
       wrappers: [
         { name: 'animation', component: AnimationWrapperComponent },

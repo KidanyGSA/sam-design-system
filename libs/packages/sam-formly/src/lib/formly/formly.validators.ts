@@ -46,9 +46,16 @@ export function minDateValidator(control: FormControl, field: FormlyFieldConfig)
       },
  */
 export function autocompleteRequired(control: FormControl): ValidationErrors {
-  return control.value && control.value.items && control.value.length ? { required: true } : null;
+    return control.value && control.value.items && control.value.length ? { required: true } : null;
 }
-
+export function autocompleteMaxLength(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
+    console.log(control.value);
+    let maxLengthValue = field.templateOptions.maxLength;
+    let value = control.value;
+    if (value && maxLengthValue) {
+        return value.length > maxLengthValue ? { maxLength: true } : null;
+    }
+}
 /**
  *
  * @param control
