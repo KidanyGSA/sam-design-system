@@ -12,7 +12,11 @@ import {
 } from '@gsa-sam/components';
 
 import { FIELD_TYPE_COMPONENTS, FORMLY_CONFIG } from './formly.config';
-import { maxDateValidator, minDateValidator, autocompleteMaxLength } from './formly.validators';
+import {
+  maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
+  autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
+  autocompleteAgeValidator
+} from './formly.validators';
 import { AnimationWrapperComponent } from './wrappers/form-field.animation';
 
 // Validate the min length of the character
@@ -28,6 +32,10 @@ export function maxlengthValidationMessage(err, field) {
 // Validate the min value of the character
 export function minValidationMessage(err, field: FormlyFieldConfig) {
   return `This value should be more than ${field.templateOptions.min}`;
+}
+
+export function ageValidationMessage(err, field: FormlyFieldConfig) {
+  return `Age value should be between ${field.templateOptions.minAge} and ${field.templateOptions.maxAge}`;
 }
 
 export function minDateValidationMessage(err, field: FormlyFieldConfig) {
@@ -66,7 +74,11 @@ export function animationExtension(field: FormlyFieldConfig) {
 
   field.wrappers = ['animation', ...(field.wrappers || [])];
 }
-export { maxDateValidator, minDateValidator, autocompleteMaxLength } from './formly.validators';
+export {
+  maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
+  autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
+  autocompleteAgeValidator
+} from './formly.validators';
 
 
 @NgModule({
@@ -96,6 +108,7 @@ export { maxDateValidator, minDateValidator, autocompleteMaxLength } from './for
         { name: 'maxlength', message: maxlengthValidationMessage },
         { name: 'min', message: minValidationMessage },
         { name: 'max', message: maxValidationMessage },
+        { name: 'age', message: ageValidationMessage },
         { name: 'minDate', message: minDateValidationMessage },
         { name: 'maxDate', message: maxDateValidationMessage },
         { name: 'betweenDate', message: betweenDateValidationMessage },
@@ -104,7 +117,11 @@ export { maxDateValidator, minDateValidator, autocompleteMaxLength } from './for
       validators: [
         { name: 'minDate', validation: minDateValidator },
         { name: 'maxDate', validation: maxDateValidator },
-        { name: 'autocompleteMaxLength', validation: autocompleteMaxLength }
+        { name: 'maxLength', validation: autocompleteMaxLengthValidator },
+        // { name: 'minLength', validation: autocompleteMinLengthValidator },
+        { name: 'max', validation: autocompleteMaxValidator },
+        { name: 'min', validation: autocompleteMinValidator },
+        { name: 'age', validation: autocompleteAgeValidator },
       ],
       wrappers: [
         { name: 'animation', component: AnimationWrapperComponent },

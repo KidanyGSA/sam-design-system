@@ -48,12 +48,49 @@ export function minDateValidator(control: FormControl, field: FormlyFieldConfig)
 export function autocompleteRequired(control: FormControl): ValidationErrors {
     return control.value && control.value.items && control.value.length ? { required: true } : null;
 }
-export function autocompleteMaxLength(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
-    console.log(control.value);
+
+export function autocompleteMaxLengthValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
     let maxLengthValue = field.templateOptions.maxLength;
     let value = control.value;
     if (value && maxLengthValue) {
-        return value.length > maxLengthValue ? { maxLength: true } : null;
+        return value[0].name.length > maxLengthValue ? { maxlength: true } : null;
+    }
+}
+
+export function autocompleteMinLengthValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
+    let minLengthValue = field.templateOptions.minLength;
+    let value = control.value;
+    if (value && minLengthValue) {
+        console.log(value[0].name.length);
+        console.log(minLengthValue);
+        let toReturn = (value[0].name.length < minLengthValue) ? { minlength: true } : null;
+        console.log(toReturn);
+        return toReturn
+    }
+}
+
+export function autocompleteMinValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
+    let minValue = field.templateOptions.min;
+    let value = control.value;
+    if (value && minValue && !isNaN(value[0].name)) {
+        return value[0].name < minValue ? { min: true } : null;
+    }
+}
+
+export function autocompleteMaxValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
+    let maxValue = field.templateOptions.max;
+    let value = control.value;
+    if (value && maxValue && !isNaN(value[0].name)) {
+        return value[0].name > maxValue ? { max: true } : null;
+    }
+}
+
+export function autocompleteAgeValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
+    let minAgeValue = field.templateOptions.minAge;
+    let maxAgeValue = field.templateOptions.maxAge;
+    let value = control.value;
+    if (value && minAgeValue && maxAgeValue) {
+        return (value[0].name < minAgeValue || value[0].name > maxAgeValue) ? { age: true } : null;
     }
 }
 /**
@@ -82,4 +119,3 @@ export function maxDateValidator(control: FormControl, field: FormlyFieldConfig)
     }
     return toReturn;
 }
-

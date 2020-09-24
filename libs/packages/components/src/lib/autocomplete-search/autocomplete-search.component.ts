@@ -29,7 +29,7 @@ const Autocomplete_Autocomplete_VALUE_ACCESSOR: any = {
   providers: [Autocomplete_Autocomplete_VALUE_ACCESSOR]
 })
 export class SDSAutocompleteSearchComponent implements ControlValueAccessor {
-  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private _changeDetectorRef: ChangeDetectorRef) { }
   /**
    * Ul list of elements
    */
@@ -278,7 +278,9 @@ export class SDSAutocompleteSearchComponent implements ControlValueAccessor {
     } else if (KeyHelper.is(KEYS.ENTER, event) && this.highlightedIndex < 0) {
       if (this.configuration.isFreeTextEnabled) {
         const val = this.createFreeTextItem();
-        this.selectItem(val);
+        setTimeout(() => {
+          this.selectItem(val);
+        }, 0);
       }
     } else if (KeyHelper.is(KEYS.ESC, event)) {
       if (this.showResults) {
@@ -308,6 +310,7 @@ export class SDSAutocompleteSearchComponent implements ControlValueAccessor {
     } else {
       filterItem = item;
     }
+    // setTimeout(() => {
     SDSSelectedItemModelHelper.addItem(
       filterItem,
       this.configuration.primaryKeyField,
@@ -315,6 +318,7 @@ export class SDSAutocompleteSearchComponent implements ControlValueAccessor {
       this.model
     );
     this.propogateChange(this.model);
+    // }, 0);
     let message = this.getObjectValue(
       item,
       this.configuration.primaryTextField
