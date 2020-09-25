@@ -1,4 +1,4 @@
-import { Component, Input, TemplateRef, forwardRef } from '@angular/core';
+import { Component, Input, TemplateRef, forwardRef, ChangeDetectorRef } from '@angular/core';
 import { SDSSelectedItemModel } from './models/sds-selectedItem.model';
 import { SDSSelectedResultConfiguration } from './models/SDSSelectedResultConfiguration';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
@@ -46,8 +46,9 @@ export class SDSSelectedResultComponent implements ControlValueAccessor {
 
   @Input()
   public disabled: boolean;
+  constructor(private _changeDetectorRef: ChangeDetectorRef) { }
 
-  /**
+  /**s
    * Removes item from the model
    * @param item 
    */
@@ -56,6 +57,7 @@ export class SDSSelectedResultComponent implements ControlValueAccessor {
       SDSSelectedItemModelHelper.removeItem(item, this.configuration.primaryKeyField, this.model);
       this.propogateChange(this.model);
       this.onTouchedCallback();
+
     }
   }
 

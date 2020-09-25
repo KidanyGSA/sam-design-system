@@ -87,15 +87,16 @@ export class SDSAutocompleteComponent implements ControlValueAccessor {
   // If there is a value we will just overwrite items
   // If there is no value we reset the items array to be empty
   writeValue(value: any) {
+    console.log(value, 'single')
     if (value instanceof SDSSelectedItemModel && value.items && value.items.length && this.model.items !== value.items) {
       this.model.items = [...value.items];
       this.cd.markForCheck();
     }
-    else if(value && value.length && this.model.items !== value) {
+    else if (value && value.length && this.model.items !== value) {
       this.model.items = value;
       this.cd.markForCheck();
     } else {
-      if(!this.model || !(this.model instanceof SDSSelectedItemModel)) {
+      if (!this.model || !(this.model instanceof SDSSelectedItemModel)) {
         this.model = new SDSSelectedItemModel();
       }
       this.model.items = value && value.items ? value.items : [];

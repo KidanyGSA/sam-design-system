@@ -145,6 +145,8 @@ export class SdsFiltersComponent implements OnInit {
   }
 
   onModelChange(change: any) {
+    this.cdr.detectChanges();
+    console.log('chip removed')
     if (this.isHistoryEnable) {
       const params = this.convertToParam(change);
       this.router.navigate(['.'], {

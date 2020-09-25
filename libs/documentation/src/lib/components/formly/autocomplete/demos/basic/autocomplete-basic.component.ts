@@ -60,7 +60,7 @@ export class FormlyAutocompleteBasic implements OnInit {
     this.settings.primaryTextField = 'name';
     this.settings.secondaryTextField = 'subtext';
     this.settings.labelText = 'Autocomplete 1';
-    this.settings.selectionMode = SelectionMode.MULTIPLE;
+    this.settings.selectionMode = SelectionMode.SINGLE;
     this.settings.autocompletePlaceHolderText = 'Enter text';
     this.settings.debounceTime = 350;
   }
@@ -76,17 +76,32 @@ export class FormlyAutocompleteBasic implements OnInit {
 
   // Method to programatically set the FormControl value which gets converted to the items array through the writeValue method
   setModelVal() {
-    this.form.get('filters.firstName').patchValue([
-      {
-        id: '3',
-        parentId: '2',
-        name: 'Level 3',
-        subtext: 'id 3',
-        type: 'Level 3',
-        childCount: 2,
-        highlighted: true
-      }
-    ]);
+    this.model = {
+      ...this.model,
+      filters: {
+        firstName: [{
+          id: '3',
+          parentId: '2',
+          name: 'Level 3',
+          subtext: 'id 3',
+          type: 'Level 3',
+          childCount: 2,
+          highlighted: true
+        }]
+      },
+    }
+
+    // this.form.get('filters.firstName').setValue([
+    //   {
+    //     id: '3',
+    //     parentId: '2',
+    //     name: 'Level 3',
+    //     subtext: 'id 3',
+    //     type: 'Level 3',
+    //     childCount: 2,
+    //     highlighted: true
+    //   }
+    // ]);
   }
 
   // Method to programatically set the FormControl value which gets converted to the items array through the writeValue method

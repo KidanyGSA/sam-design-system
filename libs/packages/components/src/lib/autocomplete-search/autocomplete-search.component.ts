@@ -29,7 +29,7 @@ const Autocomplete_Autocomplete_VALUE_ACCESSOR: any = {
   providers: [Autocomplete_Autocomplete_VALUE_ACCESSOR]
 })
 export class SDSAutocompleteSearchComponent implements ControlValueAccessor {
-  constructor(private _changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private _changeDetectorRef: ChangeDetectorRef) { }
   /**
    * Ul list of elements
    */
@@ -570,6 +570,7 @@ export class SDSAutocompleteSearchComponent implements ControlValueAccessor {
   }
 
   writeValue(obj: any): void {
+    console.log(this.model, 'single-search')
     if (obj instanceof SDSSelectedItemModel) {
       this.model = obj as SDSSelectedItemModel;
       this._changeDetectorRef.markForCheck();
