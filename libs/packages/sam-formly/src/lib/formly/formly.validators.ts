@@ -52,19 +52,18 @@ export function autocompleteRequired(control: FormControl): ValidationErrors {
 export function autocompleteMaxLengthValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
     let maxLengthValue = field.templateOptions.maxLength;
     let value = control.value;
-    if (value && maxLengthValue && value[0].name) {
-        return value[0].name.length > maxLengthValue ? { maxlength: true } : null;
+    if (value && maxLengthValue && value.length > 0) {
+        let lastIndex = value.length - 1;
+        return value[lastIndex].name.length > maxLengthValue ? { maxlength: true } : null;
     }
 }
 
 export function autocompleteMinLengthValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
-    let minLengthValue = field.templateOptions.minLength;
+    let minLengthValue = field.templateOptions.autoMinLength;
     let value = control.value;
-    if (value && minLengthValue && value[0].name) {
-        console.log(value[0].name.length);
-        console.log(minLengthValue);
-        let toReturn = (value[0].name.length < minLengthValue) ? { minlength: true } : null;
-        console.log(toReturn);
+    if (value && minLengthValue && value.length > 0) {
+        let lastIndex = value.length - 1;
+        let toReturn = (value[lastIndex].name.length < minLengthValue) ? { autoMinLength: true } : null;
         return toReturn
     }
 }
@@ -72,16 +71,18 @@ export function autocompleteMinLengthValidator(control: FormControl, field: Form
 export function autocompleteMinValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
     let minValue = field.templateOptions.min;
     let value = control.value;
-    if (value && minValue && !isNaN(value[0].name)) {
-        return value[0].name < minValue ? { min: true } : null;
+    if (value && minValue && value.length > 0 && !isNaN(value[0].name)) {
+        let lastIndex = value.length - 1;
+        return value[lastIndex].name < minValue ? { min: true } : null;
     }
 }
 
 export function autocompleteMaxValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
     let maxValue = field.templateOptions.max;
     let value = control.value;
-    if (value && maxValue && !isNaN(value[0].name)) {
-        return value[0].name > maxValue ? { max: true } : null;
+    if (value && maxValue && value.length > 0 && !isNaN(value[0].name)) {
+        let lastIndex = value.length - 1;
+        return value[lastIndex].name > maxValue ? { max: true } : null;
     }
 }
 
@@ -89,16 +90,18 @@ export function autocompleteAgeValidator(control: FormControl, field: FormlyFiel
     let minAgeValue = field.templateOptions.minAge;
     let maxAgeValue = field.templateOptions.maxAge;
     let value = control.value;
-    if (value && minAgeValue && maxAgeValue && value[0].name) {
-        return (value[0].name < minAgeValue || value[0].name > maxAgeValue) ? { age: true } : null;
+    if (value && minAgeValue && maxAgeValue && value.length > 0) {
+        let lastIndex = value.length - 1;
+        return (value[lastIndex].name < minAgeValue || value[0].name > maxAgeValue) ? { age: true } : null;
     }
 }
 
 export function autocompletePatternValidator(control: FormControl, field: FormlyFieldConfig): ValidationErrors {
-    let regex = new RegExp(field.templateOptions.pattern);
+    let regex = new RegExp(field.templateOptions.autoPattern);
     let value = control.value;
     if (value && regex && value.length > 0) {
-        return regex.test(value[0].name) ? { pattern: true } : null;
+        let lastIndex = value.length - 1;
+        return !(regex.test(value[lastIndex].name)) ? { autoPattern: true } : null;
     }
 }
 /**

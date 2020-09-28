@@ -13,8 +13,8 @@ import {
 
 import { FIELD_TYPE_COMPONENTS, FORMLY_CONFIG } from './formly.config';
 import {
-  maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
-  autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
+  maxDateValidator, minDateValidator, autocompleteMaxLengthValidator, autocompleteMinLengthValidator,
+  autocompleteMaxValidator, autocompleteMinValidator,
   autocompleteAgeValidator, autocompletePatternValidator
 } from './formly.validators';
 import { AnimationWrapperComponent } from './wrappers/form-field.animation';
@@ -22,6 +22,10 @@ import { AnimationWrapperComponent } from './wrappers/form-field.animation';
 // Validate the min length of the character
 export function minlengthValidationMessage(err, field) {
   return `Should have atleast ${field.templateOptions.minLength} characters`;
+}
+
+export function autoMinLengthValidationMessage(err, field) {
+  return `Should have atleast ${field.templateOptions.autoMinLength} characters`;
 }
 
 // Validate the max length of the character
@@ -78,11 +82,11 @@ export function animationExtension(field: FormlyFieldConfig) {
 
   field.wrappers = ['animation', ...(field.wrappers || [])];
 }
-export {
-  maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
-  autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
-  autocompleteAgeValidator, autocompletePatternValidator
-} from './formly.validators';
+// export {
+//   maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
+//   autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
+//   autocompleteAgeValidator, autocompletePatternValidator
+// } from './formly.validators';
 
 
 @NgModule({
@@ -115,7 +119,8 @@ export {
         { name: 'age', message: ageValidationMessage },
         { name: 'minDate', message: minDateValidationMessage },
         { name: 'maxDate', message: maxDateValidationMessage },
-        { name: 'pattern', message: patternValidationMessage },
+        { name: 'autoMinLength', message: autoMinLengthValidationMessage },
+        { name: 'autoPattern', message: patternValidationMessage },
         { name: 'betweenDate', message: betweenDateValidationMessage },
         { name: 'matDatepickerParse', message: invalidDateFormatValidationMessage }// Comes from the datepicker
       ],
@@ -123,11 +128,11 @@ export {
         { name: 'minDate', validation: minDateValidator },
         { name: 'maxDate', validation: maxDateValidator },
         { name: 'maxLength', validation: autocompleteMaxLengthValidator },
-        // { name: 'minLength', validation: autocompleteMinLengthValidator },
+        { name: 'autoMinLength', validation: autocompleteMinLengthValidator },
         { name: 'max', validation: autocompleteMaxValidator },
         { name: 'min', validation: autocompleteMinValidator },
         { name: 'age', validation: autocompleteAgeValidator },
-        { name: 'pattern', validation: autocompletePatternValidator },
+        { name: 'autoPattern', validation: autocompletePatternValidator },
       ],
       wrappers: [
         { name: 'animation', component: AnimationWrapperComponent },

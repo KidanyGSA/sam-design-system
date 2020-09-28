@@ -39,8 +39,9 @@ export const FIELD_TYPE_COMPONENTS = [
 ];
 import {
   maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
-  autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator, autocompleteAgeValidator,
-  autocompletePatternValidator
+  autocompleteMaxValidator, autocompleteMinValidator, autocompleteAgeValidator,
+  autocompletePatternValidator,
+  autocompleteMinLengthValidator
 } from './formly.validators';
 import { sdsWrappers, sdsGroupWrapper } from './sds-formly-options';
 import { FormlyLabelWrapperComponent } from './wrappers/label.wrapper';
@@ -151,8 +152,8 @@ export const FORMLY_CONFIG: ConfigOption = {
       wrappers: sdsWrappers,
       defaultOptions: {
         validators: {
-          validation: [autocompleteMaxLengthValidator,
-            autocompleteMaxValidator, autocompleteMinValidator, autocompleteAgeValidator, autocompletePatternValidator]
+          validation: [autocompleteMaxLengthValidator, autocompleteMinLengthValidator,
+            autocompleteMinValidator, autocompleteMaxValidator, autocompleteAgeValidator, autocompletePatternValidator]
         }
       }
     },
