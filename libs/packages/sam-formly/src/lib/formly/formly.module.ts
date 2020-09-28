@@ -15,7 +15,7 @@ import { FIELD_TYPE_COMPONENTS, FORMLY_CONFIG } from './formly.config';
 import {
   maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
   autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
-  autocompleteAgeValidator
+  autocompleteAgeValidator, autocompletePatternValidator
 } from './formly.validators';
 import { AnimationWrapperComponent } from './wrappers/form-field.animation';
 
@@ -36,6 +36,10 @@ export function minValidationMessage(err, field: FormlyFieldConfig) {
 
 export function ageValidationMessage(err, field: FormlyFieldConfig) {
   return `Age value should be between ${field.templateOptions.minAge} and ${field.templateOptions.maxAge}`;
+}
+
+export function patternValidationMessage(err, field: FormlyFieldConfig) {
+  return `This value is not a valid pattern`;
 }
 
 export function minDateValidationMessage(err, field: FormlyFieldConfig) {
@@ -77,7 +81,7 @@ export function animationExtension(field: FormlyFieldConfig) {
 export {
   maxDateValidator, minDateValidator, autocompleteMaxLengthValidator,
   autocompleteMinLengthValidator, autocompleteMaxValidator, autocompleteMinValidator,
-  autocompleteAgeValidator
+  autocompleteAgeValidator, autocompletePatternValidator
 } from './formly.validators';
 
 
@@ -111,6 +115,7 @@ export {
         { name: 'age', message: ageValidationMessage },
         { name: 'minDate', message: minDateValidationMessage },
         { name: 'maxDate', message: maxDateValidationMessage },
+        { name: 'pattern', message: patternValidationMessage },
         { name: 'betweenDate', message: betweenDateValidationMessage },
         { name: 'matDatepickerParse', message: invalidDateFormatValidationMessage }// Comes from the datepicker
       ],
@@ -122,6 +127,7 @@ export {
         { name: 'max', validation: autocompleteMaxValidator },
         { name: 'min', validation: autocompleteMinValidator },
         { name: 'age', validation: autocompleteAgeValidator },
+        { name: 'pattern', validation: autocompletePatternValidator },
       ],
       wrappers: [
         { name: 'animation', component: AnimationWrapperComponent },
