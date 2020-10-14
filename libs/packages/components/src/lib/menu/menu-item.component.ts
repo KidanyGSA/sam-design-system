@@ -7,7 +7,7 @@ import {
   HostBinding,
   ChangeDetectionStrategy,
   ViewEncapsulation,
-  Optional
+  Optional,
 } from '@angular/core';
 import { FocusableOption, FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -19,7 +19,7 @@ import { SdsMenuHeaderComponent } from './menu-header.component';
   selector: '[sds-menu-item]',
   template: '<ng-content></ng-content>',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class SdsMenuItemComponent implements FocusableOption, OnDestroy {
   /** Menu item class */

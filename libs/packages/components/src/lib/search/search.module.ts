@@ -6,9 +6,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
-  imports: [CommonModule, A11yModule,FormsModule],
+  imports: [CommonModule, A11yModule, FormsModule],
   exports: [SdsSearchComponent],
   declarations: [SdsSearchComponent],
-  providers: []
+  providers: [],
 })
 export class SdsSearchModule {}

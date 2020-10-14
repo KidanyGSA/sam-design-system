@@ -7,7 +7,7 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from '../shared/index';
 import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 import { DialogBasicModule } from './demos/basic/dialog-basic.module';
@@ -19,8 +19,8 @@ const DEMOS = {
     type: DialogBasic,
     code: require('!!raw-loader!./demos/basic/dialog-basic.component'),
     markup: require('!!raw-loader!./demos/basic/dialog-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/dialog/demos/basic'
-  }
+    path: 'libs/documentation/src/lib/components/dialog/demos/basic',
+  },
 };
 
 export const ROUTES = [
@@ -33,25 +33,25 @@ export const ROUTES = [
         {
           pkg: 'components',
           type: 'components',
-          name: 'SdsDialogContainerComponent'
-        }
-      ]
+          name: 'SdsDialogContainerComponent',
+        },
+      ],
     },
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     DocumentationComponentsSharedModule,
-    DialogBasicModule
-  ]
+    DialogBasicModule,
+  ],
 })
 export class DialogModule {
   constructor(demoList: DocumentationDemoList) {

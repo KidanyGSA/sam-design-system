@@ -7,12 +7,14 @@ import {
   ComponentFactoryResolver,
   ViewContainerRef,
   OnChanges,
-  HostListener
+  HostListener,
 } from '@angular/core';
-import { FaIconLibrary } from '@fortawesome/angular-fontawesome'; import { fas } from '@fortawesome/free-solid-svg-icons'; import { sds } from '@gsa-sam/sam-styles/src/icons/';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { sds } from '@gsa-sam/sam-styles/src/icons/';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 @Directive({
-  selector: 'a[href]'
+  selector: 'a[href]',
 })
 export class ExternalLinkDirective implements OnChanges {
   private vcRef: ViewContainerRef;
@@ -42,7 +44,6 @@ export class ExternalLinkDirective implements OnChanges {
   click(event: Event) {
     window.location.href = this.href;
   }
-
 
   public ngOnChanges() {
     if (!this.isExternalLink) {

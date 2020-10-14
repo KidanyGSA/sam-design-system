@@ -30,12 +30,12 @@ export class DataService {
       const end = start + search.page.pageSize;
       return of({
         items: this.data.slice(start, end),
-        totalItems: this.data.length
+        totalItems: this.data.length,
       });
     } else {
       return of({
         items: [],
-        totalItems: 0
+        totalItems: 0,
       });
     }
   }

@@ -6,7 +6,7 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from './../shared/index';
 import { ComponentWrapperComponent } from './../../shared/component-wrapper/component-wrapper.component';
 import { SubHeaderBasicModule } from './demos/basic/subheader-basic.module';
@@ -18,8 +18,8 @@ const DEMOS = {
     type: SubHeaderBasic,
     code: require('!!raw-loader!./demos/basic/subheader-basic.component'),
     markup: require('!!raw-loader!./demos/basic/subheader-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/subheader/demos/basic'
-  }
+    path: 'libs/documentation/src/lib/components/subheader/demos/basic',
+  },
 };
 
 export const ROUTES = [
@@ -32,24 +32,24 @@ export const ROUTES = [
         {
           pkg: 'layouts',
           type: 'components',
-          name: 'SdsSubheaderComponent'
-        }
-      ]
+          name: 'SdsSubheaderComponent',
+        },
+      ],
     },
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     DocumentationComponentsSharedModule,
-    SubHeaderBasicModule
-  ]
+    SubHeaderBasicModule,
+  ],
 })
 export class SubHeaderModule {
   constructor(demoList: DocumentationDemoList) {

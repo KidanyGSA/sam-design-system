@@ -10,7 +10,7 @@ import { SdsFormlyDialogComponent } from '../../formly-dialog/formly-dialog.comp
 @Component({
   selector: 'sds-advanced-filters',
   templateUrl: './advanced-filters.component.html',
-  styleUrls: ['./advanced-filters.component.scss']
+  styleUrls: ['./advanced-filters.component.scss'],
 })
 export class AdvancedFiltersComponent {
   /**
@@ -46,15 +46,15 @@ export class AdvancedFiltersComponent {
     const data: SdsFormlyDialogData = {
       fields: modalFields,
       submit: 'Update',
-      title: 'More Filters'
+      title: 'More Filters',
     };
 
     const dialogRef = this.dialog.open(SdsFormlyDialogComponent, {
       width: 'medium',
-      data: data
+      data: data,
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       if (result) {
         const response = this.advancedFiltersService.updateFields(
           result,

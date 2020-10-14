@@ -7,7 +7,7 @@ import { DocumentationSourcePage } from '../../shared/source-page/source.compone
 import { DocumentationTemplatePage } from '../../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from '../../shared/index';
 import { ComponentWrapperComponent } from '../../../shared/component-wrapper/component-wrapper.component';
 import { MultiCheckboxBasicModule } from './demos/basic/multicheckbox-basic.module';
@@ -24,7 +24,7 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/basic/multicheckbox-basic.component'),
     markup: require('!!raw-loader!./demos/basic/multicheckbox-basic.component.html'),
     path:
-      'libs/documentation/src/lib/components/formly/multicheckbox/demos/basic'
+      'libs/documentation/src/lib/components/formly/multicheckbox/demos/basic',
   },
   selectall: {
     title: 'Multi Checkbox with nesting',
@@ -32,7 +32,7 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/selectall/multicheckbox-selectall.component'),
     markup: require('!!raw-loader!./demos/selectall/multicheckbox-selectall.component.html'),
     path:
-      'libs/documentation/src/lib/components/formly/multicheckbox/demos/selectall'
+      'libs/documentation/src/lib/components/formly/multicheckbox/demos/selectall',
   },
   expandable: {
     title: 'Multi Checkbox with Select All expandable options',
@@ -40,8 +40,8 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/expandable/multicheckbox-expandable.component'),
     markup: require('!!raw-loader!./demos/expandable/multicheckbox-expandable.component.html'),
     path:
-      'libs/documentation/src/lib/components/formly/multicheckbox/demos/expandable'
-  }
+      'libs/documentation/src/lib/components/formly/multicheckbox/demos/expandable',
+  },
 };
 
 export const ROUTES = [
@@ -54,18 +54,18 @@ export const ROUTES = [
           pkg: 'formly',
           type: 'components',
           name: 'FormlyFieldMultiCheckboxComponent',
-          formType: 'multicheckbox'
-        }
-      ]
+          formType: 'multicheckbox',
+        },
+      ],
     },
     component: ComponentWrapperComponent,
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
@@ -74,8 +74,8 @@ export const ROUTES = [
     DocumentationComponentsSharedModule,
     MultiCheckboxBasicModule,
     MultiCheckboxSelectAllModule,
-    MultiCheckboxExpandableModule
-  ]
+    MultiCheckboxExpandableModule,
+  ],
 })
 export class MultiCheckboxModule {
   constructor(demoList: DocumentationDemoList) {

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 import { SampleAutocompleteData } from './service/autocomplete-sample.data';
 import { AutocompleteSampleDataService } from './service/autocomplete-sample.service';
@@ -10,7 +10,7 @@ import { AutocompleteSampleDataService } from './service/autocomplete-sample.ser
 @Component({
   templateUrl: './autocomplete-optional.component.html',
   styleUrls: ['./autocomplete-optional.component.scss'],
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
 export class AutocompleteOptional implements OnInit {
   private data = SampleAutocompleteData;

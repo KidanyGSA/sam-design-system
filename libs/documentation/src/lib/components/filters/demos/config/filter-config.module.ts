@@ -3,10 +3,7 @@ import { NgModule } from '@angular/core';
 import { FiltersConfig } from './filter-config.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {
-  SdsFiltersModule,
-  SdsFormlyDialogModule
-} from '@gsa-sam/sam-formly';
+import { SdsFiltersModule, SdsFormlyDialogModule } from '@gsa-sam/sam-formly';
 
 @NgModule({
   imports: [
@@ -15,10 +12,10 @@ import {
     FormsModule,
     SdsFiltersModule,
     SdsFormlyDialogModule,
-    FormlyModule.forRoot()
+    FormlyModule.forRoot(),
   ],
   declarations: [FiltersConfig],
   exports: [FiltersConfig],
-  bootstrap: [FiltersConfig]
+  bootstrap: [FiltersConfig],
 })
 export class FiltersConfigModule {}

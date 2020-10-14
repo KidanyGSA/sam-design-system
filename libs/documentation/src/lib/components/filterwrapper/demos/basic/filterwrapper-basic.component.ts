@@ -4,9 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './filterwrapper-basic.component.html',
-  styleUrls: ['./filterwrapper-basic.component.scss']
+  styleUrls: ['./filterwrapper-basic.component.scss'],
 })
-
 export class FilterWrapperBasic {
   form = new FormGroup({});
   model: any = {};

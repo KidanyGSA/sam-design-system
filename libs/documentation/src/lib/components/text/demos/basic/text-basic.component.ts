@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './text-basic.component.html'
+  templateUrl: './text-basic.component.html',
 })
 export class TextBasic {
   textModel = 'test';
@@ -17,9 +17,9 @@ export class TextBasic {
       templateOptions: {
         label: 'Entity Name',
         placeholder: 'Acme Corporation',
-        description: 'Enter the name of your entity.'
-      }
-    }
+        description: 'Enter the name of your entity.',
+      },
+    },
   ];
 
   // Method to programatically set the FormControl value which gets converted to the items array through the writeValue method

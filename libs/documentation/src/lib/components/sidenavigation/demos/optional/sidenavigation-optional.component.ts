@@ -6,7 +6,7 @@ import { navigationConfig } from './navigate.config';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 import { ActivatedRoute } from '@angular/router';
 @Component({
-  templateUrl: 'sidenavigation-optional.component.html'
+  templateUrl: 'sidenavigation-optional.component.html',
 })
 export class SideNavigationOptional {
   public navigationModel: SideNavigationModel = navigationConfig;
@@ -30,7 +30,7 @@ export class SideNavigationOptional {
       key: 'filters',
       templateOptions: {
         label: 'Entity Information',
-        group: 'accordion'
+        group: 'accordion',
       },
       fieldGroup: [
         {
@@ -40,8 +40,8 @@ export class SideNavigationOptional {
             type: 'text',
             label: 'Unique Entity ID',
             tagText: 'DUNS',
-            tagClass: 'sds-tag--info-purple'
-          }
+            tagClass: 'sds-tag--info-purple',
+          },
         },
         {
           key: 'multiple.accordion.entity.title',
@@ -50,10 +50,10 @@ export class SideNavigationOptional {
             label: 'Entity Name',
             placeholder: 'Acme Corporation',
             description: 'Enter the name of your entity.',
-            required: true
-          }
-        }
-      ]
+            required: true,
+          },
+        },
+      ],
     },
     {
       key: 'expirationDateOption',
@@ -63,10 +63,10 @@ export class SideNavigationOptional {
         options: [
           { label: '30 Days', value: '30' },
           { label: '60 Days', value: '60' },
-          { label: '90 Days', value: '90' }
-        ]
-      }
-    }
+          { label: '90 Days', value: '90' },
+        ],
+      },
+    },
   ];
 
   onSelectChange() {
@@ -96,7 +96,7 @@ export class SideNavigationOptional {
     this.sideNav.select(this.selectedId);
     this.change.detectChanges();
 
-    this.activeRoute.queryParams.subscribe(queryParams => {
+    this.activeRoute.queryParams.subscribe((queryParams) => {
       if (queryParams.item) {
         this.selectedCategory = queryParams.item;
         if (this.navigationModel.navigationLinks) {

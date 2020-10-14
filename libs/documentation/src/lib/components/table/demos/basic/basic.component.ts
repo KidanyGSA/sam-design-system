@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './basic.component.html'
+  templateUrl: './basic.component.html',
 })
-
 export class TableBasicComponent {
-
-  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'requests', 'date'];
+  displayedColumns: string[] = [
+    'id',
+    'firstName',
+    'lastName',
+    'email',
+    'requests',
+    'date',
+  ];
 
   data = [
     {
@@ -19,9 +24,7 @@ export class TableBasicComponent {
       jobTitle: 'Software Test Engineer IV',
       requests: 1,
       date: '2020-07-23',
-      tags: [
-        { className: "text-info-dark", label: "Normal" }
-      ]
+      tags: [{ className: 'text-info-dark', label: 'Normal' }],
     },
     {
       id: 2,
@@ -34,9 +37,9 @@ export class TableBasicComponent {
       requests: 3,
       date: '2020-04-11',
       tags: [
-        { className: "text-error", label: "Expired" },
-        { className: "text-warning-darker", label: "Inactive" }
-      ]
+        { className: 'text-error', label: 'Expired' },
+        { className: 'text-warning-darker', label: 'Inactive' },
+      ],
     },
     {
       id: 3,
@@ -48,9 +51,7 @@ export class TableBasicComponent {
       jobTitle: 'Media Manager IV',
       requests: 0,
       date: '2020-04-22',
-      tags: [
-        { className: "text-info", label: "Draft" }
-      ]
+      tags: [{ className: 'text-info', label: 'Draft' }],
     },
     {
       id: 4,
@@ -62,9 +63,7 @@ export class TableBasicComponent {
       jobTitle: 'Account Coordinator',
       requests: 2,
       date: '2019-11-02',
-      tags: [
-        { className: "text-success", label: "Active" }
-      ]
+      tags: [{ className: 'text-success', label: 'Active' }],
     },
     {
       id: 5,
@@ -76,10 +75,7 @@ export class TableBasicComponent {
       jobTitle: 'Financial Analyst',
       requests: 6,
       date: '2020-04-15',
-      tags: [
-        { className: "text-default", label: "Default" }
-      ]
-    }
+      tags: [{ className: 'text-default', label: 'Default' }],
+    },
   ];
-
 }

@@ -6,14 +6,14 @@ import { AutocompleteSampleDataService } from './services/autocomplete-sample.se
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 import { SampleAutocompleteData } from './services/autocomplete-sample.data';
 
 @Component({
   templateUrl: './autocomplete-basic.component.html',
   styleUrls: ['./autocomplete-basic.component.scss'],
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
 export class FormlyAutocompleteBasic implements OnInit {
   results: any;
@@ -39,11 +39,11 @@ export class FormlyAutocompleteBasic implements OnInit {
             service: this.service,
             configuration: this.settings,
             model: this.autocompleteModel,
-            modelChange: this.changes
-          }
-        }
-      ]
-    }
+            modelChange: this.changes,
+          },
+        },
+      ],
+    },
   ];
 
   constructor(public service: AutocompleteSampleDataService) {
@@ -71,7 +71,7 @@ export class FormlyAutocompleteBasic implements OnInit {
 
   // To display the selected model values
   public ngOnInit() {
-    this.filterChange$.subscribe(res => (this.results = res));
+    this.filterChange$.subscribe((res) => (this.results = res));
   }
 
   // Method to programatically set the FormControl value which gets converted to the items array through the writeValue method
@@ -84,8 +84,8 @@ export class FormlyAutocompleteBasic implements OnInit {
         subtext: 'id 3',
         type: 'Level 3',
         childCount: 2,
-        highlighted: true
-      }
+        highlighted: true,
+      },
     ]);
   }
 
@@ -99,7 +99,7 @@ export class FormlyAutocompleteBasic implements OnInit {
         subtext: 'id 3',
         type: 'Level 3',
         childCount: 2,
-        highlighted: true
+        highlighted: true,
       },
       {
         id: '42',
@@ -108,8 +108,8 @@ export class FormlyAutocompleteBasic implements OnInit {
         subtext: 'id 42',
         type: 'Level 6',
         childCount: 3,
-        highlighted: true
-      }
+        highlighted: true,
+      },
     ];
 
     const newObjModel = new SDSSelectedItemModel(newModel);

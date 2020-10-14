@@ -6,10 +6,9 @@ import { LocationStrategy } from '@angular/common';
 
 @Component({
   templateUrl: './header-basic.component.html',
-  styleUrls: ['./header-basic.component.scss']
+  styleUrls: ['./header-basic.component.scss'],
 })
 export class HeaderBasic implements OnInit {
-
   constructor(private locationStrategy: LocationStrategy) {}
 
   public linkEvent = new BehaviorSubject<object>(null);
@@ -24,7 +23,7 @@ export class HeaderBasic implements OnInit {
         id: 'request',
         hasCounter: true,
         selected: true,
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
       {
         imageClassPrefix: 'sds',
@@ -32,7 +31,7 @@ export class HeaderBasic implements OnInit {
         text: 'Messages',
         route: '/',
         id: 'messages',
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
       {
         imageClassPrefix: 'sds',
@@ -40,7 +39,7 @@ export class HeaderBasic implements OnInit {
         text: 'Workspace',
         route: '/',
         id: 'workspace',
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
       {
         imageClassPrefix: 'sds',
@@ -48,8 +47,8 @@ export class HeaderBasic implements OnInit {
         text: 'Sign Out',
         route: '/',
         id: 'signOut',
-        mode: NavigationMode.INTERNAL
-      }
+        mode: NavigationMode.INTERNAL,
+      },
     ],
     navigationLinks: [
       {
@@ -57,39 +56,39 @@ export class HeaderBasic implements OnInit {
         selected: true,
         route: '/',
         id: 'home',
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
       {
         text: 'Search',
         route: '/',
         id: 'search',
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
       {
         text: 'Databank',
         route: '/',
         id: 'databank',
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
       {
         text: 'Data Services',
         route: '/',
         id: 'dataService',
-        mode: NavigationMode.INTERNAL
+        mode: NavigationMode.INTERNAL,
       },
-      { text: 'Help', route: '/', id: 'help', mode: NavigationMode.INTERNAL }
+      { text: 'Help', route: '/', id: 'help', mode: NavigationMode.INTERNAL },
     ],
     home: {
       text: 'Logo',
       logo: this.locationStrategy.getBaseHref() + 'assets/img/logo-sam.svg',
       route: '/',
       id: 'home',
-      mode: NavigationMode.INTERNAL
-    }
+      mode: NavigationMode.INTERNAL,
+    },
   };
 
   ngOnInit() {
-    this.linkEvent.subscribe(value => {
+    this.linkEvent.subscribe((value) => {
       console.log('Link Event Clicked Change');
       console.log(value);
     });

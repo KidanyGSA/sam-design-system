@@ -1,6 +1,6 @@
-import {ViewContainerRef} from '@angular/core';
-import {Direction} from '@angular/cdk/bidi';
-import {ScrollStrategy} from '@angular/cdk/overlay';
+import { ViewContainerRef } from '@angular/core';
+import { Direction } from '@angular/cdk/bidi';
+import { ScrollStrategy } from '@angular/cdk/overlay';
 
 /** Valid ARIA roles for a dialog element. */
 export type DialogRole = 'dialog' | 'alertdialog';
@@ -24,7 +24,6 @@ export interface DialogPosition {
  * Configuration for opening a modal dialog with the SdsDialog service.
  */
 export class SdsDialogConfig<D = any> {
-
   /**
    * Where the attached component should live in Angular's *logical* component tree.
    * This affects what is available for injection and the change detection order for the

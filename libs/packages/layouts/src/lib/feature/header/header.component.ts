@@ -1,22 +1,36 @@
-import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';
-import { HeaderModel, HeaderNavigationLink, HeaderSecondaryLink } from './model/HeaderModel';
-import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';
+import {
+  Component,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef,
+  HostListener,
+} from '@angular/core';
+import {
+  HeaderModel,
+  HeaderNavigationLink,
+  HeaderSecondaryLink,
+} from './model/HeaderModel';
+import {
+  INavigationLink,
+  NavigationMode,
+  Selectable,
+} from '@gsa-sam/components';
 import { NavigationHelper } from '@gsa-sam/components';
-
 
 @Component({
   selector: 'sds-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class SdsHeaderComponent {
-
   @ViewChild('usaNavOpen', { static: false }) openNavBtn: ElementRef;
   @ViewChild('usaNavClose', { static: false }) closeNavBtn: ElementRef;
   mobileNavActive = false;
   /**
-  * Navigation helper
-  */
+   * Navigation helper
+   */
   navigationHelper = new NavigationHelper();
 
   /**
@@ -82,7 +96,9 @@ export class SdsHeaderComponent {
         this.model.home.selected = false;
       }
       if (this.model.navigationLinks) {
-        this.model.navigationLinks.forEach(function (item: HeaderNavigationLink) {
+        this.model.navigationLinks.forEach(function (
+          item: HeaderNavigationLink
+        ) {
           item.selected = false;
           if (item.children) {
             item.children.forEach(function (child: HeaderNavigationLink) {
@@ -185,6 +201,4 @@ export class SdsHeaderComponent {
   navAnimationEnd() {
     this.closeNavBtn.nativeElement.focus();
   }
-
-
 }

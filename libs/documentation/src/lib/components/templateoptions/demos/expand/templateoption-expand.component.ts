@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
-  templateUrl: './templateoption-expand.component.html'
+  templateUrl: './templateoption-expand.component.html',
 })
 export class TemplateOptionExpand {
   form = new FormGroup({});
@@ -15,9 +15,8 @@ export class TemplateOptionExpand {
       templateOptions: {
         label: 'Entity',
         expand: true,
-        group:'accordion'
-      
-      }
-    }
+        group: 'accordion',
+      },
+    },
   ];
 }

@@ -3,9 +3,8 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './descriptionwrapper-basic.component.html'
+  templateUrl: './descriptionwrapper-basic.component.html',
 })
-
 export class DescriptionWrapperBasic {
   form = new FormGroup({});
   model: any = {};
@@ -17,8 +16,8 @@ export class DescriptionWrapperBasic {
       type: 'input',
       templateOptions: {
         description: 'Input description',
-        placeholder: 'Placeholder'
+        placeholder: 'Placeholder',
       },
-    }
+    },
   ];
 }

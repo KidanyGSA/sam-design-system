@@ -5,13 +5,13 @@ import { AutocompleteSampleDataService } from '../../services/autocomplete-sampl
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 @Component({
   templateUrl: './autocomplete-mincharacter.component.html',
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
-export class FormlyAutocompleteMinCharacter  {
+export class FormlyAutocompleteMinCharacter {
   results: any;
   form = new FormGroup({});
   model = {};
@@ -33,11 +33,11 @@ export class FormlyAutocompleteMinCharacter  {
             hideLabel: true,
             service: this.service,
             configuration: this.settings,
-            model: this.autocompleteModel
-          }
-        }
-      ]
-    }
+            model: this.autocompleteModel,
+          },
+        },
+      ],
+    },
   ];
 
   constructor(public service: AutocompleteSampleDataService) {
@@ -55,5 +55,4 @@ export class FormlyAutocompleteMinCharacter  {
     this.settings.debounceTime = 250;
     this.settings.minimumCharacterCountSearch = 3;
   }
-
 }

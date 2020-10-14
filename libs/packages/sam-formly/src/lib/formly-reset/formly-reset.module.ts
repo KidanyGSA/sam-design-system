@@ -6,12 +6,7 @@ import { SdsFormlyResetComponent } from './formly-reset.component';
 
 @NgModule({
   declarations: [SdsFormlyResetComponent],
-  imports: [
-    CommonModule,
-    FontAwesomeModule
-  ],
-  exports: [
-    SdsFormlyResetComponent
-  ]
+  imports: [CommonModule, FontAwesomeModule],
+  exports: [SdsFormlyResetComponent],
 })
-export class SdsFormlyResetModule { }
+export class SdsFormlyResetModule {}

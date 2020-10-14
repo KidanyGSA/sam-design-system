@@ -12,9 +12,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     SDSClickOutsideModule,
     SdsTabOutsideModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   declarations: [SDSAutocompleteSearchComponent],
-  exports: [SDSAutocompleteSearchComponent]
+  exports: [SDSAutocompleteSearchComponent],
 })
 export class SdsAutocompleteSearchModule {}

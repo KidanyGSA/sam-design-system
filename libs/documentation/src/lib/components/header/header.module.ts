@@ -7,7 +7,7 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from './../shared/index';
 import { ComponentWrapperComponent } from './../../shared/component-wrapper/component-wrapper.component';
 import { HeaderBasicModule } from './demos/basic/header-basic.module';
@@ -21,8 +21,8 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/basic/header-basic.component'),
     markup: require('!!raw-loader!./demos/basic/header-basic.component.html'),
     readme: require('!!raw-loader!./demos/basic/readme.md'),
-    path: 'libs/documentation/src/lib/components/header/demos/basic'
-  }
+    path: 'libs/documentation/src/lib/components/header/demos/basic',
+  },
 };
 
 export const ROUTES = [
@@ -31,31 +31,30 @@ export const ROUTES = [
     path: '',
     component: ComponentWrapperComponent,
     data: {
-      readme: {
-      },
+      readme: {},
       items: [
         {
           pkg: 'layouts',
           type: 'components',
-          name: 'SdsHeaderComponent'
-        }
-      ]
+          name: 'SdsHeaderComponent',
+        },
+      ],
     },
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     DocumentationComponentsSharedModule,
-    HeaderBasicModule
-  ]
+    HeaderBasicModule,
+  ],
 })
 export class HeaderModule {
   constructor(demoList: DocumentationDemoList) {

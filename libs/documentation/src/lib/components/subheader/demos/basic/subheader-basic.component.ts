@@ -4,28 +4,28 @@ import { FormGroup } from '@angular/forms';
 import {
   SdsDialogService,
   SdsDialogRef,
-  SDS_DIALOG_DATA
+  SDS_DIALOG_DATA,
 } from '@gsa-sam/components';
 import {
   SdsFormlyDialogComponent,
-  SdsFormlyDialogData
+  SdsFormlyDialogData,
 } from '@gsa-sam/sam-formly';
 
 @Component({
   templateUrl: './subheader-basic.component.html',
-  styleUrls: ['./subheader-basic.component.scss']
+  styleUrls: ['./subheader-basic.component.scss'],
 })
 export class SubHeaderBasic {
   subheader = {
     buttons: [
       { id: 'FirstButton', text: 'Button', class: 'usa-button--secondary' },
-      { id: 'SecondButton', text: 'Button', class: 'usa-button--primary' }
+      { id: 'SecondButton', text: 'Button', class: 'usa-button--primary' },
     ],
     actions: [
       { id: 'DownloadBtn', icon: 'bars', text: 'Download' },
       { id: 'FollowBtn', icon: 'bars', text: 'Follow' },
-      { id: 'ShareBtn', icon: 'bars', text: 'Share' }
-    ]
+      { id: 'ShareBtn', icon: 'bars', text: 'Share' },
+    ],
   };
   log(value) {
     console.log(`%cLog: ${value}`, 'color: blue; font-weight: bold');
@@ -40,22 +40,22 @@ export class SubHeaderBasic {
         options: [
           {
             value: 'Download Full record',
-            key: 'dfr'
+            key: 'dfr',
           },
           {
             value: 'Download summary information only',
-            key: 'dsi'
+            key: 'dsi',
           },
           {
             value: 'Download FDPS case record',
-            key: 'dfc'
+            key: 'dfc',
           },
           {
             value: 'Download current record and all of its modifications',
-            key: 'dcr'
-          }
-        ]
-      }
+            key: 'dcr',
+          },
+        ],
+      },
     },
     {
       key: 'fileType',
@@ -65,16 +65,16 @@ export class SubHeaderBasic {
         options: [
           { value: 'Search Results', key: 'CSV' },
           { value: 'Search Results', key: 'PDF' },
-          { value: 'WD Decision', key: 'ZIP' }
-        ]
-      }
+          { value: 'WD Decision', key: 'ZIP' },
+        ],
+      },
     },
     {
       key: 'fileName',
       type: 'input',
       templateOptions: {
-        label: 'Name'
-      }
+        label: 'Name',
+      },
     },
     {
       key: 'additionalOptions',
@@ -83,18 +83,18 @@ export class SubHeaderBasic {
         options: [
           {
             value: 'Add to my saved search',
-            key: 'saved'
-          }
-        ]
-      }
-    }
+            key: 'saved',
+          },
+        ],
+      },
+    },
   ];
   model: any = { fileType: 'CSV' };
   form: FormGroup;
   options: FormlyFormOptions;
   downloadResponse = {};
 
-  constructor(public dialog: SdsDialogService) { }
+  constructor(public dialog: SdsDialogService) {}
   onActionMenuItem(btnId) {
     if (btnId == 'DownloadBtn') {
       const data: any = {
@@ -102,15 +102,15 @@ export class SubHeaderBasic {
         model: this.model,
         submit: 'Download',
         title: 'Download',
-        options: this.options
+        options: this.options,
       };
 
       const dialogRef = this.dialog.open(SdsFormlyDialogComponent, {
         width: 'medium',
-        data: data
+        data: data,
       });
 
-      dialogRef.afterClosed().subscribe(result => {
+      dialogRef.afterClosed().subscribe((result) => {
         if (result) {
           this.downloadResponse = result;
         }

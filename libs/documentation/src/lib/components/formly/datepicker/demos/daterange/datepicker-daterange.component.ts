@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './datepicker-daterange.component.html'
+  templateUrl: './datepicker-daterange.component.html',
 })
 export class FormlyDatepickerDateRange {
   results: any = {};
@@ -18,8 +18,8 @@ export class FormlyDatepickerDateRange {
       templateOptions: {
         label: 'Expiration Date Range',
         minDate: new Date(2019, 9, 5),
-        maxDate: new Date(2020, 11, 15)
-      }
-    }
+        maxDate: new Date(2020, 11, 15),
+      },
+    },
   ];
 }

@@ -10,11 +10,11 @@ import { BrowserDynamicTestingModule } from '@angular/platform-browser-dynamic/t
     <a id="test" href="google.com">Google </a>
     <a id="test" [hideIcon]="true" href="google.com">Google </a>
     <a id="test2">Not Google </a>
-    <a id="test" href="{{name}}/settings/test123">Google </a>
-  `
+    <a id="test" href="{{ name }}/settings/test123">Google </a>
+  `,
 })
 class TestComponent {
-  constructor() { }
+  constructor() {}
   public name = location.hostname;
 }
 
@@ -29,9 +29,9 @@ describe('Sam External Link Directive', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TestComponent, ExternalLinkDirective, FaIconComponent]
+      declarations: [TestComponent, ExternalLinkDirective, FaIconComponent],
     }).overrideModule(BrowserDynamicTestingModule, {
-      set: { entryComponents: [FaIconComponent] }
+      set: { entryComponents: [FaIconComponent] },
     });
 
     fixture = TestBed.createComponent(TestComponent);

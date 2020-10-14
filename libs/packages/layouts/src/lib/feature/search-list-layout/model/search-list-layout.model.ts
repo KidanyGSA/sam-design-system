@@ -1,95 +1,83 @@
 import { Observable } from 'rxjs';
 export class SearchParameters {
+  /**
+   * page
+   */
+  page: Page;
 
-    /**
-     * page  
-     */
-    page: Page;
+  /**
+   * Sort value
+   */
+  sortField: string;
 
-    /**
-     * Sort value
-     */
-    sortField: string
-
-    /**
-     * filter data
-     */
-    filter: any;
-
+  /**
+   * filter data
+   */
+  filter: any;
 }
 
 export interface Page {
+  /**
+   * Page number
+   */
+  pageNumber: number;
 
-    /**
-     * Page number
-     */
-    pageNumber: number;
+  /**
+   * Page size
+   */
+  pageSize: number;
 
-    /**
-     * Page size
-     */
-    pageSize: number;
-
-    /**
-     * Total number of pages
-     */
-    totalPages: number;
-
+  /**
+   * Total number of pages
+   */
+  totalPages: number;
 }
 
 export class SearchResult {
+  /**
+   * Total number of items (beyond the page)
+   */
+  totalItems: number;
 
-    /**
-     * Total number of items (beyond the page)
-     */
-    totalItems: number;
-
-    /**
-     * Items to be displayed
-     */
-    items: any[];
+  /**
+   * Items to be displayed
+   */
+  items: any[];
 }
 
-
-
 export interface SearchListInterface {
-
-    /**
-     * Method to get the takes it takes in the SearchParameters and returns SearchResult object
-     * @param search 
-     */
-    getData(search: SearchParameters): Observable<SearchResult>;
+  /**
+   * Method to get the takes it takes in the SearchParameters and returns SearchResult object
+   * @param search
+   */
+  getData(search: SearchParameters): Observable<SearchResult>;
 }
 
 export class sortItem {
-    /**
-     * Text to be displayed
-     */
-    text: string;
+  /**
+   * Text to be displayed
+   */
+  text: string;
 
-    /**
-     * Value of Item
-     */
-    value: string;
-
-
+  /**
+   * Value of Item
+   */
+  value: string;
 }
 
 export class SearchListConfiguration {
+  /**
+   * List of sort by items
+   */
+  sortList: sortItem[];
 
-    /**
-     * List of sort by items
-     */
-    sortList: sortItem[];
+  /**
+   * default sort value
+   */
+  defaultSortValue: string;
 
-    /**
-     * default sort value
-     */
-    defaultSortValue: string;
-
-    /**
-     * Starting page size
-     */
-    pageSize: number = 25;
-
+  /**
+   * Starting page size
+   */
+  pageSize: number = 25;
 }

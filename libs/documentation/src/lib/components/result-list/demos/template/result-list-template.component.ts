@@ -1,14 +1,11 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './result-list-template.component.html'
+  templateUrl: './result-list-template.component.html',
 })
-
 export class ResultListTemplate {
   items = {
-    results:[],
-    title: 'No results found'
+    results: [],
+    title: 'No results found',
   };
 }

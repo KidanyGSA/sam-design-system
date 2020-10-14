@@ -8,7 +8,7 @@ import { SdsAdvancedFiltersService } from '../formly-filters/advanced-filters/sd
 
 @Component({
   selector: 'sds-formly-dialog',
-  templateUrl: './formly-dialog.component.html'
+  templateUrl: './formly-dialog.component.html',
 })
 export class SdsFormlyDialogComponent implements OnInit {
   form: FormGroup;
@@ -23,7 +23,7 @@ export class SdsFormlyDialogComponent implements OnInit {
     public advancedFiltersService: SdsAdvancedFiltersService,
     public dialogRef: SdsDialogRef<SdsFormlyDialogComponent>,
     @Inject(SDS_DIALOG_DATA) public data: SdsFormlyDialogData
-  ) { }
+  ) {}
 
   public ngOnInit() {
     this.fields = this.data.fields;
@@ -32,7 +32,9 @@ export class SdsFormlyDialogComponent implements OnInit {
     this.options = this.data.options ? this.data.options : {};
     this.cancel = this.data.cancel ? this.data.cancel : 'Cancel';
     this.submit = this.data.submit ? this.data.submit : 'Submit';
-    this.disableSubmitButton = this.data.disableSubmitButtonEnabled ? this.data.disableSubmitButtonEnabled : false;
+    this.disableSubmitButton = this.data.disableSubmitButtonEnabled
+      ? this.data.disableSubmitButtonEnabled
+      : false;
   }
 
   onSubmit() {

@@ -6,13 +6,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [AccordionBasic],
-  imports: [
-    CommonModule,
-    SdsAccordionModule,
-    MatExpansionModule
-  ],
+  imports: [CommonModule, SdsAccordionModule, MatExpansionModule],
   exports: [AccordionBasic],
-  bootstrap: [AccordionBasic]
+  bootstrap: [AccordionBasic],
 })
 export class AccordionBasicModule {}
-

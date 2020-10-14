@@ -4,9 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './multicheckbox-basic.component.html',
-  styleUrls: ['./multicheckbox-basic.component.scss']
+  styleUrls: ['./multicheckbox-basic.component.scss'],
 })
-
 export class MultiCheckboxBasic {
   form = new FormGroup({});
   model: any = {};
@@ -17,22 +16,23 @@ export class MultiCheckboxBasic {
       type: 'multicheckbox',
       templateOptions: {
         label: 'Socio-Economic Status',
-        description: 'Select any socio-economic categories which reflect the current status of your entity',
+        description:
+          'Select any socio-economic categories which reflect the current status of your entity',
         required: true,
         options: [
           {
             key: 'vet',
-            value: 'Veteran Owned'
+            value: 'Veteran Owned',
           },
           {
             key: 'women',
-            value: 'Women Owned'
+            value: 'Women Owned',
           },
           {
             key: 'minority',
-            value: 'Minority Owned'
-          }
-        ]
+            value: 'Minority Owned',
+          },
+        ],
       },
     },
   ];

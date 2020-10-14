@@ -1,9 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 declare var require: any;
 @Component({
-  templateUrl: './introduction.component.html'
+  templateUrl: './introduction.component.html',
 })
-
 export class IntroductionComponent implements OnInit {
   packages: any = {};
 
@@ -14,5 +13,5 @@ export class IntroductionComponent implements OnInit {
     this.packages.material = require('./../../../../../packages/sam-material-extensions/package.json');
   }
 
-  ngOnInit() { }
+  ngOnInit() {}
 }

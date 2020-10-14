@@ -6,12 +6,8 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AutocompleteOptional],
-  imports: [
-    CommonModule,
-    FormsModule,
-    SdsAutocompleteModule
-  ],
+  imports: [CommonModule, FormsModule, SdsAutocompleteModule],
   exports: [AutocompleteOptional],
-  bootstrap: [AutocompleteOptional]
+  bootstrap: [AutocompleteOptional],
 })
 export class AutocompleteOptionalModule {}

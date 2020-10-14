@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
 
 @Component({
   templateUrl: './filters-optional.component.html',
-  styleUrls: ['./filters-optional.component.scss']
+  styleUrls: ['./filters-optional.component.scss'],
 })
 export class FiltersOptional implements OnInit {
   constructor() {}
@@ -24,7 +24,7 @@ export class FiltersOptional implements OnInit {
       key: 'filters',
       templateOptions: {
         label: 'Entity Information',
-        group: 'panel'
+        group: 'panel',
       },
       fieldGroup: [
         {
@@ -40,9 +40,9 @@ export class FiltersOptional implements OnInit {
               { label: 'Assistance Listings', value: 'al' },
               { label: 'Contract Data', value: 'cd' },
               { label: 'Federal Hierarchy', value: 'fh' },
-              { label: 'Wage Determination', value: 'wd' }
-            ]
-          }
+              { label: 'Wage Determination', value: 'wd' },
+            ],
+          },
         },
         {
           key: 'multiple.default.entity.title',
@@ -51,11 +51,11 @@ export class FiltersOptional implements OnInit {
             label: 'Entity Name',
             placeholder: 'Acme Corporation',
             description: 'Enter the name of your entity.',
-            required: true
-          }
-        }
-      ]
-    }
+            required: true,
+          },
+        },
+      ],
+    },
   ];
 
   // Accordion Multiple Controls
@@ -74,8 +74,8 @@ export class FiltersOptional implements OnInit {
             type: 'text',
             label: 'Unique Entity ID',
             tagText: 'DUNS',
-            tagClass: 'sds-tag--info-purple'
-          }
+            tagClass: 'sds-tag--info-purple',
+          },
         },
         {
           key: 'multiple.accordion.entity.title',
@@ -84,11 +84,11 @@ export class FiltersOptional implements OnInit {
             label: 'Entity Name',
             placeholder: 'Acme Corporation',
             description: 'Enter the name of your entity.',
-            required: true
-          }
-        }
-      ]
-    }
+            required: true,
+          },
+        },
+      ],
+    },
   ];
 
   // Default Single Control
@@ -101,9 +101,9 @@ export class FiltersOptional implements OnInit {
         group: 'panel',
         placeholder: 'Acme Corporation',
         description: 'Enter the name of your entity.',
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   ];
 
   // Accordion Single Control
@@ -116,14 +116,13 @@ export class FiltersOptional implements OnInit {
         group: 'accordion',
         placeholder: 'Acme Corporation',
         description: 'Enter the name of your entity.',
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   ];
 
-  
   public ngOnInit() {
-    this.filterChange$.subscribe(res => {
+    this.filterChange$.subscribe((res) => {
       this.results = res;
     });
   }

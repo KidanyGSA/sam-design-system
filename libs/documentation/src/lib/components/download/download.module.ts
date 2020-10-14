@@ -6,7 +6,7 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from '../shared/index';
 import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 ``;
@@ -22,15 +22,15 @@ const DEMOS = {
     type: FormlyDialog,
     code: require('!!raw-loader!./demos/formly-modal/formly-modal.component'),
     markup: require('!!raw-loader!./demos/formly-modal/formly-modal.component.html'),
-    path: 'libs/documentation/src/lib/components/download/demos/formly-modal'
+    path: 'libs/documentation/src/lib/components/download/demos/formly-modal',
   },
   basic: {
     title: 'Download Modal Dialog',
     type: DownloadComponent,
     code: require('!!raw-loader!./demos/download/download.component'),
     markup: require('!!raw-loader!./demos/download/download.component.html'),
-    path: 'libs/documentation/src/lib/components/download/demos/download'
-  }
+    path: 'libs/documentation/src/lib/components/download/demos/download',
+  },
 };
 
 export const ROUTES = [
@@ -43,17 +43,17 @@ export const ROUTES = [
         {
           pkg: 'formly',
           type: 'components',
-          name: 'SdsFormlyDialogComponent'
-        }
-      ]
+          name: 'SdsFormlyDialogComponent',
+        },
+      ],
     },
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
@@ -61,8 +61,8 @@ export const ROUTES = [
     CommonModule,
     DocumentationComponentsSharedModule,
     DownloadBasicModule,
-    FormlyDialogModule
-  ]
+    FormlyDialogModule,
+  ],
 })
 export class DownloadModule {
   constructor(demoList: DocumentationDemoList) {

@@ -13,14 +13,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SdsMenuComponent,
     SdsMenuItemComponent,
     SdsMenuTriggerForDirective,
-    SdsMenuHeaderComponent
+    SdsMenuHeaderComponent,
   ],
   declarations: [
     SdsMenuComponent,
     SdsMenuItemComponent,
     SdsMenuTriggerForDirective,
-    SdsMenuHeaderComponent
+    SdsMenuHeaderComponent,
   ],
-  providers: []
+  providers: [],
 })
 export class SdsMenuModule {}

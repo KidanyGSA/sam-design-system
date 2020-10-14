@@ -1,5 +1,11 @@
 /* tslint:disable */
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 import { SdsFooterComponent } from './footer.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { NavigationMode } from '@gsa-sam/components';
@@ -12,9 +18,8 @@ describe('SdsFooterComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SdsFooterComponent],
-      imports: [RouterTestingModule, SdsCollapseModule, FontAwesomeModule]
-    })
-      .compileComponents();
+      imports: [RouterTestingModule, SdsCollapseModule, FontAwesomeModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

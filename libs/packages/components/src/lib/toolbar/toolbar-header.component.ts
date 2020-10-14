@@ -1,12 +1,12 @@
-import { Component, Host } from "@angular/core";
-import { SdsToolbarComponent } from "./toolbar.component";
+import { Component, Host } from '@angular/core';
+import { SdsToolbarComponent } from './toolbar.component';
 
 @Component({
-  selector: "sds-toolbar-header",
-  templateUrl: "toolbar-header.component.html",
+  selector: 'sds-toolbar-header',
+  templateUrl: 'toolbar-header.component.html',
   host: {
-    class: "sds-toolbar__header"
-  }
+    class: 'sds-toolbar__header',
+  },
 })
 export class SdsToolbarHeaderComponent {
   constructor(@Host() public toolbar: SdsToolbarComponent) {}

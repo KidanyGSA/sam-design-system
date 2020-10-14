@@ -4,16 +4,10 @@ import { SdsTableModule } from '@gsa-sam/sam-material-extensions';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { TableSortComponent } from './sort.component';
 
-
 @NgModule({
   declarations: [TableSortComponent],
-  imports: [
-    CommonModule,
-    SdsTableModule,
-    FontAwesomeModule
-  ],
+  imports: [CommonModule, SdsTableModule, FontAwesomeModule],
   exports: [TableSortComponent],
-  bootstrap: [TableSortComponent]
+  bootstrap: [TableSortComponent],
 })
-
-export class TableSortModule { }
+export class TableSortModule {}

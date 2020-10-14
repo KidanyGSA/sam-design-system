@@ -4,7 +4,7 @@ import { PackagesExperimentalModule } from './packages-experimental.module';
 describe('PackagesExperimentalModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [PackagesExperimentalModule]
+      imports: [PackagesExperimentalModule],
     }).compileComponents();
   }));
 

@@ -4,7 +4,7 @@ import { PackagesLayoutsModule } from './packages-layouts.module';
 describe('PackagesLayoutsModule', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [PackagesLayoutsModule]
+      imports: [PackagesLayoutsModule],
     }).compileComponents();
   }));
 

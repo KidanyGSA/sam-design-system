@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import {
   SdsDialogService,
   SdsDialogRef,
-  SDS_DIALOG_DATA
+  SDS_DIALOG_DATA,
 } from '@gsa-sam/components';
 
 export interface DialogData {
@@ -17,7 +17,7 @@ export interface AlertData {
 
 @Component({
   selector: 'sds-dialog-sample-data',
-  templateUrl: 'overview/template.html'
+  templateUrl: 'overview/template.html',
 })
 export class DialogOverviewExampleDialog {
   constructor(
@@ -40,7 +40,7 @@ export class DialogOverviewExampleDialog {
     <button class="usa-button" (click)="openDialog()">
       Open another dialog
     </button>
-  `
+  `,
 })
 export class NestedDialogComponent {
   animal: string;
@@ -49,10 +49,10 @@ export class NestedDialogComponent {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: 'small',
-      data: { name: this.name, animal: this.animal }
+      data: { name: this.name, animal: this.animal },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       this.animal = result;
     });
   }
@@ -65,7 +65,7 @@ export class NestedDialogComponent {
 // Error
 @Component({
   selector: 'sds-dialog-sample-alert',
-  templateUrl: './alert/template.html'
+  templateUrl: './alert/template.html',
 })
 export class AlertComponent {
   constructor(@Inject(SDS_DIALOG_DATA) public data: AlertData) {}
@@ -77,7 +77,7 @@ export class AlertComponent {
  */
 @Component({
   selector: 'sds-dialog-sample-official',
-  templateUrl: './official/template.html'
+  templateUrl: './official/template.html',
 })
 export class OfficialComponent {}
 
@@ -87,7 +87,7 @@ export class OfficialComponent {}
  */
 @Component({
   selector: 'sds-modal-sample',
-  templateUrl: 'dialog-basic.component.html'
+  templateUrl: 'dialog-basic.component.html',
 })
 export class DialogBasic {
   animal: string;
@@ -98,10 +98,10 @@ export class DialogBasic {
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: 'medium',
-      data: { name: this.name, animal: this.animal }
+      data: { name: this.name, animal: this.animal },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       this.animal = result;
     });
   }
@@ -114,13 +114,13 @@ export class DialogBasic {
     const dialogRef = this.dialog.open(AlertComponent, {
       alert: alert,
       width: size,
-      data: { title: title, content: content }
+      data: { title: title, content: content },
     });
   }
 
   openOfficial() {
     const dialogRef = this.dialog.open(OfficialComponent, {
-      width: 'large'
+      width: 'large',
     });
   }
 }

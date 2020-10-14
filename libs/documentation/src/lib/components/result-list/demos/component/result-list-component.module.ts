@@ -13,7 +13,7 @@ import { ResultListItemChildSampleComponent } from './item/child-item/child-item
   declarations: [
     ResultListComponent,
     ResultListItemSampleComponent,
-    ResultListItemChildSampleComponent
+    ResultListItemChildSampleComponent,
   ],
   imports: [
     FontAwesomeModule,
@@ -21,9 +21,9 @@ import { ResultListItemChildSampleComponent } from './item/child-item/child-item
     FormsModule,
     SdsPageModule,
     SdsSearchResultListModule,
-    SdsActionsMenuModule
+    SdsActionsMenuModule,
   ],
   exports: [ResultListComponent],
-  bootstrap: [ResultListComponent]
+  bootstrap: [ResultListComponent],
 })
 export class ResultListComponentModule {}

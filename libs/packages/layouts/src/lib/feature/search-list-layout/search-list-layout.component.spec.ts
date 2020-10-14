@@ -1,8 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { SearchListLayoutComponent } from './search-list-layout.component';
-import { PaginationModule, SdsSearchResultListModule } from '@gsa-sam/components';
+import {
+  PaginationModule,
+  SdsSearchResultListModule,
+} from '@gsa-sam/components';
 import { FormsModule } from '@angular/forms';
-import { SearchParameters, SearchResult, SearchListInterface } from './model/search-list-layout.model';
+import {
+  SearchParameters,
+  SearchResult,
+  SearchListInterface,
+} from './model/search-list-layout.model';
 import { of, Observable } from 'rxjs';
 import { RouterTestingModule } from '@angular/router/testing';
 describe('SearchListLayoutComponent', () => {
@@ -12,10 +19,13 @@ describe('SearchListLayoutComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SearchListLayoutComponent],
-      imports: [PaginationModule, SdsSearchResultListModule, FormsModule,
-        RouterTestingModule.withRoutes([]),]
-    })
-      .compileComponents();
+      imports: [
+        PaginationModule,
+        SdsSearchResultListModule,
+        FormsModule,
+        RouterTestingModule.withRoutes([]),
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -24,7 +34,7 @@ describe('SearchListLayoutComponent', () => {
     component.configuration = {
       sortList: [{ text: 'Id', value: 'id' }],
       defaultSortValue: 'id',
-      pageSize: 25
+      pageSize: 25,
     };
     component.service = new TestService();
   });
@@ -37,16 +47,13 @@ describe('SearchListLayoutComponent', () => {
     component.onSelectChange();
     expect(component.items.length).toBe(1);
   });
-
-
 });
 
 class TestService implements SearchListInterface {
   getData(search: SearchParameters): Observable<SearchResult> {
     return of({
       totalItems: 1,
-      items: [{ id: 1 }]
-    })
+      items: [{ id: 1 }],
+    });
   }
-
 }

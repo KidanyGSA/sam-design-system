@@ -5,11 +5,14 @@ import { FieldType } from '@ngx-formly/core';
   selector: 'sds-formly-field-checkbox',
   template: `
     <div class="usa-checkbox">
-      <input class="usa-checkbox__input" type="checkbox"
+      <input
+        class="usa-checkbox__input"
+        type="checkbox"
         [class.is-invalid]="showError"
         [indeterminate]="to.indeterminate && formControl.value === null"
         [formControl]="formControl"
-        [formlyAttributes]="field">
+        [formlyAttributes]="field"
+      />
       <label class="usa-checkbox__label" [for]="id">
         {{ to.label }}
         <span *ngIf="!to.required && !to.hideOptional"> (Optional)</span>

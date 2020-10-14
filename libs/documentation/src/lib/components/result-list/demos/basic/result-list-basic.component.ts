@@ -1,23 +1,21 @@
-import {
-  Component
-} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './result-list-basic.component.html'
+  templateUrl: './result-list-basic.component.html',
 })
 export class ResultListBasic {
-  constructor() { }
+  constructor() {}
 
   itemsDefault = [
     { title: 'First', id: 1 },
     { title: 'Second', id: 2 },
     { title: 'Third', id: 3 },
     { title: 'Fourth', id: 4 },
-    { title: 'Fifth', id: 5, hasNewerData: true }
+    { title: 'Fifth', id: 5, hasNewerData: true },
   ];
 
   items = {
-    results: this.itemsDefault
+    results: this.itemsDefault,
   };
 
   errorModel = {
@@ -33,12 +31,12 @@ export class ResultListBasic {
             {
               id: 'backward',
               text: 'Go back',
-              action: this.gobackbutton
-            }
-          ]
-        }
-      ]
-    }
+              action: this.gobackbutton,
+            },
+          ],
+        },
+      ],
+    },
   };
 
   infoModel = {
@@ -56,24 +54,24 @@ export class ResultListBasic {
               id: 'backward',
               text: 'Go back',
               classes: 'usa-button--secondary',
-              action: this.gobackbutton
+              action: this.gobackbutton,
             },
             {
               id: 'forward',
               text: 'Go forward',
               classes: 'usa-button usa-button--secondary width-card margin-y-2',
-            }
-          ]
-        }
-      ]
-    }
+            },
+          ],
+        },
+      ],
+    },
   };
 
   defaultModel = {
-    results: this.itemsDefault
+    results: this.itemsDefault,
   };
   emptyModel = {
-    results: []
+    results: [],
   };
   gobackbutton() {
     console.log('button click');

@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'sds-actions-menu',
-  templateUrl: 'actions-menu.component.html'
+  templateUrl: 'actions-menu.component.html',
 })
 export class SdsActionsMenuComponent {
   @Input() model;

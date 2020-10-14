@@ -4,12 +4,10 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  templateUrl: './filters-basic.component.html'
+  templateUrl: './filters-basic.component.html',
 })
 export class FiltersBasic implements OnInit {
-  constructor() {
-
-  }
+  constructor() {}
 
   results: any = {};
   form = new FormGroup({});
@@ -26,9 +24,9 @@ export class FiltersBasic implements OnInit {
         label: 'Entity Name',
         placeholder: 'Acme Corporation',
         description: 'Enter the name of your entity.',
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   ];
 
   // Select
@@ -46,10 +44,10 @@ export class FiltersBasic implements OnInit {
           { label: 'Assistance Listings', value: 'al' },
           { label: 'Contract Data', value: 'cd' },
           { label: 'Federal Hierarchy', value: 'fh' },
-          { label: 'Wage Determination', value: 'wd' }
-        ]
-      }
-    }
+          { label: 'Wage Determination', value: 'wd' },
+        ],
+      },
+    },
   ];
 
   // Checkbox
@@ -61,9 +59,9 @@ export class FiltersBasic implements OnInit {
         label: 'I agree.',
         description:
           'By checking the box below you agree to the terms and conditions of the site.',
-        required: true
-      }
-    }
+        required: true,
+      },
+    },
   ];
 
   // Multi Checkbox
@@ -79,19 +77,19 @@ export class FiltersBasic implements OnInit {
         options: [
           {
             key: 'vet',
-            value: 'Veteran Owned'
+            value: 'Veteran Owned',
           },
           {
             key: 'women',
-            value: 'Women Owned'
+            value: 'Women Owned',
           },
           {
             key: 'minority',
-            value: 'Minority Owned'
-          }
-        ]
-      }
-    }
+            value: 'Minority Owned',
+          },
+        ],
+      },
+    },
   ];
 
   // Radio
@@ -108,32 +106,32 @@ export class FiltersBasic implements OnInit {
           {
             key: 'ccorp',
             value:
-              'Corporate Entity, Not Tax Exempt (Firm pays U.S. Federal Income Taxes or U.S. Possession Income Taxes)'
+              'Corporate Entity, Not Tax Exempt (Firm pays U.S. Federal Income Taxes or U.S. Possession Income Taxes)',
           },
           {
             key: 'nonprofit',
             value:
-              'Corporate Entity, Tax Exempt (Firm does not pay U.S. Federal Income Taxes nor U.S. Possession Income Taxes)'
+              'Corporate Entity, Tax Exempt (Firm does not pay U.S. Federal Income Taxes nor U.S. Possession Income Taxes)',
           },
           {
             key: 'partnerllc',
-            value: 'Partnership or Limited Liability Partnership'
+            value: 'Partnership or Limited Liability Partnership',
           },
           {
             key: 'soleproprietorship',
-            value: 'Sole Proprietorship'
+            value: 'Sole Proprietorship',
           },
           {
             key: 'international',
-            value: 'International Organization'
+            value: 'International Organization',
           },
           {
             key: 'other',
-            value: 'Other'
-          }
-        ]
-      }
-    }
+            value: 'Other',
+          },
+        ],
+      },
+    },
   ];
 
   // DatePicker
@@ -144,9 +142,9 @@ export class FiltersBasic implements OnInit {
       templateOptions: {
         label: 'Expiration Date (no validation)',
         minDate: new Date(2019, 9, 5),
-        maxDate: new Date(2019, 9, 25)
-      }
-    }
+        maxDate: new Date(2019, 9, 25),
+      },
+    },
   ];
 
   // DateRangePicker
@@ -157,13 +155,13 @@ export class FiltersBasic implements OnInit {
       templateOptions: {
         label: 'Expiration Date Range',
         minDate: new Date(2019, 9, 5),
-        maxDate: new Date(2019, 9, 25)
-      }
-    }
+        maxDate: new Date(2019, 9, 25),
+      },
+    },
   ];
 
   public ngOnInit() {
-    this.filterChange$.subscribe(res => {
+    this.filterChange$.subscribe((res) => {
       this.results = res;
     });
   }

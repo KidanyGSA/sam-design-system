@@ -9,15 +9,15 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
       type: 'text',
       label: 'Keyword',
       expand: false,
-      group: 'accordion'
-    }
+      group: 'accordion',
+    },
   },
   {
     key: 'dateWrapper',
     templateOptions: {
       label: 'Date',
       group: 'accordion',
-      expand: true
+      expand: true,
     },
     fieldGroup: [
       {
@@ -25,24 +25,24 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
         type: 'datepicker',
 
         templateOptions: {
-          label: 'Modified Date'
-        }
+          label: 'Modified Date',
+        },
       },
       {
         key: 'signedDate',
         type: 'datepicker',
         templateOptions: {
-          label: 'Signed Date'
-        }
+          label: 'Signed Date',
+        },
       },
       {
         key: 'effectiveDate',
         type: 'datepicker',
         templateOptions: {
-          label: 'Effective Date'
-        }
-      }
-    ]
+          label: 'Effective Date',
+        },
+      },
+    ],
   },
   {
     key: 'hierarchyWrapper',
@@ -53,10 +53,10 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
         type: 'input',
         defaultValue: 'test',
         templateOptions: {
-          hideLabel: true
-        }
-      }
-    ]
+          hideLabel: true,
+        },
+      },
+    ],
   },
   {
     key: 'contractTypeWrapper',
@@ -69,30 +69,30 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
           options: [
             {
               key: 'Contract',
-              value: 'Contract'
+              value: 'Contract',
             },
             {
               key: 'icd',
-              value: 'Interagency Contract Directory (ICD)'
-            }
-          ]
-        }
+              value: 'Interagency Contract Directory (ICD)',
+            },
+          ],
+        },
       },
       {
         key: 'awardIdvType',
         type: 'input',
         templateOptions: {
-          label: 'Award / IDV Type'
-        }
+          label: 'Award / IDV Type',
+        },
       },
       {
         key: 'contractType',
         type: 'input',
         templateOptions: {
-          label: 'Contract Type'
-        }
-      }
-    ]
+          label: 'Contract Type',
+        },
+      },
+    ],
   },
   {
     key: 'entityWrapper',
@@ -103,8 +103,8 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
         type: 'input',
         templateOptions: {
           type: 'text',
-          label: 'Entity Name'
-        }
+          label: 'Entity Name',
+        },
       },
       {
         key: 'uniqueEntityIdDuns',
@@ -115,8 +115,8 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
           label: 'Unique Entity ID',
           min: 13,
           max: 40,
-          inputType: 'number'
-        }
+          inputType: 'number',
+        },
       },
       {
         key: 'uniqueEntityIdSam',
@@ -124,41 +124,41 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
         templateOptions: {
           tagText: 'SAM',
           label: 'Unique Entity ID',
-          inputType: 'text'
-        }
+          inputType: 'text',
+        },
       },
       {
         key: 'cageCode',
         type: 'input',
         templateOptions: {
           type: 'text',
-          label: 'CAGE / NCAGE'
-        }
-      }
-    ]
+          label: 'CAGE / NCAGE',
+        },
+      },
+    ],
   },
   {
     key: 'serviceClassificationsWrapper',
     templateOptions: {
       label: 'NAICS and Product Service Codes',
-      group: 'accordion'
+      group: 'accordion',
     },
     fieldGroup: [
       {
         key: 'naicsCode',
         type: 'input',
         templateOptions: {
-          label: 'NAICS Code'
-        }
+          label: 'NAICS Code',
+        },
       },
       {
         key: 'pscCode',
         type: 'input',
         templateOptions: {
-          label: 'Product Service Code'
-        }
-      }
-    ]
+          label: 'Product Service Code',
+        },
+      },
+    ],
   },
   {
     key: 'setAsideWrapper',
@@ -168,10 +168,10 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
         key: 'setAside',
         type: 'input',
         templateOptions: {
-          hideLabel: true
-        }
-      }
-    ]
+          hideLabel: true,
+        },
+      },
+    ],
   },
   {
     key: 'popWrapper',
@@ -181,17 +181,17 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
         key: 'popZipCode',
         type: 'input',
         templateOptions: {
-          label: 'Zip Code'
-        }
+          label: 'Zip Code',
+        },
       },
       {
         key: 'popState',
         type: 'input',
         templateOptions: {
-          label: 'State'
-        }
-      }
-    ]
+          label: 'State',
+        },
+      },
+    ],
   },
   {
     key: 'statusWrapper',
@@ -202,13 +202,13 @@ export let formlyFieldConfig: FormlyFieldConfig[] = [
       options: [
         {
           key: 'Active',
-          value: 'Active'
+          value: 'Active',
         },
         {
           key: 'Inactive',
-          value: 'Inactive'
-        }
-      ]
-    }
-  }
+          value: 'Inactive',
+        },
+      ],
+    },
+  },
 ];

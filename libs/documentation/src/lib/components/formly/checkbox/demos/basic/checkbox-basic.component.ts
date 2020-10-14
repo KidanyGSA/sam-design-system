@@ -4,9 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './checkbox-basic.component.html',
-  styleUrls: ['./checkbox-basic.component.scss']
+  styleUrls: ['./checkbox-basic.component.scss'],
 })
-
 export class CheckboxBasic {
   form = new FormGroup({});
   model: any = {};
@@ -17,8 +16,9 @@ export class CheckboxBasic {
       type: 'checkbox',
       templateOptions: {
         label: 'I agree.',
-        description: 'By checking the box below you agree to the terms and conditions of the site.',
-        required: true
+        description:
+          'By checking the box below you agree to the terms and conditions of the site.',
+        required: true,
       },
     },
   ];

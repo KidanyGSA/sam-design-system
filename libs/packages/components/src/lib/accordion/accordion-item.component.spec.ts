@@ -1,9 +1,4 @@
-import {
-  async,
-  TestBed,
-  fakeAsync,
-  flush
-} from '@angular/core/testing';
+import { async, TestBed, fakeAsync, flush } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { SdsAccordionModule } from './accordion.module';
@@ -12,7 +7,7 @@ describe('SdsAccordionItem', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [SdsAccordionModule, NoopAnimationsModule],
-      declarations: [AccordionItem]
+      declarations: [AccordionItem],
     });
     TestBed.compileComponents();
   }));
@@ -44,9 +39,13 @@ describe('SdsAccordionItem', () => {
 
   it('should create a unique panel id for each accordion item', () => {
     const fixtureOne = TestBed.createComponent(AccordionItem);
-    const headerElOne = fixtureOne.nativeElement.querySelector('.sds-accordion__trigger');
+    const headerElOne = fixtureOne.nativeElement.querySelector(
+      '.sds-accordion__trigger'
+    );
     const fixtureTwo = TestBed.createComponent(AccordionItem);
-    const headerElTwo = fixtureTwo.nativeElement.querySelector('.sds-accordion__trigger');
+    const headerElTwo = fixtureTwo.nativeElement.querySelector(
+      '.sds-accordion__trigger'
+    );
     fixtureOne.detectChanges();
     fixtureTwo.detectChanges();
 
@@ -57,8 +56,12 @@ describe('SdsAccordionItem', () => {
 
   it('should set `aria-labelledby` of the content to the header id', () => {
     const fixture = TestBed.createComponent(AccordionItem);
-    const headerEl = fixture.nativeElement.querySelector('.sds-accordion__trigger');
-    const contentEl = fixture.nativeElement.querySelector('.sam-accordion__panel');
+    const headerEl = fixture.nativeElement.querySelector(
+      '.sds-accordion__trigger'
+    );
+    const contentEl = fixture.nativeElement.querySelector(
+      '.sam-accordion__panel'
+    );
 
     fixture.detectChanges();
 
@@ -72,11 +75,12 @@ describe('SdsAccordionItem', () => {
 
   it('should set the proper role on the content element', () => {
     const fixture = TestBed.createComponent(AccordionItem);
-    const contentEl = fixture.nativeElement.querySelector('.sam-accordion__panel');
+    const contentEl = fixture.nativeElement.querySelector(
+      '.sam-accordion__panel'
+    );
 
     expect(contentEl.getAttribute('role')).toBe('region');
   });
-
 });
 
 @Component({
@@ -90,7 +94,7 @@ describe('SdsAccordionItem', () => {
       <sds-accordion-item-header>Accordion Title</sds-accordion-item-header>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </sds-accordion-item>
-  `
+  `,
 })
 class AccordionItem {
   expanded = false;

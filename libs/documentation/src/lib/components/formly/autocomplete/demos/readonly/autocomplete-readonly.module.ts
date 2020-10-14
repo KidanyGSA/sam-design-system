@@ -1,6 +1,6 @@
 import { FormlyModule } from '@ngx-formly/core';
 import { NgModule } from '@angular/core';
-import { FormlyAutocompleteReadOnly} from './autocomplete-readonly.component';
+import { FormlyAutocompleteReadOnly } from './autocomplete-readonly.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -9,10 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FormlyModule.forRoot()
+    FormlyModule.forRoot(),
   ],
   declarations: [FormlyAutocompleteReadOnly],
   exports: [FormlyAutocompleteReadOnly],
-  bootstrap: [FormlyAutocompleteReadOnly]
+  bootstrap: [FormlyAutocompleteReadOnly],
 })
 export class FormlyAutocompleteReadOnlyModule {}

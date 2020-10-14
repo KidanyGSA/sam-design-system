@@ -5,13 +5,13 @@ import {
   SdsMenuModule,
   SdsSearchModule,
   SdsObserversModule,
-  SdsTruncateModule
+  SdsTruncateModule,
 } from '@gsa-sam/components';
 import {
   SdsSubheaderComponent,
   SdsSubheaderActionsComponent,
   SdsSubheaderDrawerComponent,
-  SdsDrawerContentComponent
+  SdsDrawerContentComponent,
 } from './subheader.component';
 import { SdsActionsMenuModule } from '../actions-menu/actions-menu.module';
 import { SdsDrawerCommunicationService } from './drawer-communication.service';
@@ -24,21 +24,20 @@ import { SdsDrawerCommunicationService } from './drawer-communication.service';
     SdsObserversModule,
     SdsSearchModule,
     SdsTruncateModule,
-    SdsActionsMenuModule
+    SdsActionsMenuModule,
   ],
   exports: [
     SdsSubheaderComponent,
     SdsSubheaderActionsComponent,
     SdsSubheaderDrawerComponent,
     SdsDrawerContentComponent,
-
   ],
   declarations: [
     SdsSubheaderComponent,
     SdsSubheaderActionsComponent,
     SdsSubheaderDrawerComponent,
-    SdsDrawerContentComponent
+    SdsDrawerContentComponent,
   ],
-  providers: [SdsDrawerCommunicationService]
+  providers: [SdsDrawerCommunicationService],
 })
 export class SdsSubheaderModule {}

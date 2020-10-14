@@ -4,20 +4,18 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'sds-search-result-list',
   templateUrl: './search-result-list.component.html',
-  styleUrls: ['./search-result-list.component.scss']
+  styleUrls: ['./search-result-list.component.scss'],
 })
-
 export class SdsSearchResultListComponent {
-
   public updateModel = new SearchModel();
   /**
- * Allow to insert a customized template for no results to use
- */
+   * Allow to insert a customized template for no results to use
+   */
   @Input() noResultsTemplate: TemplateRef<any>;
 
   /**
-  * Model for search results
-  */
+   * Model for search results
+   */
   @Input('model')
   set model(value) {
     if (Array.isArray(value)) {
@@ -34,7 +32,7 @@ export class SdsSearchResultListComponent {
    */
   @Input() divider = true;
 
-  constructor(private _location: Location) { }
+  constructor(private _location: Location) {}
 
   /**
    * Child Template to be used to display the data for each item in the list of items

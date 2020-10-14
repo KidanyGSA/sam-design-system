@@ -8,9 +8,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { A11yModule } from '@angular/cdk/a11y';
 @NgModule({
   imports: [
-    CommonModule, FormsModule, RouterModule, FontAwesomeModule, A11yModule, SdsTopBannerModule
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    FontAwesomeModule,
+    A11yModule,
+    SdsTopBannerModule,
   ],
   declarations: [SdsHeaderComponent],
-  exports: [SdsHeaderComponent]
+  exports: [SdsHeaderComponent],
 })
-export class SdsHeaderModule { }
+export class SdsHeaderModule {}

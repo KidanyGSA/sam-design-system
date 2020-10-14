@@ -5,7 +5,10 @@ import { DocumentationExamplesPage } from '../../shared/examples-page/examples.c
 import { DocumentationAPIPage } from '../../shared/api-page/docs-api.component';
 import { DocumentationSourcePage } from '../../shared/source-page/source.component';
 import { DocumentationTemplatePage } from '../../shared/template-page/template.component';
-import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../../shared/index';
+import {
+  DocumentationComponentsSharedModule,
+  DocumentationDemoList,
+} from '../../shared/index';
 import { ComponentWrapperComponent } from '../../../shared/component-wrapper/component-wrapper.component';
 import { CheckboxBasicModule } from './demos/basic/checkbox-basic.module';
 
@@ -16,8 +19,8 @@ const DEMOS = {
     type: CheckboxBasic,
     code: require('!!raw-loader!./demos/basic/checkbox-basic.component'),
     markup: require('!!raw-loader!./demos/basic/checkbox-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/checkbox/demos/basic'
-  }
+    path: 'libs/documentation/src/lib/components/formly/checkbox/demos/basic',
+  },
 };
 
 export const ROUTES = [
@@ -31,8 +34,8 @@ export const ROUTES = [
           type: 'components',
           name: 'FormlyFieldCheckboxComponent',
           formType: 'checkbox',
-        }
-      ]
+        },
+      ],
     },
     component: ComponentWrapperComponent,
     children: [
@@ -40,16 +43,16 @@ export const ROUTES = [
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
       { path: 'template', component: DocumentationTemplatePage },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     DocumentationComponentsSharedModule,
-    CheckboxBasicModule
-  ]
+    CheckboxBasicModule,
+  ],
 })
 export class CheckboxModule {
   constructor(demoList: DocumentationDemoList) {

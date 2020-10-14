@@ -7,7 +7,7 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from '../shared/index';
 import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 import { PaginationBasicModule } from './demos/basic/pagination-basic.module';
@@ -19,8 +19,8 @@ const DEMOS = {
     type: PaginationBasic,
     code: require('!!raw-loader!./demos/basic/pagination-basic.component'),
     markup: require('!!raw-loader!./demos/basic/pagination-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/pagination/demos/basic'
-  }
+    path: 'libs/documentation/src/lib/components/pagination/demos/basic',
+  },
 };
 
 export const ROUTES = [
@@ -33,25 +33,25 @@ export const ROUTES = [
         {
           pkg: 'components',
           type: 'components',
-          name: 'PaginationComponent'
-        }
-      ]
+          name: 'PaginationComponent',
+        },
+      ],
     },
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     DocumentationComponentsSharedModule,
-    PaginationBasicModule
-  ]
+    PaginationBasicModule,
+  ],
 })
 export class PaginationModule {
   constructor(demoList: DocumentationDemoList) {

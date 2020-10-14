@@ -6,12 +6,8 @@ import { SdsPopupModule } from '@gsa-sam/components';
 
 @NgModule({
   declarations: [PopupBasic],
-  imports: [
-    CommonModule,
-    FontAwesomeModule,
-    SdsPopupModule
-  ],
+  imports: [CommonModule, FontAwesomeModule, SdsPopupModule],
   exports: [PopupBasic],
-  bootstrap: [PopupBasic]
+  bootstrap: [PopupBasic],
 })
 export class PopupBasicModule {}

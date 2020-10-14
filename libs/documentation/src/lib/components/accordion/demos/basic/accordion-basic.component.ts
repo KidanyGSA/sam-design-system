@@ -1,10 +1,9 @@
 import { Component, ViewChild } from '@angular/core';
 
 @Component({
-  templateUrl: 'accordion-basic.component.html'
+  templateUrl: 'accordion-basic.component.html',
 })
 export class AccordionBasic {
-
   @ViewChild('sdsAccordionDemo') sdsAccordionDemo;
   @ViewChild('first') firstItem;
   @ViewChild('third') thirdItem;
@@ -38,5 +37,4 @@ export class AccordionBasic {
   toggleMulti(): void {
     this.sdsAccordionDemo.toggleMulti();
   }
-
 }

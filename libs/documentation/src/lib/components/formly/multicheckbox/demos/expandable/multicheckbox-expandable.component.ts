@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './multicheckbox-expandable.component.html'
+  templateUrl: './multicheckbox-expandable.component.html',
 })
 export class MultiCheckboxExpandable {
   form = new FormGroup({});
@@ -24,67 +24,67 @@ export class MultiCheckboxExpandable {
         options: [
           {
             key: 'AL',
-            value: 'Alabama'
+            value: 'Alabama',
           },
           {
             key: 'AK',
-            value: 'Alaska'
+            value: 'Alaska',
           },
           {
             key: 'AZ',
-            value: 'Arizona'
+            value: 'Arizona',
           },
           {
             key: 'AR',
-            value: 'Arkansas'
+            value: 'Arkansas',
           },
           {
             key: 'CA',
-            value: 'California'
+            value: 'California',
           },
           {
             key: 'CO',
-            value: 'Colorado'
+            value: 'Colorado',
           },
           {
             key: 'CT',
-            value: 'Connecticut'
+            value: 'Connecticut',
           },
           {
             key: 'DE',
-            value: 'Delaware'
+            value: 'Delaware',
           },
           {
             key: 'DC',
-            value: 'District Of Columbia'
+            value: 'District Of Columbia',
           },
           {
             key: 'FL',
-            value: 'Florida'
+            value: 'Florida',
           },
           {
             key: 'GA',
-            value: 'Georgia'
+            value: 'Georgia',
           },
           {
             key: 'HI',
-            value: 'Hawaii'
+            value: 'Hawaii',
           },
           {
             key: 'ID',
-            value: 'Idaho'
+            value: 'Idaho',
           },
           {
             key: 'IL',
-            value: 'Illinois'
+            value: 'Illinois',
           },
           {
             key: 'IN',
-            value: 'Indiana'
-          }
-        ]
-      }
-    }
+            value: 'Indiana',
+          },
+        ],
+      },
+    },
   ];
   onChange(ev) {
     this.isexpandedOptions = !this.isexpandedOptions;

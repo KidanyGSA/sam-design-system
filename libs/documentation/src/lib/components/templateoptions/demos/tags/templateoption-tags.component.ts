@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
-  templateUrl: './templateoption-tags.component.html'
+  templateUrl: './templateoption-tags.component.html',
 })
 export class TemplateOptionsTags {
   form = new FormGroup({});
@@ -14,9 +14,9 @@ export class TemplateOptionsTags {
       type: 'input',
       templateOptions: {
         label: 'Entity',
-        tagText: 'SAM'
-      }
-    }
+        tagText: 'SAM',
+      },
+    },
   ];
 
   fieldsTagsColor: FormlyFieldConfig[] = [
@@ -26,8 +26,8 @@ export class TemplateOptionsTags {
       templateOptions: {
         label: 'Entity',
         tagText: 'DUNS',
-       tagClass: 'sds-tag--info-purple'
-      }
-    }
+        tagClass: 'sds-tag--info-purple',
+      },
+    },
   ];
 }

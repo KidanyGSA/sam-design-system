@@ -5,16 +5,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SdsFooterModule } from '@gsa-sam/layouts';
 import { SdsCollapseModule } from '@gsa-sam/components';
 
-
 @NgModule({
   declarations: [FooterBasic],
   imports: [
     CommonModule,
     FontAwesomeModule,
     SdsFooterModule,
-    SdsCollapseModule
+    SdsCollapseModule,
   ],
   exports: [FooterBasic],
-  bootstrap: [FooterBasic]
+  bootstrap: [FooterBasic],
 })
 export class FooterBasicModule {}

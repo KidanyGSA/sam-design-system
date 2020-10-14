@@ -5,7 +5,10 @@ import { DocumentationExamplesPage } from '../../shared/examples-page/examples.c
 import { DocumentationAPIPage } from '../../shared/api-page/docs-api.component';
 import { DocumentationSourcePage } from '../../shared/source-page/source.component';
 import { DocumentationTemplatePage } from '../../shared/template-page/template.component';
-import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../../shared/index';
+import {
+  DocumentationComponentsSharedModule,
+  DocumentationDemoList,
+} from '../../shared/index';
 import { ComponentWrapperComponent } from '../../../shared/component-wrapper/component-wrapper.component';
 import { RadioBasicModule } from './demos/basic/radio-basic.module';
 
@@ -16,8 +19,8 @@ const DEMOS = {
     type: RadioBasic,
     code: require('!!raw-loader!./demos/basic/radio-basic.component'),
     markup: require('!!raw-loader!./demos/basic/radio-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/radio/demos/basic'
-  }
+    path: 'libs/documentation/src/lib/components/formly/radio/demos/basic',
+  },
 };
 
 export const ROUTES = [
@@ -30,9 +33,9 @@ export const ROUTES = [
           pkg: 'formly',
           type: 'components',
           name: 'FormlyFieldRadioComponent',
-          formType: 'radio'
-        }
-      ]
+          formType: 'radio',
+        },
+      ],
     },
     component: ComponentWrapperComponent,
     children: [
@@ -40,16 +43,16 @@ export const ROUTES = [
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
       { path: 'template', component: DocumentationTemplatePage },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     DocumentationComponentsSharedModule,
-    RadioBasicModule
-  ]
+    RadioBasicModule,
+  ],
 })
 export class RadioModule {
   constructor(demoList: DocumentationDemoList) {

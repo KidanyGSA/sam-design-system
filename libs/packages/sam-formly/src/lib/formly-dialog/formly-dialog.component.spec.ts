@@ -5,7 +5,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import {
   SdsDialogRef,
   SDS_DIALOG_DATA,
-  SdsDialogService
+  SdsDialogService,
 } from '@gsa-sam/components';
 
 import { SdsFormlyDialogComponent } from './formly-dialog.component';
@@ -30,16 +30,16 @@ describe('SdsFormlyDialogComponent', () => {
         CommonModule,
         FormlyModule,
         SdsFormlyModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
       ],
       providers: [
         { provide: SDS_DIALOG_DATA, useValue: {} },
         { provide: SdsDialogRef, useValue: dialogSpy },
         {
           provide: SdsAdvancedFiltersService,
-          useValue: advancedFiltersServiceSpy
-        }
-      ]
+          useValue: advancedFiltersServiceSpy,
+        },
+      ],
     }).compileComponents();
   }));
 
@@ -57,7 +57,7 @@ describe('SdsFormlyDialogComponent', () => {
 
   it('should inherit form, model, options, cancel and submit from data if available', () => {
     const initForm: FormGroup = new FormGroup({
-      testControl: new FormControl('')
+      testControl: new FormControl(''),
     });
     const initModel = { testControl: '' };
     const initData = {
@@ -69,10 +69,10 @@ describe('SdsFormlyDialogComponent', () => {
       model: initModel,
       options: {
         formState: {
-          disabled: true
-        }
+          disabled: true,
+        },
       },
-      submit: 'Save'
+      submit: 'Save',
     };
 
     component.data = initData;
@@ -90,7 +90,7 @@ describe('SdsFormlyDialogComponent', () => {
       fields: [],
       originalFields: [],
       originalModel: [],
-      isAdvanceFilter: true
+      isAdvanceFilter: true,
     };
 
     component.data = initData;

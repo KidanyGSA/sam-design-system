@@ -15,9 +15,9 @@ import { ResultListTemplate } from './result-list-template.component';
     FormsModule,
     SdsPageModule,
     SdsSearchResultListModule,
-    SdsActionsMenuModule
+    SdsActionsMenuModule,
   ],
   exports: [ResultListTemplate],
-  bootstrap: [ResultListTemplate]
+  bootstrap: [ResultListTemplate],
 })
 export class ResultListTemplateModule {}

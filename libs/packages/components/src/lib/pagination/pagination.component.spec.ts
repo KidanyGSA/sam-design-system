@@ -1,4 +1,10 @@
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { PaginationComponent } from './pagination.component';
 
@@ -9,9 +15,8 @@ describe('PaginationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [PaginationComponent],
-      imports: [FormsModule]
-    })
-      .compileComponents();
+      imports: [FormsModule],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -20,8 +25,8 @@ describe('PaginationComponent', () => {
     component.page = {
       pageNumber: 1,
       pageSize: 25,
-      totalPages: 10
-    }
+      totalPages: 10,
+    };
     component.paginationConfiguration = { id: 'test' };
     component.debounceTime = 0;
     fixture.detectChanges();
@@ -30,7 +35,6 @@ describe('PaginationComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
 
   it('paging with buttons', () => {
     expect(component.page.pageNumber).toBe(1);
@@ -55,7 +59,6 @@ describe('PaginationComponent', () => {
     expect(component.page.pageNumber).toBe(1);
   }));
 
-
   it('current page changed to zero', fakeAsync(() => {
     expect(component.page.pageNumber).toBe(1);
     component.valuechange(0);
@@ -63,9 +66,7 @@ describe('PaginationComponent', () => {
     expect(component.page.pageNumber).toBe(1);
   }));
 
-
   it('current page changed above max', fakeAsync(() => {
-
     component.valuechange(11);
     tick(1);
     expect(component.page.pageNumber).toBe(10);
@@ -77,15 +78,11 @@ describe('PaginationComponent', () => {
     expect(component.page.pageNumber).toBe(7);
   }));
 
-
   it('select change', () => {
     spyOn(component.pageChange, 'emit');
     component.onSelectChange();
     expect(component.pageChange.emit).toHaveBeenCalledWith(component.page);
   });
-
-
-  
 
   // currentPageFocusOut() {
   //   if (this.currentPageField.nativeElement.value === '') {
@@ -93,6 +90,4 @@ describe('PaginationComponent', () => {
   //     this.change.detectChanges();
   //   }
   // }
-
-
 });

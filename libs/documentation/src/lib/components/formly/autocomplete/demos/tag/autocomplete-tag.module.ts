@@ -9,10 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FormlyModule.forRoot()
+    FormlyModule.forRoot(),
   ],
   declarations: [FormlyAutocompleteTag],
   exports: [FormlyAutocompleteTag],
-  bootstrap: [FormlyAutocompleteTag]
+  bootstrap: [FormlyAutocompleteTag],
 })
 export class FormlyAutocompleteTagModule {}

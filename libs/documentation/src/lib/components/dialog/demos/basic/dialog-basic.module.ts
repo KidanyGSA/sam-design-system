@@ -7,7 +7,7 @@ import {
   DialogOverviewExampleDialog,
   NestedDialogComponent,
   AlertComponent,
-  OfficialComponent
+  OfficialComponent,
 } from './dialog-basic.component';
 
 @NgModule({
@@ -19,13 +19,13 @@ import {
     DialogOverviewExampleDialog,
     NestedDialogComponent,
     AlertComponent,
-    OfficialComponent
+    OfficialComponent,
   ],
   entryComponents: [
     DialogOverviewExampleDialog,
     NestedDialogComponent,
     AlertComponent,
-    OfficialComponent
-  ]
+    OfficialComponent,
+  ],
 })
 export class DialogBasicModule {}

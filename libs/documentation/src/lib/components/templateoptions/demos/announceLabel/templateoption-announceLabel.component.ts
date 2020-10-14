@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
-  templateUrl: './templateoption-announceLabel.component.html'
+  templateUrl: './templateoption-announceLabel.component.html',
 })
 export class TemplateOptionAnnounceLabel {
   form = new FormGroup({});
@@ -14,9 +14,8 @@ export class TemplateOptionAnnounceLabel {
       type: 'input',
       templateOptions: {
         label: 'Entity',
-        announceLabel: true
-     
-      }
-    }
+        announceLabel: true,
+      },
+    },
   ];
 }

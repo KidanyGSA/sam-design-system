@@ -7,7 +7,7 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import {
   DocumentationComponentsSharedModule,
-  DocumentationDemoList
+  DocumentationDemoList,
 } from '../shared/index';
 import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 import { TemplateOptionsBasicModule } from './demos/basic/templateoptions-basic.module';
@@ -27,35 +27,37 @@ const DEMOS = {
     type: TemplateOptionsBasic,
     code: require('!!raw-loader!./demos/basic/templateoptions-basic.component'),
     markup: require('!!raw-loader!./demos/basic/templateoptions-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/templateoptions/demos/basic'
+    path: 'libs/documentation/src/lib/components/templateoptions/demos/basic',
   },
   tags: {
     title: 'Template Options for tags',
     type: TemplateOptionsTags,
     code: require('!!raw-loader!./demos/tags/templateoption-tags.component'),
     markup: require('!!raw-loader!./demos/tags/templateoption-tags.component.html'),
-    path: 'libs/documentation/src/lib/components/templateoptions/demos/tags'
+    path: 'libs/documentation/src/lib/components/templateoptions/demos/tags',
   },
   hideOptional: {
     title: 'Template Options for hide (optional) text',
     type: TemplateOptionHideOptional,
     code: require('!!raw-loader!./demos/hideOptional/templateoption-hideOptional.component'),
     markup: require('!!raw-loader!./demos/hideOptional/templateoption-hideOptional.component.html'),
-    path: 'libs/documentation/src/lib/components/templateoptions/demos/hideOptional'
+    path:
+      'libs/documentation/src/lib/components/templateoptions/demos/hideOptional',
   },
   expand: {
     title: 'Template Options for expand',
     type: TemplateOptionExpand,
     code: require('!!raw-loader!./demos/expand/templateoption-expand.component'),
     markup: require('!!raw-loader!./demos/expand/templateoption-expand.component.html'),
-    path: 'libs/documentation/src/lib/components/templateoptions/demos/expand'
+    path: 'libs/documentation/src/lib/components/templateoptions/demos/expand',
   },
   announceLabel: {
     title: 'Template Options for announce label for screen reader',
     type: TemplateOptionAnnounceLabel,
     code: require('!!raw-loader!./demos/announceLabel/templateoption-announceLabel.component'),
     markup: require('!!raw-loader!./demos/announceLabel/templateoption-announceLabel.component.html'),
-    path: 'libs/documentation/src/lib/components/templateoptions/demos/announceLabel'
+    path:
+      'libs/documentation/src/lib/components/templateoptions/demos/announceLabel',
   },
 };
 
@@ -71,17 +73,17 @@ export const ROUTES = [
           pkg: 'formly',
           type: 'components',
           name: 'FormlyLabelWrapperComponent',
-          wrappers: ['templateoptions']
-        }
-      ]
+          wrappers: ['templateoptions'],
+        },
+      ],
     },
     children: [
       { path: 'examples', component: DocumentationExamplesPage },
       { path: 'api', component: DocumentationAPIPage },
       { path: 'source', component: DocumentationSourcePage },
-      { path: 'template', component: DocumentationTemplatePage }
-    ]
-  }
+      { path: 'template', component: DocumentationTemplatePage },
+    ],
+  },
 ];
 
 @NgModule({
@@ -92,8 +94,8 @@ export const ROUTES = [
     TemplateOptionsTagsModule,
     TemplateOptionsHideOptionalModule,
     TemplateOptionsExpandModule,
-    TemplateOptionsAnnounceLabelModule
-  ]
+    TemplateOptionsAnnounceLabelModule,
+  ],
 })
 export class TemplateOptionsModule {
   constructor(demoList: DocumentationDemoList) {

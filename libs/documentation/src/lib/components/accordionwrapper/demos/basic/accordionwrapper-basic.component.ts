@@ -4,9 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './accordionwrapper-basic.component.html',
-  styleUrls: ['./accordionwrapper-basic.component.scss']
+  styleUrls: ['./accordionwrapper-basic.component.scss'],
 })
-
 export class AccordionWrapperBasic {
   form = new FormGroup({});
   model: any = {};

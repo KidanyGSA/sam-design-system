@@ -7,7 +7,7 @@ import * as qs from 'qs';
  * @param {string} [to.announceLabel] For screenreader
  * @param {string} [to.label] Text to be shown for the label
  * @param {string} [to.hideLabel] Hide the label
- * 
+ *
  */
 @Component({
   template: `
@@ -51,7 +51,7 @@ import * as qs from 'qs';
         <ng-container #fieldComponent></ng-container>
       </ng-container>
     </ng-container>
-  `
+  `,
 })
 export class FormlyGroupWrapperComponent extends FieldWrapper {
   @ViewChild('fieldComponent', { read: ViewContainerRef })

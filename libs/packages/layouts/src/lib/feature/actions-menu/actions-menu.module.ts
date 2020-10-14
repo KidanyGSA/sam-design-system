@@ -9,6 +9,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   imports: [CommonModule, FontAwesomeModule, SdsMenuModule],
   exports: [SdsActionsMenuComponent],
   declarations: [SdsActionsMenuComponent],
-  providers: []
+  providers: [],
 })
 export class SdsActionsMenuModule {}

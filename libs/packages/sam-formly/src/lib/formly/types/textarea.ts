@@ -4,9 +4,14 @@ import { FieldType } from '@ngx-formly/core';
 @Component({
   selector: 'sds-formly-field-textarea',
   template: `
-    <textarea [formControl]="formControl" [cols]="to.cols"
-      [rows]="to.rows" class="usa-textarea" [class.usa-input--error]="showError"
-      [formlyAttributes]="field">
+    <textarea
+      [formControl]="formControl"
+      [cols]="to.cols"
+      [rows]="to.rows"
+      class="usa-textarea"
+      [class.usa-input--error]="showError"
+      [formlyAttributes]="field"
+    >
     </textarea>
   `,
 })

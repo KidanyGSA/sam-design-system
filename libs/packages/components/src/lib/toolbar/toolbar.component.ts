@@ -1,22 +1,22 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { coerceBooleanProperty } from "@angular/cdk/coercion";
-import { sdsToolbarAnimations } from "./toolbar-animations";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { sdsToolbarAnimations } from './toolbar-animations';
 
 /** Toolbar's states. */
-export type SdsToolbarState = "expanded" | "collapsed";
+export type SdsToolbarState = 'expanded' | 'collapsed';
 
 /** Counter for generating unique element ids. */
 let uniqueId = 0;
 
 @Component({
-  selector: "sds-toolbar",
-  exportAs: "sdsToolbar",
-  templateUrl: "toolbar.component.html",
+  selector: 'sds-toolbar',
+  exportAs: 'sdsToolbar',
+  templateUrl: 'toolbar.component.html',
   animations: [sdsToolbarAnimations.bodyExpansion],
   host: {
-    class: "sds-toolbar",
-    "[class.sds-toolbar--expanded]": "expanded"
-  }
+    class: 'sds-toolbar',
+    '[class.sds-toolbar--expanded]': 'expanded',
+  },
 })
 export class SdsToolbarComponent {
   /** The unique Toolbar id. */
@@ -60,11 +60,11 @@ export class SdsToolbarComponent {
   private _disabled: boolean = false;
 
   /** Width of the toolbar when is expanded. */
-  @Input() expandedWidth: string = "300px";
+  @Input() expandedWidth: string = '300px';
 
   // Elements that surround the toolbar need to make space for the expanded toolbar.
   // Adding 20 more pixes to provide padding
-  @Input() expandedSpace: string = "20px";
+  @Input() expandedSpace: string = '20px';
 
   /** Toggles the expanded state of the toolbar. */
   toggle() {
@@ -73,6 +73,6 @@ export class SdsToolbarComponent {
 
   /** Gets the expanded state string. */
   _getExpandedState(): SdsToolbarState {
-    return this.expanded ? "expanded" : "collapsed";
+    return this.expanded ? 'expanded' : 'collapsed';
   }
 }

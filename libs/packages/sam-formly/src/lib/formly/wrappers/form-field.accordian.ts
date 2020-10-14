@@ -4,7 +4,7 @@ import * as qs from 'qs';
 
 /**
  * @param {string} [to.expand] to expand the accordion
- * 
+ *
  */
 
 @Component({
@@ -19,7 +19,7 @@ import * as qs from 'qs';
         <ng-container #fieldComponent></ng-container>
       </sds-accordion-item>
     </sds-accordion>
-  `
+  `,
 })
 export class FormlyAccordianFormFieldComponent extends FieldWrapper {
   @ViewChild('fieldComponent', { read: ViewContainerRef })

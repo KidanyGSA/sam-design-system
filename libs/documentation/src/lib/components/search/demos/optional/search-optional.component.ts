@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: './search-optional.component.html'
+  templateUrl: './search-optional.component.html',
 })
 export class SearchOptional {
   ddmodel = {};
@@ -16,9 +16,9 @@ export class SearchOptional {
       options: [
         { value: '1', label: 'One' },
         { value: '2', label: 'Two' },
-        { value: '3', label: 'Three' }
-      ]
-    }
+        { value: '3', label: 'Three' },
+      ],
+    },
   };
 
   invDDSearchSettings = {
@@ -28,10 +28,10 @@ export class SearchOptional {
       options: [
         { value: '1', label: 'One' },
         { value: '2', label: 'Two' },
-        { value: '3', label: 'Three' }
+        { value: '3', label: 'Three' },
       ],
-      inverse: true
-    }
+      inverse: true,
+    },
   };
 
   bigddSearchSettings = {
@@ -42,9 +42,9 @@ export class SearchOptional {
       options: [
         { value: '1', label: 'One' },
         { value: '2', label: 'Two' },
-        { value: '3', label: 'Three' }
-      ]
-    }
+        { value: '3', label: 'Three' },
+      ],
+    },
   };
 
   biginvDDSearchSettings = {
@@ -53,10 +53,10 @@ export class SearchOptional {
       options: [
         { value: '1', label: 'One' },
         { value: '2', label: 'Two' },
-        { value: '3', label: 'Three' }
+        { value: '3', label: 'Three' },
       ],
-      inverse: true
+      inverse: true,
     },
-    size: 'large'
+    size: 'large',
   };
 }

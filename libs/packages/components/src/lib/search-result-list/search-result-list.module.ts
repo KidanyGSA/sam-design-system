@@ -6,12 +6,8 @@ import { SdsSearchResultListComponent } from './search-result-list.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
-  imports: [
-    CommonModule, FormsModule, FontAwesomeModule
-  ],
+  imports: [CommonModule, FormsModule, FontAwesomeModule],
   declarations: [SdsSearchResultListComponent],
-  exports: [SdsSearchResultListComponent]
+  exports: [SdsSearchResultListComponent],
 })
-export class SdsSearchResultListModule {
- 
- }
+export class SdsSearchResultListModule {}

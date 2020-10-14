@@ -4,9 +4,9 @@ import { OverviewComponent } from './overview.component';
 import { SdsDirectivesModule } from '@gsa-sam/components';
 
 @NgModule({
-  imports: [FontAwesomeModule, SdsDirectivesModule], 
+  imports: [FontAwesomeModule, SdsDirectivesModule],
   exports: [OverviewComponent],
   declarations: [OverviewComponent],
-  providers: []
+  providers: [],
 })
 export class OverviewModule {}

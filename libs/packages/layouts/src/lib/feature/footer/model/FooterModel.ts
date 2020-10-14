@@ -62,8 +62,8 @@ export interface FooterLogo {
   imageAltText: string;
 
   /**
-     * link 
-     */
+   * link
+   */
   href: string;
 
   agencyName: string;

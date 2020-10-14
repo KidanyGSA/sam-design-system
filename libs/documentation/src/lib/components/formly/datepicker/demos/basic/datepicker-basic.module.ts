@@ -9,10 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FormlyModule.forRoot()
+    FormlyModule.forRoot(),
   ],
   declarations: [FormlyDatepickerBasic],
   exports: [FormlyDatepickerBasic],
-  bootstrap: [FormlyDatepickerBasic]
+  bootstrap: [FormlyDatepickerBasic],
 })
 export class FormlyDatepickerBasicModule {}

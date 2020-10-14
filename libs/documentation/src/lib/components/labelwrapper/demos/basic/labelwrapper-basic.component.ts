@@ -3,9 +3,8 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './labelwrapper-basic.component.html'
+  templateUrl: './labelwrapper-basic.component.html',
 })
-
 export class LabelWrapperBasic {
   form = new FormGroup({});
   model: any = {};
@@ -17,7 +16,7 @@ export class LabelWrapperBasic {
       type: 'input',
       templateOptions: {
         label: 'Input',
-        placeholder: 'Placeholder'
+        placeholder: 'Placeholder',
       },
     },
   ];

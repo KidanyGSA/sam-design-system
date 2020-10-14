@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   SDS_DIALOG_SCROLL_STRATEGY_PROVIDER,
-  SdsDialogService
+  SdsDialogService,
 } from './dialog';
 import { SdsDialogContainerComponent } from './dialog-container.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -13,7 +13,7 @@ import {
   SdsDialogCloseDirective,
   SdsDialogContentDirective,
   SdsDialogTitleDirective,
-  SdsDialogSubtitleDirective
+  SdsDialogSubtitleDirective,
 } from './dialog-content.directives';
 
 @NgModule({
@@ -24,7 +24,7 @@ import {
     SdsDialogTitleDirective,
     SdsDialogSubtitleDirective,
     SdsDialogContentDirective,
-    SdsDialogActionsDirective
+    SdsDialogActionsDirective,
   ],
   declarations: [
     SdsDialogContainerComponent,
@@ -32,9 +32,9 @@ import {
     SdsDialogTitleDirective,
     SdsDialogSubtitleDirective,
     SdsDialogActionsDirective,
-    SdsDialogContentDirective
+    SdsDialogContentDirective,
   ],
   providers: [SdsDialogService, SDS_DIALOG_SCROLL_STRATEGY_PROVIDER],
-  entryComponents: [SdsDialogContainerComponent]
+  entryComponents: [SdsDialogContainerComponent],
 })
 export class SdsDialogModule {}

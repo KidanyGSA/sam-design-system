@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 class TestComponent {
   inputState = {
     initial: { visible: undefined },
-    visible: undefined
+    visible: undefined,
   };
 }
 
@@ -19,7 +19,7 @@ describe('SearchComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SdsSearchComponent],
-      providers: [FocusMonitor, ViewportRuler]
+      providers: [FocusMonitor, ViewportRuler],
     }).compileComponents();
   }));
 
@@ -35,14 +35,14 @@ describe('SearchComponent', () => {
     component.searchSettings.dropdown.options = [
       { label: '30 Days', value: '30' },
       { label: '60 Days', value: '60' },
-      { label: '90 Days', value: '90' }
+      { label: '90 Days', value: '90' },
     ];
 
     expect(component.inputEl.nativeElement.value).toBe('test');
   });
 
   it('should implement controlvalueaccessor with default values', () => {
-    component.registerOnChange(_ => undefined);
+    component.registerOnChange((_) => undefined);
     component.registerOnTouched(() => undefined);
     component.writeValue({ searchText: 'aaa', searchCategory: '30' });
     expect(component.model.searchText).toBe('aaa');
@@ -50,7 +50,7 @@ describe('SearchComponent', () => {
 
   it('should implement controlvalueaccessor with empty', () => {
     component.model = {};
-    component.registerOnChange(_ => undefined);
+    component.registerOnChange((_) => undefined);
     component.registerOnTouched(() => undefined);
     component.writeValue(component.model);
     expect(component.model.searchText).toBe(undefined);
@@ -58,7 +58,7 @@ describe('SearchComponent', () => {
 
   it('Should update the model value on click event', () => {
     const event = {
-      preventDefault: () => {}
+      preventDefault: () => {},
     };
     const input = fixture.debugElement.query(By.css('.usa-input'));
     input.nativeElement.value = 'test';

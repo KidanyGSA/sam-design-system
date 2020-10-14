@@ -5,12 +5,12 @@ import { AutocompleteSampleDataService } from '../../services/autocomplete-sampl
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 
 @Component({
   templateUrl: './autocomplete-freetext.component.html',
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
 export class FormlyAutocompleteFreetext {
   results: any;
@@ -33,11 +33,11 @@ export class FormlyAutocompleteFreetext {
             hideLabel: true,
             service: this.service,
             configuration: this.settings,
-            model: this.autocompleteModel
-          }
-        }
-      ]
-    }
+            model: this.autocompleteModel,
+          },
+        },
+      ],
+    },
   ];
 
   constructor(public service: AutocompleteSampleDataService) {

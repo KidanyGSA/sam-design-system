@@ -1,5 +1,11 @@
 /* tslint:disable */
-import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import {
+  async,
+  ComponentFixture,
+  TestBed,
+  fakeAsync,
+  tick,
+} from '@angular/core/testing';
 import { SDSAutocompleteComponent } from './autocomplete.component';
 import { AutoCompleteSampleDataService } from '../autocomplete-search/autocomplete-seach-test-service.spec';
 import { SDSAutocompletelConfiguration } from './models/SDSAutocompletelConfiguration.model';
@@ -9,7 +15,6 @@ import { SelectionMode } from '../selected-result/models/sds-selected-item-model
 import { SdsSelectedResultsModule } from '../selected-result/selected-result.module';
 import { SdsAutocompleteSearchModule } from '../autocomplete-search/autocomplete-search.module';
 
-
 describe('SDSAutocompleteComponent', () => {
   let component: SDSAutocompleteComponent;
   let fixture: ComponentFixture<SDSAutocompleteComponent>;
@@ -17,9 +22,12 @@ describe('SDSAutocompleteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SDSAutocompleteComponent],
-      imports: [FormsModule, SdsSelectedResultsModule, SdsAutocompleteSearchModule]
-    })
-      .compileComponents();
+      imports: [
+        FormsModule,
+        SdsSelectedResultsModule,
+        SdsAutocompleteSearchModule,
+      ],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -42,7 +50,6 @@ describe('SDSAutocompleteComponent', () => {
     expect(component).toBeTruthy();
   });
 
-
   it('should handle modes', () => {
     expect(component.isSingleMode()).toBeTruthy();
     component.configuration.selectionMode = SelectionMode.MULTIPLE;
@@ -52,7 +59,6 @@ describe('SDSAutocompleteComponent', () => {
   });
 
   it('should handle writeValue', () => {
-
     // Set by Array
     const myItems = { test: '123' };
     component.writeValue([myItems]);
@@ -77,7 +83,7 @@ describe('SDSAutocompleteComponent', () => {
     expect(component.model.items).toEqual([]);
 
     // Pass empty string
-    component.writeValue("");
+    component.writeValue('');
     expect(component.model.items).toEqual([]);
   });
 
@@ -88,8 +94,6 @@ describe('SDSAutocompleteComponent', () => {
     component.setDisabledState(false);
     expect(component.disabled).toBeFalsy();
   });
-
-
 
   it('should handle registerOnChange', () => {
     let item = {};
@@ -102,5 +106,4 @@ describe('SDSAutocompleteComponent', () => {
     component.registerOnTouched(item);
     expect(component.onTouched).toBe(item);
   });
-
 });

@@ -1,15 +1,15 @@
-import { Directive, ElementRef, Input, Renderer2, OnInit } from "@angular/core";
-import { SdsToolbarComponent } from "./toolbar.component";
+import { Directive, ElementRef, Input, Renderer2, OnInit } from '@angular/core';
+import { SdsToolbarComponent } from './toolbar.component';
 
 @Directive({
-  selector: "[sdsToolbarExpand]"
+  selector: '[sdsToolbarExpand]',
 })
 export class SdsToolbarExpandDirective implements OnInit {
   /** Width of the toolbar while expanded. */
   _expandedWidth: string;
 
   /** References the toolbar instance that the element its associated with. */
-  @Input("sdsToolbarExpand")
+  @Input('sdsToolbarExpand')
   get toolbar() {
     return this._toolbar;
   }
@@ -24,20 +24,23 @@ export class SdsToolbarExpandDirective implements OnInit {
   }
   private _toolbar: SdsToolbarComponent;
 
-  constructor(private renderer: Renderer2, private _element: ElementRef) { }
+  constructor(private renderer: Renderer2, private _element: ElementRef) {}
   ngOnInit() {
     this.setStyle(this.toolbar.expanded);
-    this.toolbar.expandedChange.subscribe(value => {
+    this.toolbar.expandedChange.subscribe((value) => {
       this.setStyle(value);
     });
   }
 
   private setStyle(value: any) {
     if (value) {
-      this.renderer.setStyle(this._element.nativeElement, "margin-left", `${this._expandedWidth}`);
-    }
-    else {
-      this.renderer.removeStyle(this._element.nativeElement, "margin-left");
+      this.renderer.setStyle(
+        this._element.nativeElement,
+        'margin-left',
+        `${this._expandedWidth}`
+      );
+    } else {
+      this.renderer.removeStyle(this._element.nativeElement, 'margin-left');
     }
   }
 }

@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 import { AutocompleteSampleDataService } from './service/autocomplete-sample.service';
 
 @Component({
   templateUrl: './autocomplete-selectgroup.component.html',
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
 export class AutocompleteSelectGroup {
   public settings = new SDSAutocompletelConfiguration();

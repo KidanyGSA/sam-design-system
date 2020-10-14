@@ -6,13 +6,13 @@ import { AutocompleteSampleDataService } from '../../services/autocomplete-sampl
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 import { SampleAutocompleteData } from '../../services/autocomplete-sample.data';
 
 @Component({
   templateUrl: './autocomplete-disable.component.html',
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
 export class FormlyAutocompleteDisable {
   results: any;
@@ -20,8 +20,8 @@ export class FormlyAutocompleteDisable {
   model = {
     filters: {
       agency: [],
-      items: []
-    }
+      items: [],
+    },
   };
   options: FormlyFormOptions = {};
   public settings = new SDSAutocompletelConfiguration();
@@ -44,8 +44,8 @@ export class FormlyAutocompleteDisable {
             disabled: true,
             service: this.service,
             configuration: this.settings,
-            model: this.autocompleteModel
-          }
+            model: this.autocompleteModel,
+          },
         },
         {
           key: 'agency',
@@ -55,11 +55,11 @@ export class FormlyAutocompleteDisable {
             disabled: true,
             service: this.service,
             configuration: this.multipleSettings,
-            model: this.autocompleteModel
-          }
-        }
-      ]
-    }
+            model: this.autocompleteModel,
+          },
+        },
+      ],
+    },
   ];
 
   constructor(public service: AutocompleteSampleDataService) {

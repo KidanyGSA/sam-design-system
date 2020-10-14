@@ -7,6 +7,6 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, SdsHeaderModule],
   declarations: [HeaderBasic],
   exports: [HeaderBasic],
-  bootstrap: [HeaderBasic]
+  bootstrap: [HeaderBasic],
 })
 export class HeaderBasicModule {}

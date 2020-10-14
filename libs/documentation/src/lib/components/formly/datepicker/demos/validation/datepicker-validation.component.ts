@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './datepicker-validation.component.html'
+  templateUrl: './datepicker-validation.component.html',
 })
 export class FormlyDatepickerValidation {
   results: any = {};
@@ -20,9 +20,8 @@ export class FormlyDatepickerValidation {
       templateOptions: {
         label: 'Expiration Date (Min only Validation)',
         minDate: new Date(2019, 6, 5),
-       
-      }
-    }
+      },
+    },
   ];
 
   maxDateFields: FormlyFieldConfig[] = [
@@ -32,9 +31,9 @@ export class FormlyDatepickerValidation {
       templateOptions: {
         label: 'Expiration Date (Max only Validation)',
         required: true,
-        maxDate: new Date(2020, 11, 25)
-      }
-    }
+        maxDate: new Date(2020, 11, 25),
+      },
+    },
   ];
 
   minmaxDateFields: FormlyFieldConfig[] = [
@@ -44,8 +43,8 @@ export class FormlyDatepickerValidation {
       templateOptions: {
         label: 'Expiration Date (Min & Max only Validation)',
         minDate: new Date(2019, 9, 5),
-        maxDate: new Date(2020, 10, 15)
-      }
-    }
+        maxDate: new Date(2020, 10, 15),
+      },
+    },
   ];
 }

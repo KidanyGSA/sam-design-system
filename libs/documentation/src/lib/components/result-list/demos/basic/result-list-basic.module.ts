@@ -15,9 +15,9 @@ import { ResultListBasic } from './result-list-basic.component';
     FormsModule,
     SdsPageModule,
     SdsSearchResultListModule,
-    SdsActionsMenuModule
+    SdsActionsMenuModule,
   ],
   exports: [ResultListBasic],
-  bootstrap: [ResultListBasic]
+  bootstrap: [ResultListBasic],
 })
 export class ResultListBasicModule {}

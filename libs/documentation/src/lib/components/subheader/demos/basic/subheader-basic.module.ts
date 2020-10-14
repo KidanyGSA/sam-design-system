@@ -7,10 +7,7 @@ import { SdsSearchModule, SdsDialogModule } from '@gsa-sam/components';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
-import {
-  SdsFormlyModule,
-  SdsFormlyDialogModule
-} from '@gsa-sam/sam-formly';
+import { SdsFormlyModule, SdsFormlyDialogModule } from '@gsa-sam/sam-formly';
 
 @NgModule({
   imports: [
@@ -23,10 +20,10 @@ import {
     ReactiveFormsModule,
     SdsFormlyModule,
     FormlyModule,
-    FormlyModule
+    FormlyModule,
   ],
   declarations: [SubHeaderBasic],
   exports: [SubHeaderBasic],
-  bootstrap: [SubHeaderBasic]
+  bootstrap: [SubHeaderBasic],
 })
 export class SubHeaderBasicModule {}

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import {
   SdsAccordionModule,
   SdsToolbarModule,
-  SdsSideNavigationModule
+  SdsSideNavigationModule,
 } from '@gsa-sam/components';
 
 import { CommonModule } from '@angular/common';
@@ -20,10 +20,10 @@ import { FormlyModule } from '@ngx-formly/core';
     FormsModule,
     SdsToolbarModule,
     SdsFiltersModule,
-    FormlyModule.forRoot()
+    FormlyModule.forRoot(),
   ],
   exports: [SideNavigationOptional],
   declarations: [SideNavigationOptional],
-  bootstrap: [SideNavigationOptional]
+  bootstrap: [SideNavigationOptional],
 })
 export class SideNavigationOptionalModule {}

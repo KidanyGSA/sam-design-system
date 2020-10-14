@@ -9,10 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    FormlyModule.forRoot()
+    FormlyModule.forRoot(),
   ],
   declarations: [TemplateOptionsTags],
   exports: [TemplateOptionsTags],
-  bootstrap: [TemplateOptionsTags]
+  bootstrap: [TemplateOptionsTags],
 })
 export class TemplateOptionsTagsModule {}

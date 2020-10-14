@@ -14,9 +14,9 @@ import { SdsAccordionModule } from '@gsa-sam/components';
     SdsAccordionModule,
     SdsFiltersModule,
     FormlyModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [FiltersHideExpression],
-  bootstrap: [FiltersHideExpression]
+  bootstrap: [FiltersHideExpression],
 })
 export class FiltersHideExpressionModule {}

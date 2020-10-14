@@ -11,8 +11,8 @@ import { SdsToolbarExpandDirective } from './toolbar-expand.directive';
   declarations: [
     SdsToolbarComponent,
     SdsToolbarHeaderComponent,
-    SdsToolbarExpandDirective
+    SdsToolbarExpandDirective,
   ],
-  providers: []
+  providers: [],
 })
 export class SdsToolbarModule {}

@@ -6,13 +6,13 @@ import { AutocompleteSampleDataService } from '../../services/autocomplete-sampl
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
-  SelectionMode
+  SelectionMode,
 } from '@gsa-sam/components';
 import { SampleAutocompleteData } from '../../services/autocomplete-sample.data';
 
 @Component({
   templateUrl: './autocomplete-validation.component.html',
-  providers: [AutocompleteSampleDataService]
+  providers: [AutocompleteSampleDataService],
 })
 export class FormlyAutocompleteValidation {
   results: any;
@@ -20,8 +20,8 @@ export class FormlyAutocompleteValidation {
   model = {
     filters: {
       agency: [],
-      items: []
-    }
+      items: [],
+    },
   };
   options: FormlyFormOptions = {};
   public settings = new SDSAutocompletelConfiguration();
@@ -43,8 +43,8 @@ export class FormlyAutocompleteValidation {
             service: this.service,
             required: true,
             configuration: this.settings,
-            model: this.autocompleteModel
-          }
+            model: this.autocompleteModel,
+          },
         },
         {
           key: 'agency',
@@ -54,11 +54,11 @@ export class FormlyAutocompleteValidation {
             service: this.service,
             required: true,
             configuration: this.multipleSettings,
-            model: this.autocompleteModel
-          }
-        }
-      ]
-    }
+            model: this.autocompleteModel,
+          },
+        },
+      ],
+    },
   ];
 
   constructor(public service: AutocompleteSampleDataService) {

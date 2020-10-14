@@ -9,7 +9,10 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { sds } from '@gsa-sam/sam-styles/src/icons/';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { MarkdownModule } from 'ngx-markdown';
-import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import {
+  FontAwesomeModule,
+  FaIconLibrary,
+} from '@fortawesome/angular-fontawesome';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import xml from 'highlight.js/lib/languages/xml';
 import scss from 'highlight.js/lib/languages/scss';
@@ -19,7 +22,7 @@ export function hljsLanguages() {
   return [
     { name: 'typescript', func: typescript },
     { name: 'scss', func: scss },
-    { name: 'xml', func: xml }
+    { name: 'xml', func: xml },
   ];
 }
 
@@ -31,7 +34,7 @@ export function hljsLanguages() {
     FontAwesomeModule,
     RouterModule.forRoot(ROUTES, { scrollPositionRestoration: 'enabled' }),
     FormsModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
@@ -39,9 +42,10 @@ export function hljsLanguages() {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
         languages: hljsLanguages,
-      }
-    }],
-  bootstrap: [AppComponent]
+      },
+    },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {

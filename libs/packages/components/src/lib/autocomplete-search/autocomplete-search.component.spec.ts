@@ -4,7 +4,7 @@ import {
   ComponentFixture,
   TestBed,
   fakeAsync,
-  tick
+  tick,
 } from '@angular/core/testing';
 import { SDSAutocompleteSearchComponent } from './autocomplete-search.component';
 import { SDSAutocompleteSearchConfiguration } from './models/SDSAutocompleteConfiguration';
@@ -22,7 +22,7 @@ describe('SamAutocompleteComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [SDSAutocompleteSearchComponent],
-      imports: [FormsModule, FontAwesomeModule]
+      imports: [FormsModule, FontAwesomeModule],
     }).compileComponents();
   }));
 
@@ -74,7 +74,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should have empty results with invalid search', fakeAsync(() => {
     const event = {
       preventDefault: () => {},
-      target: component.input.nativeElement
+      target: component.input.nativeElement,
     };
     component.input.nativeElement.value = 'search';
     component.input.nativeElement.focus();
@@ -91,7 +91,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should have results with minimumCharacterCountSearch', fakeAsync(() => {
     const event = {
       preventDefault: () => {},
-      target: component.input.nativeElement
+      target: component.input.nativeElement,
     };
     component.input.nativeElement.value = 'R';
     component.input.nativeElement.focus();
@@ -107,7 +107,7 @@ describe('SamAutocompleteComponent', () => {
     component.inputValue = 'search text';
     const event = {
       key: 'Enter',
-      target: { value: component.inputValue }
+      target: { value: component.inputValue },
     };
     component.configuration.isFreeTextEnabled = true;
     component.highlightedIndex = -1;
@@ -121,7 +121,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should have results key press', fakeAsync(() => {
     const event = {
       preventDefault: () => {},
-      target: component.input.nativeElement
+      target: component.input.nativeElement,
     };
     component.input.nativeElement.value = 'Formu';
     component.input.nativeElement.focus();
@@ -139,7 +139,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should not highlight first result if free text is on', fakeAsync(() => {
     const event = {
       preventDefault: () => {},
-      target: component.input.nativeElement
+      target: component.input.nativeElement,
     };
     component.configuration.isFreeTextEnabled = true;
     component.input.nativeElement.value = 'id';
@@ -156,7 +156,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should have empty results key press minimumCharacterCountSearch', fakeAsync(() => {
     const event = {
       key: 'd',
-      target: { value: 'id' }
+      target: { value: 'id' },
     };
     component.configuration.minimumCharacterCountSearch = 3;
     component.onKeydown(event);
@@ -195,7 +195,7 @@ describe('SamAutocompleteComponent', () => {
     const downEvent = {
       key: 'Down',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.onKeydown(downEvent);
     tick();
@@ -207,7 +207,7 @@ describe('SamAutocompleteComponent', () => {
     const upEvent = {
       key: 'Up',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.onKeydown(upEvent);
     tick();
@@ -228,7 +228,7 @@ describe('SamAutocompleteComponent', () => {
     const downEvent = {
       key: 'Up',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.onKeydown(downEvent);
     tick();
@@ -260,7 +260,7 @@ describe('SamAutocompleteComponent', () => {
     const downEvent = {
       key: 'Down',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.onKeydown(downEvent);
     tick();
@@ -281,7 +281,7 @@ describe('SamAutocompleteComponent', () => {
     const downEvent = {
       key: 'Down',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.onKeydown(downEvent);
     tick();
@@ -292,7 +292,7 @@ describe('SamAutocompleteComponent', () => {
     const upEvent = {
       key: 'Up',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.highlightedChildIndex = 3;
     component.onKeydown(upEvent);
@@ -312,7 +312,7 @@ describe('SamAutocompleteComponent', () => {
     const upEvent = {
       key: 'Up',
       target: { value: 'id' },
-      preventDefault: () => true
+      preventDefault: () => true,
     };
     component.onKeydown(upEvent);
     tick();
@@ -333,7 +333,7 @@ describe('SamAutocompleteComponent', () => {
     const upEvent = {
       key: 'Down',
       target: { value: 'id' },
-      preventDefault: jasmine.createSpy()
+      preventDefault: jasmine.createSpy(),
     };
     component.onKeydown(upEvent);
     tick();
@@ -345,7 +345,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should have delete have results', fakeAsync(() => {
     const event = {
       preventDefault: () => {},
-      target: component.input.nativeElement
+      target: component.input.nativeElement,
     };
     component.input.nativeElement.value = 'id';
     component.input.nativeElement.focus();
@@ -365,7 +365,7 @@ describe('SamAutocompleteComponent', () => {
     expect(listBefore.nativeElement.children.length).toBe(16);
     const event = {
       key: 'Escape',
-      target: { value: 'id' }
+      target: { value: 'id' },
     };
     component.onKeydown(event);
     fixture.detectChanges();
@@ -395,7 +395,7 @@ describe('SamAutocompleteComponent', () => {
     expect(component.results[0]['highlighted']).toBeTruthy();
     const event = {
       key: 'Enter',
-      target: { value: 'id' }
+      target: { value: 'id' },
     };
     component.onKeydown(event);
     fixture.detectChanges();
@@ -413,7 +413,7 @@ describe('SamAutocompleteComponent', () => {
     const list = fixture.debugElement.query(By.css('.sds-autocomplete'));
     const event = {
       key: 'Enter',
-      target: { value: 'id' }
+      target: { value: 'id' },
     };
     component.onKeydown(event);
     fixture.detectChanges();
@@ -451,8 +451,8 @@ describe('SamAutocompleteComponent', () => {
     model.items = [
       {
         id: 'aaa',
-        value: 'bbb'
-      }
+        value: 'bbb',
+      },
     ];
     component.configuration.selectionMode = SelectionMode.SINGLE;
     component.configuration.primaryTextField = 'value';
@@ -514,7 +514,7 @@ describe('SamAutocompleteComponent', () => {
     component.inputValue = 'searchtext';
     const event = {
       key: 'Enter',
-      target: { value: component.inputValue }
+      target: { value: component.inputValue },
     };
     component.onKeydown(event);
     fixture.detectChanges();
@@ -526,7 +526,7 @@ describe('SamAutocompleteComponent', () => {
   it('Should have input read only', fakeAsync(() => {
     component.configuration.inputReadOnly = true;
     const event = {
-      key: 'a'
+      key: 'a',
     };
     component.onkeypress(event);
     fixture.detectChanges();
@@ -544,8 +544,8 @@ describe('SamAutocompleteComponent', () => {
       key: 'Backspace',
       preventDefault: () => {},
       target: {
-        value: component.inputValue
-      }
+        value: component.inputValue,
+      },
     };
     component.onKeydown(event);
     fixture.detectChanges();
@@ -560,7 +560,7 @@ describe('SamAutocompleteComponent', () => {
     component.inputValue = 'a';
     const event = {
       key: 'a',
-      target: { value: component.inputValue }
+      target: { value: component.inputValue },
     };
     component.onkeypress(event);
     fixture.detectChanges();
