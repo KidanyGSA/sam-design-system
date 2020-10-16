@@ -8,7 +8,7 @@ import {
   ElementRef,
 } from '@angular/core';
 import { SdsDialog } from './dialog';
-import { _closeDialogVia, SdsDialogRef } from './dialog-ref';
+import { SdsDialogRef } from './dialog-ref';
 
 /** Counter used to generate unique IDs for dialog elements. */
 let dialogElementUid = 0;
@@ -17,20 +17,18 @@ let dialogElementUid = 0;
  * Button that will close the current dialog.
  */
 @Directive({
-  selector: '[sds-dialog-close], [sdsDialogClose]',
+  selector: `button[sds-dialog-close], button[sdsDialogClose]`,
   exportAs: 'sdsDialogClose',
+  // tslint:disable-next-line: use-host-property-decorator
   host: {
-    '(click)': '_onButtonClick($event)',
+    '(click)': 'dialogRef.close(dialogResult)',
     '[attr.aria-label]': 'ariaLabel || null',
-    '[attr.type]': 'type',
+    'type': 'button', // Prevents accidental form submits.
   }
 })
 export class SdsDialogClose implements OnInit, OnChanges {
   /** Screenreader label for the button. */
   @Input('aria-label') ariaLabel: string;
-
-  /** Default to "button" to prevents accidental form submits. */
-  @Input() type: 'submit' | 'button' | 'reset' = 'button';
 
   /** Dialog close input. */
   @Input('sds-dialog-close') dialogResult: any;
@@ -38,8 +36,6 @@ export class SdsDialogClose implements OnInit, OnChanges {
   @Input('sdsDialogClose') _sdsDialogClose: any;
 
   constructor(
-    // The dialog title directive is always used in combination with a `MatDialogRef`.
-    // tslint:disable-next-line: lightweight-tokens
     @Optional() public dialogRef: SdsDialogRef<any>,
     private _elementRef: ElementRef<HTMLElement>,
     private _dialog: SdsDialog) { }
@@ -62,15 +58,6 @@ export class SdsDialogClose implements OnInit, OnChanges {
       this.dialogResult = proxiedChange.currentValue;
     }
   }
-
-  _onButtonClick(event: MouseEvent) {
-    // Determinate the focus origin using the click event, because using the FocusMonitor will
-    // result in incorrect origins. Most of the time, close buttons will be auto focused in the
-    // dialog, and therefore clicking the button won't result in a focus change. This means that
-    // the FocusMonitor won't detect any origin change, and will always output `program`.
-    _closeDialogVia(this.dialogRef,
-      event.screenX === 0 && event.screenY === 0 ? 'keyboard' : 'mouse', this.dialogResult);
-  }
 }
 
 /**
@@ -79,17 +66,16 @@ export class SdsDialogClose implements OnInit, OnChanges {
 @Directive({
   selector: '[sds-dialog-title], [sdsDialogTitle]',
   exportAs: 'sdsDialogTitle',
+  // tslint:disable-next-line: use-host-property-decorator
   host: {
-    'class': 'sds-dialog-title',
+    '[class.sds-dialog-title]': 'true',
     '[id]': 'id',
   },
 })
 export class SdsDialogTitle implements OnInit {
-  @Input() id: string = `sds-dialog-title-${dialogElementUid++}`;
+  @Input() id = `sds-dialog-title-${dialogElementUid++}`;
 
   constructor(
-    // The dialog title directive is always used in combination with a `MatDialogRef`.
-    // tslint:disable-next-line: lightweight-tokens
     @Optional() private _dialogRef: SdsDialogRef<any>,
     private _elementRef: ElementRef<HTMLElement>,
     private _dialog: SdsDialog) { }
@@ -111,13 +97,24 @@ export class SdsDialogTitle implements OnInit {
   }
 }
 
+/**
+ * SubTitle of a dialog element
+ */
+@Directive({
+  selector: `[sds-dialog-subtitle], sds-dialog-subtitle, [sdsDialogSubtitle]`,
+  // tslint:disable-next-line: use-host-property-decorator
+  host: { '[class.sds-dialog-subtitle]': 'true' }
+})
+export class SdsDialogSubtitle { }
+
 
 /**
  * Scrollable content container of a dialog.
  */
 @Directive({
   selector: `[sds-dialog-content], sds-dialog-content, [sdsDialogContent]`,
-  host: { 'class': 'sds-dialog-content' }
+  // tslint:disable-next-line: use-host-property-decorator
+  host: { '[class.sds-dialog-content]': 'true' }
 })
 export class SdsDialogContent { }
 
@@ -128,20 +125,21 @@ export class SdsDialogContent { }
  */
 @Directive({
   selector: `[sds-dialog-actions], sds-dialog-actions, [sdsDialogActions]`,
-  host: { 'class': 'sds-dialog-actions' }
+  // tslint:disable-next-line: use-host-property-decorator
+  host: { '[class.sds-dialog-actions]': 'true' }
 })
 export class SdsDialogActions { }
 
 
 /**
- * Finds the closest MatDialogRef to an element by looking at the DOM.
+ * Finds the closest SdsDialogRef to an element by looking at the DOM.
  * @param element Element relative to which to look for a dialog.
  * @param openDialogs References to the currently-open dialogs.
  */
 function getClosestDialog(element: ElementRef<HTMLElement>, openDialogs: SdsDialogRef<any>[]) {
   let parent: HTMLElement | null = element.nativeElement.parentElement;
 
-  while (parent && !parent.classList.contains('sds-dialog-container')) {
+  while (parent && !parent.classList.contains('sds-dialog__container')) {
     parent = parent.parentElement;
   }
 

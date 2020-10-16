@@ -13,7 +13,7 @@ import {
   SdsDialogClose,
   SdsDialogContent,
   SdsDialogTitle,
-  // SdsDialogSubtitle
+  SdsDialogSubtitle
 } from './dialog-content.directives';
 
 @NgModule({
@@ -24,13 +24,13 @@ import {
     SdsDialogClose,
     SdsDialogContent,
     SdsDialogTitle,
-    // SdsDialogSubtitle
+    SdsDialogSubtitle
   ],
   declarations: [
     SdsDialogContainer,
     SdsDialogClose,
     SdsDialogTitle,
-    //SdsDialogSubtitle,
+    SdsDialogSubtitle,
     SdsDialogActions,
     SdsDialogContent
   ],
