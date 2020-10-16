@@ -1,6 +1,6 @@
-import {ViewContainerRef} from '@angular/core';
-import {Direction} from '@angular/cdk/bidi';
-import {ScrollStrategy} from '@angular/cdk/overlay';
+import { ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { Direction } from '@angular/cdk/bidi';
+import { ScrollStrategy } from '@angular/cdk/overlay';
 
 /** Valid ARIA roles for a dialog element. */
 export type DialogRole = 'dialog' | 'alertdialog';
@@ -43,30 +43,30 @@ export class SdsDialogConfig<D = any> {
   panelClass?: string | string[] = '';
 
   /** Whether the dialog has a backdrop. */
-  hasBackdrop? = true;
+  hasBackdrop?: boolean = true;
 
-  /** Custom class for the backdrop, */
-  backdropClass? = '';
+  /** Custom class for the backdrop. */
+  backdropClass?: string | string[] = '';
 
   /** Whether the user can use escape or clicking on the backdrop to close the modal. */
-  disableClose? = false;
+  disableClose?: boolean = false;
 
   /** Width of the dialog. */
-  width? = '';
+  width?: string = '';
 
   /** Height of the dialog. */
-  height? = '';
+  height?: string = '';
 
-  /** Min-width of the dialog. If a number is provided, pixel units are assumed. */
+  /** Min-width of the dialog. If a number is provided, assumes pixel units. */
   minWidth?: number | string;
 
-  /** Min-height of the dialog. If a number is provided, pixel units are assumed. */
+  /** Min-height of the dialog. If a number is provided, assumes pixel units. */
   minHeight?: number | string;
 
-  /** Max-width of the dialog. If a number is provided, pixel units are assumed. Defaults to 80vw */
+  /** Max-width of the dialog. If a number is provided, assumes pixel units. Defaults to 80vw. */
   maxWidth?: number | string = '80vw';
 
-  /** Max-height of the dialog. If a number is provided, pixel units are assumed. */
+  /** Max-height of the dialog. If a number is provided, assumes pixel units. */
   maxHeight?: number | string;
 
   /** Position overrides. */
@@ -81,17 +81,20 @@ export class SdsDialogConfig<D = any> {
   /** ID of the element that describes the dialog. */
   ariaDescribedBy?: string | null = null;
 
-  /** Aria label to assign to the dialog element */
+  /** ID of the element that labels the dialog. */
+  ariaLabelledBy?: string | null = null;
+
+  /** Aria label to assign to the dialog element. */
   ariaLabel?: string | null = null;
 
   /** Whether the dialog should focus the first focusable element on open. */
-  autoFocus? = true;
+  autoFocus?: boolean = true;
 
   /**
    * Whether the dialog should restore focus to the
    * previously-focused element, after it's closed.
    */
-  restoreFocus? = true;
+  restoreFocus?: boolean = true;
 
   /** Scroll strategy to be used for the dialog. */
   scrollStrategy?: ScrollStrategy;
@@ -101,10 +104,10 @@ export class SdsDialogConfig<D = any> {
    * Note that this usually doesn't include clicking on links (unless the user is using
    * the `HashLocationStrategy`).
    */
-  closeOnNavigation? = true;
+  closeOnNavigation?: boolean = true;
 
-  /**
-   * Wheter the dialog its an alert
-   */
-  alert?: 'warning' | 'info' | 'error';
+  /** Alternate `ComponentFactoryResolver` to use when resolving the associated component. */
+  componentFactoryResolver?: ComponentFactoryResolver;
+
+  // TODO(jelbourn): add configuration for lifecycle hooks, ARIA labelling.
 }

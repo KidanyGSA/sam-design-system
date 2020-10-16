@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { SdsDialogService } from '@gsa-sam/components';
+import { SdsDialog } from '@gsa-sam/components';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 
 import { SdsAdvancedFiltersService } from './sds-advanced-filters.service';
@@ -34,9 +34,9 @@ export class AdvancedFiltersComponent {
   @Input() public options: FormlyFormOptions = {};
 
   constructor(
-    public dialog: SdsDialogService,
+    public dialog: SdsDialog,
     private advancedFiltersService: SdsAdvancedFiltersService
-  ) {}
+  ) { }
 
   openDialog(): void {
     const modalFields: FormlyFieldConfig[] = this.advancedFiltersService.convertToCheckboxes(

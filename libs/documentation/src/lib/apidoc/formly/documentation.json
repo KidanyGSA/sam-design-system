@@ -538,7 +538,7 @@
             "propertiesClass": [
                 {
                     "name": "dialog",
-                    "type": "SdsDialogService",
+                    "type": "SdsDialog",
                     "optional": false,
                     "description": "",
                     "line": 37,
@@ -562,7 +562,7 @@
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\nimport { SdsDialogService } from '@gsa-sam/components';\nimport { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';\n\nimport { SdsAdvancedFiltersService } from './sds-advanced-filters.service';\nimport { SdsFormlyDialogData } from '../../formly-dialog/formly-dialog-data.model';\nimport { SdsFormlyDialogComponent } from '../../formly-dialog/formly-dialog.component';\n\n@Component({\n  selector: 'sds-advanced-filters',\n  templateUrl: './advanced-filters.component.html',\n  styleUrls: ['./advanced-filters.component.scss']\n})\nexport class AdvancedFiltersComponent {\n  /**\n   * Pass in a Form Group for ReactiveForms Support\n   */\n  @Input() public form: FormGroup;\n\n  /**\n   *  Fields are used to configure the UI components\n   */\n  @Input() public fields: FormlyFieldConfig[];\n\n  /**\n   *  Model used to display the filter values.\n   */\n  @Input() public model: any;\n\n  /**\n   *    Options for the form.\n   */\n  @Input() public options: FormlyFormOptions = {};\n\n  constructor(\n    public dialog: SdsDialogService,\n    private advancedFiltersService: SdsAdvancedFiltersService\n  ) {}\n\n  openDialog(): void {\n    const modalFields: FormlyFieldConfig[] = this.advancedFiltersService.convertToCheckboxes(\n      this.fields\n    );\n\n    const data: SdsFormlyDialogData = {\n      fields: modalFields,\n      submit: 'Update',\n      title: 'More Filters'\n    };\n\n    const dialogRef = this.dialog.open(SdsFormlyDialogComponent, {\n      width: 'medium',\n      data: data\n    });\n\n    dialogRef.afterClosed().subscribe(result => {\n      if (result) {\n        const response = this.advancedFiltersService.updateFields(\n          result,\n          this.fields,\n          this.model\n        );\n\n        this.fields = response.fields;\n        this.model = response.model;\n      }\n    });\n  }\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\nimport { FormGroup } from '@angular/forms';\nimport { SdsDialog } from '@gsa-sam/components';\nimport { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';\n\nimport { SdsAdvancedFiltersService } from './sds-advanced-filters.service';\nimport { SdsFormlyDialogData } from '../../formly-dialog/formly-dialog-data.model';\nimport { SdsFormlyDialogComponent } from '../../formly-dialog/formly-dialog.component';\n\n@Component({\n  selector: 'sds-advanced-filters',\n  templateUrl: './advanced-filters.component.html',\n  styleUrls: ['./advanced-filters.component.scss']\n})\nexport class AdvancedFiltersComponent {\n  /**\n   * Pass in a Form Group for ReactiveForms Support\n   */\n  @Input() public form: FormGroup;\n\n  /**\n   *  Fields are used to configure the UI components\n   */\n  @Input() public fields: FormlyFieldConfig[];\n\n  /**\n   *  Model used to display the filter values.\n   */\n  @Input() public model: any;\n\n  /**\n   *    Options for the form.\n   */\n  @Input() public options: FormlyFormOptions = {};\n\n  constructor(\n    public dialog: SdsDialog,\n    private advancedFiltersService: SdsAdvancedFiltersService\n  ) {}\n\n  openDialog(): void {\n    const modalFields: FormlyFieldConfig[] = this.advancedFiltersService.convertToCheckboxes(\n      this.fields\n    );\n\n    const data: SdsFormlyDialogData = {\n      fields: modalFields,\n      submit: 'Update',\n      title: 'More Filters'\n    };\n\n    const dialogRef = this.dialog.open(SdsFormlyDialogComponent, {\n      width: 'medium',\n      data: data\n    });\n\n    dialogRef.afterClosed().subscribe(result => {\n      if (result) {\n        const response = this.advancedFiltersService.updateFields(\n          result,\n          this.fields,\n          this.model\n        );\n\n        this.fields = response.fields;\n        this.model = response.model;\n      }\n    });\n  }\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -577,7 +577,7 @@
                 "args": [
                     {
                         "name": "dialog",
-                        "type": "SdsDialogService"
+                        "type": "SdsDialog"
                     },
                     {
                         "name": "advancedFiltersService",
@@ -588,7 +588,7 @@
                 "jsdoctags": [
                     {
                         "name": "dialog",
-                        "type": "SdsDialogService",
+                        "type": "SdsDialog",
                         "tagName": {
                             "text": "param"
                         }

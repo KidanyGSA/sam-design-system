@@ -23,14 +23,14 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { Location } from '@angular/common';
 import { SpyLocation } from '@angular/common/testing';
 import { Directionality } from '@angular/cdk/bidi';
-import { SdsDialogContainerComponent } from './dialog-container.component';
+import { SdsDialogContainer } from './dialog-container.component';
 import { OverlayContainer, ScrollStrategy, Overlay } from '@angular/cdk/overlay';
 import { ScrollDispatcher } from '@angular/cdk/scrolling';
 import { A, ESCAPE } from '@angular/cdk/keycodes';
 import { dispatchKeyboardEvent } from '../testing/dispatch-events';
 import {
   SDS_DIALOG_DATA,
-  SdsDialogService,
+  SdsDialog,
   SDS_DIALOG_DEFAULT_OPTIONS
 } from './dialog';
 import { SdsDialogRef } from './dialog-ref';
@@ -39,7 +39,7 @@ import { Subject } from 'rxjs';
 
 
 describe('SdsDialog', () => {
-  let dialog: SdsDialogService;
+  let dialog: SdsDialog;
   let overlayContainer: OverlayContainer;
   let overlayContainerElement: HTMLElement;
   let scrolledSubject = new Subject();
@@ -64,8 +64,8 @@ describe('SdsDialog', () => {
     TestBed.compileComponents();
   }));
 
-  beforeEach(inject([SdsDialogService, Location, OverlayContainer],
-    (d: SdsDialogService, l: Location, oc: OverlayContainer) => {
+  beforeEach(inject([SdsDialog, Location, OverlayContainer],
+    (d: SdsDialog, l: Location, oc: OverlayContainer) => {
       dialog = d;
       mockLocation = l as SpyLocation;
       overlayContainer = oc;
@@ -603,8 +603,8 @@ describe('SdsDialog', () => {
 
   it('should set the proper animation states', () => {
     let dialogRef = dialog.open(PizzaMsg, { viewContainerRef: testViewContainerRef });
-    let dialogContainer: SdsDialogContainerComponent =
-      viewContainerFixture.debugElement.query(By.directive(SdsDialogContainerComponent)).componentInstance;
+    let dialogContainer: SdsDialogContainer =
+      viewContainerFixture.debugElement.query(By.directive(SdsDialogContainer)).componentInstance;
 
     expect(dialogContainer._state).toBe('enter');
 
@@ -1200,8 +1200,8 @@ describe('SdsDialog', () => {
 });
 
 describe('SdsDialog with a parent SdsDialog', () => {
-  let parentDialog: SdsDialogService;
-  let childDialog: SdsDialogService;
+  let parentDialog: SdsDialog;
+  let childDialog: SdsDialog;
   let overlayContainerElement: HTMLElement;
   let fixture: ComponentFixture<ComponentThatProvidesSdsDialog>;
 
@@ -1223,7 +1223,7 @@ describe('SdsDialog with a parent SdsDialog', () => {
     TestBed.compileComponents();
   }));
 
-  beforeEach(inject([SdsDialogService], (d: SdsDialogService) => {
+  beforeEach(inject([SdsDialog], (d: SdsDialog) => {
     parentDialog = d;
 
     fixture = TestBed.createComponent(ComponentThatProvidesSdsDialog);
@@ -1296,7 +1296,7 @@ describe('SdsDialog with a parent SdsDialog', () => {
 });
 
 describe('SdsDialog with default options', () => {
-  let dialog: SdsDialogService;
+  let dialog: SdsDialog;
   let overlayContainer: OverlayContainer;
   let overlayContainerElement: HTMLElement;
 
@@ -1326,8 +1326,8 @@ describe('SdsDialog with default options', () => {
     TestBed.compileComponents();
   }));
 
-  beforeEach(inject([SdsDialogService, OverlayContainer],
-    (d: SdsDialogService, oc: OverlayContainer) => {
+  beforeEach(inject([SdsDialog, OverlayContainer],
+    (d: SdsDialog, oc: OverlayContainer) => {
       dialog = d;
       overlayContainer = oc;
       overlayContainerElement = oc.getContainerElement();
@@ -1475,10 +1475,10 @@ class ComponentWithContentElementTemplateRef {
 
 @Component({
   template: '',
-  providers: [SdsDialogService]
+  providers: [SdsDialog]
 })
 class ComponentThatProvidesSdsDialog {
-  constructor(public dialog: SdsDialogService) { }
+  constructor(public dialog: SdsDialog) { }
 }
 
 /** Simple component for testing ComponentPortal. */

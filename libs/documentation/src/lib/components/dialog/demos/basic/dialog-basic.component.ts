@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import {
-  SdsDialogService,
+  SdsDialog,
   SdsDialogRef,
   SDS_DIALOG_DATA
 } from '@gsa-sam/components';
@@ -23,7 +23,7 @@ export class DialogOverviewExampleDialog {
   constructor(
     public dialogRef: SdsDialogRef<DialogOverviewExampleDialog>,
     @Inject(SDS_DIALOG_DATA) public data: DialogData
-  ) {}
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -45,7 +45,7 @@ export class DialogOverviewExampleDialog {
 export class NestedDialogComponent {
   animal: string;
   name: string;
-  constructor(public dialog: SdsDialogService) {}
+  constructor(public dialog: SdsDialog) { }
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
       width: 'small',
@@ -68,7 +68,7 @@ export class NestedDialogComponent {
   templateUrl: './alert/template.html'
 })
 export class AlertComponent {
-  constructor(@Inject(SDS_DIALOG_DATA) public data: AlertData) {}
+  constructor(@Inject(SDS_DIALOG_DATA) public data: AlertData) { }
 }
 
 /**
@@ -79,7 +79,7 @@ export class AlertComponent {
   selector: 'sds-dialog-sample-official',
   templateUrl: './official/template.html'
 })
-export class OfficialComponent {}
+export class OfficialComponent { }
 
 /*
  * MAIN COMPONENT
@@ -93,7 +93,7 @@ export class DialogBasic {
   animal: string;
   name: string;
 
-  constructor(public dialog: SdsDialogService) {}
+  constructor(public dialog: SdsDialog) { }
 
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
@@ -111,11 +111,13 @@ export class DialogBasic {
   }
 
   openAlert(title, content, alert, size) {
-    const dialogRef = this.dialog.open(AlertComponent, {
-      alert: alert,
-      width: size,
-      data: { title: title, content: content }
-    });
+    const dialogRef = this.dialog.open(AlertComponent);
+
+    //  const dialogRef = this.dialog.open(AlertComponent, {
+    // alert: alert,
+    // //   width: size,
+    // //   data: { title: title, content: content }
+    //  });
   }
 
   openOfficial() {

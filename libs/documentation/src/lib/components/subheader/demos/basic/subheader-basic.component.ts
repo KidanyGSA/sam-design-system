@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import {
-  SdsDialogService,
+  SdsDialog,
   SdsDialogRef,
   SDS_DIALOG_DATA
 } from '@gsa-sam/components';
@@ -94,7 +94,7 @@ export class SubHeaderBasic {
   options: FormlyFormOptions;
   downloadResponse = {};
 
-  constructor(public dialog: SdsDialogService) { }
+  constructor(public dialog: SdsDialog) { }
   onActionMenuItem(btnId) {
     if (btnId == 'DownloadBtn') {
       const data: any = {

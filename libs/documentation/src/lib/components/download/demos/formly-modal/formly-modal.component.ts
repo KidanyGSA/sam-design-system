@@ -4,7 +4,7 @@ import {
   SdsFormlyDialogData,
   SdsFormlyDialogComponent
 } from '@gsa-sam/sam-formly';
-import { SdsDialogService } from '@gsa-sam/components';
+import { SdsDialog } from '@gsa-sam/components';
 
 @Component({
   templateUrl: 'formly-modal.component.html'
@@ -26,7 +26,7 @@ export class FormlyDialog {
     }
   ];
 
-  constructor(public dialog: SdsDialogService) { }
+  constructor(public dialog: SdsDialog) { }
   openDialog() {
     const data: any = {
       fields: this.fields,

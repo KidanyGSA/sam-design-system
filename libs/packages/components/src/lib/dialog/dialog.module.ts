@@ -4,37 +4,37 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
   SDS_DIALOG_SCROLL_STRATEGY_PROVIDER,
-  SdsDialogService
+  SdsDialog
 } from './dialog';
-import { SdsDialogContainerComponent } from './dialog-container.component';
+import { SdsDialogContainer } from './dialog-container.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
-  SdsDialogActionsDirective,
-  SdsDialogCloseDirective,
-  SdsDialogContentDirective,
-  SdsDialogTitleDirective,
-  SdsDialogSubtitleDirective
+  SdsDialogActions,
+  SdsDialogClose,
+  SdsDialogContent,
+  SdsDialogTitle,
+  // SdsDialogSubtitle
 } from './dialog-content.directives';
 
 @NgModule({
   imports: [CommonModule, OverlayModule, PortalModule, FontAwesomeModule],
   exports: [
-    SdsDialogContainerComponent,
-    SdsDialogCloseDirective,
-    SdsDialogTitleDirective,
-    SdsDialogSubtitleDirective,
-    SdsDialogContentDirective,
-    SdsDialogActionsDirective
+    SdsDialogContainer,
+    SdsDialogActions,
+    SdsDialogClose,
+    SdsDialogContent,
+    SdsDialogTitle,
+    // SdsDialogSubtitle
   ],
   declarations: [
-    SdsDialogContainerComponent,
-    SdsDialogCloseDirective,
-    SdsDialogTitleDirective,
-    SdsDialogSubtitleDirective,
-    SdsDialogActionsDirective,
-    SdsDialogContentDirective
+    SdsDialogContainer,
+    SdsDialogClose,
+    SdsDialogTitle,
+    //SdsDialogSubtitle,
+    SdsDialogActions,
+    SdsDialogContent
   ],
-  providers: [SdsDialogService, SDS_DIALOG_SCROLL_STRATEGY_PROVIDER],
-  entryComponents: [SdsDialogContainerComponent]
+  providers: [SdsDialog, SDS_DIALOG_SCROLL_STRATEGY_PROVIDER],
+  entryComponents: [SdsDialogContainer]
 })
-export class SdsDialogModule {}
+export class SdsDialogModule { }

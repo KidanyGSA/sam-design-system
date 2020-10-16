@@ -5,7 +5,7 @@ import { FormlyModule } from '@ngx-formly/core';
 import {
   SdsDialogRef,
   SDS_DIALOG_DATA,
-  SdsDialogService
+  SdsDialog
 } from '@gsa-sam/components';
 
 import { SdsFormlyDialogComponent } from './formly-dialog.component';
@@ -15,7 +15,7 @@ import { SdsAdvancedFiltersService } from '../formly-filters/advanced-filters/sd
 describe('SdsFormlyDialogComponent', () => {
   let component: SdsFormlyDialogComponent;
   let fixture: ComponentFixture<SdsFormlyDialogComponent>;
-  let dialogRef: SdsDialogService;
+  let dialogRef: SdsDialog;
   let advancedFiltersService: SdsAdvancedFiltersService;
 
   beforeEach(async(() => {

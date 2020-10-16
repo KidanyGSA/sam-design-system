@@ -1,16 +1,22 @@
-import {ESCAPE} from '@angular/cdk/keycodes';
-import {GlobalPositionStrategy, OverlayRef} from '@angular/cdk/overlay';
-import {Location} from '@angular/common';
-import {Observable, Subject} from 'rxjs';
-import {filter, take} from 'rxjs/operators';
-import {DialogPosition} from './dialog-config';
-import {SdsDialogContainerComponent} from './dialog-container.component';
+import { FocusOrigin } from '@angular/cdk/a11y';
+import { ESCAPE, hasModifierKey } from '@angular/cdk/keycodes';
+import { GlobalPositionStrategy, OverlayRef } from '@angular/cdk/overlay';
+import { Observable, Subject } from 'rxjs';
+import { filter, take } from 'rxjs/operators';
+import { DialogPosition } from './dialog-config';
+import { _SdsDialogContainerBase } from './dialog-container.component';
+
+
+// TODO(jelbourn): resizing
 
 // Counter for unique dialog ids.
 let uniqueId = 0;
 
+/** Possible states of the lifecycle of a dialog. */
+export const enum SdsDialogState { OPEN, CLOSING, CLOSED }
+
 /**
- * Reference to a dialog opened via the SdsDialog service.
+ * Reference to a dialog opened via the MatDialog service.
  */
 export class SdsDialogRef<T, R = any> {
   /** The instance of component opened into the dialog. */
@@ -31,10 +37,15 @@ export class SdsDialogRef<T, R = any> {
   /** Result to be passed to afterClosed. */
   private _result: R | undefined;
 
+  /** Handle to the timeout that's running as a fallback in case the exit animation doesn't fire. */
+  private _closeFallbackTimeout: any;
+
+  /** Current state of the dialog. */
+  private _state = SdsDialogState.OPEN;
+
   constructor(
     private _overlayRef: OverlayRef,
-    public _containerInstance: SdsDialogContainerComponent,
-    _location?: Location,
+    public _containerInstance: _SdsDialogContainerBase,
     readonly id: string = `sds-dialog-${uniqueId++}`) {
 
     // Pass the id along to the container.
@@ -42,19 +53,22 @@ export class SdsDialogRef<T, R = any> {
 
     // Emit when opening animation completes
     _containerInstance._animationStateChanged.pipe(
-      filter(event => event.phaseName === 'done' && event.toState === 'enter'),
+      filter((event: any) => event.state === 'opened'),
       take(1)
     )
-    .subscribe(() => {
-      this._afterOpened.next();
-      this._afterOpened.complete();
-    });
+      .subscribe(() => {
+        this._afterOpened.next();
+        this._afterOpened.complete();
+      });
 
     // Dispose overlay when closing animation is complete
     _containerInstance._animationStateChanged.pipe(
-      filter(event => event.phaseName === 'done' && event.toState === 'exit'),
+      filter((event: any) => event.state === 'closed'),
       take(1)
-    ).subscribe(() => this._overlayRef.dispose());
+    ).subscribe(() => {
+      clearTimeout(this._closeFallbackTimeout);
+      this._finishDialogClose();
+    });
 
     _overlayRef.detachments().subscribe(() => {
       this._beforeClosed.next(this._result);
@@ -66,8 +80,21 @@ export class SdsDialogRef<T, R = any> {
     });
 
     _overlayRef.keydownEvents()
-      .pipe(filter(event => event.keyCode === ESCAPE && !this.disableClose))
-      .subscribe(() => this.close());
+      .pipe(filter(event => {
+        return event.keyCode === ESCAPE && !this.disableClose && !hasModifierKey(event);
+      }))
+      .subscribe(event => {
+        event.preventDefault();
+        _closeDialogVia(this, 'keyboard');
+      });
+
+    _overlayRef.backdropClick().subscribe(() => {
+      if (this.disableClose) {
+        this._containerInstance._recaptureFocus();
+      } else {
+        _closeDialogVia(this, 'mouse');
+      }
+    });
   }
 
   /**
@@ -79,15 +106,24 @@ export class SdsDialogRef<T, R = any> {
 
     // Transition the backdrop in parallel to the dialog.
     this._containerInstance._animationStateChanged.pipe(
-      filter(event => event.phaseName === 'start'),
+      filter((event: any) => event.state === 'closing'),
       take(1)
     )
-    .subscribe(() => {
-      this._beforeClosed.next(dialogResult);
-      this._beforeClosed.complete();
-      this._overlayRef.detachBackdrop();
-    });
+      .subscribe(event => {
+        this._beforeClosed.next(dialogResult);
+        this._beforeClosed.complete();
+        this._overlayRef.detachBackdrop();
 
+        // The logic that disposes of the overlay depends on the exit animation completing, however
+        // it isn't guaranteed if the parent view is destroyed while it's running. Add a fallback
+        // timeout which will clean everything up if the animation hasn't fired within the specified
+        // amount of time plus 100ms. We don't need to run this outside the NgZone, because for the
+        // vast majority of cases the timeout will have been cleared before it has the chance to fire.
+        this._closeFallbackTimeout = setTimeout(() => this._finishDialogClose(),
+          event.totalTime + 100);
+      });
+
+    this._state = SdsDialogState.CLOSING;
     this._containerInstance._startExitAnimation();
   }
 
@@ -95,21 +131,21 @@ export class SdsDialogRef<T, R = any> {
    * Gets an observable that is notified when the dialog is finished opening.
    */
   afterOpened(): Observable<void> {
-    return this._afterOpened.asObservable();
+    return this._afterOpened;
   }
 
   /**
    * Gets an observable that is notified when the dialog is finished closing.
    */
   afterClosed(): Observable<R | undefined> {
-    return this._afterClosed.asObservable();
+    return this._afterClosed;
   }
 
   /**
    * Gets an observable that is notified when the dialog has started closing.
    */
   beforeClosed(): Observable<R | undefined> {
-    return this._beforeClosed.asObservable();
+    return this._beforeClosed;
   }
 
   /**
@@ -131,7 +167,7 @@ export class SdsDialogRef<T, R = any> {
    * @param position New dialog position.
    */
   updatePosition(position?: DialogPosition): this {
-    const strategy = this._getPositionStrategy();
+    let strategy = this._getPositionStrategy();
 
     if (position && (position.left || position.right)) {
       position.left ? strategy.left(position.left) : strategy.right(position.right);
@@ -173,8 +209,37 @@ export class SdsDialogRef<T, R = any> {
     return this;
   }
 
+  /** Gets the current state of the dialog's lifecycle. */
+  getState(): SdsDialogState {
+    return this._state;
+  }
+
+  /**
+   * Finishes the dialog close by updating the state of the dialog
+   * and disposing the overlay.
+   */
+  private _finishDialogClose() {
+    this._state = SdsDialogState.CLOSED;
+    this._overlayRef.dispose();
+  }
+
   /** Fetches the position strategy object from the overlay ref. */
   private _getPositionStrategy(): GlobalPositionStrategy {
     return this._overlayRef.getConfig().positionStrategy as GlobalPositionStrategy;
   }
+}
+
+/**
+ * Closes the dialog with the specified interaction type. This is currently not part of
+ * `MatDialogRef` as that would conflict with custom dialog ref mocks provided in tests.
+ * More details. See: https://github.com/angular/components/pull/9257#issuecomment-651342226.
+ */
+// TODO: TODO: Move this back into `SdsDialogRef` when we provide an official mock dialog ref.
+export function _closeDialogVia<R>(ref: SdsDialogRef<R>, interactionType: FocusOrigin, result?: R) {
+  // Some mock dialog ref instances in tests do not have the `_containerInstance` property.
+  // For those, we keep the behavior as is and do not deal with the interaction type.
+  if (ref._containerInstance !== undefined) {
+    ref._containerInstance._closeInteractionType = interactionType;
+  }
+  return ref.close(result);
 }
