@@ -1,18 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {MatTableModule, MatSortModule } from '@angular/material';
+import {MatTableModule, MatSortModule, MatPaginatorModule } from '@angular/material';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { SdsTableComponent } from './table.component';
+import { SdsTableComponent, SdsTableRowComponent, SdsTableHeaderRowComponent, SdsTableFooterRowComponent, SdsTableColumnDefComponent, SdsTableCellDirective, SdsTableHeaderCellDirective, SdsTableFooterCellDirective } from './table.component';
+
+import { PaginationModule } from '@gsa-sam/components';
 
 @NgModule({
-  declarations: [SdsTableComponent],
+  declarations: [SdsTableComponent, SdsTableRowComponent, SdsTableHeaderRowComponent, SdsTableFooterRowComponent, SdsTableColumnDefComponent, SdsTableCellDirective, SdsTableHeaderCellDirective, SdsTableFooterCellDirective],
   imports: [
     CommonModule,
     MatSortModule,
     MatTableModule,
-    FontAwesomeModule
+    MatPaginatorModule,
+    FontAwesomeModule,
+    PaginationModule
   ],
-  exports: [SdsTableComponent]
+  exports: [SdsTableComponent, SdsTableRowComponent, SdsTableHeaderRowComponent, SdsTableFooterRowComponent, SdsTableColumnDefComponent, SdsTableCellDirective, SdsTableHeaderCellDirective, SdsTableFooterCellDirective]
 })
 export class SdsTableModule { }

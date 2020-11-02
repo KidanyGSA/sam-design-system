@@ -2,286 +2,325 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component, ViewChild, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TitleCasePipe } from '@angular/common';
 import {
-  MatTableDataSource,
   MatTableModule,
-  MatSortModule
+  MatSortModule,
+  MatPaginatorModule
 } from '@angular/material';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PaginationModule } from '@gsa-sam/components';
 
-import { SdsTableComponent } from './table.component';
-import { SdsTableColumnSettings } from './models/table-column-settings.model';
 
-const MOCK_DATA: any[] = [
-  {
-    id: 2,
-    firstName: 'Tymothy'
-  },
+import { SdsTableComponent, SdsTableRowComponent, SdsTableHeaderRowComponent, SdsTableFooterRowComponent, SdsTableColumnDefComponent, SdsTableCellDirective, SdsTableHeaderCellDirective, SdsTableFooterCellDirective } from './table.component';
+
+const MOCK_DATA = [
   {
     id: 1,
-    firstName: 'Ave'
+    firstName: 'Gregorius',
+    lastName: 'Matthews',
+    email: 'gmews0@sfly.com',
+    gender: 'Male',
+    catchPhrase: 'Reduced needs-based initiative',
+    jobTitle: 'Software Test Engineer IV',
+    requests: 1,
+    date: '2020-07-23',
+    tags: [
+      { className: "text-info-dark", label: "Normal" }
+    ]
+  },
+  {
+    id: 2,
+    firstName: 'Letti',
+    lastName: 'Gleadhell',
+    email: 'lgll1@usda.gov',
+    gender: 'Female',
+    catchPhrase: 'Upgradable homogeneous productivity',
+    jobTitle: 'GIS Technical Architect',
+    requests: 3,
+    date: '2020-04-11',
+    tags: [
+      { className: "text-error", label: "Expired" },
+      { className: "text-warning-darker", label: "Inactive" }
+    ]
   },
   {
     id: 3,
-    firstName: 'Abagail'
-  }
-];
-
-const MOCK_COLUMNS: SdsTableColumnSettings[] = [
-  {
-    primaryKey: 'id'
+    firstName: 'Vassili',
+    lastName: 'McGuckin',
+    email: 'vmcin2@phoca.cz',
+    gender: 'Male',
+    catchPhrase: 'Team-oriented optimizing complexity',
+    jobTitle: 'Media Manager IV',
+    requests: 0,
+    date: '2020-04-22',
+    tags: [
+      { className: "text-info", label: "Draft" }
+    ]
   },
   {
-    primaryKey: 'firstName',
-    header: 'First Name'
+    id: 4,
+    firstName: 'Oren',
+    lastName: 'Downey',
+    email: 'odney3@blogs.com',
+    gender: 'Male',
+    catchPhrase: 'Synergized 3rd generation projection',
+    jobTitle: 'Account Coordinator',
+    requests: 2,
+    date: '2019-11-02',
+    tags: [
+      { className: "text-success", label: "Active" }
+    ]
+  },
+  {
+    id: 5,
+    firstName: 'Claribel',
+    lastName: 'Donne',
+    email: 'cdonne4@nasa.gov',
+    gender: 'Female',
+    catchPhrase: 'Organized local challenge',
+    jobTitle: 'Financial Analyst',
+    requests: 6,
+    date: '2020-04-15',
+    tags: [
+      { className: "text-default", label: "Default" }
+    ]
+  },
+  {
+    id: 6,
+    firstName: 'Damiano',
+    lastName: "O'Reilly",
+    email: 'doreilly5@weben.uk',
+    gender: 'Male',
+    catchPhrase: 'Horizontal grid-enabled productivity',
+    jobTitle: 'Clinical Specialist',
+    requests: 11,
+    date: '2020-04-17',
+    tags: [
+      { className: "text-error", label: "Expired" }
+    ]
+  },
+  {
+    id: 7,
+    firstName: 'Dunc',
+    lastName: 'Jermyn',
+    email: 'djemyn6@live.com',
+    gender: 'Male',
+    catchPhrase: 'Extended client-server conglomeration',
+    jobTitle: 'Biostatistician II',
+    requests: 3,
+    date: '2019-11-13',
+    tags: [
+      { className: "text-info", label: "Draft" },
+      { className: "text-warning-light", label: "Expiring" }
+    ]
+  },
+  {
+    id: 8,
+    firstName: 'Bessy',
+    lastName: 'Maryon',
+    email: 'bmyon7@salon.com',
+    gender: 'Female',
+    catchPhrase: 'Team-oriented client-server task-force',
+    jobTitle: 'Engineer II',
+    requests: 1,
+    date: '2020-01-09',
+    tags: [
+      { className: "text-success", label: "Active" }
+    ]
+  },
+  {
+    id: 9,
+    firstName: 'Ameline',
+    lastName: 'Booker',
+    email: 'abor8@gmpg.org',
+    gender: 'Female',
+    catchPhrase: 'Sharable explicit Graphical User Interface',
+    jobTitle: 'Associate Professor',
+    requests: 5,
+    date: '2020-02-20',
+    tags: [
+      { className: "text-info", label: "Draft" }
+    ]
+  },
+  {
+    id: 10,
+    firstName: 'Chrysa',
+    lastName: 'Duguid',
+    email: 'cdud9@narod.nz',
+    gender: 'Female',
+    catchPhrase: 'Profound explicit approach',
+    jobTitle: 'Safety Technician II',
+    requests: 2,
+    date: '2019-12-13',
+    tags: [
+      { className: "text-error", label: "Expired" }
+    ]
   }
 ];
 
-// detail rows
 @Component({
   template: `
-    <ng-template #detailRow> <span>Test Expanded Component</span> </ng-template>
-    <sds-table
-      [data]="data"
-      [columns]="columns"
-      [detailRow]="detailRow"
-    ></sds-table>
+  <sds-table [data]="data" [borderless]="borderlessToggle" [expansion]="expansionToggle" sort pagination class="maxh-mobile overflow-auto">
+
+    <sds-table-column sdsColumnName="id" sticky="true">
+      <ng-template #sdsHeaderCell>ID</ng-template>
+      <ng-template #sdsCell let-element="element">{{ element.id }}</ng-template>
+      <ng-template #sdsFooterCell>Total</ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="firstName">
+      <ng-template #sdsHeaderCell>First</ng-template>
+      <ng-template #sdsCell let-element="element">{{ element.firstName }}</ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="lastName">
+      <ng-template #sdsHeaderCell>Last</ng-template>
+      <ng-template #sdsCell let-element="element">{{ element.lastName }}</ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="email">
+      <ng-template #sdsHeaderCell>Email</ng-template>
+      <ng-template #sdsCell let-element="element"><a href="https://beta.sam.gov" (click)="$event.stopPropagation()" class="usa-link">{{ element.email }}</a></ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="requests">
+      <ng-template #sdsHeaderCell>Requests</ng-template>
+      <ng-template #sdsCell let-element="element">{{ element.requests }}</ng-template>
+      <ng-template #sdsFooterCell>{{ getTotalRequests() }}</ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="date">
+      <ng-template #sdsHeaderCell>Date</ng-template>
+      <ng-template #sdsCell let-element="element">{{ element.date | date }}</ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="tags">
+      <ng-template #sdsHeaderCell>Tags</ng-template>
+      <ng-template #sdsCell let-element="element">
+        <ul class="usa-list usa-list--unstyled">
+          <li *ngFor="let tag of element.tags">
+            <fa-icon [icon]="['fas', 'circle']" size="sm" [class]="tag.className"></fa-icon>
+            {{ tag.label }}
+          </li>
+        </ul>
+      </ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+    <sds-table-column sdsColumnName="actions" stickyEnd="true">
+      <ng-template #sdsHeaderCell>Actions</ng-template>
+      <ng-template #sdsCell let-element="element"><a href="#" (click)="edit(element); $event.stopPropagation(); false;" class="usa-link">Edit</a></ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+
+    <sds-table-column sdsColumnName="expandedDetail" sdsExpandedTemplate="true">
+      <ng-template #sdsHeaderCell></ng-template>
+      <ng-template #sdsCell let-element="element">
+        <div class="grid-row width-full padding-3">
+          <div class="grid-col-6">
+            <div class="sds-field">
+              <div class="sds-field__name">Catch Phrase:</div>
+              <div class="sds-field__value">{{element.catchPhrase}}</div>
+            </div>
+          </div>
+          <div class="grid-col-6">
+            <div class="sds-field">
+              <div class="sds-field__name">Job Title:</div>
+              <div class="sds-field__value">{{element.jobTitle}}</div>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #sdsFooterCell></ng-template>
+    </sds-table-column>
+
+
+    <sds-header-row [displayedColumns]="displayedColumns" [sticky]="true"></sds-header-row>
+    <sds-row [displayedColumns]="displayedColumns" [expandOnClick]="false"></sds-row>
+    <sds-footer-row [displayedColumns]="displayedColumns" [sticky]="true"></sds-footer-row>
+  </sds-table>
   `
 })
 class WrapperComponent {
-  @ViewChild(SdsTableComponent) tableComponentRef: SdsTableComponent;
-  columns = MOCK_COLUMNS;
+  @ViewChild(SdsTableComponent) sdsTableComponentRef: SdsTableComponent;
+  @ViewChild(SdsTableRowComponent) sdsTableRowComponentRef: SdsTableRowComponent;
+  @ViewChild(SdsTableHeaderRowComponent) sdsTableHeaderRowComponent: SdsTableHeaderRowComponent;
+  @ViewChild(SdsTableFooterRowComponent) sdsTableFooterRowComponent: SdsTableFooterRowComponent;
+
+  displayedColumns: string[] = ['id', 'firstName', 'lastName', 'email', 'requests', 'date', 'tags', 'actions'];
+
   data = MOCK_DATA;
+
+  expansionToggle = true;
+  borderlessToggle = false;
+
+  getTotalRequests() {
+    return this.data.map(t => t.requests).reduce((acc, value) => acc + value, 0);
+  }
+
 }
 
-describe('SdsTableComponent', () => {
+
+describe('SdsTableComponent Full', () => {
   let component: SdsTableComponent;
-  let fixture: ComponentFixture<SdsTableComponent>;
+  let fixture: ComponentFixture<WrapperComponent>;
   let tableDe: DebugElement;
+  let wrapper: WrapperComponent;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [SdsTableComponent, WrapperComponent],
+      declarations: [SdsTableComponent, SdsTableRowComponent, SdsTableHeaderRowComponent, SdsTableFooterRowComponent, SdsTableColumnDefComponent, SdsTableCellDirective, SdsTableHeaderCellDirective, SdsTableFooterCellDirective, WrapperComponent],
       imports: [
         MatTableModule,
         FontAwesomeModule,
         MatSortModule,
-        BrowserAnimationsModule
+        MatPaginatorModule,
+        BrowserAnimationsModule,
+        PaginationModule
       ]
     }).compileComponents();
   }));
 
-  describe('with default settings', () => {
+  describe('Table Component', () => {
     beforeEach(() => {
-      fixture = TestBed.createComponent(SdsTableComponent);
-
-      component = fixture.componentInstance;
-      component.columns = MOCK_COLUMNS;
-      component.data = MOCK_DATA;
-
+      fixture = TestBed.createComponent(WrapperComponent);
+      const wrapperComponent = fixture.debugElement.componentInstance;
+      component = wrapperComponent.sdsTableComponentRef;
       tableDe = fixture.debugElement;
+      wrapper = wrapperComponent;
 
       fixture.detectChanges();
     });
 
-    it('should create', () => {
+    it('should create', async(() => {
       expect(component).toBeTruthy();
-    });
+    }));
 
-    it('should populate columnIds onInit', () => {
-      expect(component.columnIds.length).toEqual(MOCK_COLUMNS.length);
-    });
+    it('isArray should return true', async(() => {
+      expect(component.isArray(['test'])).toBeTruthy();
+    }));
 
-    it('should populate dataSource with MatTableDataSource objects onInit', () => {
-      expect(component.dataSource).toBeDefined();
-      expect(component.dataSource instanceof MatTableDataSource).toBeTruthy();
-    });
-
-    it('should disable dataSource.set', () => {
-      expect(component.sort.disabled).toEqual(true);
-    });
-
-    // column headings
-    it('should set th to equal column.header if defined', () => {
-      const nativeEl = tableDe.nativeElement;
-      const headerCell = nativeEl.querySelectorAll('th')[1];
-      expect(headerCell.innerText).toEqual(MOCK_COLUMNS[1].header);
-    });
-
-    it('should set th to column.primaryKey value titleCased if column.header is not defined', () => {
-      const nativeEl = tableDe.nativeElement;
-      const headerCell = nativeEl.querySelectorAll('th')[0];
-      const pipe = new TitleCasePipe();
-      expect(headerCell.innerText).toEqual(
-        pipe.transform(MOCK_COLUMNS[0].primaryKey)
-      );
-    });
-
-    // border by default
-    it('should have borders', () => {
-      const cont = tableDe.query(By.css('div.sds-table__container'));
-      expect(cont.classes['sds-table__container--borderless']).toBeFalsy();
-    });
-
-    // sticky header not set
-    it('should not have a sticky header', () => {
-      const nativeEl = tableDe.nativeElement;
-      const headerCell = nativeEl.querySelectorAll('th')[0];
-      expect(headerCell.offsetTop).toEqual(0);
-    });
-
-    // sticky columns
-    it('should not have a sticky first column by column.sticky is not set', () => {
-      const nativeEl = tableDe.nativeElement;
-      const dataCell = nativeEl.querySelectorAll('td')[0];
-      expect(dataCell.offsetLeft).toEqual(0);
-    });
-
-    it('should have a sticky first column by column.sticky is set', () => {
-      component.columns[0].sticky = true;
+    it('check after content init', async(() => {
+      component.ngAfterContentInit();
       fixture.detectChanges();
+      expect(component).toBeTruthy();
+    }));
 
-      const nativeEl = tableDe.nativeElement;
-      const dataCell = nativeEl.querySelectorAll('td')[0];
-      expect(dataCell.offsetLeft).toBeGreaterThan(0);
-    });
-  });
-
-  describe('with settings configured', () => {
-    beforeEach(() => {
-      fixture = TestBed.createComponent(SdsTableComponent);
-
-      component = fixture.componentInstance;
-      component.data = MOCK_DATA;
-      component.columns = MOCK_COLUMNS;
-
-      tableDe = fixture.debugElement;
-
+    it('should update pagination', async(() => {
+      component.page = {
+        pageNumber: 1,
+        pageSize: 5,
+        totalPages: 0
+      }
+      component.updateSdsPagination();
       fixture.detectChanges();
-    });
+      expect(component.page.totalPages).toBe(2);
+    }));
 
-    // borderless
-    it('should not have a border if settings.borderless is true', () => {
-      component.settings = {
-        borderless: true
-      };
+    it('default string sort should return lowercase', async(() => {
+      expect(component.defaultSort(component.data[0], 'firstName')).toBe('gregorius');
+    }));
 
-      fixture.detectChanges();
+    it('default number sort should return lowercase', async(() => {
+      expect(component.defaultSort(component.data[0], 'requests')).toBe(1);
+    }));
 
-      const cont = tableDe.query(By.css('div.sds-table__container'));
-      expect(cont.classes['sds-table__container--borderless']).toBeTruthy();
-    });
-
-    // sticky header
-    it('should have a sticky header if settings.stickyHeader is true', () => {
-      component.settings = {
-        stickyHeader: true
-      };
-
-      fixture.detectChanges();
-
-      const nativeEl = tableDe.nativeElement;
-      const headerCell = nativeEl.querySelectorAll('th')[0];
-      expect(headerCell.offsetTop).toBeGreaterThan(0);
-    });
-  });
-
-  // sorting
-  describe('with sorting', () => {
-    beforeEach(() => {
-      fixture = TestBed.createComponent(SdsTableComponent);
-
-      component = fixture.componentInstance;
-      component.data = MOCK_DATA;
-      component.columns = MOCK_COLUMNS;
-      component.settings = {
-        sort: true
-      };
-
-      tableDe = fixture.debugElement;
-
-      fixture.detectChanges();
-    });
-
-    it('should set dataSource.sort to instance of child MatSort', () => {
-      expect(component.dataSource.sort).toEqual(component.sort);
-    });
-
-    it('should not be sorted initially', () => {
-      const nativeEl = tableDe.nativeElement;
-      const dataCell = nativeEl.querySelectorAll('td')[0];
-      expect(dataCell.innerText).toEqual('2');
-    });
-
-    it('should sort in asc order on first click', () => {
-      const nativeEl = tableDe.nativeElement;
-      const button = nativeEl.querySelectorAll(
-        'button.mat-sort-header-button'
-      )[0];
-
-      button.click();
-
-      const dataCell = nativeEl.querySelectorAll('td')[0];
-      expect(dataCell.innerText).toEqual('1');
-    });
-
-    it('should sort in desc order on second click of same sort header', () => {
-      const nativeEl = tableDe.nativeElement;
-      const button = nativeEl.querySelectorAll(
-        'button.mat-sort-header-button'
-      )[0];
-
-      button.click();
-      button.click();
-
-      const dataCell = nativeEl.querySelectorAll('td')[0];
-      expect(dataCell.innerText).toEqual('3');
-    });
-
-    it('should not be sorted on third click of same sort header', () => {
-      const nativeEl = tableDe.nativeElement;
-      const button = nativeEl.querySelectorAll(
-        'button.mat-sort-header-button'
-      )[0];
-
-      button.click();
-      button.click();
-      button.click();
-
-      const dataCell = nativeEl.querySelectorAll('td')[0];
-      expect(dataCell.innerText).toEqual('2');
-    });
-  });
-
-  // expandable rows
-  describe('with expandable rows', () => {
-    let wrapperFixture: ComponentFixture<WrapperComponent>;
-
-    beforeEach(() => {
-      wrapperFixture = TestBed.createComponent(WrapperComponent);
-      const wrapperComponent = wrapperFixture.debugElement.componentInstance;
-      component = wrapperComponent.tableComponentRef; // SdsTableComponent
-      component.data = MOCK_DATA;
-      component.columns = MOCK_COLUMNS;
-      wrapperFixture.detectChanges();
-    });
-
-    it('should add an additional column sdsExpandableRow if detailRow is set', () => {
-      expect(component.columnIds.length).toEqual(MOCK_COLUMNS.length + 1);
-    });
-
-    it('should initially have no rows expanded', () => {
-      expect(component.expandedRow).toBeNull();
-    });
-
-    it('should set expanded row to clicked row when no row is expanded and null when clicked row is already expanded', () => {
-      const compiled = wrapperFixture.debugElement.nativeElement;
-      const button = compiled.querySelectorAll('button');
-      button[0].click();
-      expect(component.expandedRow).toEqual(component.data[0]);
-      button[0].click();
-      expect(component.expandedRow).toBeNull();
-    });
   });
 });
