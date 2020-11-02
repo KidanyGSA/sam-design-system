@@ -33,7 +33,7 @@ export class FormlyAutocompleteFreetext {
             hideLabel: true,
             service: this.service,
             // maxLength: 9,
-            // autoMinLength: 2,
+            // minLength: 5,
             // min: 12,
             // max: 40,
             // minAge: 18,
