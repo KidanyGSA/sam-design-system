@@ -6,11 +6,17 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { SdsAdvancedFiltersService } from './sds-advanced-filters.service';
 import { SdsFormlyDialogData } from '../../formly-dialog/formly-dialog-data.model';
 import { SdsFormlyDialogComponent } from '../../formly-dialog/formly-dialog.component';
+import { startWith } from 'rxjs/internal/operators/startWith';
+import { of } from 'rxjs/internal/observable/of';
+import { delay } from 'rxjs/internal/operators/delay';
+import { tap } from 'rxjs/internal/operators/tap';
+import { pairwise } from 'rxjs/internal/operators/pairwise';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sds-advanced-filters',
   templateUrl: './advanced-filters.component.html',
-  styleUrls: ['./advanced-filters.component.scss'],
+  styleUrls: ['./advanced-filters.component.scss']
 })
 export class AdvancedFiltersComponent {
   /**
@@ -39,24 +45,29 @@ export class AdvancedFiltersComponent {
     private advancedFiltersService: SdsAdvancedFiltersService
   ) {}
 
-  onSelectAllChange(ev) {
-    this.selectAll = !this.selectAll;
-    this.fields.forEach((field: any) => {
-      if (field.type === 'checkbox') {
-        this.form.get(field.key).setValue(this.selectAll);
-      } else {
-        if (this.selectAll) {
-          let currentField = this.data.fields.find(
-            (item) => item.key === field.key
-          );
-          if (currentField.templateOptions.options instanceof Array) {
-            let value = currentField.templateOptions.options.map(
-              ({ key }) => key
-            );
-            this.form.get(field.key).setValue(value);
+  onSelectAllChange(selectAllValue, selectedform) {
+    this.selectAll = selectAllValue;
+    const keys = Object.keys(selectedform.controls);
+    const modalFields: FormlyFieldConfig[] = this.advancedFiltersService.convertToCheckboxes(
+      this.fields
+    );
+    keys.forEach(key => {
+      if (key !== 'selectAll') {
+        let currentField = modalFields.find(item => item.key === key);
+        if (currentField.key === key && currentField.type === 'checkbox') {
+          selectedform.get(key).setValue(this.selectAll);
+        } else if (currentField.type === 'multicheckbox') {
+          console.log(currentField, 'files,', selectedform);
+          const array = [];
+          if (this.selectAll) {
+            currentField.templateOptions.options.forEach((option: any) => {
+              array.push(option.key);
+            });
+            selectedform.get(key).setValue(array);
+            selectedform.markAsTouched();
+          } else {
+            selectedform.get(key).setValue([]);
           }
-        } else {
-          this.form.get(field.key).setValue([]);
         }
       }
     });
@@ -76,35 +87,42 @@ export class AdvancedFiltersComponent {
             type: 'checkbox',
             templateOptions: {
               label: 'Select All',
-              hideOptional: true,
+              hideOptional: true
             },
+            hooks: {
+              onInit: field => {
+                const form = field.parent.formControl;
+                form
+                  .get('selectAll')
+                  .valueChanges.pipe(
+                    startWith(form.get('selectAll').value),
+                    tap(selectAllValue => {
+                      this.onSelectAllChange(selectAllValue, form);
+                    })
+                  )
+                  .subscribe();
+              }
+            }
           },
-
           {
-            template: '<hr/>',
-          },
-        ],
-      },
+            template: '<hr/>'
+          }
+        ]
+      }
     ];
-    const updateField: FormlyFieldConfig[] = [
-      ...filedGroup,
-      ...modalFields,
-      ...filedGroup,
-    ];
-
-    console.log(updateField, 'test fields');
+    const updateField: FormlyFieldConfig[] = [...filedGroup, ...modalFields];
     const data: SdsFormlyDialogData = {
       fields: updateField,
       submit: 'Update',
-      title: 'More Filters',
+      title: 'More Filters'
     };
 
     const dialogRef = this.dialog.open(SdsFormlyDialogComponent, {
       width: 'medium',
-      data: data,
+      data: data
     });
 
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe(result => {
       if (result) {
         const response = this.advancedFiltersService.updateFields(
           result,
