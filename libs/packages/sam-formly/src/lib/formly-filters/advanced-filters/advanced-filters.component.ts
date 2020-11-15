@@ -45,32 +45,41 @@ export class AdvancedFiltersComponent {
     private advancedFiltersService: SdsAdvancedFiltersService
   ) {}
 
-  onSelectAllChange(selectAllValue, selectedform) {
-    this.selectAll = selectAllValue;
-    const keys = Object.keys(selectedform.controls);
+  onSelectAllChange(selectAllValue, selectedform, isOnload, selectAllField) {
     const modalFields: FormlyFieldConfig[] = this.advancedFiltersService.convertToCheckboxes(
       this.fields
     );
-    keys.forEach(key => {
-      if (key !== 'selectAll') {
-        let currentField = modalFields.find(item => item.key === key);
-        if (currentField.key === key && currentField.type === 'checkbox') {
-          selectedform.get(key).setValue(this.selectAll);
-        } else if (currentField.type === 'multicheckbox') {
-          console.log(currentField, 'files,', selectedform);
-          const array = [];
-          if (this.selectAll) {
-            currentField.templateOptions.options.forEach((option: any) => {
-              array.push(option.key);
-            });
-            selectedform.get(key).setValue(array);
-            selectedform.markAsTouched();
-          } else {
-            selectedform.get(key).setValue([]);
+    const keys = Object.keys(selectedform.controls);
+    if (!isOnload) {
+      this.selectAll = selectAllValue;
+      keys.forEach(key => {
+        if (key !== 'selectAll') {
+          let currentField = modalFields.find(item => item.key === key);
+          if (currentField.key === key && currentField.type === 'checkbox') {
+            selectedform.get(key).setValue(this.selectAll);
+          } else if (currentField.type === 'multicheckbox') {
+            const array = [];
+            if (this.selectAll) {
+              currentField.templateOptions.options.forEach((option: any) => {
+                array.push(option.key);
+              });
+              selectedform.get(key).setValue(array);
+              selectedform.markAsTouched();
+            } else {
+              selectedform.get(key).setValue([]);
+            }
           }
         }
-      }
-    });
+      });
+    } else {
+      keys.forEach(key => {
+        if (key !== 'selectAll') {
+          const val = selectedform.get(key).value;
+          if (val || (Array.isArray(val) && val.length > 0))
+            selectedform.get('selectAll').setValue(true);
+        }
+      });
+    }
   }
 
   openDialog(): void {
@@ -87,17 +96,25 @@ export class AdvancedFiltersComponent {
             type: 'checkbox',
             templateOptions: {
               label: 'Select All',
-              hideOptional: true
+              hideOptional: true,
+              id: 'moreFilterSelectAll'
             },
             hooks: {
               onInit: field => {
+                let isOnload = true;
                 const form = field.parent.formControl;
                 form
                   .get('selectAll')
                   .valueChanges.pipe(
                     startWith(form.get('selectAll').value),
                     tap(selectAllValue => {
-                      this.onSelectAllChange(selectAllValue, form);
+                      this.onSelectAllChange(
+                        selectAllValue,
+                        form,
+                        isOnload,
+                        field
+                      );
+                      isOnload = false;
                     })
                   )
                   .subscribe();
@@ -129,7 +146,6 @@ export class AdvancedFiltersComponent {
           this.fields,
           this.model
         );
-
         this.fields = response.fields;
         this.model = response.model;
       }
