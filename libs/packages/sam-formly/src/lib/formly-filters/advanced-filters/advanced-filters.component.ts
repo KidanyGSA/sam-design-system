@@ -79,11 +79,11 @@ export class AdvancedFiltersComponent {
           if (val || (Array.isArray(val) && val.length > 0))
             selectedform.get('selectAll').setValue(true);
           // document.getElementById('formly_31_checkbox_selectAll_0')
-          document
-            .querySelector('[id*="multicheckbox_searchEntity_2_Select"]')
-            .setAttribute('aria-checked', 'mixed');
-          const el = document.querySelector(`#formly_51_checkbox_selectAll_0`);
-          console.log(el, 'field');
+          // document
+          //   .querySelector('[id*="multicheckbox_searchEntity_2_Select"]')
+          //   .setAttribute('aria-checked', 'mixed');
+          // const el = document.querySelector(`#formly_51_checkbox_selectAll_0`);
+          //console.log(el, 'field');
         }
       });
     }
