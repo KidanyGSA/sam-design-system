@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectorRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SdsDialogService } from '@gsa-sam/components';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
@@ -7,11 +7,7 @@ import { SdsAdvancedFiltersService } from './sds-advanced-filters.service';
 import { SdsFormlyDialogData } from '../../formly-dialog/formly-dialog-data.model';
 import { SdsFormlyDialogComponent } from '../../formly-dialog/formly-dialog.component';
 import { startWith } from 'rxjs/internal/operators/startWith';
-import { of } from 'rxjs/internal/observable/of';
-import { delay } from 'rxjs/internal/operators/delay';
 import { tap } from 'rxjs/internal/operators/tap';
-import { pairwise } from 'rxjs/internal/operators/pairwise';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'sds-advanced-filters',
@@ -42,7 +38,8 @@ export class AdvancedFiltersComponent {
   selectAll = false;
   constructor(
     public dialog: SdsDialogService,
-    private advancedFiltersService: SdsAdvancedFiltersService
+    private advancedFiltersService: SdsAdvancedFiltersService,
+    private cdr: ChangeDetectorRef
   ) {}
 
   onSelectAllChange(selectAllValue, selectedform, isOnload, selectAllField) {
@@ -65,7 +62,7 @@ export class AdvancedFiltersComponent {
               });
               selectedform.get(key).setValue(array);
 
-              selectedform.markAsTouched();
+              this.cdr.detectChanges();
             } else {
               selectedform.get(key).setValue([]);
             }
@@ -73,19 +70,26 @@ export class AdvancedFiltersComponent {
         }
       });
     } else {
+      const allValues = [];
       keys.forEach(key => {
         if (key !== 'selectAll') {
-          const val = selectedform.get(key).value;
-          if (val || (Array.isArray(val) && val.length > 0))
-            selectedform.get('selectAll').setValue(true);
-          // document.getElementById('formly_31_checkbox_selectAll_0')
-          // document
-          //   .querySelector('[id*="multicheckbox_searchEntity_2_Select"]')
-          //   .setAttribute('aria-checked', 'mixed');
-          // const el = document.querySelector(`#formly_51_checkbox_selectAll_0`);
-          //console.log(el, 'field');
+          let currentField = modalFields.find(item => item.key === key);
+          let val;
+          if (Array.isArray(selectedform.get(key).value)) {
+            val = selectedform.get(key).value.length > 0 ? true : false;
+          } else {
+            val = selectedform.get(key).value;
+          }
+          if (!allValues.includes(val)) {
+            allValues.push(val);
+          }
         }
       });
+
+      allValues.length === 1
+        ? selectedform.get('selectAll').setValue(allValues[0])
+        : selectedform.get('selectAll').setValue(false);
+      this.cdr.detectChanges();
     }
   }
 
