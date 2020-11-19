@@ -37,9 +37,7 @@ export class FormlyFieldCheckboxComponent extends FieldType implements OnInit {
     super();
   }
   ngOnInit() {
-    console.log(this.formControl.value, 'test value checkbox');
     this.ariaChecked = this.formControl.value;
-
     this.formControl.valueChanges.subscribe(value => {
       // console.log(value, 'checkbox');
       // const isChecked =
