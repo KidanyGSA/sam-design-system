@@ -6,3 +6,4 @@ export * from './table/table.component';
 export * from './accordion/accordion.component';
 export * from './button-group/button-group.module';
 export * from './button-group/button-group.component';
+export * from './button-group/button-group.module';
