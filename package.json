@@ -1,12 +1,7 @@
 {
   "name": "sam-design-system",
-  <<
-  << << < HEAD "version": "10.0.0-beta.2",
-  ===
-  === =
-  "version": "0.7.0",
-  >>>
-  >>> > 6 a496edb7826c089d4c8b0b18dd9242561cb30fe "license": "MIT",
+  "version": "10.0.0-beta.2",
+  "license": "MIT",
   "scripts": {
     "ng": "nx",
     "start": "ng serve",
@@ -88,7 +83,7 @@
     "qs": "^6.2.3",
     "rxjs": "~6.5.5",
     "tslib": "^2.0.1",
-    "typescript": "^4.0.3",
+    "typescript": "4.0.3",
     "zone.js": "^0.10.2"
   },
   "devDependencies": {
@@ -103,8 +98,6 @@
     "eslint": "6.8.0",
     "@types/jest": "^23.0.0",
     "ngx-toastr": "^10.2.0",
-    "@types/node": "^8.10.59",
-    "codelyzer": "~4.5.0",
     "css-loader": "^3.2.0",
     "github-release-notes": "^0.17.0",
     "jasmine-core": "~2.99.1",
