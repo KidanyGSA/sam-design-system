@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { SdsFormlyModule, sdsWrappers } from '@gsa-sam/sam-formly';
+import { sdsWrappers, SdsFormlyModule } from '@gsa-sam/sam-formly';
 import { FormlyFieldTextComponent } from './type/contact';
 import { FormlyModule } from '@ngx-formly/core';
 import { SdsContactModule } from '../contact/contact.module';
@@ -11,8 +11,8 @@ import { SdsContactModule } from '../contact/contact.module';
   imports: [
     CommonModule,
     FormsModule,
+    FormlyModule,
     SdsContactModule,
-    //AgencyModalModule,
     ReactiveFormsModule,
     SdsFormlyModule.forChild({
       types: [
