@@ -1,1 +1,1 @@
-export * from './packages-experimental.module';
+export * from './shared-formly/shared-formly.module';
