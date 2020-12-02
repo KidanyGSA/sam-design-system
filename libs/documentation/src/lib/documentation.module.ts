@@ -159,6 +159,10 @@ import {
   ButtonGroupModule
 } from './components/button-group/button-group.module';
 
+import {
+  ROUTES as TOASTS_ROUTES,
+  ToastsModule
+} from './components/toasts/toasts.module';
 /* Utilities */
 import {
   ROUTES as ICONS_ROUTES,
@@ -174,7 +178,7 @@ import { FormlyFormsComponent } from './pages/formly-forms/formly-forms.componen
 import { FormlyConditionalModule } from './pages/formly-conditional/formly-conditional.module';
 import { FormlyConditionalComponent } from './pages/formly-conditional/formly-conditional.component';
 
-declare var require: any;
+var require: any;
 
 export const ROUTES: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'components/header' },
@@ -201,7 +205,7 @@ export const ROUTES: Routes = [
   { path: 'components/filters', children: FILTERS_ROUTES },
   { path: 'components/accordion', children: ACCORDION_ROUTES },
   { path: 'components/button-group', children: BUTTON_GROUP_ROUTES },
-
+  { path: 'components/toasts', children: TOASTS_ROUTES },
   // Formly
   { path: 'components/input', children: INPUT_ROUTES },
   { path: 'components/textarea', children: TEXT_AREA_ROUTES },
@@ -229,8 +233,8 @@ export const ROUTES: Routes = [
 
   // Form Examples
   { path: 'pages', pathMatch: 'full', redirectTo: 'pages/formly-form' },
-  { path: 'pages/formly-form', component: FormlyFormsComponent},
-  { path: 'pages/formly-conditional', component: FormlyConditionalComponent},
+  { path: 'pages/formly-form', component: FormlyFormsComponent },
+  { path: 'pages/formly-conditional', component: FormlyConditionalComponent },
 
   // Material
   { path: 'components/table', children: TABLE_ROUTES },
@@ -277,6 +281,7 @@ export const ROUTES: Routes = [
     FilterWrapperModule,
     AccordionWrapperModule,
     GroupWrappersModule,
+    ToastsModule,
     LabelWrapperModule,
     DescriptionWrapperModule,
     ValidationWrapperModule,
