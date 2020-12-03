@@ -2,9 +2,7 @@
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "types": ["jasmine"],
-    "paths": {
-      "@angular/*": ["./node_modules/@angular/*"]
-    }
+
   },
   "include": ["**/*.ts"]
 }
