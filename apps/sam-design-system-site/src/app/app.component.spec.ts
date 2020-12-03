@@ -1,11 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { ToastrModule } from 'ngx-toastr';
+import { SdsToastModule } from '@gsa-sam/components';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [AppComponent], imports: [RouterTestingModule]
+      declarations: [AppComponent],
+      imports: [RouterTestingModule, ToastrModule, SdsToastModule]
     }).compileComponents();
   }));
 
@@ -14,5 +17,4 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
-
 });
