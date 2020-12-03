@@ -1,14 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { RouterTestingModule } from '@angular/router/testing';
-import { ToastrModule } from 'ngx-toastr';
-import { SdsToastModule } from '@gsa-sam/components';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AppComponent],
-      imports: [RouterTestingModule, ToastrModule, SdsToastModule]
+      imports: [RouterTestingModule]
     }).compileComponents();
   }));
 
