@@ -6,15 +6,17 @@ import { ROUTES } from './app.routes';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
 import { sds } from '@gsa-sam/sam-styles/src/icons/';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import { MarkdownModule } from 'ngx-markdown';
-import {
-  FontAwesomeModule,
-  FaIconLibrary,
-} from '@fortawesome/angular-fontawesome';
 import { Toast, ToastrModule } from 'ngx-toastr';
-import { SdsToastComponent, toastFunc } from '@gsa-sam/components';
+import {
+  SdsToastComponent,
+  SdsToastSettings,
+  SdsToastModule,
+} from '@gsa-sam/components';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
 import xml from 'highlight.js/lib/languages/xml';
 import scss from 'highlight.js/lib/languages/scss';
@@ -29,15 +31,16 @@ export function hljsLanguages() {
 }
 
 @NgModule({
-  declarations: [AppComponent, SdsToastComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FontAwesomeModule,
+    SdsToastModule,
     RouterModule.forRoot(ROUTES, { scrollPositionRestoration: 'enabled' }),
     FormsModule,
     MarkdownModule.forRoot(),
-    ToastrModule.forRoot(toastFunc(SdsToastComponent)),
+    ToastrModule.forRoot(SdsToastSettings),
   ],
   providers: [
     { provide: LocationStrategy, useClass: PathLocationStrategy },
@@ -52,7 +55,7 @@ export function hljsLanguages() {
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
-    library.addIconPacks(fas, sds);
+  constructor() {
+    library.add(fas, sds);
   }
 }
