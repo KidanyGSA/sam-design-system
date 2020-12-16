@@ -1,0 +1,12 @@
+<div class="grid-row grip-gap bg-accent-cool-lighter flex-justify-center">
+    <div class="grid-col-12 bg-white">
+    <form [formGroup]="form">
+      <formly-form [model]="model" [fields]="fields" [options]="options" [form]="form"></formly-form>
+    </form>
+    <button type="button"  (click)="toggleReadonly()" class="usa-button margin-top-2 margin-bottom-2">Toggle Readonly</button>
+    <div class="sam-example-pagination">
+      <h4>Filter Model:</h4>
+      <span>{{model | json}}</span>
+    </div>
+  </div>
+</div>

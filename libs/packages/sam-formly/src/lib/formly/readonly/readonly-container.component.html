@@ -1,0 +1,8 @@
+<span [ngSwitch]="formlyFieldConfig.type">
+  <sds-readonly-input *ngSwitchCase="readonlyTypeEnum.INPUT" [label]="label" [value]="value"></sds-readonly-input>
+  <sds-readonly-datepicker *ngSwitchCase="readonlyTypeEnum.DATEPICKER" [label]="label" [value]="value"></sds-readonly-datepicker>
+  <sds-readonly-select *ngSwitchCase="readonlyTypeEnum.SELECT" [label]="label" [value]="value" [selectOptions]="formlyFieldConfig.templateOptions.options"></sds-readonly-select>
+  <sds-readonly-radio *ngSwitchCase="readonlyTypeEnum.RADIO" [label]="label" [value]="value" [selectOptions]="formlyFieldConfig.templateOptions.options"></sds-readonly-radio>
+  <sds-readonly-autocomplete *ngSwitchCase="readonlyTypeEnum.AUTOCOMPLETE" [label]="label" [value]="value" [autocompleteSettings]="formlyFieldConfig.templateOptions.configuration"></sds-readonly-autocomplete>
+  <sds-readonly-checkbox *ngSwitchCase="readonlyTypeEnum.CHECKBOX" [label]="label" [value]="value"></sds-readonly-checkbox>
+</span>
