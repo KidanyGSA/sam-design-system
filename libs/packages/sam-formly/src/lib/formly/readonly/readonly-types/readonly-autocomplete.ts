@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from "@angular/core";
-import { SDSAutocompletelConfiguration, SelectionMode } from '@gsa-sam/components';
+import { SDSAutocompletelConfiguration } from '@gsa-sam/components';
 
 @Component({
   selector: `sds-readonly-autocomplete`,
@@ -17,16 +17,16 @@ export class ReadonlyAutocompleteComponent implements OnInit {
   displayValue: string;
 
   ngOnInit() {
-    if (!this.autocompleteSettings) {
-      this.displayValue = this.value;
-      return;
-    }
-
     if (!this.value || !this.value.length) {
       this.displayValue = '&mdash;';
-      return;
+    } else if (!this.autocompleteSettings || !this.autocompleteSettings.primaryTextField) {
+      this.displayValue = this.isObject(this.value) ? JSON.stringify(this.value) : this.value;
+    } else {
+      this.displayValue = this.value.map(value => value[this.autocompleteSettings.primaryTextField]).join(', ');
     }
+  }
 
-    this.displayValue = this.value.map(value => value[this.autocompleteSettings.primaryTextField]).join(', ');
+  isObject(value) {
+    return typeof(value) === 'object';
   }
 }

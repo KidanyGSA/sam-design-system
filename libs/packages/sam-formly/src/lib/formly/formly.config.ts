@@ -47,53 +47,55 @@ import { FormlyGroupWrapperComponent } from './wrappers/group.wrapper';
 import { FormlyFieldSearchComponent } from './types/search';
 import { FormlyFieldFileInfoComponent } from './types/fileinfo';
 import { FormlyReadonlyWrapperComponent } from './wrappers/readonly.wrapper';
+import { SdsFormlyTypes } from './models/formly-types';
+import { SdsFormlyWrappers } from './models/formly-wrappers';
 
 export const FORMLY_WRAPPERS: any = [
   {
-    name: 'form-field',
+    name: SdsFormlyWrappers.FORMFIELD,
     component: FormlyWrapperFormFieldComponent,
     componentName: 'FormlyWrapperFormFieldComponent'
   },
   {
-    name: 'accordionwrapper',
+    name: SdsFormlyWrappers.ACCORDIONWRAPPER,
     component: FormlyAccordianFormFieldComponent,
     componentName: 'FormlyAccordianFormFieldComponent'
   },
   {
-    name: 'filterwrapper',
+    name: SdsFormlyWrappers.FILTERWRAPPER,
     component: FormlyFormFieldFilterWrapperComponent,
     componentName: 'FormlyFormFieldFilterWrapperComponent'
   },
 
   {
-    name: 'label',
+    name: SdsFormlyWrappers.LABELWRAPPER,
     component: FormlyLabelWrapperComponent,
     componentName: 'FormlyLabelWrapperComponent'
   },
   {
-    name: 'description',
+    name: SdsFormlyWrappers.DESCRIPTIONWRAPPER,
     component: FormlyDescriptionWrapperComponent,
     componentName: 'FormlyDescriptionWrapperComponent'
   },
   {
-    name: 'validation',
+    name: SdsFormlyWrappers.VALIDATIONWRAPPER,
     component: FormlyValidationWrapperComponent,
     componentName: 'FormlyValidationWrapperComponent'
   },
   {
-    name: 'group',
+    name: SdsFormlyWrappers.GROUPWRAPPER,
     component: FormlyGroupWrapperComponent,
     componentName: 'FormlyGroupWrapperComponent'
   },
 
   {
-    name: 'customwrapper',
+    name: SdsFormlyWrappers.CUSTOMWRAPPER,
     component: FormlyCustomWrapperComponent,
     componentName: 'FormlyCustomWrapperComponent'
   },
 
   {
-    name: 'readonly',
+    name: SdsFormlyWrappers.READONLYWRAPPER,
     component: FormlyReadonlyWrapperComponent,
     componentName: 'FormlyReadonlyWrapperComponent',
   }
@@ -102,60 +104,65 @@ export const FORMLY_WRAPPERS: any = [
 export const FORMLY_CONFIG: ConfigOption = {
   types: [
     {
-      name: 'formly-group',
+      name: SdsFormlyTypes.FORMLYGROUP,
       wrappers: sdsGroupWrapper
     },
     {
-      name: 'button',
+      name: SdsFormlyTypes.READONLY,
+      wrappers: sdsGroupWrapper,
+      component: FormlyReadonlyWrapperComponent,
+    },
+    {
+      name: SdsFormlyTypes.BUTTON,
       component: FormlyFieldButtonComponent
     },
     {
-      name: 'customtext',
+      name: SdsFormlyTypes.CUSTOMTEXT,
       component: FormlyFieldTextComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'input',
+      name: SdsFormlyTypes.INPUT,
       component: FormlyFieldInputComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'checkbox',
+      name: SdsFormlyTypes.CHECKBOX,
       component: FormlyFieldCheckboxComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'fileinfo',
+      name: SdsFormlyTypes.FILEINFO,
       component: FormlyFieldFileInfoComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'radio',
+      name: SdsFormlyTypes.RADIO,
       component: FormlyFieldRadioComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'select',
+      name: SdsFormlyTypes.SELECT,
       component: FormlyFieldSelectComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'textarea',
+      name: SdsFormlyTypes.TEXTAREA,
       component: FormlyFieldTextAreaComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'multicheckbox',
+      name: SdsFormlyTypes.MULTICHECKBOX,
       component: FormlyFieldMultiCheckboxComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'autocomplete',
+      name: SdsFormlyTypes.AUTOCOMPLETE,
       component: FormlyFieldAutoCompleteComponent,
       wrappers: sdsWrappers
     },
     {
-      name: 'datepicker',
+      name: SdsFormlyTypes.DATEPICKER,
       component: FormlyFieldDatePickerComponent,
       wrappers: sdsWrappers,
       defaultOptions: {
@@ -165,13 +172,13 @@ export const FORMLY_CONFIG: ConfigOption = {
       }
     },
     {
-      name: 'daterangepicker',
-      extends: 'formly-group',
+      name: SdsFormlyTypes.DATERANGEPICKER,
+      extends: SdsFormlyTypes.FORMLYGROUP,
       wrappers: sdsWrappers,
       defaultOptions: {
         fieldGroup: [
           {
-            type: 'datepicker',
+            type: SdsFormlyTypes.DATEPICKER,
             key: 'fromDate',
             templateOptions: {
               label: 'From'
@@ -182,7 +189,7 @@ export const FORMLY_CONFIG: ConfigOption = {
             }
           },
           {
-            type: 'datepicker',
+            type: SdsFormlyTypes.DATEPICKER,
             key: 'toDate',
             templateOptions: {
               label: 'To'
@@ -196,21 +203,21 @@ export const FORMLY_CONFIG: ConfigOption = {
       }
     },
     {
-      name: 'search',
+      name: SdsFormlyTypes.SEARCH,
       component: FormlyFieldSearchComponent,
       wrappers: sdsWrappers
     }
   ],
   wrappers: [
-    { name: 'label', component: FormlyLabelWrapperComponent },
-    { name: 'description', component: FormlyDescriptionWrapperComponent },
-    { name: 'validation', component: FormlyValidationWrapperComponent },
-    { name: 'group', component: FormlyGroupWrapperComponent },
-    { name: 'form-field', component: FormlyWrapperFormFieldComponent },
-    { name: 'accordionwrapper', component: FormlyAccordianFormFieldComponent },
-    { name: 'filterwrapper', component: FormlyFormFieldFilterWrapperComponent },
-    { name: 'customwrapper', component: FormlyCustomWrapperComponent },
-    { name: 'readonly', component: FormlyReadonlyWrapperComponent },
+    { name: SdsFormlyWrappers.LABELWRAPPER, component: FormlyLabelWrapperComponent },
+    { name: SdsFormlyWrappers.DESCRIPTIONWRAPPER, component: FormlyDescriptionWrapperComponent },
+    { name: SdsFormlyWrappers.VALIDATIONWRAPPER, component: FormlyValidationWrapperComponent },
+    { name: SdsFormlyWrappers.GROUPWRAPPER, component: FormlyGroupWrapperComponent },
+    { name: SdsFormlyWrappers.FORMFIELD, component: FormlyWrapperFormFieldComponent },
+    { name: SdsFormlyWrappers.ACCORDIONWRAPPER, component: FormlyAccordianFormFieldComponent },
+    { name: SdsFormlyWrappers.FILTERWRAPPER, component: FormlyFormFieldFilterWrapperComponent },
+    { name: SdsFormlyWrappers.CUSTOMWRAPPER, component: FormlyCustomWrapperComponent },
+    { name: SdsFormlyWrappers.READONLYWRAPPER, component: FormlyReadonlyWrapperComponent },
   ]
 };
 

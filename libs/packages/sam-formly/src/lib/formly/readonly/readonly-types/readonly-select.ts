@@ -16,11 +16,16 @@ export class ReadonlySelectComponent implements OnInit {
   displayValue: {label: string, value: string};
 
   ngOnInit() {
-    this.displayValue = this.selectOptions.find(option => option.value === this.value);
-
-    if (!this.displayValue) {
+    if (!this.value) {
       this.displayValue = {label: '&mdash;', value: this.value};
-    }
+    } else if (!this.selectOptions || !this.selectOptions.length) {
+      this.displayValue = this.value;
+    } else {
+      this.displayValue = this.selectOptions.find(option => option.value === this.value);
 
+      if (!this.displayValue) {
+        this.displayValue = {label: '&mdash;', value: this.value};
+      }
+    }
   }
 }

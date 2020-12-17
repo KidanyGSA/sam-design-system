@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { SDSAutocompletelConfiguration, SDSSelectedItemModel, SelectionMode } from '@gsa-sam/components';
+import { FormlyUtilsService } from '@gsa-sam/sam-formly';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 import { AutocompleteSampleDataService } from '../../../../autocomplete/demos/basic/service/autocomplete-sample.service';
 
@@ -38,8 +39,7 @@ export class ReadonlyAdvancedComponent implements OnInit {
           defaultValue: 'Jane',
           templateOptions: {
             label: 'First Name',
-            required: true,
-            readonlyMode: true,
+            required: true,            
           },
         },
         {
@@ -398,22 +398,7 @@ export class ReadonlyAdvancedComponent implements OnInit {
   }
 
   toggleReadonly() {
-    this.fields.forEach(field => {
-      this._toggleReadonly(field);
-    });
-    this.isReadonlyMode = !this.isReadonlyMode;
-  }
-
-  private _toggleReadonly(field: FormlyFieldConfig) {
-
-    if (field.fieldGroup) {
-      field.fieldGroup.forEach(field => {
-        this._toggleReadonly(field);
-      })
-    }
-
-    if (field.templateOptions) {
-      field.templateOptions.readonlyMode = !field.templateOptions.readonlyMode;
-    }
+    this.isReadonlyMode = !this.isReadonlyMode
+    FormlyUtilsService.setReadonlyMode(this.isReadonlyMode, this.fields);
   }
 }

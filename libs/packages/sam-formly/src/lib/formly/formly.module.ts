@@ -14,7 +14,8 @@ import {
 import { FIELD_TYPE_COMPONENTS, FORMLY_CONFIG } from './formly.config';
 import { maxDateValidator, minDateValidator } from './formly.validators';
 import { AnimationWrapperComponent } from './wrappers/form-field.animation';
-import { ReadonlyTemplateModule } from './readonly/readonly-template.module';
+import { SdsReadonlyModule } from './readonly/readonly.module';
+import { SdsFormlyWrappers } from './models/formly-wrappers';
 
 // Validate the min length of the character
 export function minlengthValidationMessage(err, field) {
@@ -61,11 +62,11 @@ export function maxValidationMessage(err, field) {
   return `This value should be less than ${field.templateOptions.max}`;
 }
 export function animationExtension(field: FormlyFieldConfig) {
-  if (field.wrappers && field.wrappers.includes('animation')) {
+  if (field.wrappers && field.wrappers.includes(SdsFormlyWrappers.ANIMATIONWRAPPER)) {
     return;
   }
 
-  field.wrappers = ['animation', ...(field.wrappers || [])];
+  field.wrappers = [SdsFormlyWrappers.ANIMATIONWRAPPER, ...(field.wrappers || [])];
 }
 export { maxDateValidator, minDateValidator } from './formly.validators';
 
@@ -89,7 +90,7 @@ export { maxDateValidator, minDateValidator } from './formly.validators';
     FontAwesomeModule,
     ReactiveFormsModule,
     FormlySelectModule,
-    ReadonlyTemplateModule,
+    SdsReadonlyModule,
     FormlyModule.forChild(FORMLY_CONFIG),
     FormlyModule.forRoot({
       validationMessages: [
@@ -108,10 +109,10 @@ export { maxDateValidator, minDateValidator } from './formly.validators';
         { name: 'maxDate', validation: maxDateValidator }
       ],
       wrappers: [
-        { name: 'animation', component: AnimationWrapperComponent },
+        { name: SdsFormlyWrappers.ANIMATIONWRAPPER, component: AnimationWrapperComponent },
       ],
       extensions: [
-        { name: 'animation', extension: { onPopulate: animationExtension } },
+        { name: SdsFormlyWrappers.ANIMATIONWRAPPER, extension: { onPopulate: animationExtension } },
       ],
     })
   ]

@@ -5,7 +5,7 @@ import { Component, Input } from "@angular/core";
   selector: 'sds-readonly-datepicker',
   template: `
     <label class="usa-label">{{label}}</label>
-    <span class="text-bold"> {{value | date: 'mediumDate'}}</span>
+    <span class="text-bold"> {{value ? (value | date: 'mediumDate') : '&mdash;'}}</span>
   `,
 })
 export class ReadonlyDatepickerComponent {
