@@ -22,7 +22,7 @@ export class ReadonlyMulticheckboxComponent {
 
   @Input() label: string;
   @Input() value: any;
-  @Input() multicheckboxOptions: any;
+  @Input() multicheckboxOptions: any[];
 
   isObject(value) {
     return typeof(value) === 'object';
