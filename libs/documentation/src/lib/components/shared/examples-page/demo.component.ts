@@ -37,11 +37,6 @@ export class DocumentationWidgetDemoComponent {
     );
   }
 
-  openOnStackblitz() {
-
-    
-  }
-
   getStackblitzLink() {
     const filePath = `assets/stackblitzes/${this.component}/${this.id}/stackblitz.html`;
     return filePath;
