@@ -5,6 +5,7 @@ import { formlyFieldConfig } from './fields';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
+  selector: 'filter-config-demo',
   templateUrl: './filter-config.component.html'
 })
 export class FiltersConfig implements OnInit {

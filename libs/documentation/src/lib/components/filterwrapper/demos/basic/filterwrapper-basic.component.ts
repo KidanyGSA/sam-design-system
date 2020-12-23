@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: 'filterwrapper-demo',
   templateUrl: './filterwrapper-basic.component.html',
   styleUrls: ['./filterwrapper-basic.component.scss']
 })

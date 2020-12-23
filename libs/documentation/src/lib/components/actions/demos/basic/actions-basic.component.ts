@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: 'action-basic-demo',
   templateUrl: 'actions-basic.component.html'
 })
 export class ActionsBasic {

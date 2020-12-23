@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: 'input-optional-demo',
   templateUrl: './input-optional.component.html',
   styleUrls: ['./input-optional.component.scss']
 })

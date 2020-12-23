@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: 'multicheckbox-basic-demo',
   templateUrl: './multicheckbox-basic.component.html',
   styleUrls: ['./multicheckbox-basic.component.scss']
 })

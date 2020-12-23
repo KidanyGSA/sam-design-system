@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatButtonToggleChange } from '@angular/material';
 
 @Component({
+  selector: 'button-group-basic-demo',
   templateUrl: './button-group-basic.component.html',
   styleUrls: ['./button-group-basic.component.scss']
 })

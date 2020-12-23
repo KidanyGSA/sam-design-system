@@ -6,6 +6,7 @@ import { LocationStrategy } from '@angular/common';
 import { FormControl } from '@angular/forms';
 
 @Component({
+  selector: 'footer-basic-demo',
   templateUrl: './footer-basic.component.html',
   styleUrls: ['./footer-basic.component.scss']
 })

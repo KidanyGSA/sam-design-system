@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 
 @Component({
+  selector: 'accordion-basic-demo',
   templateUrl: 'accordion-basic.component.html'
 })
 export class AccordionBasic {

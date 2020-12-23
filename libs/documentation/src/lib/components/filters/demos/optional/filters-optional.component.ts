@@ -4,6 +4,7 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
+  selector: 'filters-optional-demo',
   templateUrl: './filters-optional.component.html',
   styleUrls: ['./filters-optional.component.scss']
 })

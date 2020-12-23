@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: 'accordion-wrapper-basic-demo',
   templateUrl: './accordionwrapper-basic.component.html',
   styleUrls: ['./accordionwrapper-basic.component.scss']
 })

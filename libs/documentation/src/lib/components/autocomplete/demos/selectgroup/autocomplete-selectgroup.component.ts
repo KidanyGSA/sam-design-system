@@ -7,6 +7,7 @@ import {
 import { AutocompleteSampleDataService } from './service/autocomplete-sample.service';
 
 @Component({
+  selector: 'autocomplete-selectgroup-demo',
   templateUrl: './autocomplete-selectgroup.component.html',
   providers: [AutocompleteSampleDataService]
 })

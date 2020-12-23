@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: 'formly-datepicker-basic-demo',
   templateUrl: './datepicker-basic.component.html',
   styleUrls: ['./datepicker-basic.component.scss']
 })

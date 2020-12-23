@@ -1,4 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import sdk from "@stackblitz/sdk";
+import { DEPENDENCIES } from '../dependencies';
 
 @Component({
   selector: 'documentation-widget-demo',
@@ -36,6 +38,23 @@ export class DocumentationWidgetDemoComponent {
         ts: 'Typescript'
       }[ext] || 'Code'
     );
+  }
+
+  getStackblitzFile() {
+    console.log(this);
+    var require: any;
+    let filePath = `/demo/src/public/stackblitzes/${this.component}`;
+    if (this.id) {
+      filePath = `${filePath}/${this.id}`;
+    }
+
+    filePath = `${filePath}/stackblitz.html`;
+
+    console.log(filePath);
+    const file = require(filePath)
+    console.log(file);
+
+    return filePath;
   }
 
 }

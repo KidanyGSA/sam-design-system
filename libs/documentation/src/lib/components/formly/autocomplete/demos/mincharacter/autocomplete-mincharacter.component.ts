@@ -8,6 +8,7 @@ import {
   SelectionMode
 } from '@gsa-sam/components';
 @Component({
+  selector: 'formly-autocomplete-min-character-demo',
   templateUrl: './autocomplete-mincharacter.component.html',
   providers: [AutocompleteSampleDataService]
 })

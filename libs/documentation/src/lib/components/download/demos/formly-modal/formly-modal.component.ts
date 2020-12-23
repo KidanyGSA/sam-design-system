@@ -7,6 +7,7 @@ import {
 import { SdsDialogService } from '@gsa-sam/components';
 
 @Component({
+  selector: 'formly-modal-demo',
   templateUrl: 'formly-modal.component.html'
 })
 export class FormlyDialog {

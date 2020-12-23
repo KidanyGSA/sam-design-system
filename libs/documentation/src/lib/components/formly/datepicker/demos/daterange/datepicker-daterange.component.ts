@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: 'formly-datepicker-daterange-demo',
   templateUrl: './datepicker-daterange.component.html'
 })
 export class FormlyDatepickerDateRange {

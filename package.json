@@ -45,7 +45,8 @@
     "build:docs:layouts": "npx compodoc -p libs/packages/layouts/tsconfig.json -n \"SAM.Gov Design System - Layouts\" --hideGenerator --disableCoverage -d dist/apps/sam-design-system-site/compodoc/layouts",
     "build:docs:material": "npx compodoc -p libs/packages/sam-material-extensions/tsconfig.json -n \"SAM.Gov Design System - Material\" --hideGenerator --disableCoverage -d dist/apps/sam-design-system-site/compodoc/material",
     "build:docs": "npm run build:docs:components && npm run build:docs:formly && npm run build:docs:layouts && npm run build:docs:material",
-    "compodocs": "npx compodoc -p libs/packages/components/tsconfig.json -s --minimal"
+    "compodocs": "npx compodoc -p libs/packages/components/tsconfig.json -s --minimal",
+    "demo:stackblitzes": "ts-node --project misc/tsconfig.json misc/generate-stackblitzes.ts"
   },
   "private": true,
   "dependencies": {
@@ -69,6 +70,7 @@
     "@ngrx/store": "6.1.2",
     "@ngx-formly/core": "^5.6.0",
     "@nrwl/nx": "7.5.0",
+    "@stackblitz/sdk": "^1.5.2",
     "@types/qs": "^6.2.3",
     "accessible-html5-video-player": "^1.0.6",
     "core-js": "^2.5.4",

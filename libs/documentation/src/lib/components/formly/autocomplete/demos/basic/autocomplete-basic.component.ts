@@ -11,6 +11,7 @@ import {
 import { SampleAutocompleteData } from './services/autocomplete-sample.data';
 
 @Component({
+  selector: 'formly-autocomplete-basic-demo',
   templateUrl: './autocomplete-basic.component.html',
   styleUrls: ['./autocomplete-basic.component.scss'],
   providers: [AutocompleteSampleDataService]

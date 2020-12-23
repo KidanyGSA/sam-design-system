@@ -8,6 +8,7 @@ import { SampleAutocompleteData } from './service/autocomplete-sample.data';
 import { AutocompleteSampleDataService } from './service/autocomplete-sample.service';
 
 @Component({
+  selector: 'autocomplete-optional-demo',
   templateUrl: './autocomplete-optional.component.html',
   styleUrls: ['./autocomplete-optional.component.scss'],
   providers: [AutocompleteSampleDataService]

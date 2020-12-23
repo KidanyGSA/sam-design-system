@@ -9,6 +9,7 @@ import {
 } from '@gsa-sam/components';
 
 @Component({
+  selector: 'formly-autocomplete-readonly-demo',
   templateUrl: './autocomplete-readonly.component.html',
   providers: [AutocompleteSampleDataService]
 })
