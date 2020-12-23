@@ -77,8 +77,6 @@ export function parseDemo(globPath: string): Map<string, DemoMetadata> {
     const bootstrapComponent = metadata.bootstrap.className;
     const bootstrapMetadata = components.get(bootstrapComponent);
     if (!bootstrapMetadata) {
-      // console.log(components);
-      // console.log(metadata);
       modules.delete(key);
       // throw new Error(`Couldn't get bootstrap component metadata for component ${bootstrapComponent}`);
     } else {

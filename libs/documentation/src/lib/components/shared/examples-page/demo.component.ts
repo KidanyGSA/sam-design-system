@@ -40,19 +40,15 @@ export class DocumentationWidgetDemoComponent {
     );
   }
 
-  getStackblitzFile() {
-    console.log(this);
-    var require: any;
-    let filePath = `/demo/src/public/stackblitzes/${this.component}`;
+  openOnStackblitz() {
+    let filePath = `stackblitzes/${this.component}`;
     if (this.id) {
       filePath = `${filePath}/${this.id}`;
     }
 
     filePath = `${filePath}/stackblitz.html`;
 
-    console.log(filePath);
-    const file = require(filePath)
-    console.log(file);
+    window.open(`../../../${filePath}`)
 
     return filePath;
   }

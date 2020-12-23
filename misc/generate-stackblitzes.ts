@@ -16,6 +16,7 @@ const samMaterialExtensions = fs.readJsonSync("libs/packages/sam-material-extens
 
 const versions = {
   angular: getVersion('@angular/core'),
+  angularLocalize: getVersion('@angular/localize'),
   typescript: getVersion('typescript'),
   samStyles: getVersion('@gsa-sam/sam-styles'),
   samLayouts: samLayoutsPackage.version,
@@ -29,6 +30,8 @@ const versions = {
   fontawesomeSolidSvg: getVersion('@fortawesome/free-solid-svg-icons'),
   videoPlayer: getVersion('accessible-html5-video-player'),
   ngxBootstrapIcons: getVersion('ngx-bootstrap-icons'),
+  ngxMarkdown: getVersion('ngx-markdown'),
+  camelcase: getVersion('camelcase'),
   rxjs: getVersion('rxjs'),
   zoneJs: getVersion('zone.js'),
   coreJs: getVersion('core-js'),
@@ -59,6 +62,8 @@ function getVersion(name) {
 const indexFile = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'index.html.ejs'));
 const mainFile = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'main.ts.ejs'));
 const stackblitzFile = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'stackblitz.html.ejs'));
+const appComponent = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'app.component.ejs'));
+const appModule = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'app.module.ejs'));
 
 const base = path.join('demo', 'src', 'public', 'stackblitzes');
 const root = path.join('libs', 'documentation', 'src', 'lib');
@@ -77,6 +82,7 @@ const initialData = {
     '@angular/platform-browser-dynamic': versions.angular,
     '@angular/router': versions.angular,
     '@angular/forms': versions.angular,
+    '@angular/localize': versions.angularLocalize,
     '@gsa-sam/sam-styles': versions.samStyles,
     '@gsa-sam/layouts': versions.samLayouts,
     '@gsa-sam/components': versions.samComponents,
@@ -89,6 +95,8 @@ const initialData = {
     '@fortawesome/free-solid-svg-icons': versions.fontawesomeSolidSvg,
     'accessible-html5-video-player': versions.videoPlayer,
     'ngx-bootstrap-icons': versions.ngxBootstrapIcons,
+    'ngx-markdown': versions.ngxMarkdown,
+    'camelcase': versions.camelcase,
     'core-js': versions.coreJs,
     'rxjs': versions.rxjs,
     'zone.js': versions.zoneJs,
@@ -112,20 +120,15 @@ const modulesInfo = parseDemo(path.join(root, '**', '*.ts'));
 
 // re-creating all stackblitzes
 modulesInfo.forEach((value, demoModule) => {
-  console.log('path dirname', path.dirname(demoModule));
   let demoFolder = path.normalize(path.dirname(demoModule));
-  console.log(demoFolder);
   const demoFiles = glob.sync(path.join(demoFolder, '*'), {});
-  console.log(demoFiles);
-
   demoFolder = path.relative(root, path.resolve(demoFolder));
 
   const[, componentName, , demoName] = demoFolder.replace(root, '').split(path.sep);
   const modulePath = path.basename(demoModule, '.ts');
+
   const moduleInfo = modulesInfo.get(demoModule);
   const destinationFolder = path.join(base, componentName, demoName);
-  console.log([componentName, demoName]);
-  console.log('Destination', destinationFolder);
 
   const stackblitzData = {
     ...initialData,
@@ -143,6 +146,8 @@ modulesInfo.forEach((value, demoModule) => {
 
   stackblitzData.files.push({name: 'src/index.html', source: indexFile(stackblitzData)});
   stackblitzData.files.push({name: 'src/main.ts', source: mainFile(stackblitzData)});
+  stackblitzData.files.push({name: 'src/app.module.ts', source: appModule(stackblitzData)})
+  stackblitzData.files.push({name: 'src/app.component.ts', source: appComponent(stackblitzData)});
   for (const file of demoFiles) {
     const destFile = path.basename(file);
     try {

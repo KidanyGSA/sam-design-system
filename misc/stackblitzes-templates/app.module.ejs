@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { sds } from '@gsa-sam/sam-styles/src/icons/';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { AppComponent } from './app.component';
+import { MarkdownModule } from 'ngx-markdown';
+import {<%=moduleClassName%>} from '<%=modulePath%>';
+
+@NgModule({
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    FontAwesomeModule,
+    MarkdownModule.forRoot(),
+    <%=moduleClassName%>
+  ],
+  declarations: [
+    AppComponent
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+  constructor() {
+    library.add(fas, sds);
+  }
+}

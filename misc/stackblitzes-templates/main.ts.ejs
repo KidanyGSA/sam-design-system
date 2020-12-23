@@ -2,10 +2,10 @@ import './polyfills';
 
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 
-import {<%=moduleClassName%>} from '<%=modulePath%>';
+import {AppModule} from './app.module';
 
 platformBrowserDynamic()
-    .bootstrapModule(<%=moduleClassName%>)
+    .bootstrapModule(AppModule)
     .then(ref => {
       // Ensure Angular destroys itself on hot reloads.
       if (window['ngRef']) {
