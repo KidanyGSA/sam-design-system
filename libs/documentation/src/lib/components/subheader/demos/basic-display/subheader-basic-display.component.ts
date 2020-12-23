@@ -3,8 +3,6 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormGroup } from '@angular/forms';
 import {
   SdsDialogService,
-  SdsDialogRef,
-  SDS_DIALOG_DATA
 } from '@gsa-sam/components';
 import {
   SdsFormlyDialogComponent,
@@ -12,6 +10,7 @@ import {
 } from '@gsa-sam/sam-formly';
 
 @Component({
+  selector: `subheader-basic-demo`,
   templateUrl: './subheader-basic-display.component.html',
   styleUrls: ['./subheader-basic-display.component.scss']
 })

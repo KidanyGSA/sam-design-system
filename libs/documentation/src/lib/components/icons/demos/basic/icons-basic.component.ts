@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { sds } from '@gsa-sam/sam-styles/src/icons/';
 
 @Component({
+  selector: `icons-basic-demo`,
   templateUrl: './icons-basic.component.html',
   styleUrls: ['./icons-basic.component.scss']
 })

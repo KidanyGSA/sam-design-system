@@ -5,6 +5,7 @@ import { NavigationMode } from '@gsa-sam/components';
 import { LocationStrategy } from '@angular/common';
 
 @Component({
+  selector: `header-hidden-logo-demo`,
   templateUrl: './header-hidden-logo.component.html',
   styleUrls: ['./header-hidden-logo.component.scss']
 })

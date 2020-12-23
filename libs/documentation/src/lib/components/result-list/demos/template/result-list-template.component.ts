@@ -3,6 +3,7 @@ import {
 } from '@angular/core';
 
 @Component({
+  selector: `result-list-template-demo`,
   templateUrl: './result-list-template.component.html'
 })
 

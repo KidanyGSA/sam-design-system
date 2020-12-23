@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
+  selector: `templateoption-tags-demo`,
   templateUrl: './templateoption-tags.component.html'
 })
 export class TemplateOptionsTags {

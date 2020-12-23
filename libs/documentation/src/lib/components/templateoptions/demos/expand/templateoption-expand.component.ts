@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
+  selector: `templateoption-expand-demo`,
   templateUrl: './templateoption-expand.component.html'
 })
 export class TemplateOptionExpand {

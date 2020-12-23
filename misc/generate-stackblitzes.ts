@@ -32,6 +32,7 @@ const versions = {
   ngxBootstrapIcons: getVersion('ngx-bootstrap-icons'),
   ngxMarkdown: getVersion('ngx-markdown'),
   camelcase: getVersion('camelcase'),
+  qs: getVersion('qs'),
   rxjs: getVersion('rxjs'),
   zoneJs: getVersion('zone.js'),
   coreJs: getVersion('core-js'),
@@ -65,7 +66,7 @@ const stackblitzFile = ejs.compile(fileContent('misc', 'stackblitzes-templates',
 const appComponent = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'app.component.ejs'));
 const appModule = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'app.module.ejs'));
 
-const base = path.join('demo', 'src', 'public', 'stackblitzes');
+const base = path.join('apps', 'sam-design-system-site', 'src', 'assets', 'stackblitzes');
 const root = path.join('libs', 'documentation', 'src', 'lib');
 
 const initialData = {
@@ -97,6 +98,7 @@ const initialData = {
     'ngx-bootstrap-icons': versions.ngxBootstrapIcons,
     'ngx-markdown': versions.ngxMarkdown,
     'camelcase': versions.camelcase,
+    'qs': versions.qs,
     'core-js': versions.coreJs,
     'rxjs': versions.rxjs,
     'zone.js': versions.zoneJs,

@@ -10,6 +10,7 @@ import {
 } from '@gsa-sam/sam-formly';
 
 @Component({
+  selector: `subheader-search-demo`,
   templateUrl: './subheader-search.component.html',
   styleUrls: ['./subheader-search.component.scss']
 })

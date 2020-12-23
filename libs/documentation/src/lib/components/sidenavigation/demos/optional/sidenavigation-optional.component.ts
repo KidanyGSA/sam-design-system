@@ -6,6 +6,7 @@ import { navigationConfig } from './navigate.config';
 import { CdkAccordionItem } from '@angular/cdk/accordion';
 import { ActivatedRoute } from '@angular/router';
 @Component({
+  selector: `sidenavigation-optional-demo`,
   templateUrl: 'sidenavigation-optional.component.html'
 })
 export class SideNavigationOptional {

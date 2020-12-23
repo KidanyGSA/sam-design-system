@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: `table-basic-demo`,
   templateUrl: './basic.component.html'
 })
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: `table-borderless-demo`,
   templateUrl: './borderless.component.html'
 })
 

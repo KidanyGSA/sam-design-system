@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DocumentationExamplesPage } from '../../shared/examples-page/examples.component';
-import { DocumentationAPIPage } from '../../shared/api-page/docs-api.component';
-import { DocumentationSourcePage } from '../../shared/source-page/source.component';
-import { DocumentationTemplatePage } from '../../shared/template-page/template.component';
-import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../../shared/index';
-import { ComponentWrapperComponent } from '../../../shared/component-wrapper/component-wrapper.component';
+import { DocumentationExamplesPage } from '../shared/examples-page/examples.component';
+import { DocumentationAPIPage } from '../shared/api-page/docs-api.component';
+import { DocumentationSourcePage } from '../shared/source-page/source.component';
+import { DocumentationTemplatePage } from '../shared/template-page/template.component';
+import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../shared/index';
+import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 import { FormlyAutocompleteBasicModule } from './demos/basic/autocomplete-basic.module';
 import { FormlyAutocompleteBasic } from './demos/basic/autocomplete-basic.component';
 import { FormlyAutocompleteFreetextModule } from './demos/freetext/autocomplete-freetext.module';
@@ -28,49 +28,49 @@ const DEMOS = {
     type: FormlyAutocompleteBasic,
     code: require('!!raw-loader!./demos/basic/autocomplete-basic.component'),
     markup: require('!!raw-loader!./demos/basic/autocomplete-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/basic'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/basic'
   },
   freetext: {
     title: 'Autocomplete with Free text enabled',
     type: FormlyAutocompleteFreetext,
     code: require('!!raw-loader!./demos/freetext/autocomplete-freetext.component'),
     markup: require('!!raw-loader!./demos/freetext/autocomplete-freetext.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/freetext'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/freetext'
   },
   tag: {
     title: 'Autocomplete with Tag mode enabled',
     type: FormlyAutocompleteTag,
     code: require('!!raw-loader!./demos/tag/autocomplete-tag.component'),
     markup: require('!!raw-loader!./demos/tag/autocomplete-tag.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/tag'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/tag'
   },
   readonly: {
     title: 'Autocomplete with input read only',
     type: FormlyAutocompleteReadOnly,
     code: require('!!raw-loader!./demos/readonly/autocomplete-readonly.component'),
     markup: require('!!raw-loader!./demos/readonly/autocomplete-readonly.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/readonly'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/readonly'
   },
   mincharacter: {
     title: 'Autocomplete with Minimum character count',
     type: FormlyAutocompleteMinCharacter,
     code: require('!!raw-loader!./demos/mincharacter/autocomplete-mincharacter.component'),
     markup: require('!!raw-loader!./demos/mincharacter/autocomplete-mincharacter.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/mincharacter'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/mincharacter'
   },
   disable: {
     title: 'Autocomplete with disable',
     type: FormlyAutocompleteDisable,
     code: require('!!raw-loader!./demos/disable/autocomplete-disable.component'),
     markup: require('!!raw-loader!./demos/disable/autocomplete-disable.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/disable'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/disable'
   },
   validation: {
     title: 'Autocomplete with validations',
     type: FormlyAutocompleteValidation,
     code: require('!!raw-loader!./demos/validation/autocomplete-validation.component'),
     markup: require('!!raw-loader!./demos/validation/autocomplete-validation.component.html'),
-    path: 'libs/documentation/src/lib/components/formly/autocomplete/demos/validation'
+    path: 'libs/documentation/src/lib/components/formly-autocomplete/demos/validation'
   },
 };
 

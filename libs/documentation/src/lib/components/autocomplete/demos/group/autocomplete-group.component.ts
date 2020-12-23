@@ -4,7 +4,7 @@ import {
   SDSSelectedItemModel,
   SelectionMode
 } from '@gsa-sam/components';
-import { AutocompleteSampleDataService } from './service/autocomplete-sample.service';
+import { AutocompleteSampleDataService } from './autocomplete-sample.service';
 
 @Component({
   selector: 'autocomplete-group-demo',

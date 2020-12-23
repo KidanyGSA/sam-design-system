@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: `search-optional-demo`,
   templateUrl: './search-optional.component.html'
 })
 export class SearchOptional {

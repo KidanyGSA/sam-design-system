@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: `text-basic-demo`,
   templateUrl: './text-basic.component.html'
 })
 export class TextBasic {

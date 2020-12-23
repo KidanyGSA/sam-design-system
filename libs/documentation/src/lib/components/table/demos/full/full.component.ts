@@ -3,6 +3,7 @@ import tableDataFull from '../data';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
+  selector: `table-full-demo`,
   templateUrl: './full.component.html',
   styleUrls: [ './full.component.scss' ]
 })

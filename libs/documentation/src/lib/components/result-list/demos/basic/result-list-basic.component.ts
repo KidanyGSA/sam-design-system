@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: `result-list-basic-demo`,
   templateUrl: './result-list-basic.component.html'
 })
 export class ResultListBasic {

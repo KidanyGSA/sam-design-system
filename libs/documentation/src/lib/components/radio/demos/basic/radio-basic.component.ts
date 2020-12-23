@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: `radio-basic-demo`,
   templateUrl: './radio-basic.component.html',
   styleUrls: ['./radio-basic.component.scss']
 })
@@ -48,4 +49,8 @@ export class RadioBasic {
       },
     },
   ];
+
+  onChange($event) {
+    console.log($event);
+  }
 }

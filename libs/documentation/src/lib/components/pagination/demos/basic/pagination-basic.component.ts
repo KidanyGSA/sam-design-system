@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BehaviorSubject } from "rxjs";
 @Component({
+  selector: `pagination-basic-demo`,
   templateUrl: './pagination-basic.component.html',
   styleUrls: ['./pagination-basic.component.scss']
 })

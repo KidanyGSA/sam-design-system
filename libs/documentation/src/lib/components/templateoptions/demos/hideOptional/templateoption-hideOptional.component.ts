@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
+  selector: `templateoption-hideoptional-demo`,
   templateUrl: './templateoption-hideOptional.component.html'
 })
 export class TemplateOptionHideOptional {

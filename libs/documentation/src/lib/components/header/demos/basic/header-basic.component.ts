@@ -5,6 +5,7 @@ import { NavigationMode } from '@gsa-sam/components';
 import { LocationStrategy } from '@angular/common';
 
 @Component({
+  selector: `header-basic-demo`,
   templateUrl: './header-basic.component.html',
   styleUrls: ['./header-basic.component.scss']
 })

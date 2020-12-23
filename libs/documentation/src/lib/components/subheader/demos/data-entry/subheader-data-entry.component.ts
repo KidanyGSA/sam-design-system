@@ -12,6 +12,7 @@ import {
 } from '@gsa-sam/sam-formly';
 
 @Component({
+  selector: `subheader-data-entry-demo`,
   templateUrl: './subheader-data-entry.component.html',
   styleUrls: ['./subheader-data-entry.component.scss']
 })

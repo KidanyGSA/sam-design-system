@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: `search-basic-demo`,
   templateUrl: './search-basic.component.html',
   styleUrls: ['./search-basic.component.scss']
 })

@@ -2,32 +2,31 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { BehaviorSubject } from 'rxjs';
-import { AutocompleteSampleDataService } from '../../services/autocomplete-sample.service';
+import { AutocompleteSampleDataService } from './autocomplete-sample.service';
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
   SelectionMode
 } from '@gsa-sam/components';
-import { SampleAutocompleteData } from '../../services/autocomplete-sample.data';
+import { SampleAutocompleteData } from './autocomplete-sample.data';
 
 @Component({
-  selector: 'formly-autocomplete-disable-demo',
-  templateUrl: './autocomplete-disable.component.html',
+  selector: 'formly-autocomplete-validation-demo',
+  templateUrl: './autocomplete-validation.component.html',
   providers: [AutocompleteSampleDataService]
 })
-export class FormlyAutocompleteDisable {
+export class FormlyAutocompleteValidation {
   results: any;
   form = new FormGroup({});
   model = {
     filters: {
       agency: [],
-      items1: [],
-      items2: []
+      items: []
     }
   };
   options: FormlyFormOptions = {};
   public settings = new SDSAutocompletelConfiguration();
-  public autocompleteMultipleModel = new SDSSelectedItemModel();
+  public autocompleteModel = new SDSSelectedItemModel();
   private data = SampleAutocompleteData;
   public filterChange$ = new BehaviorSubject<object>(null);
   public multipleSettings = new SDSAutocompletelConfiguration();
@@ -38,46 +37,25 @@ export class FormlyAutocompleteDisable {
       templateOptions: { label: 'Keyword' },
       fieldGroup: [
         {
-          key: 'items1',
+          key: 'items',
           type: 'autocomplete',
-
           templateOptions: {
-            label: 'Generic Autocomplete',
+            label: 'Auto Complete validation with single selection mode',
             service: this.service,
+            required: true,
             configuration: this.settings,
-          },
-          lifecycle: {
-            onChanges: function(form: FormGroup, field) {
-              form.controls.items1.valueChanges.subscribe((value: any[]) => {
-                if (!value || !value.length) {
-                  form.controls.items2.reset();
-                }
-              })
-            }
-          }
-        },
-        {
-          key: 'items2',
-          type: 'autocomplete',
-
-          templateOptions: {
-            label: 'Auto Complete disabled using Expression properties until Previous Autocomplete is selected',
-            service: this.service,
-            configuration: this.settings,
-          },
-          expressionProperties: {
-            'templateOptions.disabled': () => !this.model.filters.items1 || this.model.filters.items1.length === 0
+            model: this.autocompleteModel
           }
         },
         {
           key: 'agency',
           type: 'autocomplete',
           templateOptions: {
-            label: 'Auto Complete disable with multiple selection mode',
-            disabled: true,
+            label: 'Auto Complete validation with multiple selection mode',
             service: this.service,
+            required: true,
             configuration: this.multipleSettings,
-            model: this.autocompleteMultipleModel
+            model: this.autocompleteModel
           }
         }
       ]
@@ -104,8 +82,5 @@ export class FormlyAutocompleteDisable {
     this.multipleSettings.labelText = 'Autocomplete 1';
     this.multipleSettings.selectionMode = SelectionMode.MULTIPLE;
     this.multipleSettings.autocompletePlaceHolderText = 'Enter text';
-
-    this.model.filters.agency.push(this.data[0]);
-    this.model.filters.agency.push(this.data[1]);
   }
 }

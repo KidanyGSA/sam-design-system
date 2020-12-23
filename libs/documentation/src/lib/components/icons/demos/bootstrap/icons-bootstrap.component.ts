@@ -3,6 +3,7 @@ import {allIcons} from 'ngx-bootstrap-icons'
 import { kebabCase } from 'lodash-es';
 
 @Component({
+  selector: `icons-bootstrap-demo`,
   templateUrl: './icons-bootstrap.component.html',
   styleUrls: ['./icons-bootstrap.component.scss']
 })

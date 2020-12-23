@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: `labelwrapper-basic-demo`,
   templateUrl: './labelwrapper-basic.component.html'
 })
 

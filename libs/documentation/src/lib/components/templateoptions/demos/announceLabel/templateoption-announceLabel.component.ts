@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 @Component({
+  selector: `templateoption-announcelabel-demo`,
   templateUrl: './templateoption-announceLabel.component.html'
 })
 export class TemplateOptionAnnounceLabel {

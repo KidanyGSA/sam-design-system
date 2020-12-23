@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
+  selector: `table-sort-demo`,
   templateUrl: './sort.component.html'
 })
 

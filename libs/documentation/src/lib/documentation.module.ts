@@ -99,7 +99,7 @@ import {
 import {
   ROUTES as RADIO_ROUTES,
   RadioModule
-} from './components/formly/radio/radio.module';
+} from './components/radio/radio.module';
 import {
   ROUTES as SELECT_ROUTES,
   SelectModule
@@ -107,7 +107,7 @@ import {
 import {
   ROUTES as FORMLY_AUTOCOMPLETE_ROUTES,
   FormlyAutocompleteModule
-} from './components/formly/autocomplete/autocomplete.module';
+} from './components/formly-autocomplete/autocomplete.module';
 import {
   ROUTES as FORMLY_DATEPICKER_ROUTES,
   FormlyDatepickerModule

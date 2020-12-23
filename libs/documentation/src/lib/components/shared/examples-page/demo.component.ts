@@ -1,7 +1,4 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
-import sdk from "@stackblitz/sdk";
-import { DEPENDENCIES } from '../dependencies';
-
 @Component({
   selector: 'documentation-widget-demo',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,15 +38,12 @@ export class DocumentationWidgetDemoComponent {
   }
 
   openOnStackblitz() {
-    let filePath = `stackblitzes/${this.component}`;
-    if (this.id) {
-      filePath = `${filePath}/${this.id}`;
-    }
 
-    filePath = `${filePath}/stackblitz.html`;
+    
+  }
 
-    window.open(`../../../${filePath}`)
-
+  getStackblitzLink() {
+    const filePath = `assets/stackblitzes/${this.component}/${this.id}/stackblitz.html`;
     return filePath;
   }
 

@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: `group-panel-demo`,
   templateUrl: './group-panel.component.html'
 })
 export class GroupPanel {

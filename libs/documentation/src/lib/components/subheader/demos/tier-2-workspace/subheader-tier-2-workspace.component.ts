@@ -12,6 +12,7 @@ import {
 } from '@gsa-sam/sam-formly';
 
 @Component({
+  selector: `subheader-tier-2-workspace-demo`,
   templateUrl: './subheader-tier-2-workspace.component.html',
   styleUrls: ['./subheader-tier-2-workspace.component.scss']
 })

@@ -5,6 +5,7 @@ import { NavigationMode } from '@gsa-sam/components';
 import { LocationStrategy } from '@angular/common';
 
 @Component({
+  selector: `header-alerts-demo`,
   templateUrl: './header-alerts.component.html',
 })
 export class HeaderAlertsComponent implements OnInit {

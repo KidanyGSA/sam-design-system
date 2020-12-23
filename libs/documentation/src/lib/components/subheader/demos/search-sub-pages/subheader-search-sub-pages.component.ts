@@ -10,6 +10,7 @@ import {
 } from '@gsa-sam/sam-formly';
 
 @Component({
+  selector: `subheader-hearch-sub-pages-demo`,
   templateUrl: './subheader-search-sub-pages.component.html',
   styleUrls: ['./subheader-search-sub-pages.component.scss']
 })

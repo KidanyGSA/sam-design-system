@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 
 @Component({
+  selector: `result-list-card-demo`,
   templateUrl: './result-list-card-component.component.html',
 })
 

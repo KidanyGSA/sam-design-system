@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
-import { AutocompleteSampleDataService } from '../../services/autocomplete-sample.service';
+import { AutocompleteSampleDataService } from './autocomplete-sample.service';
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
@@ -9,11 +9,11 @@ import {
 } from '@gsa-sam/components';
 
 @Component({
-  selector: 'formly-autocomplete-tag-demo',
-  templateUrl: './autocomplete-tag.component.html',
+  selector: 'formly-autocomplete-free-text-demo',
+  templateUrl: './autocomplete-freetext.component.html',
   providers: [AutocompleteSampleDataService]
 })
-export class FormlyAutocompleteTag  {
+export class FormlyAutocompleteFreetext {
   results: any;
   form = new FormGroup({});
   model = {};
@@ -53,8 +53,6 @@ export class FormlyAutocompleteTag  {
     this.settings.labelText = 'Autocomplete 1';
     this.settings.selectionMode = SelectionMode.MULTIPLE;
     this.settings.autocompletePlaceHolderText = 'Enter text';
-    this.settings.debounceTime = 250;
-    this.settings.isTagModeEnabled = true;
+    this.settings.isFreeTextEnabled = true;
   }
-
 }
