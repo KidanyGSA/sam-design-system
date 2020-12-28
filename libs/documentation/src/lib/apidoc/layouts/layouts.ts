@@ -2,11 +2,51 @@ const LAYOUTS = {
     "pipes": [],
     "interfaces": [
         {
+            "name": "Alert",
+            "id": "interface-Alert-d449a25073ce91f7edd4623ce2415bf5",
+            "file": "libs/packages/layouts/src/lib/feature/system-alert/model/alert.model.ts",
+            "type": "interface",
+            "sourceCode": "export interface Alert {\r\n  header: string,\r\n  date: Date,\r\n  description: string,\r\n  displayDescription?: boolean;\r\n}",
+            "properties": [
+                {
+                    "name": "date",
+                    "type": "Date",
+                    "optional": false,
+                    "description": "",
+                    "line": 3
+                },
+                {
+                    "name": "description",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 4
+                },
+                {
+                    "name": "displayDescription",
+                    "type": "boolean",
+                    "optional": true,
+                    "description": "",
+                    "line": 5
+                },
+                {
+                    "name": "header",
+                    "type": "string",
+                    "optional": false,
+                    "description": "",
+                    "line": 2
+                }
+            ],
+            "indexSignatures": [],
+            "kind": 150,
+            "methods": []
+        },
+        {
             "name": "FooterLogo",
-            "id": "interface-FooterLogo-197b29013c6c1d8a14afce009a936010",
+            "id": "interface-FooterLogo-c1dde576b3833a24f5204ee854b9faba",
             "file": "libs/packages/layouts/src/lib/feature/footer/model/FooterModel.ts",
             "type": "interface",
-            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\n\nexport class FooterModel {\n  /**\n   * List of sections and their links\n   */\n  linkSections: FooterLinkSection[];\n\n  /**\n   * Footer text and logo\n   */\n\n  footerLogo?: FooterLogo;\n\n  /**\n   * Footer disclaimer\n   */\n\n  disclaimer?: string;\n\n}\n\nexport class FooterLinkSection {\n  /**\n   * Title text for the section\n   */\n  text: string;\n\n  /**\n   * Links in the section\n   */\n  links: FooterLink[];\n}\n\nexport class FooterLink implements INavigationLink {\n  /**\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\n   */\n  mode: NavigationMode;\n\n  /**\n   * Text to be displayed in the link\n   */\n  text: string;\n\n  /**\n   * Navigation Route\n   */\n  route: string;\n}\n\nexport interface FooterLogo {\n  /**\n   * Text for the Header\n   */\n\n  text: string;\n\n  /**\n   * Image Source Path for the Image button\n   */\n\n  imageSourcePath: string;\n\n  /**\n   * Alt text for image\n   */\n\n  imageAltText: string;\n\n  /**\n   * link for logo image\n   */\n\n  href?: string;\n\n  /**\n   * agency name adjacent to logo\n   */\n\n  agencyName?: string;\n\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\r\n\r\nexport class FooterModel {\r\n  /**\r\n   * List of sections and their links\r\n   */\r\n  linkSections: FooterLinkSection[];\r\n\r\n  /**\r\n   * Footer text and logo\r\n   */\r\n\r\n  footerLogo?: FooterLogo;\r\n\r\n  /**\r\n   * Footer disclaimer\r\n   */\r\n\r\n  disclaimer?: string;\r\n\r\n}\r\n\r\nexport class FooterLinkSection {\r\n  /**\r\n   * Title text for the section\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Links in the section\r\n   */\r\n  links: FooterLink[];\r\n}\r\n\r\nexport class FooterLink implements INavigationLink {\r\n  /**\r\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n   */\r\n  mode: NavigationMode;\r\n\r\n  /**\r\n   * Text to be displayed in the link\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Navigation Route\r\n   */\r\n  route: string;\r\n}\r\n\r\nexport interface FooterLogo {\r\n  /**\r\n   * Text for the Header\r\n   */\r\n\r\n  text: string;\r\n\r\n  /**\r\n   * Image Source Path for the Image button\r\n   */\r\n\r\n  imageSourcePath: string;\r\n\r\n  /**\r\n   * Alt text for image\r\n   */\r\n\r\n  imageAltText: string;\r\n\r\n  /**\r\n   * link for logo image\r\n   */\r\n\r\n  href?: string;\r\n\r\n  /**\r\n   * agency name adjacent to logo\r\n   */\r\n\r\n  agencyName?: string;\r\n\r\n}\r\n",
             "properties": [
                 {
                     "name": "agencyName",
@@ -50,10 +90,10 @@ const LAYOUTS = {
         },
         {
             "name": "HeaderModel",
-            "id": "interface-HeaderModel-031a3e4cfc194f81934f42b7e3f5884f",
+            "id": "interface-HeaderModel-4cc7e171652a581711db1374980953e3",
             "file": "libs/packages/layouts/src/lib/feature/header/model/HeaderModel.ts",
             "type": "interface",
-            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\n\n\nexport interface HeaderModel {\n\n    /**\n     * Header logo and header logo home link\n     */\n    home: HeaderHome;\n\n    /**\n     * List of secondary links\n     */\n    secondaryLinks: HeaderSecondaryLink[];\n\n    /**\n     * List of main navigaation links/drop downs\n     */\n    navigationLinks: HeaderNavigationLink[];\n}\n\n\nexport class HeaderHome implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n    */\n    mode: NavigationMode;\n\n    /**\n     * Text for the Header\n     */\n    text: string;\n\n    /**\n     * Agency Logo for the Header\n     */\n    logo: string;\n\n    /**\n     * Navigation Route for Home image button\n     */\n    route: string;\n\n    /**\n    * Identifier for the item when search for selected\n    */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n/**\n *\n */\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link or button\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * List of child navigation items that will show when no route is provieded\n     */\n    children?: HeaderNavigationLink[];\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * image class eg. fas\n     */\n    imageClassPrefix: string;\n\n    /**\n     * image class\n     */\n    imageClass: string;\n\n    /**\n     * displays counter with image\n     */\n    hasCounter?: boolean;\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\r\n\r\n\r\nexport interface HeaderModel {\r\n\r\n    /**\r\n     * Header logo and header logo home link\r\n     */\r\n    home: HeaderHome;\r\n\r\n    /**\r\n     * List of secondary links\r\n     */\r\n    secondaryLinks: HeaderSecondaryLink[];\r\n\r\n    /**\r\n     * List of main navigaation links/drop downs\r\n     */\r\n    navigationLinks: HeaderNavigationLink[];\r\n}\r\n\r\n\r\nexport class HeaderHome implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n    */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text for the Header\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Agency Logo for the Header\r\n     */\r\n    logo: string;\r\n\r\n    /**\r\n     * Navigation Route for Home image button\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n    * Identifier for the item when search for selected\r\n    */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n/**\r\n *\r\n */\r\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link or button\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * List of child navigation items that will show when no route is provieded\r\n     */\r\n    children?: HeaderNavigationLink[];\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n\r\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * image class eg. fas\r\n     */\r\n    imageClassPrefix: string;\r\n\r\n    /**\r\n     * image class\r\n     */\r\n    imageClass: string;\r\n\r\n    /**\r\n     * displays counter with image\r\n     */\r\n    hasCounter?: boolean;\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "home",
@@ -83,10 +123,10 @@ const LAYOUTS = {
         },
         {
             "name": "Page",
-            "id": "interface-Page-1ac63cee68dcb066f47674b6ad12ca00",
+            "id": "interface-Page-f0a015f283d595cf2af37c0de61570ec",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/model/search-list-layout.model.ts",
             "type": "interface",
-            "sourceCode": "import { Observable } from 'rxjs';\nexport class SearchParameters {\n\n    /**\n     * page  \n     */\n    page: Page;\n\n    /**\n     * Sort value\n     */\n    sortField: string\n\n    /**\n     * filter data\n     */\n    filter: any;\n\n}\n\nexport interface Page {\n\n    /**\n     * Page number\n     */\n    pageNumber: number;\n\n    /**\n     * Page size\n     */\n    pageSize: number;\n\n    /**\n     * Total number of pages\n     */\n    totalPages: number;\n\n}\n\nexport class SearchResult {\n\n    /**\n     * Total number of items (beyond the page)\n     */\n    totalItems: number;\n\n    /**\n     * Items to be displayed\n     */\n    items: any[];\n}\n\n\n\nexport interface SearchListInterface {\n\n    /**\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\n     * @param search \n     */\n    getData(search: SearchParameters): Observable<SearchResult>;\n}\n\nexport class sortItem {\n    /**\n     * Text to be displayed\n     */\n    text: string;\n\n    /**\n     * Value of Item\n     */\n    value: string;\n\n\n}\n\nexport class SearchListConfiguration {\n\n    /**\n     * List of sort by items\n     */\n    sortList: sortItem[];\n\n    /**\n     * default sort value\n     */\n    defaultSortValue: string;\n\n    /**\n     * Starting page size\n     */\n    pageSize: number = 25;\n\n}",
+            "sourceCode": "import { Observable } from 'rxjs';\r\nexport class SearchParameters {\r\n\r\n    /**\r\n     * page  \r\n     */\r\n    page: Page;\r\n\r\n    /**\r\n     * Sort value\r\n     */\r\n    sortField: string\r\n\r\n    /**\r\n     * filter data\r\n     */\r\n    filter: any;\r\n\r\n}\r\n\r\nexport interface Page {\r\n\r\n    /**\r\n     * Page number\r\n     */\r\n    pageNumber: number;\r\n\r\n    /**\r\n     * Page size\r\n     */\r\n    pageSize: number;\r\n\r\n    /**\r\n     * Total number of pages\r\n     */\r\n    totalPages: number;\r\n\r\n}\r\n\r\nexport class SearchResult {\r\n\r\n    /**\r\n     * Total number of items (beyond the page)\r\n     */\r\n    totalItems: number;\r\n\r\n    /**\r\n     * Items to be displayed\r\n     */\r\n    items: any[];\r\n}\r\n\r\n\r\n\r\nexport interface SearchListInterface {\r\n\r\n    /**\r\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\r\n     * @param search \r\n     */\r\n    getData(search: SearchParameters): Observable<SearchResult>;\r\n}\r\n\r\nexport class sortItem {\r\n    /**\r\n     * Text to be displayed\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Value of Item\r\n     */\r\n    value: string;\r\n\r\n\r\n}\r\n\r\nexport class SearchListConfiguration {\r\n\r\n    /**\r\n     * List of sort by items\r\n     */\r\n    sortList: sortItem[];\r\n\r\n    /**\r\n     * default sort value\r\n     */\r\n    defaultSortValue: string;\r\n\r\n    /**\r\n     * Starting page size\r\n     */\r\n    pageSize: number = 25;\r\n\r\n}",
             "properties": [
                 {
                     "name": "pageNumber",
@@ -116,10 +156,10 @@ const LAYOUTS = {
         },
         {
             "name": "SearchListInterface",
-            "id": "interface-SearchListInterface-1ac63cee68dcb066f47674b6ad12ca00",
+            "id": "interface-SearchListInterface-f0a015f283d595cf2af37c0de61570ec",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/model/search-list-layout.model.ts",
             "type": "interface",
-            "sourceCode": "import { Observable } from 'rxjs';\nexport class SearchParameters {\n\n    /**\n     * page  \n     */\n    page: Page;\n\n    /**\n     * Sort value\n     */\n    sortField: string\n\n    /**\n     * filter data\n     */\n    filter: any;\n\n}\n\nexport interface Page {\n\n    /**\n     * Page number\n     */\n    pageNumber: number;\n\n    /**\n     * Page size\n     */\n    pageSize: number;\n\n    /**\n     * Total number of pages\n     */\n    totalPages: number;\n\n}\n\nexport class SearchResult {\n\n    /**\n     * Total number of items (beyond the page)\n     */\n    totalItems: number;\n\n    /**\n     * Items to be displayed\n     */\n    items: any[];\n}\n\n\n\nexport interface SearchListInterface {\n\n    /**\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\n     * @param search \n     */\n    getData(search: SearchParameters): Observable<SearchResult>;\n}\n\nexport class sortItem {\n    /**\n     * Text to be displayed\n     */\n    text: string;\n\n    /**\n     * Value of Item\n     */\n    value: string;\n\n\n}\n\nexport class SearchListConfiguration {\n\n    /**\n     * List of sort by items\n     */\n    sortList: sortItem[];\n\n    /**\n     * default sort value\n     */\n    defaultSortValue: string;\n\n    /**\n     * Starting page size\n     */\n    pageSize: number = 25;\n\n}",
+            "sourceCode": "import { Observable } from 'rxjs';\r\nexport class SearchParameters {\r\n\r\n    /**\r\n     * page  \r\n     */\r\n    page: Page;\r\n\r\n    /**\r\n     * Sort value\r\n     */\r\n    sortField: string\r\n\r\n    /**\r\n     * filter data\r\n     */\r\n    filter: any;\r\n\r\n}\r\n\r\nexport interface Page {\r\n\r\n    /**\r\n     * Page number\r\n     */\r\n    pageNumber: number;\r\n\r\n    /**\r\n     * Page size\r\n     */\r\n    pageSize: number;\r\n\r\n    /**\r\n     * Total number of pages\r\n     */\r\n    totalPages: number;\r\n\r\n}\r\n\r\nexport class SearchResult {\r\n\r\n    /**\r\n     * Total number of items (beyond the page)\r\n     */\r\n    totalItems: number;\r\n\r\n    /**\r\n     * Items to be displayed\r\n     */\r\n    items: any[];\r\n}\r\n\r\n\r\n\r\nexport interface SearchListInterface {\r\n\r\n    /**\r\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\r\n     * @param search \r\n     */\r\n    getData(search: SearchParameters): Observable<SearchResult>;\r\n}\r\n\r\nexport class sortItem {\r\n    /**\r\n     * Text to be displayed\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Value of Item\r\n     */\r\n    value: string;\r\n\r\n\r\n}\r\n\r\nexport class SearchListConfiguration {\r\n\r\n    /**\r\n     * List of sort by items\r\n     */\r\n    sortList: sortItem[];\r\n\r\n    /**\r\n     * default sort value\r\n     */\r\n    defaultSortValue: string;\r\n\r\n    /**\r\n     * Starting page size\r\n     */\r\n    pageSize: number = 25;\r\n\r\n}",
             "properties": [],
             "indexSignatures": [],
             "kind": 152,
@@ -140,15 +180,15 @@ const LAYOUTS = {
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 785,
-                                "end": 791,
+                                "pos": 843,
+                                "end": 849,
                                 "flags": 0,
                                 "escapedText": "search"
                             },
                             "type": "SearchParameters",
                             "tagName": {
-                                "pos": 779,
-                                "end": 784,
+                                "pos": 837,
+                                "end": 842,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -162,7 +202,7 @@ const LAYOUTS = {
     "injectables": [
         {
             "name": "SdsDrawerCommunicationService",
-            "id": "injectable-SdsDrawerCommunicationService-9539dd5998c81e048cecea3b5b23c472",
+            "id": "injectable-SdsDrawerCommunicationService-f9aa94bfe2455784ded364dfaec0289e",
             "file": "libs/packages/layouts/src/lib/feature/subheader/drawer-communication.service.ts",
             "properties": [
                 {
@@ -240,17 +280,17 @@ const LAYOUTS = {
                 }
             ],
             "description": "",
-            "sourceCode": "import { Injectable, TemplateRef } from '@angular/core';\nimport { BehaviorSubject } from 'rxjs';\n\n@Injectable()\nexport class SdsDrawerCommunicationService {\n  private isOpen = new BehaviorSubject(false);\n  isDrawerOpen = this.isOpen.asObservable();\n\n  private currentTemplate= new BehaviorSubject<TemplateRef<any>>(null);\n  contentTemplate = this.currentTemplate.asObservable();\n\n  onDrawerOpen(open: boolean, temp : TemplateRef<any>){\n    this.isOpen.next(open);\n    this.currentTemplate.next(temp);  \n  }\n}",
+            "sourceCode": "import { Injectable, TemplateRef } from '@angular/core';\r\nimport { BehaviorSubject } from 'rxjs';\r\n\r\n@Injectable()\r\nexport class SdsDrawerCommunicationService {\r\n  private isOpen = new BehaviorSubject(false);\r\n  isDrawerOpen = this.isOpen.asObservable();\r\n\r\n  private currentTemplate= new BehaviorSubject<TemplateRef<any>>(null);\r\n  contentTemplate = this.currentTemplate.asObservable();\r\n\r\n  onDrawerOpen(open: boolean, temp : TemplateRef<any>){\r\n    this.isOpen.next(open);\r\n    this.currentTemplate.next(temp);  \r\n  }\r\n}",
             "type": "injectable"
         }
     ],
     "classes": [
         {
             "name": "FooterLink",
-            "id": "class-FooterLink-197b29013c6c1d8a14afce009a936010",
+            "id": "class-FooterLink-c1dde576b3833a24f5204ee854b9faba",
             "file": "libs/packages/layouts/src/lib/feature/footer/model/FooterModel.ts",
             "type": "class",
-            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\n\nexport class FooterModel {\n  /**\n   * List of sections and their links\n   */\n  linkSections: FooterLinkSection[];\n\n  /**\n   * Footer text and logo\n   */\n\n  footerLogo?: FooterLogo;\n\n  /**\n   * Footer disclaimer\n   */\n\n  disclaimer?: string;\n\n}\n\nexport class FooterLinkSection {\n  /**\n   * Title text for the section\n   */\n  text: string;\n\n  /**\n   * Links in the section\n   */\n  links: FooterLink[];\n}\n\nexport class FooterLink implements INavigationLink {\n  /**\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\n   */\n  mode: NavigationMode;\n\n  /**\n   * Text to be displayed in the link\n   */\n  text: string;\n\n  /**\n   * Navigation Route\n   */\n  route: string;\n}\n\nexport interface FooterLogo {\n  /**\n   * Text for the Header\n   */\n\n  text: string;\n\n  /**\n   * Image Source Path for the Image button\n   */\n\n  imageSourcePath: string;\n\n  /**\n   * Alt text for image\n   */\n\n  imageAltText: string;\n\n  /**\n   * link for logo image\n   */\n\n  href?: string;\n\n  /**\n   * agency name adjacent to logo\n   */\n\n  agencyName?: string;\n\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\r\n\r\nexport class FooterModel {\r\n  /**\r\n   * List of sections and their links\r\n   */\r\n  linkSections: FooterLinkSection[];\r\n\r\n  /**\r\n   * Footer text and logo\r\n   */\r\n\r\n  footerLogo?: FooterLogo;\r\n\r\n  /**\r\n   * Footer disclaimer\r\n   */\r\n\r\n  disclaimer?: string;\r\n\r\n}\r\n\r\nexport class FooterLinkSection {\r\n  /**\r\n   * Title text for the section\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Links in the section\r\n   */\r\n  links: FooterLink[];\r\n}\r\n\r\nexport class FooterLink implements INavigationLink {\r\n  /**\r\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n   */\r\n  mode: NavigationMode;\r\n\r\n  /**\r\n   * Text to be displayed in the link\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Navigation Route\r\n   */\r\n  route: string;\r\n}\r\n\r\nexport interface FooterLogo {\r\n  /**\r\n   * Text for the Header\r\n   */\r\n\r\n  text: string;\r\n\r\n  /**\r\n   * Image Source Path for the Image button\r\n   */\r\n\r\n  imageSourcePath: string;\r\n\r\n  /**\r\n   * Alt text for image\r\n   */\r\n\r\n  imageAltText: string;\r\n\r\n  /**\r\n   * link for logo image\r\n   */\r\n\r\n  href?: string;\r\n\r\n  /**\r\n   * agency name adjacent to logo\r\n   */\r\n\r\n  agencyName?: string;\r\n\r\n}\r\n",
             "properties": [
                 {
                     "name": "mode",
@@ -286,10 +326,10 @@ const LAYOUTS = {
         },
         {
             "name": "FooterLinkSection",
-            "id": "class-FooterLinkSection-197b29013c6c1d8a14afce009a936010",
+            "id": "class-FooterLinkSection-c1dde576b3833a24f5204ee854b9faba",
             "file": "libs/packages/layouts/src/lib/feature/footer/model/FooterModel.ts",
             "type": "class",
-            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\n\nexport class FooterModel {\n  /**\n   * List of sections and their links\n   */\n  linkSections: FooterLinkSection[];\n\n  /**\n   * Footer text and logo\n   */\n\n  footerLogo?: FooterLogo;\n\n  /**\n   * Footer disclaimer\n   */\n\n  disclaimer?: string;\n\n}\n\nexport class FooterLinkSection {\n  /**\n   * Title text for the section\n   */\n  text: string;\n\n  /**\n   * Links in the section\n   */\n  links: FooterLink[];\n}\n\nexport class FooterLink implements INavigationLink {\n  /**\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\n   */\n  mode: NavigationMode;\n\n  /**\n   * Text to be displayed in the link\n   */\n  text: string;\n\n  /**\n   * Navigation Route\n   */\n  route: string;\n}\n\nexport interface FooterLogo {\n  /**\n   * Text for the Header\n   */\n\n  text: string;\n\n  /**\n   * Image Source Path for the Image button\n   */\n\n  imageSourcePath: string;\n\n  /**\n   * Alt text for image\n   */\n\n  imageAltText: string;\n\n  /**\n   * link for logo image\n   */\n\n  href?: string;\n\n  /**\n   * agency name adjacent to logo\n   */\n\n  agencyName?: string;\n\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\r\n\r\nexport class FooterModel {\r\n  /**\r\n   * List of sections and their links\r\n   */\r\n  linkSections: FooterLinkSection[];\r\n\r\n  /**\r\n   * Footer text and logo\r\n   */\r\n\r\n  footerLogo?: FooterLogo;\r\n\r\n  /**\r\n   * Footer disclaimer\r\n   */\r\n\r\n  disclaimer?: string;\r\n\r\n}\r\n\r\nexport class FooterLinkSection {\r\n  /**\r\n   * Title text for the section\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Links in the section\r\n   */\r\n  links: FooterLink[];\r\n}\r\n\r\nexport class FooterLink implements INavigationLink {\r\n  /**\r\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n   */\r\n  mode: NavigationMode;\r\n\r\n  /**\r\n   * Text to be displayed in the link\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Navigation Route\r\n   */\r\n  route: string;\r\n}\r\n\r\nexport interface FooterLogo {\r\n  /**\r\n   * Text for the Header\r\n   */\r\n\r\n  text: string;\r\n\r\n  /**\r\n   * Image Source Path for the Image button\r\n   */\r\n\r\n  imageSourcePath: string;\r\n\r\n  /**\r\n   * Alt text for image\r\n   */\r\n\r\n  imageAltText: string;\r\n\r\n  /**\r\n   * link for logo image\r\n   */\r\n\r\n  href?: string;\r\n\r\n  /**\r\n   * agency name adjacent to logo\r\n   */\r\n\r\n  agencyName?: string;\r\n\r\n}\r\n",
             "properties": [
                 {
                     "name": "links",
@@ -315,10 +355,10 @@ const LAYOUTS = {
         },
         {
             "name": "FooterModel",
-            "id": "class-FooterModel-197b29013c6c1d8a14afce009a936010",
+            "id": "class-FooterModel-c1dde576b3833a24f5204ee854b9faba",
             "file": "libs/packages/layouts/src/lib/feature/footer/model/FooterModel.ts",
             "type": "class",
-            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\n\nexport class FooterModel {\n  /**\n   * List of sections and their links\n   */\n  linkSections: FooterLinkSection[];\n\n  /**\n   * Footer text and logo\n   */\n\n  footerLogo?: FooterLogo;\n\n  /**\n   * Footer disclaimer\n   */\n\n  disclaimer?: string;\n\n}\n\nexport class FooterLinkSection {\n  /**\n   * Title text for the section\n   */\n  text: string;\n\n  /**\n   * Links in the section\n   */\n  links: FooterLink[];\n}\n\nexport class FooterLink implements INavigationLink {\n  /**\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\n   */\n  mode: NavigationMode;\n\n  /**\n   * Text to be displayed in the link\n   */\n  text: string;\n\n  /**\n   * Navigation Route\n   */\n  route: string;\n}\n\nexport interface FooterLogo {\n  /**\n   * Text for the Header\n   */\n\n  text: string;\n\n  /**\n   * Image Source Path for the Image button\n   */\n\n  imageSourcePath: string;\n\n  /**\n   * Alt text for image\n   */\n\n  imageAltText: string;\n\n  /**\n   * link for logo image\n   */\n\n  href?: string;\n\n  /**\n   * agency name adjacent to logo\n   */\n\n  agencyName?: string;\n\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode } from '@gsa-sam/components';\r\n\r\nexport class FooterModel {\r\n  /**\r\n   * List of sections and their links\r\n   */\r\n  linkSections: FooterLinkSection[];\r\n\r\n  /**\r\n   * Footer text and logo\r\n   */\r\n\r\n  footerLogo?: FooterLogo;\r\n\r\n  /**\r\n   * Footer disclaimer\r\n   */\r\n\r\n  disclaimer?: string;\r\n\r\n}\r\n\r\nexport class FooterLinkSection {\r\n  /**\r\n   * Title text for the section\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Links in the section\r\n   */\r\n  links: FooterLink[];\r\n}\r\n\r\nexport class FooterLink implements INavigationLink {\r\n  /**\r\n   * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n   */\r\n  mode: NavigationMode;\r\n\r\n  /**\r\n   * Text to be displayed in the link\r\n   */\r\n  text: string;\r\n\r\n  /**\r\n   * Navigation Route\r\n   */\r\n  route: string;\r\n}\r\n\r\nexport interface FooterLogo {\r\n  /**\r\n   * Text for the Header\r\n   */\r\n\r\n  text: string;\r\n\r\n  /**\r\n   * Image Source Path for the Image button\r\n   */\r\n\r\n  imageSourcePath: string;\r\n\r\n  /**\r\n   * Alt text for image\r\n   */\r\n\r\n  imageAltText: string;\r\n\r\n  /**\r\n   * link for logo image\r\n   */\r\n\r\n  href?: string;\r\n\r\n  /**\r\n   * agency name adjacent to logo\r\n   */\r\n\r\n  agencyName?: string;\r\n\r\n}\r\n",
             "properties": [
                 {
                     "name": "disclaimer",
@@ -351,10 +391,10 @@ const LAYOUTS = {
         },
         {
             "name": "HeaderHome",
-            "id": "class-HeaderHome-031a3e4cfc194f81934f42b7e3f5884f",
+            "id": "class-HeaderHome-4cc7e171652a581711db1374980953e3",
             "file": "libs/packages/layouts/src/lib/feature/header/model/HeaderModel.ts",
             "type": "class",
-            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\n\n\nexport interface HeaderModel {\n\n    /**\n     * Header logo and header logo home link\n     */\n    home: HeaderHome;\n\n    /**\n     * List of secondary links\n     */\n    secondaryLinks: HeaderSecondaryLink[];\n\n    /**\n     * List of main navigaation links/drop downs\n     */\n    navigationLinks: HeaderNavigationLink[];\n}\n\n\nexport class HeaderHome implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n    */\n    mode: NavigationMode;\n\n    /**\n     * Text for the Header\n     */\n    text: string;\n\n    /**\n     * Agency Logo for the Header\n     */\n    logo: string;\n\n    /**\n     * Navigation Route for Home image button\n     */\n    route: string;\n\n    /**\n    * Identifier for the item when search for selected\n    */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n/**\n *\n */\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link or button\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * List of child navigation items that will show when no route is provieded\n     */\n    children?: HeaderNavigationLink[];\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * image class eg. fas\n     */\n    imageClassPrefix: string;\n\n    /**\n     * image class\n     */\n    imageClass: string;\n\n    /**\n     * displays counter with image\n     */\n    hasCounter?: boolean;\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\r\n\r\n\r\nexport interface HeaderModel {\r\n\r\n    /**\r\n     * Header logo and header logo home link\r\n     */\r\n    home: HeaderHome;\r\n\r\n    /**\r\n     * List of secondary links\r\n     */\r\n    secondaryLinks: HeaderSecondaryLink[];\r\n\r\n    /**\r\n     * List of main navigaation links/drop downs\r\n     */\r\n    navigationLinks: HeaderNavigationLink[];\r\n}\r\n\r\n\r\nexport class HeaderHome implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n    */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text for the Header\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Agency Logo for the Header\r\n     */\r\n    logo: string;\r\n\r\n    /**\r\n     * Navigation Route for Home image button\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n    * Identifier for the item when search for selected\r\n    */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n/**\r\n *\r\n */\r\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link or button\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * List of child navigation items that will show when no route is provieded\r\n     */\r\n    children?: HeaderNavigationLink[];\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n\r\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * image class eg. fas\r\n     */\r\n    imageClassPrefix: string;\r\n\r\n    /**\r\n     * image class\r\n     */\r\n    imageClass: string;\r\n\r\n    /**\r\n     * displays counter with image\r\n     */\r\n    hasCounter?: boolean;\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "id",
@@ -412,10 +452,10 @@ const LAYOUTS = {
         },
         {
             "name": "HeaderNavigationLink",
-            "id": "class-HeaderNavigationLink-031a3e4cfc194f81934f42b7e3f5884f",
+            "id": "class-HeaderNavigationLink-4cc7e171652a581711db1374980953e3",
             "file": "libs/packages/layouts/src/lib/feature/header/model/HeaderModel.ts",
             "type": "class",
-            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\n\n\nexport interface HeaderModel {\n\n    /**\n     * Header logo and header logo home link\n     */\n    home: HeaderHome;\n\n    /**\n     * List of secondary links\n     */\n    secondaryLinks: HeaderSecondaryLink[];\n\n    /**\n     * List of main navigaation links/drop downs\n     */\n    navigationLinks: HeaderNavigationLink[];\n}\n\n\nexport class HeaderHome implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n    */\n    mode: NavigationMode;\n\n    /**\n     * Text for the Header\n     */\n    text: string;\n\n    /**\n     * Agency Logo for the Header\n     */\n    logo: string;\n\n    /**\n     * Navigation Route for Home image button\n     */\n    route: string;\n\n    /**\n    * Identifier for the item when search for selected\n    */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n/**\n *\n */\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link or button\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * List of child navigation items that will show when no route is provieded\n     */\n    children?: HeaderNavigationLink[];\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * image class eg. fas\n     */\n    imageClassPrefix: string;\n\n    /**\n     * image class\n     */\n    imageClass: string;\n\n    /**\n     * displays counter with image\n     */\n    hasCounter?: boolean;\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\r\n\r\n\r\nexport interface HeaderModel {\r\n\r\n    /**\r\n     * Header logo and header logo home link\r\n     */\r\n    home: HeaderHome;\r\n\r\n    /**\r\n     * List of secondary links\r\n     */\r\n    secondaryLinks: HeaderSecondaryLink[];\r\n\r\n    /**\r\n     * List of main navigaation links/drop downs\r\n     */\r\n    navigationLinks: HeaderNavigationLink[];\r\n}\r\n\r\n\r\nexport class HeaderHome implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n    */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text for the Header\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Agency Logo for the Header\r\n     */\r\n    logo: string;\r\n\r\n    /**\r\n     * Navigation Route for Home image button\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n    * Identifier for the item when search for selected\r\n    */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n/**\r\n *\r\n */\r\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link or button\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * List of child navigation items that will show when no route is provieded\r\n     */\r\n    children?: HeaderNavigationLink[];\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n\r\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * image class eg. fas\r\n     */\r\n    imageClassPrefix: string;\r\n\r\n    /**\r\n     * image class\r\n     */\r\n    imageClass: string;\r\n\r\n    /**\r\n     * displays counter with image\r\n     */\r\n    hasCounter?: boolean;\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "children",
@@ -473,10 +513,10 @@ const LAYOUTS = {
         },
         {
             "name": "HeaderSecondaryLink",
-            "id": "class-HeaderSecondaryLink-031a3e4cfc194f81934f42b7e3f5884f",
+            "id": "class-HeaderSecondaryLink-4cc7e171652a581711db1374980953e3",
             "file": "libs/packages/layouts/src/lib/feature/header/model/HeaderModel.ts",
             "type": "class",
-            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\n\n\nexport interface HeaderModel {\n\n    /**\n     * Header logo and header logo home link\n     */\n    home: HeaderHome;\n\n    /**\n     * List of secondary links\n     */\n    secondaryLinks: HeaderSecondaryLink[];\n\n    /**\n     * List of main navigaation links/drop downs\n     */\n    navigationLinks: HeaderNavigationLink[];\n}\n\n\nexport class HeaderHome implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n    */\n    mode: NavigationMode;\n\n    /**\n     * Text for the Header\n     */\n    text: string;\n\n    /**\n     * Agency Logo for the Header\n     */\n    logo: string;\n\n    /**\n     * Navigation Route for Home image button\n     */\n    route: string;\n\n    /**\n    * Identifier for the item when search for selected\n    */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n/**\n *\n */\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link or button\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * List of child navigation items that will show when no route is provieded\n     */\n    children?: HeaderNavigationLink[];\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n\n\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\n\n    /**\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\n     */\n    mode: NavigationMode;\n\n    /**\n     * Text to be displayed in the link\n     */\n    text: string;\n\n    /**\n     * Navigation Route\n     */\n    route: string;\n\n    /**\n     * image class eg. fas\n     */\n    imageClassPrefix: string;\n\n    /**\n     * image class\n     */\n    imageClass: string;\n\n    /**\n     * displays counter with image\n     */\n    hasCounter?: boolean;\n\n    /**\n     * Identifier for the item when search for selected\n     */\n    id: string;\n\n    /**\n     * Status of if the item is selected\n     */\n    selected?: boolean;\n}\n",
+            "sourceCode": "import { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\r\n\r\n\r\nexport interface HeaderModel {\r\n\r\n    /**\r\n     * Header logo and header logo home link\r\n     */\r\n    home: HeaderHome;\r\n\r\n    /**\r\n     * List of secondary links\r\n     */\r\n    secondaryLinks: HeaderSecondaryLink[];\r\n\r\n    /**\r\n     * List of main navigaation links/drop downs\r\n     */\r\n    navigationLinks: HeaderNavigationLink[];\r\n}\r\n\r\n\r\nexport class HeaderHome implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n    */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text for the Header\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Agency Logo for the Header\r\n     */\r\n    logo: string;\r\n\r\n    /**\r\n     * Navigation Route for Home image button\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n    * Identifier for the item when search for selected\r\n    */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n/**\r\n *\r\n */\r\nexport class HeaderNavigationLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link or button\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * List of child navigation items that will show when no route is provieded\r\n     */\r\n    children?: HeaderNavigationLink[];\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n\r\n\r\nexport class HeaderSecondaryLink implements Selectable, INavigationLink {\r\n\r\n    /**\r\n     * Internal Angualr Routes, External HREF, EVENT: event on parent component\r\n     */\r\n    mode: NavigationMode;\r\n\r\n    /**\r\n     * Text to be displayed in the link\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Navigation Route\r\n     */\r\n    route: string;\r\n\r\n    /**\r\n     * image class eg. fas\r\n     */\r\n    imageClassPrefix: string;\r\n\r\n    /**\r\n     * image class\r\n     */\r\n    imageClass: string;\r\n\r\n    /**\r\n     * displays counter with image\r\n     */\r\n    hasCounter?: boolean;\r\n\r\n    /**\r\n     * Identifier for the item when search for selected\r\n     */\r\n    id: string;\r\n\r\n    /**\r\n     * Status of if the item is selected\r\n     */\r\n    selected?: boolean;\r\n}\r\n",
             "properties": [
                 {
                     "name": "hasCounter",
@@ -548,10 +588,10 @@ const LAYOUTS = {
         },
         {
             "name": "SearchListConfiguration",
-            "id": "class-SearchListConfiguration-1ac63cee68dcb066f47674b6ad12ca00",
+            "id": "class-SearchListConfiguration-f0a015f283d595cf2af37c0de61570ec",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/model/search-list-layout.model.ts",
             "type": "class",
-            "sourceCode": "import { Observable } from 'rxjs';\nexport class SearchParameters {\n\n    /**\n     * page  \n     */\n    page: Page;\n\n    /**\n     * Sort value\n     */\n    sortField: string\n\n    /**\n     * filter data\n     */\n    filter: any;\n\n}\n\nexport interface Page {\n\n    /**\n     * Page number\n     */\n    pageNumber: number;\n\n    /**\n     * Page size\n     */\n    pageSize: number;\n\n    /**\n     * Total number of pages\n     */\n    totalPages: number;\n\n}\n\nexport class SearchResult {\n\n    /**\n     * Total number of items (beyond the page)\n     */\n    totalItems: number;\n\n    /**\n     * Items to be displayed\n     */\n    items: any[];\n}\n\n\n\nexport interface SearchListInterface {\n\n    /**\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\n     * @param search \n     */\n    getData(search: SearchParameters): Observable<SearchResult>;\n}\n\nexport class sortItem {\n    /**\n     * Text to be displayed\n     */\n    text: string;\n\n    /**\n     * Value of Item\n     */\n    value: string;\n\n\n}\n\nexport class SearchListConfiguration {\n\n    /**\n     * List of sort by items\n     */\n    sortList: sortItem[];\n\n    /**\n     * default sort value\n     */\n    defaultSortValue: string;\n\n    /**\n     * Starting page size\n     */\n    pageSize: number = 25;\n\n}",
+            "sourceCode": "import { Observable } from 'rxjs';\r\nexport class SearchParameters {\r\n\r\n    /**\r\n     * page  \r\n     */\r\n    page: Page;\r\n\r\n    /**\r\n     * Sort value\r\n     */\r\n    sortField: string\r\n\r\n    /**\r\n     * filter data\r\n     */\r\n    filter: any;\r\n\r\n}\r\n\r\nexport interface Page {\r\n\r\n    /**\r\n     * Page number\r\n     */\r\n    pageNumber: number;\r\n\r\n    /**\r\n     * Page size\r\n     */\r\n    pageSize: number;\r\n\r\n    /**\r\n     * Total number of pages\r\n     */\r\n    totalPages: number;\r\n\r\n}\r\n\r\nexport class SearchResult {\r\n\r\n    /**\r\n     * Total number of items (beyond the page)\r\n     */\r\n    totalItems: number;\r\n\r\n    /**\r\n     * Items to be displayed\r\n     */\r\n    items: any[];\r\n}\r\n\r\n\r\n\r\nexport interface SearchListInterface {\r\n\r\n    /**\r\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\r\n     * @param search \r\n     */\r\n    getData(search: SearchParameters): Observable<SearchResult>;\r\n}\r\n\r\nexport class sortItem {\r\n    /**\r\n     * Text to be displayed\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Value of Item\r\n     */\r\n    value: string;\r\n\r\n\r\n}\r\n\r\nexport class SearchListConfiguration {\r\n\r\n    /**\r\n     * List of sort by items\r\n     */\r\n    sortList: sortItem[];\r\n\r\n    /**\r\n     * default sort value\r\n     */\r\n    defaultSortValue: string;\r\n\r\n    /**\r\n     * Starting page size\r\n     */\r\n    pageSize: number = 25;\r\n\r\n}",
             "properties": [
                 {
                     "name": "defaultSortValue",
@@ -585,10 +625,10 @@ const LAYOUTS = {
         },
         {
             "name": "SearchParameters",
-            "id": "class-SearchParameters-1ac63cee68dcb066f47674b6ad12ca00",
+            "id": "class-SearchParameters-f0a015f283d595cf2af37c0de61570ec",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/model/search-list-layout.model.ts",
             "type": "class",
-            "sourceCode": "import { Observable } from 'rxjs';\nexport class SearchParameters {\n\n    /**\n     * page  \n     */\n    page: Page;\n\n    /**\n     * Sort value\n     */\n    sortField: string\n\n    /**\n     * filter data\n     */\n    filter: any;\n\n}\n\nexport interface Page {\n\n    /**\n     * Page number\n     */\n    pageNumber: number;\n\n    /**\n     * Page size\n     */\n    pageSize: number;\n\n    /**\n     * Total number of pages\n     */\n    totalPages: number;\n\n}\n\nexport class SearchResult {\n\n    /**\n     * Total number of items (beyond the page)\n     */\n    totalItems: number;\n\n    /**\n     * Items to be displayed\n     */\n    items: any[];\n}\n\n\n\nexport interface SearchListInterface {\n\n    /**\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\n     * @param search \n     */\n    getData(search: SearchParameters): Observable<SearchResult>;\n}\n\nexport class sortItem {\n    /**\n     * Text to be displayed\n     */\n    text: string;\n\n    /**\n     * Value of Item\n     */\n    value: string;\n\n\n}\n\nexport class SearchListConfiguration {\n\n    /**\n     * List of sort by items\n     */\n    sortList: sortItem[];\n\n    /**\n     * default sort value\n     */\n    defaultSortValue: string;\n\n    /**\n     * Starting page size\n     */\n    pageSize: number = 25;\n\n}",
+            "sourceCode": "import { Observable } from 'rxjs';\r\nexport class SearchParameters {\r\n\r\n    /**\r\n     * page  \r\n     */\r\n    page: Page;\r\n\r\n    /**\r\n     * Sort value\r\n     */\r\n    sortField: string\r\n\r\n    /**\r\n     * filter data\r\n     */\r\n    filter: any;\r\n\r\n}\r\n\r\nexport interface Page {\r\n\r\n    /**\r\n     * Page number\r\n     */\r\n    pageNumber: number;\r\n\r\n    /**\r\n     * Page size\r\n     */\r\n    pageSize: number;\r\n\r\n    /**\r\n     * Total number of pages\r\n     */\r\n    totalPages: number;\r\n\r\n}\r\n\r\nexport class SearchResult {\r\n\r\n    /**\r\n     * Total number of items (beyond the page)\r\n     */\r\n    totalItems: number;\r\n\r\n    /**\r\n     * Items to be displayed\r\n     */\r\n    items: any[];\r\n}\r\n\r\n\r\n\r\nexport interface SearchListInterface {\r\n\r\n    /**\r\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\r\n     * @param search \r\n     */\r\n    getData(search: SearchParameters): Observable<SearchResult>;\r\n}\r\n\r\nexport class sortItem {\r\n    /**\r\n     * Text to be displayed\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Value of Item\r\n     */\r\n    value: string;\r\n\r\n\r\n}\r\n\r\nexport class SearchListConfiguration {\r\n\r\n    /**\r\n     * List of sort by items\r\n     */\r\n    sortList: sortItem[];\r\n\r\n    /**\r\n     * default sort value\r\n     */\r\n    defaultSortValue: string;\r\n\r\n    /**\r\n     * Starting page size\r\n     */\r\n    pageSize: number = 25;\r\n\r\n}",
             "properties": [
                 {
                     "name": "filter",
@@ -621,10 +661,10 @@ const LAYOUTS = {
         },
         {
             "name": "SearchResult",
-            "id": "class-SearchResult-1ac63cee68dcb066f47674b6ad12ca00",
+            "id": "class-SearchResult-f0a015f283d595cf2af37c0de61570ec",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/model/search-list-layout.model.ts",
             "type": "class",
-            "sourceCode": "import { Observable } from 'rxjs';\nexport class SearchParameters {\n\n    /**\n     * page  \n     */\n    page: Page;\n\n    /**\n     * Sort value\n     */\n    sortField: string\n\n    /**\n     * filter data\n     */\n    filter: any;\n\n}\n\nexport interface Page {\n\n    /**\n     * Page number\n     */\n    pageNumber: number;\n\n    /**\n     * Page size\n     */\n    pageSize: number;\n\n    /**\n     * Total number of pages\n     */\n    totalPages: number;\n\n}\n\nexport class SearchResult {\n\n    /**\n     * Total number of items (beyond the page)\n     */\n    totalItems: number;\n\n    /**\n     * Items to be displayed\n     */\n    items: any[];\n}\n\n\n\nexport interface SearchListInterface {\n\n    /**\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\n     * @param search \n     */\n    getData(search: SearchParameters): Observable<SearchResult>;\n}\n\nexport class sortItem {\n    /**\n     * Text to be displayed\n     */\n    text: string;\n\n    /**\n     * Value of Item\n     */\n    value: string;\n\n\n}\n\nexport class SearchListConfiguration {\n\n    /**\n     * List of sort by items\n     */\n    sortList: sortItem[];\n\n    /**\n     * default sort value\n     */\n    defaultSortValue: string;\n\n    /**\n     * Starting page size\n     */\n    pageSize: number = 25;\n\n}",
+            "sourceCode": "import { Observable } from 'rxjs';\r\nexport class SearchParameters {\r\n\r\n    /**\r\n     * page  \r\n     */\r\n    page: Page;\r\n\r\n    /**\r\n     * Sort value\r\n     */\r\n    sortField: string\r\n\r\n    /**\r\n     * filter data\r\n     */\r\n    filter: any;\r\n\r\n}\r\n\r\nexport interface Page {\r\n\r\n    /**\r\n     * Page number\r\n     */\r\n    pageNumber: number;\r\n\r\n    /**\r\n     * Page size\r\n     */\r\n    pageSize: number;\r\n\r\n    /**\r\n     * Total number of pages\r\n     */\r\n    totalPages: number;\r\n\r\n}\r\n\r\nexport class SearchResult {\r\n\r\n    /**\r\n     * Total number of items (beyond the page)\r\n     */\r\n    totalItems: number;\r\n\r\n    /**\r\n     * Items to be displayed\r\n     */\r\n    items: any[];\r\n}\r\n\r\n\r\n\r\nexport interface SearchListInterface {\r\n\r\n    /**\r\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\r\n     * @param search \r\n     */\r\n    getData(search: SearchParameters): Observable<SearchResult>;\r\n}\r\n\r\nexport class sortItem {\r\n    /**\r\n     * Text to be displayed\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Value of Item\r\n     */\r\n    value: string;\r\n\r\n\r\n}\r\n\r\nexport class SearchListConfiguration {\r\n\r\n    /**\r\n     * List of sort by items\r\n     */\r\n    sortList: sortItem[];\r\n\r\n    /**\r\n     * default sort value\r\n     */\r\n    defaultSortValue: string;\r\n\r\n    /**\r\n     * Starting page size\r\n     */\r\n    pageSize: number = 25;\r\n\r\n}",
             "properties": [
                 {
                     "name": "items",
@@ -650,10 +690,10 @@ const LAYOUTS = {
         },
         {
             "name": "sortItem",
-            "id": "class-sortItem-1ac63cee68dcb066f47674b6ad12ca00",
+            "id": "class-sortItem-f0a015f283d595cf2af37c0de61570ec",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/model/search-list-layout.model.ts",
             "type": "class",
-            "sourceCode": "import { Observable } from 'rxjs';\nexport class SearchParameters {\n\n    /**\n     * page  \n     */\n    page: Page;\n\n    /**\n     * Sort value\n     */\n    sortField: string\n\n    /**\n     * filter data\n     */\n    filter: any;\n\n}\n\nexport interface Page {\n\n    /**\n     * Page number\n     */\n    pageNumber: number;\n\n    /**\n     * Page size\n     */\n    pageSize: number;\n\n    /**\n     * Total number of pages\n     */\n    totalPages: number;\n\n}\n\nexport class SearchResult {\n\n    /**\n     * Total number of items (beyond the page)\n     */\n    totalItems: number;\n\n    /**\n     * Items to be displayed\n     */\n    items: any[];\n}\n\n\n\nexport interface SearchListInterface {\n\n    /**\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\n     * @param search \n     */\n    getData(search: SearchParameters): Observable<SearchResult>;\n}\n\nexport class sortItem {\n    /**\n     * Text to be displayed\n     */\n    text: string;\n\n    /**\n     * Value of Item\n     */\n    value: string;\n\n\n}\n\nexport class SearchListConfiguration {\n\n    /**\n     * List of sort by items\n     */\n    sortList: sortItem[];\n\n    /**\n     * default sort value\n     */\n    defaultSortValue: string;\n\n    /**\n     * Starting page size\n     */\n    pageSize: number = 25;\n\n}",
+            "sourceCode": "import { Observable } from 'rxjs';\r\nexport class SearchParameters {\r\n\r\n    /**\r\n     * page  \r\n     */\r\n    page: Page;\r\n\r\n    /**\r\n     * Sort value\r\n     */\r\n    sortField: string\r\n\r\n    /**\r\n     * filter data\r\n     */\r\n    filter: any;\r\n\r\n}\r\n\r\nexport interface Page {\r\n\r\n    /**\r\n     * Page number\r\n     */\r\n    pageNumber: number;\r\n\r\n    /**\r\n     * Page size\r\n     */\r\n    pageSize: number;\r\n\r\n    /**\r\n     * Total number of pages\r\n     */\r\n    totalPages: number;\r\n\r\n}\r\n\r\nexport class SearchResult {\r\n\r\n    /**\r\n     * Total number of items (beyond the page)\r\n     */\r\n    totalItems: number;\r\n\r\n    /**\r\n     * Items to be displayed\r\n     */\r\n    items: any[];\r\n}\r\n\r\n\r\n\r\nexport interface SearchListInterface {\r\n\r\n    /**\r\n     * Method to get the takes it takes in the SearchParameters and returns SearchResult object\r\n     * @param search \r\n     */\r\n    getData(search: SearchParameters): Observable<SearchResult>;\r\n}\r\n\r\nexport class sortItem {\r\n    /**\r\n     * Text to be displayed\r\n     */\r\n    text: string;\r\n\r\n    /**\r\n     * Value of Item\r\n     */\r\n    value: string;\r\n\r\n\r\n}\r\n\r\nexport class SearchListConfiguration {\r\n\r\n    /**\r\n     * List of sort by items\r\n     */\r\n    sortList: sortItem[];\r\n\r\n    /**\r\n     * default sort value\r\n     */\r\n    defaultSortValue: string;\r\n\r\n    /**\r\n     * Starting page size\r\n     */\r\n    pageSize: number = 25;\r\n\r\n}",
             "properties": [
                 {
                     "name": "text",
@@ -682,7 +722,7 @@ const LAYOUTS = {
     "components": [
         {
             "name": "SdsActionsMenuComponent",
-            "id": "component-SdsActionsMenuComponent-b29369330e17e32ba02c3425b2f75f08",
+            "id": "component-SdsActionsMenuComponent-41de6c2929cece4193a73b67983cda53",
             "file": "libs/packages/layouts/src/lib/feature/actions-menu/actions-menu.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -722,7 +762,7 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'sds-actions-menu',\n  templateUrl: 'actions-menu.component.html'\n})\nexport class SdsActionsMenuComponent {\n  @Input() model;\n  @Input() size: string;\n  @Output() clicks = new EventEmitter<string>();\n  constructor() {}\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'sds-actions-menu',\r\n  templateUrl: 'actions-menu.component.html'\r\n})\r\nexport class SdsActionsMenuComponent {\r\n  @Input() model;\r\n  @Input() size: string;\r\n  @Output() clicks = new EventEmitter<string>();\r\n  constructor() {}\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -732,11 +772,11 @@ const LAYOUTS = {
                 "args": [],
                 "line": 10
             },
-            "templateData": "<!-- Button that triggers menu (sdsMenuTriggerFor) -->\n<button\n  class=\"sds-button sds-button--circular\"\n  [class.sds-button--primary]=\"model.trigger.type === 'primary'\"\n  [class.sds-button--shadow]=\"model.trigger.shadow\"\n  [class.sds-button--small]=\"size === 'sm'\"\n  [sdsMenuTriggerFor]=\"menu\"\n>\n  <fa-icon\n    [fixedWidth]=\"true\"\n    [icon]=\"['sds', 'ellipsis']\"\n    transform=\"grow-5\"\n  ></fa-icon>\n  <span class=\"usa-sr-only\">Toggle Actions Menu</span>\n</button>\n\n<!-- Menu content -->\n<sds-menu\n  #menu=\"sdsMenu\"\n  [size]=\"size\"\n  xPosition=\"before\"\n  overlapTrigger=\"true\"\n>\n  <!-- Menu header (optional) -->\n  <sds-menu-header>Actions</sds-menu-header>\n  <!-- Menu items -->\n  <button\n    *ngFor=\"let button of model.actions\"\n    (click)=\"clicks.emit(button.id)\"\n    sds-menu-item\n  >\n    {{ button.text }}\n  </button>\n</sds-menu>\n"
+            "templateData": "<!-- Button that triggers menu (sdsMenuTriggerFor) -->\r\n<button\r\n  class=\"sds-button sds-button--circular\"\r\n  [class.sds-button--primary]=\"model.trigger.type === 'primary'\"\r\n  [class.sds-button--shadow]=\"model.trigger.shadow\"\r\n  [class.sds-button--small]=\"size === 'sm'\"\r\n  [sdsMenuTriggerFor]=\"menu\"\r\n>\r\n  <fa-icon\r\n    [fixedWidth]=\"true\"\r\n    [icon]=\"['sds', 'ellipsis']\"\r\n    transform=\"grow-5\"\r\n  ></fa-icon>\r\n  <span class=\"usa-sr-only\">Toggle Actions Menu</span>\r\n</button>\r\n\r\n<!-- Menu content -->\r\n<sds-menu\r\n  #menu=\"sdsMenu\"\r\n  [size]=\"size\"\r\n  xPosition=\"before\"\r\n  overlapTrigger=\"true\"\r\n>\r\n  <!-- Menu header (optional) -->\r\n  <sds-menu-header>Actions</sds-menu-header>\r\n  <!-- Menu items -->\r\n  <button\r\n    *ngFor=\"let button of model.actions\"\r\n    (click)=\"clicks.emit(button.id)\"\r\n    sds-menu-item\r\n  >\r\n    {{ button.text }}\r\n  </button>\r\n</sds-menu>\r\n"
         },
         {
             "name": "SdsDrawerContentComponent",
-            "id": "component-SdsDrawerContentComponent-06e8be92f247b147e203e9e3ff211942",
+            "id": "component-SdsDrawerContentComponent-6a5ad5bb109b156ea8d9ea2bd3373ec1",
             "file": "libs/packages/layouts/src/lib/feature/subheader/subheader.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -758,7 +798,7 @@ const LAYOUTS = {
                     "type": "SdsDrawerCommunicationService",
                     "optional": false,
                     "description": "",
-                    "line": 54,
+                    "line": 55,
                     "modifierKind": [
                         114
                     ]
@@ -768,7 +808,7 @@ const LAYOUTS = {
                     "type": "TemplateRef<any>",
                     "optional": false,
                     "description": "",
-                    "line": 51
+                    "line": 52
                 },
                 {
                     "name": "isDrawerOpen",
@@ -776,7 +816,7 @@ const LAYOUTS = {
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 52
+                    "line": 53
                 }
             ],
             "methodsClass": [
@@ -786,7 +826,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 55
+                    "line": 56
                 }
             ],
             "hostBindings": [],
@@ -794,7 +834,7 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  OnInit,\n  Output,\n  EventEmitter,\n  Input,\n  TemplateRef\n} from '@angular/core';\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\n\n@Component({\n  selector: 'sds-subheader',\n  templateUrl: 'subheader.component.html'\n})\nexport class SdsSubheaderComponent {\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-actions',\n  templateUrl: 'subheader-actions.component.html'\n})\nexport class SdsSubheaderActionsComponent {\n  @Input() model;\n  @Output() clicks = new EventEmitter<string>();\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-drawer',\n  templateUrl: 'subheader-drawer.component.html'\n})\nexport class SdsSubheaderDrawerComponent implements OnInit {\n  @Input() drawerContentTemplate: TemplateRef<any>;\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\n  isOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  onDrawerOpenClose(ev) {\n    this.isOpen = !this.isOpen;\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\n  }\n  ngOnInit() {}\n}\n\n@Component({\n  selector: 'sds-drawer-content',\n  templateUrl: 'drawer.content.component.html'\n})\nexport class SdsDrawerContentComponent implements OnInit {\n  drawerContentTemplate: TemplateRef<any>;\n  isDrawerOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  ngOnInit() {\n    this.data.contentTemplate.subscribe(\n      template => (this.drawerContentTemplate = template)\n    );\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\n  }\n}\n",
+            "sourceCode": "import {\r\n  Component,\r\n  OnInit,\r\n  Output,\r\n  EventEmitter,\r\n  Input,\r\n  TemplateRef\r\n} from '@angular/core';\r\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\r\n\r\n@Component({\r\n  selector: 'sds-subheader',\r\n  templateUrl: 'subheader.component.html',\r\n  styleUrls: ['subheader.component.scss']\r\n})\r\nexport class SdsSubheaderComponent {\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-actions',\r\n  templateUrl: 'subheader-actions.component.html'\r\n})\r\nexport class SdsSubheaderActionsComponent {\r\n  @Input() model;\r\n  @Output() clicks = new EventEmitter<string>();\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-drawer',\r\n  templateUrl: 'subheader-drawer.component.html'\r\n})\r\nexport class SdsSubheaderDrawerComponent implements OnInit {\r\n  @Input() drawerContentTemplate: TemplateRef<any>;\r\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\r\n  isOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  onDrawerOpenClose(ev) {\r\n    this.isOpen = !this.isOpen;\r\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\r\n  }\r\n  ngOnInit() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-drawer-content',\r\n  templateUrl: 'drawer.content.component.html'\r\n})\r\nexport class SdsDrawerContentComponent implements OnInit {\r\n  drawerContentTemplate: TemplateRef<any>;\r\n  isDrawerOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  ngOnInit() {\r\n    this.data.contentTemplate.subscribe(\r\n      template => (this.drawerContentTemplate = template)\r\n    );\r\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -807,7 +847,7 @@ const LAYOUTS = {
                         "type": "SdsDrawerCommunicationService"
                     }
                 ],
-                "line": 52,
+                "line": 53,
                 "jsdoctags": [
                     {
                         "name": "data",
@@ -821,11 +861,11 @@ const LAYOUTS = {
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<ng-container *ngIf=\"drawerContentTemplate && isDrawerOpen\" [ngTemplateOutlet]=\"drawerContentTemplate\" >\n</ng-container>\n"
+            "templateData": "<ng-container *ngIf=\"drawerContentTemplate && isDrawerOpen\" [ngTemplateOutlet]=\"drawerContentTemplate\" >\r\n</ng-container>\r\n"
         },
         {
             "name": "SdsFooterComponent",
-            "id": "component-SdsFooterComponent-00bbc7f7f1bfaf8e8172196bb0ccb4c7",
+            "id": "component-SdsFooterComponent-9019878ee40b24a38fbb0d41697e4fd7",
             "file": "libs/packages/layouts/src/lib/feature/footer/footer.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -843,23 +883,35 @@ const LAYOUTS = {
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "feedbackModel",
+                    "defaultValue": "new FormControl('')",
+                    "line": 24,
+                    "type": "FormControl"
+                },
+                {
                     "name": "isCollapsedContent",
                     "defaultValue": "true",
-                    "line": 22
+                    "line": 23
                 },
                 {
                     "name": "model",
                     "description": "<p>Model used for the different display portions of the footer</p>\n",
-                    "line": 21,
+                    "line": 22,
                     "type": "FooterModel"
                 }
             ],
             "outputsClass": [
                 {
+                    "name": "feedbackSubmit",
+                    "defaultValue": "new EventEmitter<string>()",
+                    "line": 33,
+                    "type": "EventEmitter"
+                },
+                {
                     "name": "linkEvent",
                     "defaultValue": "new EventEmitter<INavigationLink>()",
                     "description": "<p>event for event based</p>\n",
-                    "line": 28,
+                    "line": 30,
                     "type": "EventEmitter"
                 }
             ],
@@ -870,7 +922,7 @@ const LAYOUTS = {
                     "type": "",
                     "optional": false,
                     "description": "<p>Navigation helper</p>\n",
-                    "line": 16
+                    "line": 17
                 }
             ],
             "methodsClass": [
@@ -885,26 +937,34 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 34,
+                    "line": 40,
                     "description": "<p>Link clicked and emits the link data into an event</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 800,
-                                "end": 804,
+                                "pos": 1005,
+                                "end": 1009,
                                 "flags": 0,
                                 "escapedText": "link"
                             },
                             "type": "INavigationLink",
                             "tagName": {
-                                "pos": 794,
-                                "end": 799,
+                                "pos": 999,
+                                "end": 1004,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
                             "comment": ""
                         }
                     ]
+                },
+                {
+                    "name": "onFeedbackSubmitClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 45
                 }
             ],
             "hostBindings": [],
@@ -912,20 +972,20 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { FooterModel } from './model/FooterModel';\nimport { INavigationLink } from '@gsa-sam/components';\nimport { NavigationHelper } from '@gsa-sam/components';\n\n@Component({\n  selector: 'sds-footer',\n  templateUrl: './footer.component.html',\n  styleUrls: ['./footer.component.scss']\n})\nexport class SdsFooterComponent {\n\n  /**\n   * Navigation helper\n   */\n  navigationHelper = new NavigationHelper();\n\n  /**\n   * Model used for the different display portions of the footer\n   */\n  @Input() model: FooterModel;\n  @Input() isCollapsedContent = true;\n\n  /**\n   * event for event based\n   */\n  @Output()\n  linkEvent = new EventEmitter<INavigationLink>();\n\n  /**\n   * Link clicked and emits the link data into an event\n   * @param link\n   */\n  linkClickEvent(link: INavigationLink) {\n    this.linkEvent.emit(link);\n    return false;\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\r\nimport { FooterModel } from './model/FooterModel';\r\nimport { INavigationLink } from '@gsa-sam/components';\r\nimport { NavigationHelper } from '@gsa-sam/components';\r\nimport { FormControl } from '@angular/forms';\r\n\r\n@Component({\r\n  selector: 'sds-footer',\r\n  templateUrl: './footer.component.html',\r\n  styleUrls: ['./footer.component.scss']\r\n})\r\nexport class SdsFooterComponent {\r\n\r\n  /**\r\n   * Navigation helper\r\n   */\r\n  navigationHelper = new NavigationHelper();\r\n\r\n  /**\r\n   * Model used for the different display portions of the footer\r\n   */\r\n  @Input() model: FooterModel;\r\n  @Input() isCollapsedContent = true;\r\n  @Input() feedbackModel: FormControl = new FormControl('');\r\n\r\n  /**\r\n   * event for event based\r\n   */\r\n  @Output()\r\n  linkEvent = new EventEmitter<INavigationLink>();\r\n\r\n  @Output()\r\n  feedbackSubmit = new EventEmitter<string>();\r\n\r\n\r\n  /**\r\n   * Link clicked and emits the link data into an event\r\n   * @param link\r\n   */\r\n  linkClickEvent(link: INavigationLink) {\r\n    this.linkEvent.emit(link);\r\n    return false;\r\n  }\r\n\r\n  onFeedbackSubmitClicked() {\r\n    this.feedbackSubmit.emit(this.feedbackModel.value);\r\n  }\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": "\n",
+                    "data": "\r\n",
                     "styleUrl": "./footer.component.scss"
                 }
             ],
             "stylesData": "",
-            "templateData": "<footer class=\"usa-footer\" role=\"contentinfo\">\n  <div class=\"sds-feedback\">\n    <button\n      type=\"button\"\n      class=\"sds-feedback__button simple-toggle\"\n      [attr.aria-expanded]=\"!isCollapsedContent\"\n      aria-controls=\"collapseID\"\n      (click)=\"isCollapsedContent = !isCollapsedContent\"\n    >\n      <fa-layers [fixedWidth]=\"true\" size=\"2x\">\n        <fa-icon\n          [icon]=\"['fas', 'circle']\"\n          [sdsCollapse]=\"isCollapsedContent\"\n          class=\"text-base-light margin-auto\"\n        ></fa-icon>\n        <fa-icon\n          [icon]=\"['sds', 'arrow-up']\"\n          [sdsCollapse]=\"isCollapsedContent\"\n          transform=\"shrink-6\"\n        ></fa-icon>\n        <fa-icon\n          [icon]=\"['fas', 'circle']\"\n          [sdsCollapse]=\"!isCollapsedContent\"\n          class=\"text-primary margin-auto\"\n        ></fa-icon>\n        <fa-icon\n          [icon]=\"['sds', 'arrow-down']\"\n          [sdsCollapse]=\"!isCollapsedContent\"\n          transform=\"shrink-6\"\n        ></fa-icon>\n      </fa-layers>\n      <span class=\"sds-feedback__title\">Feedback</span>\n    </button>\n    <div\n      id=\"collapseID\"\n      [sdsCollapse]=\"isCollapsedContent\"\n      class=\"sds-feedback__response\"\n    >\n      <div class=\"tablet:width-tablet-lg padding-4 margin-auto\">\n        <span class=\"sds-feedback__response-title\">One Question </span>\n        <span class=\"sds-feedback__response-title-thin\"> Survey</span>\n        <p class=\"sds-feedback__response-text\">\n          What changes or improvements would you suggest?\n        </p>\n        <input class=\"sds-feedback__input\" type=\"text\" />\n        <p class=\"text-right\">\n          <button class=\"usa-button usa-button--secondary\">Submit</button>\n        </p>\n      </div>\n    </div>\n  </div>\n\n  <div class=\"usa-footer__primary-section\">\n    <div class=\"grid-container margin-x-0 mobile-lg:margin-x-auto padding-x-0 mobile-lg:padding-x-auto display-none tablet:display-block\">\n      <div class=\"grid-row grid-gap-0 mobile-lg:grid-gap\">\n        <div class=\"tablet:grid-col-12\">\n          <nav class=\"usa-footer__nav margin-x-0 mobile-lg:margin-x-2 padding-x-0 mobile-lg:padding-x-2\">\n            <div class=\"grid-row grid-gap-0 mobile-lg:grid-gap-4\">\n              <div class=\"mobile-lg:grid-col-6 desktop:grid-col-3\" *ngFor=\"let section of model.linkSections\">\n                <section class=\"usa-footer__primary-content usa-footer__primary-content--collapsible\">\n                  <h4 class=\"usa-footer__primary-link\">{{ section.text }}</h4>\n                  <ul class=\"usa-list usa-list--unstyled\">\n                    <li class=\"usa-footer__secondary-link\" *ngFor=\"let link of section.links\">\n                      <ng-container\n                        [ngTemplateOutlet]=\"\n                          navigationHelper.isLinkInternal(link)\n                            ? footerRouteLinkTemplate\n                            : navigationHelper.isLinkExternal(link)\n                            ? footerHREFLinkTemplate\n                            : footerEVENTLinkTemplate\n                        \"\n                        [ngTemplateOutletContext]=\"{ $implicit: link }\"\n                      ></ng-container>\n                    </li>\n                  </ul>\n                </section>\n              </div>\n            </div>\n          </nav>\n        </div>\n      </div>\n    </div>\n    <nav class=\"sds-footer__nav--accordion display-block tablet:display-none\">\n      <sds-accordion-next [multi]=\"true\">\n        <sds-accordion-item *ngFor=\"let section of model.linkSections; let $index = index\">\n          <sds-accordion-title>{{ section.text }}</sds-accordion-title>\n          <sds-accordion-content>\n            <ul class=\"usa-list usa-list--unstyled padding-y-1\">\n              <li class=\"usa-footer__secondary-link\" *ngFor=\"let link of section.links\">\n                <ng-container\n                  [ngTemplateOutlet]=\"\n                    navigationHelper.isLinkInternal(link)\n                      ? footerRouteLinkTemplate\n                      : navigationHelper.isLinkExternal(link)\n                      ? footerHREFLinkTemplate\n                      : footerEVENTLinkTemplate\n                  \"\n                  [ngTemplateOutletContext]=\"{ $implicit: link }\"\n                ></ng-container>\n              </li>\n            </ul>\n          </sds-accordion-content>\n        </sds-accordion-item>\n      </sds-accordion-next>\n    </nav>\n  </div>\n  <div class=\"usa-footer__secondary-section\">\n    <div class=\"grid-container\">\n      <div class=\"grid-row grid-gap\">\n        <div class=\"grid-col-12 mobile-lg:grid-col-6 tablet:grid-col-4 margin-bottom-4\">\n          <div class=\"sds-footer__logo\">\n            <a class=\"sds-footer__logo-link\" [attr.href]=\"model.footerLogo.href\">\n              <img\n                *ngIf=\"model.footerLogo\"\n                class=\"usa-footer__logo-img\"\n                [attr.src]=\"model.footerLogo.imageSourcePath\"\n                [attr.alt]=\"model.footerLogo.imageAltText\"\n              />\n            </a>\n            <h3 class=\"sds-footer__logo-heading\">\n              {{model.footerLogo.agencyName}}\n            </h3>\n          </div>\n        </div>\n        <div class=\"sds-footer__note grid-col-12 mobile-lg:grid-col-6 tablet:grid-col-8\" [innerHTML]=\"model.disclaimer\"></div>\n      </div>\n    </div>\n  </div>\n</footer>\n\n<ng-template #footerRouteLinkTemplate let-link>\n  <a class=\"usa-link\" [routerLink]=\"[link.route]\">{{ link.text }}</a>\n</ng-template>\n\n<ng-template #footerHREFLinkTemplate let-link>\n  <a class=\"usa-link\" [href]=\"link.route\">{{ link.text }}</a>\n</ng-template>\n\n<ng-template #footerEVENTLinkTemplate let-link>\n  <a href=\"javascript:void(0)\" (click)=\"linkClickEvent(link)\">{{\n    link.text\n  }}</a>\n</ng-template>\n"
+            "templateData": "<footer class=\"usa-footer\" role=\"contentinfo\">\r\n  <div class=\"sds-feedback\">\r\n    <button\r\n      type=\"button\"\r\n      class=\"sds-feedback__button simple-toggle\"\r\n      [attr.aria-expanded]=\"!isCollapsedContent\"\r\n      aria-controls=\"collapseID\"\r\n      (click)=\"isCollapsedContent = !isCollapsedContent\"\r\n    >\r\n      <fa-layers [fixedWidth]=\"true\" size=\"2x\">\r\n        <fa-icon\r\n          [icon]=\"['fas', 'circle']\"\r\n          [sdsCollapse]=\"isCollapsedContent\"\r\n          class=\"text-base-light margin-auto\"\r\n        ></fa-icon>\r\n        <fa-icon\r\n          [icon]=\"['sds', 'arrow-up']\"\r\n          [sdsCollapse]=\"isCollapsedContent\"\r\n          transform=\"shrink-6\"\r\n        ></fa-icon>\r\n        <fa-icon\r\n          [icon]=\"['fas', 'circle']\"\r\n          [sdsCollapse]=\"!isCollapsedContent\"\r\n          class=\"text-primary margin-auto\"\r\n        ></fa-icon>\r\n        <fa-icon\r\n          [icon]=\"['sds', 'arrow-down']\"\r\n          [sdsCollapse]=\"!isCollapsedContent\"\r\n          transform=\"shrink-6\"\r\n        ></fa-icon>\r\n      </fa-layers>\r\n      <span class=\"sds-feedback__title\">Feedback</span>\r\n    </button>\r\n    <div\r\n      id=\"collapseID\"\r\n      [sdsCollapse]=\"isCollapsedContent\"\r\n      class=\"sds-feedback__response\"\r\n    >\r\n      <div class=\"tablet:width-tablet-lg padding-4 margin-auto\">\r\n        <span class=\"sds-feedback__response-title\">One Question </span>\r\n        <span class=\"sds-feedback__response-title-thin\"> Survey</span>\r\n        <p class=\"sds-feedback__response-text\">\r\n          What changes or improvements would you suggest?\r\n        </p>\r\n        <textarea [formControl]=\"feedbackModel\" class=\"sds-feedback__input\" id=\"feedbackInput\" aria-label=\"Feedback input form\" type=\"text\" rows=\"8\"></textarea>\r\n        <p class=\"text-left\">\r\n          <button class=\"usa-button usa-button--secondary\" id=\"feedbackSubmit\" \r\n            aria-label=\"Feedback submit\" (click)=\"onFeedbackSubmitClicked()\">Submit</button>\r\n        </p>\r\n      </div>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"usa-footer__primary-section\">\r\n    <div class=\"grid-container margin-x-0 mobile-lg:margin-x-auto padding-x-0 mobile-lg:padding-x-auto display-none tablet:display-block\">\r\n      <div class=\"grid-row grid-gap-0 mobile-lg:grid-gap\">\r\n        <div class=\"tablet:grid-col-12\">\r\n          <nav class=\"usa-footer__nav margin-x-0 mobile-lg:margin-x-2 padding-x-0 mobile-lg:padding-x-2\">\r\n            <div class=\"grid-row grid-gap-0 mobile-lg:grid-gap-4\">\r\n              <div class=\"mobile-lg:grid-col-6 desktop:grid-col-3\" *ngFor=\"let section of model.linkSections\">\r\n                <section class=\"usa-footer__primary-content usa-footer__primary-content--collapsible\">\r\n                  <h4 class=\"usa-footer__primary-link\">{{ section.text }}</h4>\r\n                  <ul class=\"usa-list usa-list--unstyled\">\r\n                    <li class=\"usa-footer__secondary-link\" *ngFor=\"let link of section.links\">\r\n                      <ng-container\r\n                        [ngTemplateOutlet]=\"\r\n                          navigationHelper.isLinkInternal(link)\r\n                            ? footerRouteLinkTemplate\r\n                            : navigationHelper.isLinkExternal(link)\r\n                            ? footerHREFLinkTemplate\r\n                            : footerEVENTLinkTemplate\r\n                        \"\r\n                        [ngTemplateOutletContext]=\"{ $implicit: link }\"\r\n                      ></ng-container>\r\n                    </li>\r\n                  </ul>\r\n                </section>\r\n              </div>\r\n            </div>\r\n          </nav>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <nav class=\"sds-footer__nav--accordion display-block tablet:display-none\">\r\n      <sds-accordion-next [multi]=\"true\">\r\n        <sds-accordion-item *ngFor=\"let section of model.linkSections; let $index = index\">\r\n          <sds-accordion-title>{{ section.text }}</sds-accordion-title>\r\n          <sds-accordion-content>\r\n            <ul class=\"usa-list usa-list--unstyled padding-y-1\">\r\n              <li class=\"usa-footer__secondary-link\" *ngFor=\"let link of section.links\">\r\n                <ng-container\r\n                  [ngTemplateOutlet]=\"\r\n                    navigationHelper.isLinkInternal(link)\r\n                      ? footerRouteLinkTemplate\r\n                      : navigationHelper.isLinkExternal(link)\r\n                      ? footerHREFLinkTemplate\r\n                      : footerEVENTLinkTemplate\r\n                  \"\r\n                  [ngTemplateOutletContext]=\"{ $implicit: link }\"\r\n                ></ng-container>\r\n              </li>\r\n            </ul>\r\n          </sds-accordion-content>\r\n        </sds-accordion-item>\r\n      </sds-accordion-next>\r\n    </nav>\r\n  </div>\r\n  <div class=\"usa-footer__secondary-section\">\r\n    <div class=\"grid-container\">\r\n      <div class=\"grid-row grid-gap\">\r\n        <div class=\"grid-col-12 mobile-lg:grid-col-6 tablet:grid-col-4 margin-bottom-4\">\r\n          <div class=\"sds-footer__logo\">\r\n            <a class=\"sds-footer__logo-link\" [attr.href]=\"model.footerLogo.href\">\r\n              <img\r\n                *ngIf=\"model.footerLogo\"\r\n                class=\"usa-footer__logo-img\"\r\n                [attr.src]=\"model.footerLogo.imageSourcePath\"\r\n                [attr.alt]=\"model.footerLogo.imageAltText\"\r\n              />\r\n            </a>\r\n            <h3 class=\"sds-footer__logo-heading\">\r\n              {{model.footerLogo.agencyName}}\r\n            </h3>\r\n          </div>\r\n        </div>\r\n        <div class=\"sds-footer__note grid-col-12 mobile-lg:grid-col-6 tablet:grid-col-8\" [innerHTML]=\"model.disclaimer\"></div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</footer>\r\n\r\n<ng-template #footerRouteLinkTemplate let-link>\r\n  <a class=\"usa-link\" [routerLink]=\"[link.route]\">{{ link.text }}</a>\r\n</ng-template>\r\n\r\n<ng-template #footerHREFLinkTemplate let-link>\r\n  <a class=\"usa-link\" [href]=\"link.route\">{{ link.text }}</a>\r\n</ng-template>\r\n\r\n<ng-template #footerEVENTLinkTemplate let-link>\r\n  <a href=\"javascript:void(0)\" (click)=\"linkClickEvent(link)\">{{\r\n    link.text\r\n  }}</a>\r\n</ng-template>\r\n"
         },
         {
             "name": "SdsHeaderComponent",
-            "id": "component-SdsHeaderComponent-6fdff3bd5093d5be97cd59b18c7f4570",
+            "id": "component-SdsHeaderComponent-559d7c29088f450d2ba67734fe99f32b",
             "file": "libs/packages/layouts/src/lib/feature/header/header.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -943,10 +1003,20 @@ const LAYOUTS = {
             "viewProviders": [],
             "inputsClass": [
                 {
+                    "name": "alertsTemplate",
+                    "line": 36,
+                    "type": "TemplateRef<any>"
+                },
+                {
                     "name": "model",
                     "description": "<p>Model used for the different display portions of the header</p>\n",
                     "line": 30,
                     "type": "HeaderModel"
+                },
+                {
+                    "name": "showHeaderLogo",
+                    "defaultValue": "true",
+                    "line": 34
                 },
                 {
                     "name": "showTopBanner",
@@ -965,7 +1035,7 @@ const LAYOUTS = {
                     "name": "linkEvent",
                     "defaultValue": "new EventEmitter<INavigationLink>()",
                     "description": "<p>event for event based</p>\n",
-                    "line": 38,
+                    "line": 42,
                     "type": "EventEmitter"
                 }
             ],
@@ -1020,7 +1090,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 174
+                    "line": 178
                 },
                 {
                     "name": "deselect",
@@ -1028,7 +1098,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 79,
+                    "line": 83,
                     "description": "<p>Deselects all the items in the header model</p>\n"
                 },
                 {
@@ -1042,20 +1112,20 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "Selectable",
                     "typeParameters": [],
-                    "line": 106,
+                    "line": 110,
                     "description": "<p>Finds the navigation element by id in the header model</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 2611,
-                                "end": 2613,
+                                "pos": 2798,
+                                "end": 2800,
                                 "flags": 0,
                                 "escapedText": "id"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 2605,
-                                "end": 2610,
+                                "pos": 2792,
+                                "end": 2797,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1078,7 +1148,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "Selectable",
                     "typeParameters": [],
-                    "line": 130,
+                    "line": 134,
                     "description": "<p>Searchs the items in the navigation links</p>\n",
                     "modifierKind": [
                         112
@@ -1086,15 +1156,15 @@ const LAYOUTS = {
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 3216,
-                                "end": 3218,
+                                "pos": 3427,
+                                "end": 3429,
                                 "flags": 0,
                                 "escapedText": "id"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 3210,
-                                "end": 3215,
+                                "pos": 3421,
+                                "end": 3426,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1115,7 +1185,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 50,
+                    "line": 54,
                     "description": "<p>seeif any secondary link has a counter</p>\n"
                 },
                 {
@@ -1129,20 +1199,20 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "boolean",
                     "typeParameters": [],
-                    "line": 152,
+                    "line": 156,
                     "description": "<p>Link clicked and emits the link data into an event</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 3812,
-                                "end": 3816,
+                                "pos": 4045,
+                                "end": 4049,
                                 "flags": 0,
                                 "escapedText": "link"
                             },
                             "type": "INavigationLink",
                             "tagName": {
-                                "pos": 3806,
-                                "end": 3811,
+                                "pos": 4039,
+                                "end": 4044,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1156,7 +1226,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 185
+                    "line": 189
                 },
                 {
                     "name": "openMobileNav",
@@ -1164,7 +1234,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 170
+                    "line": 174
                 },
                 {
                     "name": "removeWhiteSpace",
@@ -1177,20 +1247,20 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "any",
                     "typeParameters": [],
-                    "line": 43,
+                    "line": 47,
                     "description": "<p>Takes in a text string and removes all white space characters and returns the new string</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1165,
-                                "end": 1169,
+                                "pos": 1287,
+                                "end": 1291,
                                 "flags": 0,
                                 "escapedText": "text"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 1159,
-                                "end": 1164,
+                                "pos": 1281,
+                                "end": 1286,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1209,20 +1279,20 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 68,
+                    "line": 72,
                     "description": "<p>Deselects previous seletion</p>\n",
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 1684,
-                                "end": 1686,
+                                "pos": 1833,
+                                "end": 1835,
                                 "flags": 0,
                                 "escapedText": "id"
                             },
                             "type": "string",
                             "tagName": {
-                                "pos": 1678,
-                                "end": 1683,
+                                "pos": 1827,
+                                "end": 1832,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1244,13 +1314,13 @@ const LAYOUTS = {
                     "argsDecorator": [
                         "$event"
                     ],
-                    "line": 161
+                    "line": 165
                 }
             ],
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, HostListener } from '@angular/core';\nimport { HeaderModel, HeaderNavigationLink, HeaderSecondaryLink } from './model/HeaderModel';\nimport { INavigationLink, NavigationMode, Selectable } from '@gsa-sam/components';\nimport { NavigationHelper } from '@gsa-sam/components';\n\n\n@Component({\n  selector: 'sds-header',\n  templateUrl: './header.component.html',\n  styleUrls: ['./header.component.scss']\n})\nexport class SdsHeaderComponent {\n\n  @ViewChild('usaNavOpen') openNavBtn: ElementRef;\n  @ViewChild('usaNavClose') closeNavBtn: ElementRef;\n  mobileNavActive = false;\n  /**\n  * Navigation helper\n  */\n  navigationHelper = new NavigationHelper();\n\n  /**\n   * determines if the top banner is shown\n   */\n  @Input() showTopBanner = true;\n\n  /**\n   * Model used for the different display portions of the header\n   */\n  @Input() model: HeaderModel;\n\n  @Input() topBannerDescription = '';\n\n  /**\n   * event for event based\n   */\n  @Output()\n  linkEvent = new EventEmitter<INavigationLink>();\n  /**\n   * Takes in a text string and removes all white space characters and returns the new string\n   * @param text\n   */\n  removeWhiteSpace(text: string) {\n    return text.replace(/ /g, '');\n  }\n\n  /**\n   * seeif any secondary link has a counter\n   */\n  hasCounter(): boolean {\n    let hasCounter = false;\n    if (this.model) {\n      if (this.model.secondaryLinks) {\n        this.model.secondaryLinks.forEach(function (item: HeaderSecondaryLink) {\n          if (item.hasCounter) {\n            hasCounter = true;\n          }\n        });\n      }\n    }\n    return hasCounter;\n  }\n\n  /**\n   * Deselects previous seletion\n   * @param id\n   */\n  select(id: string) {\n    this.deselect();\n    const item = this.find(id);\n    if (item) {\n      item.selected = true;\n    }\n  }\n\n  /**\n   * Deselects all the items in the header model\n   */\n  deselect() {\n    if (this.model) {\n      if (this.model.home) {\n        this.model.home.selected = false;\n      }\n      if (this.model.navigationLinks) {\n        this.model.navigationLinks.forEach(function (item: HeaderNavigationLink) {\n          item.selected = false;\n          if (item.children) {\n            item.children.forEach(function (child: HeaderNavigationLink) {\n              child.selected = false;\n            });\n          }\n        });\n      }\n      if (this.model.secondaryLinks) {\n        this.model.secondaryLinks.forEach(function (item: HeaderSecondaryLink) {\n          item.selected = false;\n        });\n      }\n    }\n  }\n\n  /**\n   * Finds the navigation element by id in the header model\n   * @param id of the navigation item\n   */\n  find(id: string): Selectable {\n    let toReturn = null;\n    if (this.model) {\n      if (this.model.home) {\n        if (this.model.home.id === id) {\n          toReturn = this.model.home;\n        }\n      }\n      toReturn = this.findNavigationLinks(id, toReturn);\n      if (this.model.secondaryLinks) {\n        this.model.secondaryLinks.forEach(function (item: HeaderSecondaryLink) {\n          if (item.id === id) {\n            toReturn = item;\n          }\n        });\n      }\n    }\n    return toReturn;\n  }\n\n  /**\n   * Searchs the items in the navigation links\n   * @param id\n   */\n  private findNavigationLinks(id: string, toReturn: Selectable): Selectable {\n    if (this.model.navigationLinks) {\n      this.model.navigationLinks.forEach(function (item: HeaderNavigationLink) {\n        if (item.id === id) {\n          toReturn = item;\n        }\n        if (item.children) {\n          item.children.forEach(function (child: HeaderNavigationLink) {\n            if (child.id === id) {\n              toReturn = child;\n            }\n          });\n        }\n      });\n    }\n    return toReturn;\n  }\n\n  /**\n   * Link clicked and emits the link data into an event\n   * @param link\n   */\n  linkClickEvent(link: INavigationLink) {\n    this.linkEvent.emit(link);\n    return false;\n  }\n\n  // When the mobile nav is active, and the close box isn't visible,\n  // we know the user's viewport has been resized to be larger.\n  // Let's make the page state consistent by deactivating the mobile nav.\n  @HostListener('window:resize', ['$event'])\n  onBrowserResize(event) {\n    if (\n      this.mobileNavActive &&\n      this.closeNavBtn.nativeElement.getBoundingClientRect().width === 0\n    ) {\n      this.mobileNavActive = false;\n    }\n  }\n\n  openMobileNav() {\n    this.mobileNavActive = true;\n  }\n\n  closeMobileNav() {\n    this.mobileNavActive = false;\n    // The mobile nav was just deactivated, and focus was on the close\n    // button, which is no longer visible. We don't want the focus to\n    // disappear into the void, so focus on the menu button if it's\n    // visible (this may have been what the user was just focused on,\n    // if they triggered the mobile nav by mistake).\n    this.openNavBtn.nativeElement.focus();\n  }\n\n  // The mobile nav was just activated, so focus on the close button,\n  navAnimationEnd() {\n    this.closeNavBtn.nativeElement.focus();\n  }\n\n\n}\n",
+            "sourceCode": "import { Component, Input, Output, EventEmitter, ViewChild, ElementRef, HostListener, TemplateRef } from '@angular/core';\r\nimport { HeaderModel, HeaderNavigationLink, HeaderSecondaryLink } from './model/HeaderModel';\r\nimport { INavigationLink, Selectable } from '@gsa-sam/components';\r\nimport { NavigationHelper } from '@gsa-sam/components';\r\n\r\n\r\n@Component({\r\n  selector: 'sds-header',\r\n  templateUrl: './header.component.html',\r\n  styleUrls: ['./header.component.scss']\r\n})\r\nexport class SdsHeaderComponent {\r\n\r\n  @ViewChild('usaNavOpen') openNavBtn: ElementRef;\r\n  @ViewChild('usaNavClose') closeNavBtn: ElementRef;\r\n  mobileNavActive = false;\r\n  /**\r\n  * Navigation helper\r\n  */\r\n  navigationHelper = new NavigationHelper();\r\n\r\n  /**\r\n   * determines if the top banner is shown\r\n   */\r\n  @Input() showTopBanner = true;\r\n\r\n  /**\r\n   * Model used for the different display portions of the header\r\n   */\r\n  @Input() model: HeaderModel;\r\n\r\n  @Input() topBannerDescription = '';\r\n\r\n  @Input() showHeaderLogo = true;\r\n\r\n  @Input() alertsTemplate: TemplateRef<any>;\r\n\r\n  /**\r\n   * event for event based\r\n   */\r\n  @Output()\r\n  linkEvent = new EventEmitter<INavigationLink>();\r\n  /**\r\n   * Takes in a text string and removes all white space characters and returns the new string\r\n   * @param text\r\n   */\r\n  removeWhiteSpace(text: string) {\r\n    return text.replace(/ /g, '');\r\n  }\r\n  \r\n  /**\r\n   * seeif any secondary link has a counter\r\n   */\r\n  hasCounter(): boolean {\r\n    let hasCounter = false;\r\n    if (this.model) {\r\n      if (this.model.secondaryLinks) {\r\n        this.model.secondaryLinks.forEach(function (item: HeaderSecondaryLink) {\r\n          if (item.hasCounter) {\r\n            hasCounter = true;\r\n          }\r\n        });\r\n      }\r\n    }\r\n    return hasCounter;\r\n  }\r\n\r\n  /**\r\n   * Deselects previous seletion\r\n   * @param id\r\n   */\r\n  select(id: string) {\r\n    this.deselect();\r\n    const item = this.find(id);\r\n    if (item) {\r\n      item.selected = true;\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Deselects all the items in the header model\r\n   */\r\n  deselect() {\r\n    if (this.model) {\r\n      if (this.model.home) {\r\n        this.model.home.selected = false;\r\n      }\r\n      if (this.model.navigationLinks) {\r\n        this.model.navigationLinks.forEach(function (item: HeaderNavigationLink) {\r\n          item.selected = false;\r\n          if (item.children) {\r\n            item.children.forEach(function (child: HeaderNavigationLink) {\r\n              child.selected = false;\r\n            });\r\n          }\r\n        });\r\n      }\r\n      if (this.model.secondaryLinks) {\r\n        this.model.secondaryLinks.forEach(function (item: HeaderSecondaryLink) {\r\n          item.selected = false;\r\n        });\r\n      }\r\n    }\r\n  }\r\n\r\n  /**\r\n   * Finds the navigation element by id in the header model\r\n   * @param id of the navigation item\r\n   */\r\n  find(id: string): Selectable {\r\n    let toReturn = null;\r\n    if (this.model) {\r\n      if (this.model.home) {\r\n        if (this.model.home.id === id) {\r\n          toReturn = this.model.home;\r\n        }\r\n      }\r\n      toReturn = this.findNavigationLinks(id, toReturn);\r\n      if (this.model.secondaryLinks) {\r\n        this.model.secondaryLinks.forEach(function (item: HeaderSecondaryLink) {\r\n          if (item.id === id) {\r\n            toReturn = item;\r\n          }\r\n        });\r\n      }\r\n    }\r\n    return toReturn;\r\n  }\r\n\r\n  /**\r\n   * Searchs the items in the navigation links\r\n   * @param id\r\n   */\r\n  private findNavigationLinks(id: string, toReturn: Selectable): Selectable {\r\n    if (this.model.navigationLinks) {\r\n      this.model.navigationLinks.forEach(function (item: HeaderNavigationLink) {\r\n        if (item.id === id) {\r\n          toReturn = item;\r\n        }\r\n        if (item.children) {\r\n          item.children.forEach(function (child: HeaderNavigationLink) {\r\n            if (child.id === id) {\r\n              toReturn = child;\r\n            }\r\n          });\r\n        }\r\n      });\r\n    }\r\n    return toReturn;\r\n  }\r\n\r\n  /**\r\n   * Link clicked and emits the link data into an event\r\n   * @param link\r\n   */\r\n  linkClickEvent(link: INavigationLink) {\r\n    this.linkEvent.emit(link);\r\n    return false;\r\n  }\r\n\r\n  // When the mobile nav is active, and the close box isn't visible,\r\n  // we know the user's viewport has been resized to be larger.\r\n  // Let's make the page state consistent by deactivating the mobile nav.\r\n  @HostListener('window:resize', ['$event'])\r\n  onBrowserResize(event) {\r\n    if (\r\n      this.mobileNavActive &&\r\n      this.closeNavBtn.nativeElement.getBoundingClientRect().width === 0\r\n    ) {\r\n      this.mobileNavActive = false;\r\n    }\r\n  }\r\n\r\n  openMobileNav() {\r\n    this.mobileNavActive = true;\r\n  }\r\n\r\n  closeMobileNav() {\r\n    this.mobileNavActive = false;\r\n    // The mobile nav was just deactivated, and focus was on the close\r\n    // button, which is no longer visible. We don't want the focus to\r\n    // disappear into the void, so focus on the menu button if it's\r\n    // visible (this may have been what the user was just focused on,\r\n    // if they triggered the mobile nav by mistake).\r\n    this.openNavBtn.nativeElement.focus();\r\n  }\r\n\r\n  // The mobile nav was just activated, so focus on the close button,\r\n  navAnimationEnd() {\r\n    this.closeNavBtn.nativeElement.focus();\r\n  }\r\n\r\n\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1259,11 +1329,11 @@ const LAYOUTS = {
                 }
             ],
             "stylesData": "",
-            "templateData": "<sds-top-banner *ngIf=\"showTopBanner\" \n[description]=\"topBannerDescription\"\n></sds-top-banner>\n<div\n  class=\"usa-overlay\"\n  [class.is-visible]=\"mobileNavActive\"\n  (click)=\"closeMobileNav()\"\n></div>\n<header class=\"usa-header usa-header--extended\">\n  <div class=\"usa-navbar\">\n    <div class=\"usa-logo\" id=\"extended-logo\">\n      <ng-container\n        [ngTemplateOutlet]=\"\n          navigationHelper.isLinkInternal(model.home)\n            ? homeLinkRouteTemplate\n            : homeLinkHREFTemplate\n        \"\n        [ngTemplateOutletContext]=\"{ $implicit: model.home }\"\n      ></ng-container>\n    </div>\n    <button #usaNavOpen class=\"usa-menu-btn\" (click)=\"openMobileNav()\">\n      <fa-layers [fixedWidth]=\"true\" size=\"3x\">\n        <fa-icon\n          [icon]=\"['fas', 'square']\"\n          [classes]=\"['text-primary']\"\n        ></fa-icon>\n        <fa-icon\n          [icon]=\"['sds', 'bars']\"\n          [classes]=\"['icon-bars']\"\n          transform=\"shrink-6\"\n        ></fa-icon>\n        <fa-layers-counter\n          *ngIf=\"hasCounter()\"\n          [classes]=\"['icon-layers-counter']\"\n        ></fa-layers-counter>\n      </fa-layers>\n      <span class=\"usa-sr-only\">Menu</span>\n    </button>\n  </div>\n  <nav\n    aria-label=\"Primary navigation\"\n    class=\"usa-nav\"\n    (keydown.esc)=\"closeMobileNav()\"\n    (animationend)=\"navAnimationEnd()\"\n    [class.is-visible]=\"mobileNavActive\"\n    [cdkTrapFocus]=\"mobileNavActive\"\n  >\n    <div class=\"usa-nav__inner\">\n      <button #usaNavClose class=\"usa-nav__close\" (click)=\"closeMobileNav()\">\n        <fa-layers [fixedWidth]=\"true\" size=\"lg\">\n          <fa-icon\n            [icon]=\"['fas', 'circle']\"\n            [inverse]=\"true\"\n            transform=\"grow-2\"\n          ></fa-icon>\n          <fa-icon [icon]=\"['fas', 'times']\" transform=\"shrink-6\"></fa-icon>\n        </fa-layers>\n        <span class=\"usa-sr-only\">Close</span>\n      </button>\n      <ul class=\"usa-nav__primary usa-accordion\">\n        <li\n          *ngFor=\"let link of model.navigationLinks\"\n          class=\"usa-nav__primary-item\"\n        >\n          <ng-container\n            [ngTemplateOutlet]=\"link.route ? linkTemplate : dropDownTemplate\"\n            [ngTemplateOutletContext]=\"{ $implicit: link }\"\n          ></ng-container>\n        </li>\n      </ul>\n      <div class=\"usa-nav__secondary\">\n        <ul class=\"usa-nav__secondary-links\">\n          <li\n            *ngFor=\"let link of model.secondaryLinks\"\n            class=\"usa-nav__secondary-item\"\n          >\n            <ng-container\n              [ngTemplateOutlet]=\"\n                navigationHelper.isLinkInternal(link)\n                  ? secondaryRouteLinkTemplate\n                  : navigationHelper.isLinkExternal(link)\n                  ? secondaryHREFLinkTemplate\n                  : secondaryEVENTLinkTemplate\n              \"\n              [ngTemplateOutletContext]=\"{ $implicit: link }\"\n            ></ng-container>\n          </li>\n        </ul>\n      </div>\n    </div>\n  </nav>\n</header>\n<ng-template #homeLinkRouteTemplate let-home>\n  <a [routerLink]=\"home.route\" title=\"Home\" aria-label=\"Home\">\n    <img class=\"sds-header__logo\" [src]=\"home.logo\" [alt]=\"home.text\" />\n  </a>\n</ng-template>\n\n<ng-template #homeLinkHREFTemplate let-home>\n  <a [attr.href]=\"home.route\" title=\"Home\" aria-label=\"Home\">\n    <img class=\"sds-header__logo\" [src]=\"home.logo\" [alt]=\"home.text\" />\n  </a>\n</ng-template>\n\n<ng-template #secondaryRouteLinkTemplate let-link>\n  <a\n    [attr.id]=\"link.id\"\n    [routerLink]=\"[link.route]\"\n    [attr.class]=\"link.selected ? 'usa-current' : ''\"\n  >\n    <ng-container\n      [ngTemplateOutlet]=\"iconLinkTemplate\"\n      [ngTemplateOutletContext]=\"{ $implicit: link }\"\n    >\n    </ng-container>\n  </a>\n</ng-template>\n\n<ng-template #secondaryHREFLinkTemplate let-link>\n  <a\n    [attr.id]=\"link.id\"\n    [attr.href]=\"[link.route]\"\n    [attr.class]=\"link.selected ? 'usa-current' : ''\"\n  >\n    <ng-container\n      [ngTemplateOutlet]=\"iconLinkTemplate\"\n      [ngTemplateOutletContext]=\"{ $implicit: link }\"\n    >\n    </ng-container>\n  </a>\n</ng-template>\n\n<ng-template #secondaryEVENTLinkTemplate let-link>\n  <a\n    [attr.id]=\"link.id\"\n    (click)=\"linkClickEvent(link)\"\n    href=\"javascript:void(0)\"\n    [attr.class]=\"link.selected ? 'usa-current' : ''\"\n  >\n    <ng-container\n      [ngTemplateOutlet]=\"iconLinkTemplate\"\n      [ngTemplateOutletContext]=\"{ $implicit: link }\"\n    >\n    </ng-container>\n  </a>\n</ng-template>\n\n<ng-template #iconLinkTemplate let-link>\n  <fa-layers [fixedWidth]=\"true\">\n    <fa-icon [icon]=\"[link.imageClassPrefix, link.imageClass]\"></fa-icon>\n    <fa-layers-counter\n      *ngIf=\"link.hasCounter\"\n      [classes]=\"['icon-layers-counter']\"\n    ></fa-layers-counter>\n  </fa-layers>\n  <span class=\"sds-nav__secondary-item-text\">{{ link.text }}</span>\n</ng-template>\n\n<ng-template #linkTemplate let-link>\n  <ng-container\n    [ngTemplateOutlet]=\"\n      navigationHelper.isLinkInternal(link)\n        ? linkRouteTemplate\n        : navigationHelper.isLinkExternal(link)\n        ? linkHREFTemplate\n        : linkEventTemplate\n    \"\n    [ngTemplateOutletContext]=\"{ $implicit: link }\"\n  ></ng-container>\n</ng-template>\n\n<ng-template #linkRouteTemplate let-link>\n  <a\n    [attr.id]=\"link.id\"\n    [attr.class]=\"link.selected ? 'usa-nav__link usa-current' : 'usa-nav__link'\"\n    [routerLink]=\"[link.route]\"\n    ><span>{{ link.text }}</span></a\n  >\n</ng-template>\n\n<ng-template #linkHREFTemplate let-link>\n  <a\n    [attr.id]=\"link.id\"\n    [attr.class]=\"link.selected ? 'usa-nav__link usa-current' : 'usa-nav__link'\"\n    [attr.href]=\"[link.route]\"\n    ><span>{{ link.text }}</span></a\n  >\n</ng-template>\n\n<ng-template #linkEventTemplate let-link>\n  <a\n    [attr.id]=\"link.id\"\n    [attr.class]=\"link.selected ? 'usa-nav__link usa-current' : 'usa-nav__link'\"\n    href=\"javascript:void(0)\"\n    (click)=\"linkClickEvent(link)\"\n    ><span>{{ link.text }}</span></a\n  >\n</ng-template>\n\n<ng-template #dropDownTemplate let-link>\n  <button\n    [attr.id]=\"link.id\"\n    [attr.class]=\"\n      link.selected\n        ? 'usa-accordion__button usa-nav__link usa-current'\n        : 'usa-accordion__button usa-nav__link'\n    \"\n    aria-expanded=\"false\"\n    [attr.aria-controls]=\"removeWhiteSpace(link.text) + '-section'\"\n  >\n    <span>{{ link.text }}</span>\n  </button>\n  <ul\n    [attr.id]=\"removeWhiteSpace(link.text) + '-section'\"\n    class=\"usa-nav__submenu\"\n    hidden\n  >\n    <li *ngFor=\"let childLink of link.children\" class=\"usa-nav__submenu-item\">\n      <ng-container\n        [ngTemplateOutlet]=\"\n          navigationHelper.isLinkInternal(childLink)\n            ? dropDownRouteLinkTemplate\n            : navigationHelper.isLinkExternal(childLink)\n            ? dropDownHREFLinkTemplate\n            : dropDownEVENTLinkTemplate\n        \"\n        [ngTemplateOutletContext]=\"{ $implicit: childLink }\"\n      ></ng-container>\n    </li>\n  </ul>\n</ng-template>\n\n<ng-template #dropDownRouteLinkTemplate let-childLink>\n  <a [routerLink]=\"[childLink.route]\">{{ childLink.text }}</a>\n</ng-template>\n\n<ng-template #dropDownHREFLinkTemplate let-childLink>\n  <a [attr.href]=\"[childLink.route]\">{{ childLink.text }}</a>\n</ng-template>\n\n<ng-template #dropDownEVENTLinkTemplate let-childLink>\n  <a href=\"javascript:void(0)\" (click)=\"linkClickEvent(childLink)\">{{\n    childLink.text\n  }}</a>\n</ng-template>\n"
+            "templateData": "<sds-top-banner *ngIf=\"showTopBanner\" [description]=\"topBannerDescription\"></sds-top-banner>\r\n\r\n<div *ngIf=\"alertsTemplate\">\r\n  <ng-container [ngTemplateOutlet]=\"alertsTemplate\"></ng-container>\r\n</div>\r\n\r\n<div class=\"usa-overlay\" [class.is-visible]=\"mobileNavActive\" (click)=\"closeMobileNav()\"></div>\r\n<header class=\"usa-header usa-header--extended\">\r\n  <div class=\"usa-navbar\">\r\n    <div *ngIf=\"showHeaderLogo; else fillerBlock\" class=\"usa-logo\" id=\"extended-logo\">\r\n      <ng-container [ngTemplateOutlet]=\"\r\n            navigationHelper.isLinkInternal(model.home)\r\n              ? homeLinkRouteTemplate\r\n              : homeLinkHREFTemplate\r\n          \" [ngTemplateOutletContext]=\"{ $implicit: model.home }\"></ng-container>\r\n    </div>\r\n    <button #usaNavOpen class=\"usa-menu-btn\" (click)=\"openMobileNav()\">\r\n      <fa-layers [fixedWidth]=\"true\" size=\"3x\">\r\n        <fa-icon [icon]=\"['fas', 'square']\" [classes]=\"['text-primary']\"></fa-icon>\r\n        <fa-icon [icon]=\"['sds', 'bars']\" [classes]=\"['icon-bars']\" transform=\"shrink-6\"></fa-icon>\r\n        <fa-layers-counter *ngIf=\"hasCounter()\" [classes]=\"['icon-layers-counter']\"></fa-layers-counter>\r\n      </fa-layers>\r\n      <span class=\"usa-sr-only\">Menu</span>\r\n    </button>\r\n  </div>\r\n  <nav aria-label=\"Primary navigation\" class=\"usa-nav\" (keydown.esc)=\"closeMobileNav()\"\r\n    (animationend)=\"navAnimationEnd()\" [class.is-visible]=\"mobileNavActive\" [cdkTrapFocus]=\"mobileNavActive\">\r\n    <div class=\"usa-nav__inner\">\r\n      <button #usaNavClose class=\"usa-nav__close\" (click)=\"closeMobileNav()\">\r\n        <fa-layers [fixedWidth]=\"true\" size=\"lg\">\r\n          <fa-icon [icon]=\"['fas', 'circle']\" [inverse]=\"true\" transform=\"grow-2\"></fa-icon>\r\n          <fa-icon [icon]=\"['fas', 'times']\" transform=\"shrink-6\"></fa-icon>\r\n        </fa-layers>\r\n        <span class=\"usa-sr-only\">Close</span>\r\n      </button>\r\n      <ul class=\"usa-nav__primary usa-accordion\">\r\n        <li *ngFor=\"let link of model.navigationLinks\" class=\"usa-nav__primary-item\">\r\n          <ng-container [ngTemplateOutlet]=\"link.route ? linkTemplate : dropDownTemplate\"\r\n            [ngTemplateOutletContext]=\"{ $implicit: link }\"></ng-container>\r\n        </li>\r\n      </ul>\r\n      <div class=\"usa-nav__secondary\" [ngClass]=\"{'sds-nav__secondary--blank': !showHeaderLogo}\">\r\n        <ul class=\"usa-nav__secondary-links\">\r\n          <li *ngFor=\"let link of model.secondaryLinks\" class=\"usa-nav__secondary-item\">\r\n            <ng-container [ngTemplateOutlet]=\"\r\n                navigationHelper.isLinkInternal(link)\r\n                  ? secondaryRouteLinkTemplate\r\n                  : navigationHelper.isLinkExternal(link)\r\n                  ? secondaryHREFLinkTemplate\r\n                  : secondaryEVENTLinkTemplate\r\n              \" [ngTemplateOutletContext]=\"{ $implicit: link }\"></ng-container>\r\n          </li>\r\n        </ul>\r\n      </div>\r\n    </div>\r\n  </nav>\r\n</header>\r\n<ng-template #homeLinkRouteTemplate let-home>\r\n  <a [routerLink]=\"home.route\" title=\"Home\" aria-label=\"Home\">\r\n    <img class=\"sds-header__logo\" [src]=\"home.logo\" [alt]=\"home.text\" />\r\n  </a>\r\n</ng-template>\r\n\r\n<ng-template #homeLinkHREFTemplate let-home>\r\n  <a [attr.href]=\"home.route\" title=\"Home\" aria-label=\"Home\">\r\n    <img class=\"sds-header__logo\" [src]=\"home.logo\" [alt]=\"home.text\" />\r\n  </a>\r\n</ng-template>\r\n\r\n<ng-template #secondaryRouteLinkTemplate let-link>\r\n  <a [attr.id]=\"link.id\" [routerLink]=\"[link.route]\" [attr.class]=\"link.selected ? 'usa-current' : ''\">\r\n    <ng-container [ngTemplateOutlet]=\"iconLinkTemplate\" [ngTemplateOutletContext]=\"{ $implicit: link }\">\r\n    </ng-container>\r\n  </a>\r\n</ng-template>\r\n\r\n<ng-template #secondaryHREFLinkTemplate let-link>\r\n  <a [attr.id]=\"link.id\" [attr.href]=\"[link.route]\" [attr.class]=\"link.selected ? 'usa-current' : ''\">\r\n    <ng-container [ngTemplateOutlet]=\"iconLinkTemplate\" [ngTemplateOutletContext]=\"{ $implicit: link }\">\r\n    </ng-container>\r\n  </a>\r\n</ng-template>\r\n\r\n<ng-template #secondaryEVENTLinkTemplate let-link>\r\n  <a [attr.id]=\"link.id\" (click)=\"linkClickEvent(link)\" href=\"javascript:void(0)\"\r\n    [attr.class]=\"link.selected ? 'usa-current' : ''\">\r\n    <ng-container [ngTemplateOutlet]=\"iconLinkTemplate\" [ngTemplateOutletContext]=\"{ $implicit: link }\">\r\n    </ng-container>\r\n  </a>\r\n</ng-template>\r\n\r\n<ng-template #iconLinkTemplate let-link>\r\n  <fa-layers [fixedWidth]=\"true\">\r\n    <fa-icon [icon]=\"[link.imageClassPrefix, link.imageClass]\"></fa-icon>\r\n    <fa-layers-counter *ngIf=\"link.hasCounter\" [classes]=\"['icon-layers-counter']\"></fa-layers-counter>\r\n  </fa-layers>\r\n  <span class=\"sds-nav__secondary-item-text\">{{ link.text }}</span>\r\n</ng-template>\r\n\r\n<ng-template #linkTemplate let-link>\r\n  <ng-container [ngTemplateOutlet]=\"\r\n      navigationHelper.isLinkInternal(link)\r\n        ? linkRouteTemplate\r\n        : navigationHelper.isLinkExternal(link)\r\n        ? linkHREFTemplate\r\n        : linkEventTemplate\r\n    \" [ngTemplateOutletContext]=\"{ $implicit: link }\"></ng-container>\r\n</ng-template>\r\n\r\n<ng-template #linkRouteTemplate let-link>\r\n  <a [attr.id]=\"link.id\" [attr.class]=\"link.selected ? 'usa-nav__link usa-current' : 'usa-nav__link'\"\r\n    [routerLink]=\"[link.route]\"><span>{{ link.text }}</span></a>\r\n</ng-template>\r\n\r\n<ng-template #linkHREFTemplate let-link>\r\n  <a [attr.id]=\"link.id\" [attr.class]=\"link.selected ? 'usa-nav__link usa-current' : 'usa-nav__link'\"\r\n    [attr.href]=\"[link.route]\"><span>{{ link.text }}</span></a>\r\n</ng-template>\r\n\r\n<ng-template #linkEventTemplate let-link>\r\n  <a [attr.id]=\"link.id\" [attr.class]=\"link.selected ? 'usa-nav__link usa-current' : 'usa-nav__link'\"\r\n    href=\"javascript:void(0)\" (click)=\"linkClickEvent(link)\"><span>{{ link.text }}</span></a>\r\n</ng-template>\r\n\r\n<ng-template #dropDownTemplate let-link>\r\n  <button [attr.id]=\"link.id\" [attr.class]=\"\r\n      link.selected\r\n        ? 'usa-accordion__button usa-nav__link usa-current'\r\n        : 'usa-accordion__button usa-nav__link'\r\n    \" aria-expanded=\"false\" [attr.aria-controls]=\"removeWhiteSpace(link.text) + '-section'\">\r\n    <span>{{ link.text }}</span>\r\n  </button>\r\n  <ul [attr.id]=\"removeWhiteSpace(link.text) + '-section'\" class=\"usa-nav__submenu\" hidden>\r\n    <li *ngFor=\"let childLink of link.children\" class=\"usa-nav__submenu-item\">\r\n      <ng-container [ngTemplateOutlet]=\"\r\n          navigationHelper.isLinkInternal(childLink)\r\n            ? dropDownRouteLinkTemplate\r\n            : navigationHelper.isLinkExternal(childLink)\r\n            ? dropDownHREFLinkTemplate\r\n            : dropDownEVENTLinkTemplate\r\n        \" [ngTemplateOutletContext]=\"{ $implicit: childLink }\"></ng-container>\r\n    </li>\r\n  </ul>\r\n</ng-template>\r\n\r\n<ng-template #dropDownRouteLinkTemplate let-childLink>\r\n  <a [routerLink]=\"[childLink.route]\">{{ childLink.text }}</a>\r\n</ng-template>\r\n\r\n<ng-template #dropDownHREFLinkTemplate let-childLink>\r\n  <a [attr.href]=\"[childLink.route]\">{{ childLink.text }}</a>\r\n</ng-template>\r\n\r\n<ng-template #dropDownEVENTLinkTemplate let-childLink>\r\n  <a href=\"javascript:void(0)\" (click)=\"linkClickEvent(childLink)\">{{\r\n    childLink.text\r\n  }}</a>\r\n</ng-template>\r\n\r\n<ng-template #fillerBlock>\r\n  <!--Empty filler space for secondary links for when header logo display is turned off-->\r\n  <div class=\"sds-navbar--blank \"></div>\r\n</ng-template>"
         },
         {
             "name": "SdsSubheaderActionsComponent",
-            "id": "component-SdsSubheaderActionsComponent-06e8be92f247b147e203e9e3ff211942",
+            "id": "component-SdsSubheaderActionsComponent-6a5ad5bb109b156ea8d9ea2bd3373ec1",
             "file": "libs/packages/layouts/src/lib/feature/subheader/subheader.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1280,14 +1350,14 @@ const LAYOUTS = {
             "inputsClass": [
                 {
                     "name": "model",
-                    "line": 24
+                    "line": 25
                 }
             ],
             "outputsClass": [
                 {
                     "name": "clicks",
                     "defaultValue": "new EventEmitter<string>()",
-                    "line": 25,
+                    "line": 26,
                     "type": "EventEmitter"
                 }
             ],
@@ -1298,7 +1368,7 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  OnInit,\n  Output,\n  EventEmitter,\n  Input,\n  TemplateRef\n} from '@angular/core';\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\n\n@Component({\n  selector: 'sds-subheader',\n  templateUrl: 'subheader.component.html'\n})\nexport class SdsSubheaderComponent {\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-actions',\n  templateUrl: 'subheader-actions.component.html'\n})\nexport class SdsSubheaderActionsComponent {\n  @Input() model;\n  @Output() clicks = new EventEmitter<string>();\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-drawer',\n  templateUrl: 'subheader-drawer.component.html'\n})\nexport class SdsSubheaderDrawerComponent implements OnInit {\n  @Input() drawerContentTemplate: TemplateRef<any>;\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\n  isOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  onDrawerOpenClose(ev) {\n    this.isOpen = !this.isOpen;\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\n  }\n  ngOnInit() {}\n}\n\n@Component({\n  selector: 'sds-drawer-content',\n  templateUrl: 'drawer.content.component.html'\n})\nexport class SdsDrawerContentComponent implements OnInit {\n  drawerContentTemplate: TemplateRef<any>;\n  isDrawerOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  ngOnInit() {\n    this.data.contentTemplate.subscribe(\n      template => (this.drawerContentTemplate = template)\n    );\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\n  }\n}\n",
+            "sourceCode": "import {\r\n  Component,\r\n  OnInit,\r\n  Output,\r\n  EventEmitter,\r\n  Input,\r\n  TemplateRef\r\n} from '@angular/core';\r\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\r\n\r\n@Component({\r\n  selector: 'sds-subheader',\r\n  templateUrl: 'subheader.component.html',\r\n  styleUrls: ['subheader.component.scss']\r\n})\r\nexport class SdsSubheaderComponent {\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-actions',\r\n  templateUrl: 'subheader-actions.component.html'\r\n})\r\nexport class SdsSubheaderActionsComponent {\r\n  @Input() model;\r\n  @Output() clicks = new EventEmitter<string>();\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-drawer',\r\n  templateUrl: 'subheader-drawer.component.html'\r\n})\r\nexport class SdsSubheaderDrawerComponent implements OnInit {\r\n  @Input() drawerContentTemplate: TemplateRef<any>;\r\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\r\n  isOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  onDrawerOpenClose(ev) {\r\n    this.isOpen = !this.isOpen;\r\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\r\n  }\r\n  ngOnInit() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-drawer-content',\r\n  templateUrl: 'drawer.content.component.html'\r\n})\r\nexport class SdsDrawerContentComponent implements OnInit {\r\n  drawerContentTemplate: TemplateRef<any>;\r\n  isDrawerOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  ngOnInit() {\r\n    this.data.contentTemplate.subscribe(\r\n      template => (this.drawerContentTemplate = template)\r\n    );\r\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1306,13 +1376,13 @@ const LAYOUTS = {
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 25
+                "line": 26
             },
-            "templateData": "<!-- Actions Menu Trigger: Desktop -->\n<span class=\"display-none desktop-lg:display-inline-block\">\n  <button\n    class=\"sds-button sds-button--labeled-icon\"\n    [sdsMenuTriggerFor]=\"menu\"\n  >\n    Actions\n    <fa-layers [fixedWidth]=\"true\" size=\"lg\">\n      <fa-icon [icon]=\"['fas', 'circle']\"></fa-icon>\n      <fa-icon [icon]=\"['fas', 'ellipsis-v']\" transform=\"shrink-6\"></fa-icon>\n    </fa-layers>\n  </button>\n</span>\n\n<!-- Actions Menu Trigger: Tablet -->\n<span class=\"desktop-lg:display-none \">\n  <span class=\"display-none tablet-lg:display-inline-block\">\n    <button\n      class=\"sds-button sds-button--primary sds-button--circular\"\n      [sdsMenuTriggerFor]=\"menu\"\n    >\n      <fa-icon [fixedWidth]=\"true\" [icon]=\"['fas', 'ellipsis-v']\"></fa-icon>\n      <span class=\"usa-sr-only\">Toggle Actions Menu</span>\n    </button>\n  </span>\n</span>\n\n<!-- Actions Menu Trigger: Mobile -->\n<span class=\"tablet-lg:display-none\">\n  <button\n    *ngFor=\"let button of model.actions\"\n    (click)=\"clicks.emit(button.id)\"\n    class=\"sds-button sds-button--circular margin-top-05 tablet:margin-top-0\"\n  >\n    <fa-icon [fixedWidth]=\"true\" [icon]=\"['sds', button.icon]\"></fa-icon>\n  </button>\n</span>\n\n<!-- Menu content -->\n<sds-menu #menu=\"sdsMenu\" xPosition=\"before\" overlapTrigger=\"true\">\n  <!-- Menu header (optional) -->\n  <sds-menu-header>Actions</sds-menu-header>\n  <!-- Menu items -->\n  <button\n    *ngFor=\"let button of model.actions\"\n    (click)=\"clicks.emit(button.id)\"\n    sds-menu-item\n  >\n    {{ button.text }}\n  </button>\n</sds-menu>\n"
+            "templateData": "<!-- Actions Menu Trigger: Desktop -->\r\n<span class=\"display-none desktop:display-inline-block\">\r\n  <button\r\n    class=\"sds-button sds-button--labeled-icon actions-button\"\r\n    [sdsMenuTriggerFor]=\"menu\"\r\n  >\r\n    Actions\r\n    <sds-icon [icon]=\"['bs', 'three-dots-vertical']\" [size]=\"'lg'\" class=\"ellipsis-icon\"></sds-icon>\r\n  </button>\r\n</span>\r\n\r\n<!-- Actions Menu Trigger: Tablet -->\r\n<span class=\"desktop:display-none \">\r\n  <span class=\"display-none tablet-lg:display-inline-block\">\r\n    <button\r\n      class=\"sds-button sds-button--circular actions-button\"\r\n      [sdsMenuTriggerFor]=\"menu\"\r\n    >\r\n      <sds-icon [icon]=\"['bs', 'three-dots-vertical']\" [size]=\"'lg'\" class=\"ellipsis-icon\"></sds-icon>\r\n      <span class=\"usa-sr-only\">Toggle Actions Menu</span>\r\n    </button>\r\n  </span>\r\n</span>\r\n\r\n<!-- Actions Menu Trigger: Mobile -->\r\n<span class=\"tablet-lg:display-none\">\r\n  <button\r\n  class=\"sds-button sds-button--circular actions-button margin-top-05 tablet:margin-top-0\"\r\n    [sdsMenuTriggerFor]=\"menu\"\r\n  >\r\n  <sds-icon [icon]=\"['bs', 'three-dots-vertical']\" [size]=\"'lg'\" class=\"ellipsis-icon\"></sds-icon>\r\n  </button>\r\n</span>\r\n\r\n<!-- Menu content -->\r\n<sds-menu #menu=\"sdsMenu\" xPosition=\"before\" overlapTrigger=\"true\">\r\n  <!-- Menu header (optional) -->\r\n  <sds-menu-header>Actions</sds-menu-header>\r\n  <!-- Menu items -->\r\n  <button\r\n    *ngFor=\"let button of model.actions\"\r\n    (click)=\"clicks.emit(button.id)\"\r\n    sds-menu-item\r\n  >\r\n    {{ button.text }}\r\n  </button>\r\n</sds-menu>\r\n"
         },
         {
             "name": "SdsSubheaderComponent",
-            "id": "component-SdsSubheaderComponent-06e8be92f247b147e203e9e3ff211942",
+            "id": "component-SdsSubheaderComponent-6a5ad5bb109b156ea8d9ea2bd3373ec1",
             "file": "libs/packages/layouts/src/lib/feature/subheader/subheader.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1320,7 +1390,9 @@ const LAYOUTS = {
             "outputs": [],
             "providers": [],
             "selector": "sds-subheader",
-            "styleUrls": [],
+            "styleUrls": [
+                "subheader.component.scss"
+            ],
             "styles": [],
             "templateUrl": [
                 "subheader.component.html"
@@ -1335,21 +1407,26 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  OnInit,\n  Output,\n  EventEmitter,\n  Input,\n  TemplateRef\n} from '@angular/core';\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\n\n@Component({\n  selector: 'sds-subheader',\n  templateUrl: 'subheader.component.html'\n})\nexport class SdsSubheaderComponent {\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-actions',\n  templateUrl: 'subheader-actions.component.html'\n})\nexport class SdsSubheaderActionsComponent {\n  @Input() model;\n  @Output() clicks = new EventEmitter<string>();\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-drawer',\n  templateUrl: 'subheader-drawer.component.html'\n})\nexport class SdsSubheaderDrawerComponent implements OnInit {\n  @Input() drawerContentTemplate: TemplateRef<any>;\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\n  isOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  onDrawerOpenClose(ev) {\n    this.isOpen = !this.isOpen;\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\n  }\n  ngOnInit() {}\n}\n\n@Component({\n  selector: 'sds-drawer-content',\n  templateUrl: 'drawer.content.component.html'\n})\nexport class SdsDrawerContentComponent implements OnInit {\n  drawerContentTemplate: TemplateRef<any>;\n  isDrawerOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  ngOnInit() {\n    this.data.contentTemplate.subscribe(\n      template => (this.drawerContentTemplate = template)\n    );\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\n  }\n}\n",
+            "sourceCode": "import {\r\n  Component,\r\n  OnInit,\r\n  Output,\r\n  EventEmitter,\r\n  Input,\r\n  TemplateRef\r\n} from '@angular/core';\r\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\r\n\r\n@Component({\r\n  selector: 'sds-subheader',\r\n  templateUrl: 'subheader.component.html',\r\n  styleUrls: ['subheader.component.scss']\r\n})\r\nexport class SdsSubheaderComponent {\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-actions',\r\n  templateUrl: 'subheader-actions.component.html'\r\n})\r\nexport class SdsSubheaderActionsComponent {\r\n  @Input() model;\r\n  @Output() clicks = new EventEmitter<string>();\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-drawer',\r\n  templateUrl: 'subheader-drawer.component.html'\r\n})\r\nexport class SdsSubheaderDrawerComponent implements OnInit {\r\n  @Input() drawerContentTemplate: TemplateRef<any>;\r\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\r\n  isOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  onDrawerOpenClose(ev) {\r\n    this.isOpen = !this.isOpen;\r\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\r\n  }\r\n  ngOnInit() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-drawer-content',\r\n  templateUrl: 'drawer.content.component.html'\r\n})\r\nexport class SdsDrawerContentComponent implements OnInit {\r\n  drawerContentTemplate: TemplateRef<any>;\r\n  isDrawerOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  ngOnInit() {\r\n    this.data.contentTemplate.subscribe(\r\n      template => (this.drawerContentTemplate = template)\r\n    );\r\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\r\n  }\r\n}\r\n",
             "assetsDirs": [],
-            "styleUrlsData": "",
+            "styleUrlsData": [
+                {
+                    "data": ".sds-navbar{\r\n  ::ng-deep{\r\n    sds-button-group{\r\n      width: 100%;\r\n      margin: 0;\r\n      mat-button-toggle-group{\r\n        width: 100%;\r\n        mat-button-toggle{\r\n          flex: 1 1 0px;\r\n          .mat-button-toggle-label-content{\r\n            width: 100%;\r\n            .usa-button.usa-button--outline{\r\n              display: flex;\r\n              justify-content: center;\r\n            }\r\n          }\r\n        }\r\n      }\r\n    }\r\n  }\r\n}\r\n",
+                    "styleUrl": "subheader.component.scss"
+                }
+            ],
             "stylesData": "",
             "constructorObj": {
                 "name": "constructor",
                 "description": "",
                 "args": [],
-                "line": 15
+                "line": 16
             },
-            "templateData": "<div class=\"sds-navbar border-bottom border-base-lighter\">\n  <div class=\"sds-navbar__content\">\n    <div class=\"grid-row\">\n      <div\n        class=\"grid-col-12 tablet-lg:grid-col-auto display-flex flex-align-center margin-bottom-1 tablet-lg:margin-bottom-0\"\n      >\n        <ng-content></ng-content>\n      </div>\n      <div class=\"grid-col-12 tablet-lg:grid-col-fill display-flex\">\n        <div class=\"tablet-lg:order-1\">\n          <!-- Buttons -->\n          <ng-content select=\"[subheader-buttons-container]\"></ng-content>\n        </div>\n        <div class=\"flex-fill\">\n          <!-- Search -->\n          <div class=\"margin-x-105 margin-top-05 tablet:margin-top-0\">\n            <ng-content select=\"sds-search\"></ng-content>\n          </div>\n        </div>\n        <div class=\"tablet-lg:order-2 margin-left-2\">\n          <!-- Actions Menu Trigger -->\n          <ng-content select=\"sds-subheader-actions\"></ng-content>\n\n          <!-- Drawer Trigger -->\n          <ng-content select=\"sds-subheader-drawer\"></ng-content>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n\n<!-- =============== DRAWER CONTENT =============== -->\n<sds-drawer-content></sds-drawer-content>\n"
+            "templateData": "<div class=\"sds-navbar border-bottom border-base-lighter\">\r\n  <div class=\"sds-subheader__content\">\r\n    <div class=\"order-first grid-col-auto\">\r\n      <ng-content></ng-content>\r\n    </div>\r\n    <div class=\"margin-x-105 margin-top-05 tablet:margin-top-0 tablet:order-0 grid-col-fill display-flex flex-justify-end tablet-lg:flex-justify-start tablet-lg:padding-left-6\">\r\n      <ng-content select=\"sds-search\"></ng-content>\r\n    </div>\r\n    <div class=\"order-last grid-col-12 tablet:order-1 tablet:grid-col-auto display-flex button-container\">\r\n      <ng-content select=\"[subheader-buttons-container]\"></ng-content>\r\n      <ng-content select=\"[subheader-buttongroup-container]\"></ng-content>\r\n    </div>\r\n    <div class=\"order-2 tablet:margin-left-2 grid-col-auto actions-div\">\r\n      <ng-content select=\"sds-subheader-actions\"></ng-content>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
         },
         {
             "name": "SdsSubheaderDrawerComponent",
-            "id": "component-SdsSubheaderDrawerComponent-06e8be92f247b147e203e9e3ff211942",
+            "id": "component-SdsSubheaderDrawerComponent-6a5ad5bb109b156ea8d9ea2bd3373ec1",
             "file": "libs/packages/layouts/src/lib/feature/subheader/subheader.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1366,7 +1443,7 @@ const LAYOUTS = {
             "inputsClass": [
                 {
                     "name": "drawerContentTemplate",
-                    "line": 34,
+                    "line": 35,
                     "type": "TemplateRef<any>"
                 }
             ],
@@ -1374,7 +1451,7 @@ const LAYOUTS = {
                 {
                     "name": "isDrawerOpen",
                     "defaultValue": "new EventEmitter<boolean>()",
-                    "line": 35,
+                    "line": 36,
                     "type": "EventEmitter"
                 }
             ],
@@ -1384,7 +1461,7 @@ const LAYOUTS = {
                     "type": "SdsDrawerCommunicationService",
                     "optional": false,
                     "description": "",
-                    "line": 38,
+                    "line": 39,
                     "modifierKind": [
                         114
                     ]
@@ -1395,7 +1472,7 @@ const LAYOUTS = {
                     "type": "",
                     "optional": false,
                     "description": "",
-                    "line": 36
+                    "line": 37
                 }
             ],
             "methodsClass": [
@@ -1405,7 +1482,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 43
+                    "line": 44
                 },
                 {
                     "name": "onDrawerOpenClose",
@@ -1418,7 +1495,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 39,
+                    "line": 40,
                     "jsdoctags": [
                         {
                             "name": "ev",
@@ -1435,7 +1512,7 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import {\n  Component,\n  OnInit,\n  Output,\n  EventEmitter,\n  Input,\n  TemplateRef\n} from '@angular/core';\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\n\n@Component({\n  selector: 'sds-subheader',\n  templateUrl: 'subheader.component.html'\n})\nexport class SdsSubheaderComponent {\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-actions',\n  templateUrl: 'subheader-actions.component.html'\n})\nexport class SdsSubheaderActionsComponent {\n  @Input() model;\n  @Output() clicks = new EventEmitter<string>();\n  constructor() {}\n}\n\n@Component({\n  selector: 'sds-subheader-drawer',\n  templateUrl: 'subheader-drawer.component.html'\n})\nexport class SdsSubheaderDrawerComponent implements OnInit {\n  @Input() drawerContentTemplate: TemplateRef<any>;\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\n  isOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  onDrawerOpenClose(ev) {\n    this.isOpen = !this.isOpen;\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\n  }\n  ngOnInit() {}\n}\n\n@Component({\n  selector: 'sds-drawer-content',\n  templateUrl: 'drawer.content.component.html'\n})\nexport class SdsDrawerContentComponent implements OnInit {\n  drawerContentTemplate: TemplateRef<any>;\n  isDrawerOpen = false;\n\n  constructor(public data: SdsDrawerCommunicationService) {}\n  ngOnInit() {\n    this.data.contentTemplate.subscribe(\n      template => (this.drawerContentTemplate = template)\n    );\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\n  }\n}\n",
+            "sourceCode": "import {\r\n  Component,\r\n  OnInit,\r\n  Output,\r\n  EventEmitter,\r\n  Input,\r\n  TemplateRef\r\n} from '@angular/core';\r\nimport { SdsDrawerCommunicationService } from './drawer-communication.service';\r\n\r\n@Component({\r\n  selector: 'sds-subheader',\r\n  templateUrl: 'subheader.component.html',\r\n  styleUrls: ['subheader.component.scss']\r\n})\r\nexport class SdsSubheaderComponent {\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-actions',\r\n  templateUrl: 'subheader-actions.component.html'\r\n})\r\nexport class SdsSubheaderActionsComponent {\r\n  @Input() model;\r\n  @Output() clicks = new EventEmitter<string>();\r\n  constructor() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-subheader-drawer',\r\n  templateUrl: 'subheader-drawer.component.html'\r\n})\r\nexport class SdsSubheaderDrawerComponent implements OnInit {\r\n  @Input() drawerContentTemplate: TemplateRef<any>;\r\n  @Output() isDrawerOpen = new EventEmitter<boolean>();\r\n  isOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  onDrawerOpenClose(ev) {\r\n    this.isOpen = !this.isOpen;\r\n    this.data.onDrawerOpen(this.isOpen, this.drawerContentTemplate);\r\n  }\r\n  ngOnInit() {}\r\n}\r\n\r\n@Component({\r\n  selector: 'sds-drawer-content',\r\n  templateUrl: 'drawer.content.component.html'\r\n})\r\nexport class SdsDrawerContentComponent implements OnInit {\r\n  drawerContentTemplate: TemplateRef<any>;\r\n  isDrawerOpen = false;\r\n\r\n  constructor(public data: SdsDrawerCommunicationService) {}\r\n  ngOnInit() {\r\n    this.data.contentTemplate.subscribe(\r\n      template => (this.drawerContentTemplate = template)\r\n    );\r\n    this.data.isDrawerOpen.subscribe(open => (this.isDrawerOpen = open));\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": "",
             "stylesData": "",
@@ -1448,7 +1525,7 @@ const LAYOUTS = {
                         "type": "SdsDrawerCommunicationService"
                     }
                 ],
-                "line": 36,
+                "line": 37,
                 "jsdoctags": [
                     {
                         "name": "data",
@@ -1462,11 +1539,172 @@ const LAYOUTS = {
             "implements": [
                 "OnInit"
             ],
-            "templateData": "<button\n  (click)=\"onDrawerOpenClose($event)\"\n  class=\"sds-button sds-button--circular margin-top-2px tablet:margin-top-0\"\n>\n  <fa-icon\n    [fixedWidth]=\"true\"\n    [icon]=\"isOpen ? ['fas', 'arrow-up'] : ['fas', 'arrow-down']\"\n  ></fa-icon>\n</button>\n"
+            "templateData": "<button\r\n  (click)=\"onDrawerOpenClose($event)\"\r\n  class=\"sds-button sds-button--circular margin-top-2px tablet:margin-top-0\"\r\n>\r\n  <fa-icon\r\n    [fixedWidth]=\"true\"\r\n    [icon]=\"isOpen ? ['fas', 'arrow-up'] : ['fas', 'arrow-down']\"\r\n  ></fa-icon>\r\n</button>\r\n"
+        },
+        {
+            "name": "SdsSystemAlertComponent",
+            "id": "component-SdsSystemAlertComponent-792e341f4172fa450d55aea66bcddb0a",
+            "file": "libs/packages/layouts/src/lib/feature/system-alert/system-alert.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sds-system-alert",
+            "styleUrls": [
+                "./system-alert.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./system-alert.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "alerts",
+                    "description": "<p>List of alerts to display. When the list contains only one item, the description of the alert will also\nbe displayed. Description text may contain html</p>\n",
+                    "line": 14,
+                    "type": "Alert[]"
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "detailsClicked",
+                    "defaultValue": "new EventEmitter<Alert>()",
+                    "line": 18,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "seeAllAlerts",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 16,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "onAlertClose",
+                    "args": [
+                        {
+                            "name": "index",
+                            "type": "number"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 26,
+                    "description": "<p>Removes the alert from input alerts array</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 715,
+                                "end": 720,
+                                "flags": 0,
+                                "escapedText": "index"
+                            },
+                            "type": "number",
+                            "tagName": {
+                                "pos": 709,
+                                "end": 714,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": "<ul>\n<li>index of the alert in array to remove</li>\n</ul>\n"
+                        }
+                    ]
+                },
+                {
+                    "name": "onSeeAllAlertsClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 33,
+                    "description": "<p>Fired when &#39;See All Alerts&#39; button is clicked. Emits the seeAllAlerts event</p>\n"
+                },
+                {
+                    "name": "onShowDetailsClicked",
+                    "args": [
+                        {
+                            "name": "alert",
+                            "type": "Alert"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43,
+                    "description": "<p>Fired when &#39;Show Details&#39; for an alert is clicked. Emits the detailsClicked event\nwith the alert whose &#39;Show Details&#39; link was clicked and toggles description view for\nthe alert</p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": {
+                                "pos": 1222,
+                                "end": 1227,
+                                "flags": 0,
+                                "escapedText": "alert"
+                            },
+                            "type": "Alert",
+                            "tagName": {
+                                "pos": 1216,
+                                "end": 1221,
+                                "flags": 0,
+                                "escapedText": "param"
+                            },
+                            "comment": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "onToggleAlertsClicked",
+                    "args": [
+                        {
+                            "name": "alertsContent",
+                            "type": "HTMLElement"
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 49,
+                    "description": "<p>On mobile view - hide/display list of alerts based on toggle button </p>\n",
+                    "jsdoctags": [
+                        {
+                            "name": "alertsContent",
+                            "type": "HTMLElement",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, EventEmitter, Input, Output } from '@angular/core';\r\nimport { Alert } from './model/alert.model';\r\n\r\n@Component({\r\n  selector: 'sds-system-alert',\r\n  templateUrl: './system-alert.component.html',\r\n  styleUrls: ['./system-alert.component.scss']\r\n})\r\nexport class SdsSystemAlertComponent {\r\n\r\n  /** List of alerts to display. When the list contains only one item, the description of the alert will also\r\n   * be displayed. Description text may contain html\r\n   */\r\n  @Input() alerts: Alert[];\r\n  \r\n  @Output() seeAllAlerts = new EventEmitter();\r\n\r\n  @Output() detailsClicked = new EventEmitter<Alert>();\r\n\r\n  constructor() { }\r\n\r\n  /**\r\n   * Removes the alert from input alerts array\r\n   * @param index - index of the alert in array to remove\r\n   */\r\n  onAlertClose(index: number) {\r\n    this.alerts.splice(index, 1);\r\n  }\r\n\r\n  /**\r\n   * Fired when 'See All Alerts' button is clicked. Emits the seeAllAlerts event\r\n   */\r\n  onSeeAllAlertsClicked() {\r\n    this.seeAllAlerts.emit();\r\n  }\r\n\r\n  /**\r\n   * Fired when 'Show Details' for an alert is clicked. Emits the detailsClicked event\r\n   * with the alert whose 'Show Details' link was clicked and toggles description view for\r\n   * the alert\r\n   * @param alert \r\n   */\r\n  onShowDetailsClicked(alert: Alert) {\r\n    alert.displayDescription = !alert.displayDescription;\r\n    this.detailsClicked.emit(alert);\r\n  }\r\n\r\n  /** On mobile view - hide/display list of alerts based on toggle button */\r\n  onToggleAlertsClicked(alertsContent: HTMLElement) {\r\n    const isHidden = alertsContent.classList.contains('display-none');\r\n    if (isHidden) {\r\n      alertsContent.classList.remove('display-none');\r\n    } else {\r\n      alertsContent.classList.add('display-none');\r\n    }\r\n  }\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./system-alert.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [],
+                "line": 18
+            },
+            "templateData": "<div class=\"sds-alert--header usa-grid\" id=\"sds-alert--header\">\r\n\r\n  <div class=\"sds-mobile-alert grid-row\" id=\"sds-mobile-alert\">\r\n    <div class=\"grid-col-auto padding-top-1\">\r\n      <sds-icon [icon]=\"['sds', 'alert-warning']\" [class]=\"'sds-alert--header__icon-mobile'\" [size]=\"'3x'\"></sds-icon>\r\n    </div>\r\n\r\n    <div class=\"grid-col-fill\">\r\n      <div class=\"grid-row tablet:display-none\">\r\n        <div class=\"grid-col-fill\">\r\n          <div class=\"sds-alert--header__label\">\r\n            You have {{alerts.length}} new alerts\r\n          </div>\r\n          <div>\r\n            <a href=\"javascript:void(0)\" (click)=\"onToggleAlertsClicked(alertsContent)\"\r\n              class=\"sds-alert--header__link simple-toggle\" aria-controls=\"collapseTarget\">\r\n              Show / Hide Alerts\r\n            </a>\r\n          </div>\r\n        </div>\r\n        <div class=\"grid-col-auto\">\r\n          <button (click)=\"onToggleAlertsClicked(alertsContent)\"\r\n            class=\"sds-button--circle usa-button--secondary simple-toggle\" aria-controls=\"collapseTarget\">\r\n            <sds-icon [icon]=\"['bs', 'caret-down-fill']\" [size]=\"'1x'\"></sds-icon>\r\n          </button>\r\n        </div>\r\n      </div>\r\n      <div #alertsContent class=\"grid-row width-full display-none tablet:display-inline-block\" id=\"collapseTarget\">\r\n        <div class=\"grid-col-fill\">\r\n          <div class=\"grid-row\">\r\n            <ng-container \r\n              [ngTemplateOutlet]=\"alerts && alerts.length == 1 ? singleAlert : multipleAlerts\"\r\n              [ngTemplateOutletContext]=\"{$implicit: alerts}\"\r\n            >\r\n            </ng-container>\r\n          </div>\r\n        </div>\r\n        <div class=\"tablet:grid-offset-1 tablet:grid-col-auto tablet:display-none\">\r\n          <div>\r\n            <button class=\"usa-button usa-button--secondary\" id=\"seeAllAlertsMobileBtn\"\r\n              (click)=\"onSeeAllAlertsClicked()\">See All Alerts</button>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"grid-offset-1 grid-col-auto display-none tablet:display-inline-block\">\r\n      <button class=\"usa-button usa-button--secondary margin-y-1\" id=\"seeAllAlertsTabletBtn\"\r\n        (click)=\"onSeeAllAlertsClicked()\">See All\r\n        Alerts</button>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<ng-template #multipleAlerts let-alerts>\r\n  <div *ngFor=\"let alert of alerts; let i = index;\" class=\"grid-col-12\" [attr.id]=\"'alert' + i\">\r\n    <div class=\"sds-alert--header__content grid-row\" id=\"sds-alert--header__content\">\r\n      <div class=\"grid-col-fill\">\r\n        <div class=\"sds-alert--header__label margin-right-1\" [innerHTML]=\"alert.header\"></div>\r\n        <a (click)=\"onShowDetailsClicked(alert)\"\r\n          role=\"button\"\r\n          href=\"javascript:void(0)\" class=\"sds-alert--header__link\"\r\n          [attr.aria-expanded]=\"alert.displayDescription\"\r\n          [attr.aria-controls]=\"'alertDescription' + i\"\r\n          >\r\n          {{alert.displayDescription ? 'Hide Details' : 'Show Details'}}\r\n        </a>\r\n        <span class=\"sds-alert--header__date\">\r\n          {{alert.date | date: 'mediumDate'}}\r\n        </span>\r\n        <span\r\n          aria-live=\"polite\" \r\n          [attr.id]=\"'alertDescription' + i\" \r\n          [sdsCollapse]=\"!alert.displayDescription\" \r\n          [innerHTML]=\"alert.description\">\r\n        </span>\r\n      </div>\r\n      <div class=\"grid-offset-1 grid-col-auto\">\r\n        <button (click)=\"onAlertClose(i)\" [attr.id]=\"'alert'+ i + 'CloseBtn'\"\r\n          class=\"usa-button sds-button--circle usa-button--secondary sds-alert--header__close simple-toggle\"\r\n          aria-label=\"Close Alert\" [attr.aria-controls]=\"'alert' + i\">\r\n          <sds-icon [icon]=\"['sds', 'exit']\"></sds-icon>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>\r\n\r\n<ng-template #singleAlert let-alerts>\r\n  <div class=\"grid-col-12\" id=\"alert0\">\r\n    <div class=\"sds-alert--header__content grid-row\" id=\"sds-alert--header__content\">\r\n      <div class=\"grid-col-fill\">\r\n        <div class=\"sds-alert--header__label margin-right-1\" [innerHTML]=\"alerts[0].header\"></div>\r\n        <span class=\"sds-alert--header__date\">\r\n          {{alerts[0].date | date: 'mediumDate'}}\r\n        </span>\r\n        <span [innerHTML]=\"alerts[0].description\"></span>\r\n      </div>\r\n      <div class=\"grid-offset-1 grid-col-auto\">\r\n        <button (click)=\"onAlertClose(0)\" id=\"alert0CloseBtn\"\r\n          class=\"usa-button sds-button--circle usa-button--secondary sds-alert--header__close simple-toggle\"\r\n          aria-label=\"Close Alert\" aria-controls=\"alert0\">\r\n          <sds-icon [icon]=\"['sds', 'exit']\"></sds-icon>\r\n        </button>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</ng-template>"
         },
         {
             "name": "SearchListLayoutComponent",
-            "id": "component-SearchListLayoutComponent-c1a25dfbfc7e13e3868296ddb886cc5f",
+            "id": "component-SearchListLayoutComponent-e606a6a6dbc0469cd12831dfb59bff7b",
             "file": "libs/packages/layouts/src/lib/feature/search-list-layout/search-list-layout.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -1486,8 +1724,14 @@ const LAYOUTS = {
                 {
                     "name": "configuration",
                     "description": "<p>configuration</p>\n",
-                    "line": 30,
+                    "line": 35,
                     "type": "SearchListConfiguration"
+                },
+                {
+                    "name": "customResultsTemplate",
+                    "description": "<p>Allow to insert a customized template for no results to use</p>\n",
+                    "line": 29,
+                    "type": "TemplateRef<any>"
                 },
                 {
                     "name": "service",
@@ -1504,14 +1748,14 @@ const LAYOUTS = {
                     "type": "object",
                     "optional": false,
                     "description": "<p>Id of the bottom pagination control</p>\n",
-                    "line": 102
+                    "line": 107
                 },
                 {
                     "name": "filterData",
                     "type": "any",
                     "optional": false,
                     "description": "<p>Filter information</p>\n",
-                    "line": 42,
+                    "line": 47,
                     "modifierKind": [
                         112
                     ]
@@ -1522,15 +1766,15 @@ const LAYOUTS = {
                     "type": "[]",
                     "optional": false,
                     "description": "<p>List of items to be displayed</p>\n",
-                    "line": 112
+                    "line": 117
                 },
                 {
                     "name": "page",
-                    "defaultValue": "{\n    pageNumber: 1,\n    pageSize: 25,\n    totalPages: 0\n  }",
+                    "defaultValue": "{\r\n    pageNumber: 1,\r\n    pageSize: 25,\r\n    totalPages: 0\r\n  }",
                     "type": "object",
                     "optional": false,
                     "description": "<p>Default Page setttings</p>\n",
-                    "line": 70
+                    "line": 75
                 },
                 {
                     "name": "paginationChange",
@@ -1538,7 +1782,7 @@ const LAYOUTS = {
                     "type": "",
                     "optional": false,
                     "description": "<p>Page event listener</p>\n",
-                    "line": 107,
+                    "line": 112,
                     "modifierKind": [
                         114
                     ]
@@ -1562,7 +1806,7 @@ const LAYOUTS = {
                     "type": "string",
                     "optional": false,
                     "description": "<p>sort value</p>\n",
-                    "line": 117,
+                    "line": 122,
                     "modifierKind": [
                         114
                     ]
@@ -1573,14 +1817,14 @@ const LAYOUTS = {
                     "type": "object",
                     "optional": false,
                     "description": "<p>Id of the top pagination control</p>\n",
-                    "line": 97
+                    "line": 102
                 },
                 {
                     "name": "totalItems",
                     "type": "number",
                     "optional": false,
                     "description": "<p>Total number of items</p>\n",
-                    "line": 47
+                    "line": 52
                 }
             ],
             "methodsClass": [
@@ -1595,7 +1839,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 32,
+                    "line": 37,
                     "jsdoctags": [
                         {
                             "name": "changes",
@@ -1612,7 +1856,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 49
+                    "line": 54
                 },
                 {
                     "name": "onSelectChange",
@@ -1620,7 +1864,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 89,
+                    "line": 94,
                     "description": "<p>Sorty by change event</p>\n"
                 },
                 {
@@ -1629,7 +1873,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 122,
+                    "line": 127,
                     "description": "<p>calls service when updated</p>\n",
                     "modifierKind": [
                         112
@@ -1646,7 +1890,7 @@ const LAYOUTS = {
                     "optional": false,
                     "returnType": "void",
                     "typeParameters": [],
-                    "line": 80,
+                    "line": 85,
                     "description": "<p>updates the filter and set the page number to 1 and calls imported service</p>\n",
                     "modifierKind": [
                         114
@@ -1654,15 +1898,15 @@ const LAYOUTS = {
                     "jsdoctags": [
                         {
                             "name": {
-                                "pos": 2041,
-                                "end": 2047,
+                                "pos": 2252,
+                                "end": 2258,
                                 "flags": 0,
                                 "escapedText": "filter"
                             },
                             "type": "any",
                             "tagName": {
-                                "pos": 2035,
-                                "end": 2040,
+                                "pos": 2246,
+                                "end": 2251,
                                 "flags": 0,
                                 "escapedText": "param"
                             },
@@ -1676,7 +1920,7 @@ const LAYOUTS = {
             "description": "",
             "rawdescription": "",
             "type": "component",
-            "sourceCode": "import { Component, Input, ContentChild, TemplateRef, Optional, OnChanges, SimpleChanges, OnInit } from '@angular/core';\nimport { BehaviorSubject } from \"rxjs\";\nimport { SearchListInterface, SearchListConfiguration } from './model/search-list-layout.model';\nimport { SDSFormlyUpdateComunicationService } from '@gsa-sam/sam-formly';\n\n@Component({\n  selector: 'search-list-layout',\n  templateUrl: './search-list-layout.component.html',\n  styleUrls: ['./search-list-layout.component.scss']\n})\nexport class SearchListLayoutComponent implements OnChanges, OnInit {\n\n  /**\n  * Child Template to be used to display the data for each item in the list of items\n  */\n  @ContentChild('resultContent') resultContentTemplate: TemplateRef<any>;\n\n  constructor(@Optional() private formlyUpdateComunicationService: SDSFormlyUpdateComunicationService) { }\n\n  /**\n   * Input service to be called when items change\n   */\n  @Input()\n  service: SearchListInterface;\n\n  /**\n   * configuration\n   */\n  @Input()\n  configuration: SearchListConfiguration;\n\n  ngOnChanges(changes: SimpleChanges) {\n    if (changes.configuration.currentValue) {\n      this.configuration = changes.configuration.currentValue;\n      this.sortField = this.configuration.defaultSortValue;\n      this.onSelectChange();\n    }\n  }\n  /**\n   * Filter information\n   */\n  private filterData: any;\n\n  /**\n   * Total number of items\n   */\n  totalItems: number;\n\n  ngOnInit() {\n    this.page.pageSize = this.configuration.pageSize;\n    this.sortField = this.configuration.defaultSortValue;\n    this.paginationChange.subscribe(\n      () => {\n        this.updateContent();\n      }\n    );\n    if (this.formlyUpdateComunicationService) {\n      this.formlyUpdateComunicationService.filterUpdate.subscribe(\n        (filter) => {\n          this.updateFilter(filter);\n        }\n      )\n    }\n  }\n\n\n  /**\n   * Default Page setttings\n   */\n  page = {\n    pageNumber: 1,\n    pageSize: 25,\n    totalPages: 0\n  }\n\n  /**\n   * updates the filter and set the page number to 1 and calls imported service\n   * @param filter\n   */\n  public updateFilter(filter: any) {\n    this.filterData = filter;\n    this.page.pageNumber = 1;\n    this.updateContent();\n  }\n\n  /**\n   * Sorty by change event\n   */\n  onSelectChange() {\n    this.page.pageNumber = 1;\n    this.updateContent();\n  }\n\n  /**\n   * Id of the top pagination control\n   */\n  top = { id: 'topPagination' };\n\n  /**\n   * Id of the bottom pagination control\n   */\n  bottom = { id: 'bottomPagination' };\n\n  /**\n   * Page event listener\n   */\n  public paginationChange = new BehaviorSubject<object>(this.page);\n\n  /**\n   * List of items to be displayed\n   */\n  items = [];\n\n  /**\n   * sort value\n   */\n  public sortField = '';\n\n  /**\n   * calls service when updated\n   */\n  private updateContent() {\n    if (this.filterData) {\n      setTimeout(() => {\n        this.service.getData({ 'page': this.page, sortField: this.sortField, filter: this.filterData }).subscribe(\n          (result) => {\n            this.items = result.items;\n            this.page.totalPages = Math.ceil(result.totalItems / this.page.pageSize);\n            this.totalItems = result.totalItems;\n          }\n        );\n      });\n    }\n  }\n}\n",
+            "sourceCode": "import { Component, Input, ContentChild, TemplateRef, Optional, OnChanges, SimpleChanges, OnInit } from '@angular/core';\r\nimport { BehaviorSubject } from \"rxjs\";\r\nimport { SearchListInterface, SearchListConfiguration } from './model/search-list-layout.model';\r\nimport { SDSFormlyUpdateComunicationService } from '@gsa-sam/sam-formly';\r\n\r\n@Component({\r\n  selector: 'search-list-layout',\r\n  templateUrl: './search-list-layout.component.html',\r\n  styleUrls: ['./search-list-layout.component.scss']\r\n})\r\nexport class SearchListLayoutComponent implements OnChanges, OnInit {\r\n\r\n  /**\r\n  * Child Template to be used to display the data for each item in the list of items\r\n  */\r\n  @ContentChild('resultContent') resultContentTemplate: TemplateRef<any>;\r\n\r\n  constructor(@Optional() private formlyUpdateComunicationService: SDSFormlyUpdateComunicationService) { }\r\n\r\n  /**\r\n   * Input service to be called when items change\r\n   */\r\n  @Input()\r\n  service: SearchListInterface;\r\n\r\n /**\r\n   * Allow to insert a customized template for no results to use\r\n   */\r\n  @Input() customResultsTemplate: TemplateRef<any>;\r\n\r\n  /**\r\n   * configuration\r\n   */\r\n  @Input()\r\n  configuration: SearchListConfiguration;\r\n\r\n  ngOnChanges(changes: SimpleChanges) {\r\n    if (changes.configuration.currentValue) {\r\n      this.configuration = changes.configuration.currentValue;\r\n      this.sortField = this.configuration.defaultSortValue;\r\n      this.onSelectChange();\r\n    }\r\n  }\r\n  /**\r\n   * Filter information\r\n   */\r\n  private filterData: any;\r\n\r\n  /**\r\n   * Total number of items\r\n   */\r\n  totalItems: number;\r\n\r\n  ngOnInit() {\r\n    this.page.pageSize = this.configuration.pageSize;\r\n    this.sortField = this.configuration.defaultSortValue;\r\n    this.paginationChange.subscribe(\r\n      () => {\r\n        this.updateContent();\r\n      }\r\n    );\r\n    if (this.formlyUpdateComunicationService) {\r\n      this.formlyUpdateComunicationService.filterUpdate.subscribe(\r\n        (filter) => {\r\n          this.updateFilter(filter);\r\n        }\r\n      )\r\n    }\r\n  }\r\n\r\n\r\n  /**\r\n   * Default Page setttings\r\n   */\r\n  page = {\r\n    pageNumber: 1,\r\n    pageSize: 25,\r\n    totalPages: 0\r\n  }\r\n\r\n  /**\r\n   * updates the filter and set the page number to 1 and calls imported service\r\n   * @param filter\r\n   */\r\n  public updateFilter(filter: any) {\r\n    this.filterData = filter;\r\n    this.page.pageNumber = 1;\r\n    this.updateContent();\r\n  }\r\n\r\n  /**\r\n   * Sorty by change event\r\n   */\r\n  onSelectChange() {\r\n    this.page.pageNumber = 1;\r\n    this.updateContent();\r\n  }\r\n\r\n  /**\r\n   * Id of the top pagination control\r\n   */\r\n  top = { id: 'topPagination' };\r\n\r\n  /**\r\n   * Id of the bottom pagination control\r\n   */\r\n  bottom = { id: 'bottomPagination' };\r\n\r\n  /**\r\n   * Page event listener\r\n   */\r\n  public paginationChange = new BehaviorSubject<object>(this.page);\r\n\r\n  /**\r\n   * List of items to be displayed\r\n   */\r\n  items = [];\r\n\r\n  /**\r\n   * sort value\r\n   */\r\n  public sortField = '';\r\n\r\n  /**\r\n   * calls service when updated\r\n   */\r\n  private updateContent() {\r\n    if (this.filterData) {\r\n      setTimeout(() => {\r\n        this.service.getData({ 'page': this.page, sortField: this.sortField, filter: this.filterData }).subscribe(\r\n          (result) => {\r\n            this.items = result.items;\r\n            this.page.totalPages = Math.ceil(result.totalItems / this.page.pageSize);\r\n            this.totalItems = result.totalItems;\r\n          }\r\n        );\r\n      });\r\n    }\r\n  }\r\n}\r\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -1709,7 +1953,183 @@ const LAYOUTS = {
                 "OnChanges",
                 "OnInit"
             ],
-            "templateData": "<div class=\"grid-row\" *ngIf=\"items?.length\">\n  <div class=\"grid-col\">\n    <div class=\"grid-row\">\n      <div class=\"grid-col-auto\">\n        <sds-pagination class=\"tablet:grid-col display-block margin-top-3 padding-top-3\" [paginationConfiguration]=\"top\" [(page)]=\"page\" (pageChange)=\"paginationChange.next($event)\" displayMode='results' [totalItems]=\"totalItems\"></sds-pagination>\n      </div>\n      <div class=\"grid-col-fill\"></div>\n      <div class=\"grid-col-auto float-right\">\n        <div class=\"margin-left-1\">\n          <label class=\"usa-label font-sans-3xs text-italic text-base margin-top-1\" for=\"options\">\n            Sort by\n          </label>\n          <select (change)=\"onSelectChange()\" [(ngModel)]=\"sortField\" class=\"usa-select usa-select--small sds-min-width-160 border-base-light\" id=\"options\">\n            <option *ngFor=\"let item of configuration.sortList\" [ngValue]=\"item.value\">\n              {{ item.text }}\n            </option>\n          </select>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"grid-row\">\n  <div class=\"grid-col-12\">\n    <sds-search-result-list [model]=\"items\">\n      <ng-template #resultContent let-item>\n        <ng-container *ngTemplateOutlet=\"resultContentTemplate,\n                context: { $implicit: item }\"></ng-container>\n      </ng-template>\n    </sds-search-result-list>\n    <sds-pagination *ngIf=\"items?.length\" [paginationConfiguration]=\"bottom\" [(page)]=\"page\" (pageChange)=\"paginationChange.next($event)\"></sds-pagination>\n  </div>\n</div>\n"
+            "templateData": "<div class=\"grid-row\" *ngIf=\"items?.length\">\r\n  <div class=\"grid-col\">\r\n    <div class=\"grid-row\">\r\n      <div class=\"grid-col-auto\">\r\n        <sds-pagination class=\"tablet:grid-col display-block margin-top-3 padding-top-3\" [paginationConfiguration]=\"top\"\r\n          [(page)]=\"page\" (pageChange)=\"paginationChange.next($event)\" displayMode='results' [totalItems]=\"totalItems\">\r\n        </sds-pagination>\r\n      </div>\r\n      <div class=\"grid-col-fill\"></div>\r\n      <div class=\"grid-col-auto float-right\">\r\n        <div class=\"margin-left-1\">\r\n          <label class=\"usa-label font-sans-3xs text-italic text-base margin-top-1\" for=\"options\">\r\n            Sort by\r\n          </label>\r\n          <select (change)=\"onSelectChange()\" [(ngModel)]=\"sortField\"\r\n            class=\"usa-select usa-select--small sds-min-width-160 border-base-light\" id=\"options\">\r\n            <option *ngFor=\"let item of configuration.sortList\" [ngValue]=\"item.value\">\r\n              {{ item.text }}\r\n            </option>\r\n          </select>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n<div class=\"grid-row\">\r\n  <div class=\"grid-col-12\">\r\n    <sds-search-result-list [model]=\"items\" [customResultsTemplate]=\"customResultsTemplate\">\r\n      <ng-template #resultContent let-item>\r\n        <ng-container *ngTemplateOutlet=\"resultContentTemplate,\r\n                context: { $implicit: item }\"></ng-container>\r\n      </ng-template>\r\n    </sds-search-result-list>\r\n    <sds-pagination *ngIf=\"items?.length\" [paginationConfiguration]=\"bottom\" [(page)]=\"page\"\r\n      (pageChange)=\"paginationChange.next($event)\"></sds-pagination>\r\n  </div>\r\n</div>\r\n"
+        },
+        {
+            "name": "SideToolbarComponent",
+            "id": "component-SideToolbarComponent-19e46d7d01060562914aa6e0551e86ff",
+            "file": "libs/packages/layouts/src/lib/feature/side-toolbar/side-toolbar.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "sds-side-toolbar",
+            "styleUrls": [
+                "./side-toolbar.component.scss"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./side-toolbar.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "responsiveButtonText",
+                    "line": 16,
+                    "type": "string"
+                },
+                {
+                    "name": "responsiveSize",
+                    "defaultValue": "480",
+                    "line": 19
+                }
+            ],
+            "outputsClass": [
+                {
+                    "name": "responsiveDialog",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 21,
+                    "type": "EventEmitter"
+                },
+                {
+                    "name": "responsiveView",
+                    "defaultValue": "new EventEmitter()",
+                    "line": 22,
+                    "type": "EventEmitter"
+                }
+            ],
+            "propertiesClass": [
+                {
+                    "name": "isResponsiveView",
+                    "defaultValue": "false",
+                    "type": "",
+                    "optional": false,
+                    "description": "",
+                    "line": 25
+                },
+                {
+                    "name": "openResponsiveDialog",
+                    "type": "SdsDialogRef<TemplateRef<any>>",
+                    "optional": false,
+                    "description": "",
+                    "line": 28,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "subscription",
+                    "defaultValue": "new Subscription()",
+                    "type": "Subscription",
+                    "optional": false,
+                    "description": "",
+                    "line": 27,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "template",
+                    "type": "TemplateRef<any>",
+                    "optional": false,
+                    "description": "",
+                    "line": 13,
+                    "decorators": [
+                        {
+                            "name": "ContentChild",
+                            "stringifiedArguments": "TemplateRef"
+                        }
+                    ]
+                }
+            ],
+            "methodsClass": [
+                {
+                    "name": "ngOnDestroy",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 39
+                },
+                {
+                    "name": "ngOnInit",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 35
+                },
+                {
+                    "name": "observeViewChange",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 57,
+                    "modifierKind": [
+                        112
+                    ]
+                },
+                {
+                    "name": "onResponsiveViewButtonClicked",
+                    "args": [],
+                    "optional": false,
+                    "returnType": "void",
+                    "typeParameters": [],
+                    "line": 43
+                }
+            ],
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "",
+            "type": "component",
+            "sourceCode": "import { Component, ContentChild, EventEmitter, Input, OnDestroy, OnInit, Output, TemplateRef } from '@angular/core';\r\nimport { SdsDialogRef, SdsDialogService } from '@gsa-sam/components';\r\nimport { BreakpointObserver } from '@angular/cdk/layout';\r\nimport { Subscription } from 'rxjs';\r\n\r\n@Component({\r\n  selector: 'sds-side-toolbar',\r\n  templateUrl: './side-toolbar.component.html',\r\n  styleUrls: ['./side-toolbar.component.scss'],\r\n})\r\nexport class SideToolbarComponent implements OnInit, OnDestroy {\r\n  \r\n  @ContentChild(TemplateRef) template: TemplateRef<any>;\r\n\r\n  // Text for button in responsive view\r\n  @Input() responsiveButtonText: string;\r\n\r\n  // default value is size of mobile view in px\r\n  @Input() responsiveSize = 480;\r\n\r\n  @Output() responsiveDialog = new EventEmitter();\r\n  @Output() responsiveView = new EventEmitter();\r\n\r\n\r\n  isResponsiveView = false;\r\n\r\n  private subscription: Subscription = new Subscription();\r\n  private openResponsiveDialog: SdsDialogRef<TemplateRef<any>>;\r\n\r\n  constructor(\r\n    private sdsDialogService: SdsDialogService,\r\n    private breakpointObserver: BreakpointObserver, // Will watch for changes between mobile and non-mobile screen size\r\n  ) { }\r\n\r\n  ngOnInit() {\r\n    this.observeViewChange();\r\n  }\r\n\r\n  ngOnDestroy() {\r\n    this.subscription.unsubscribe();\r\n  }\r\n\r\n  onResponsiveViewButtonClicked() {\r\n    this.openResponsiveDialog = this.sdsDialogService.open(this.template, {\r\n      height: '100vh',\r\n      width: '100vw',\r\n      maxWidth: '100vw',\r\n      maxHeight: '100vh',\r\n      hasBackdrop: false,\r\n      displayCloseBtn: false,\r\n      panelClass: ['sds-dialog--full'],\r\n    });\r\n\r\n    this.responsiveDialog.emit(this.openResponsiveDialog);\r\n  }\r\n\r\n  private observeViewChange() {\r\n    const breakpointUnsubscription = this.breakpointObserver.observe([\r\n      `(max-width: ${this.responsiveSize}px)`\r\n    ]).subscribe(result => {\r\n      console.log(this.openResponsiveDialog);\r\n      if (result.matches) {\r\n        this.isResponsiveView = true;\r\n      } else {\r\n        this.isResponsiveView = false;\r\n        if (this.openResponsiveDialog) {\r\n          this.openResponsiveDialog.close();\r\n          this.openResponsiveDialog = undefined;\r\n          this.responsiveDialog.emit(this.openResponsiveDialog);\r\n        }\r\n      }\r\n\r\n      this.responsiveView.emit(this.isResponsiveView);\r\n    });\r\n\r\n    this.subscription.add(breakpointUnsubscription);\r\n  }\r\n\r\n}\r\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": "",
+                    "styleUrl": "./side-toolbar.component.scss"
+                }
+            ],
+            "stylesData": "",
+            "constructorObj": {
+                "name": "constructor",
+                "description": "",
+                "args": [
+                    {
+                        "name": "sdsDialogService",
+                        "type": "SdsDialogService"
+                    },
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver"
+                    }
+                ],
+                "line": 28,
+                "jsdoctags": [
+                    {
+                        "name": "sdsDialogService",
+                        "type": "SdsDialogService",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "breakpointObserver",
+                        "type": "BreakpointObserver",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            },
+            "implements": [
+                "OnInit",
+                "OnDestroy"
+            ],
+            "templateData": "<div *ngIf=\"!isResponsiveView\">\r\n  <ng-container *ngTemplateOutlet=\"template\"></ng-container>\r\n</div>\r\n\r\n<div *ngIf=\"isResponsiveView\">\r\n  <button class=\"usa-button usa-button--accent-cool usa-button--hover text-secondary-dar\" id=\"responsiveViewButton\"\r\n    (click)=\"onResponsiveViewButtonClicked()\" [attr.aria-label]=\"responsiveButtonText\">\r\n    {{responsiveButtonText}}\r\n  </button>\r\n</div>"
         }
     ],
     "modules": [
@@ -1917,6 +2337,43 @@ const LAYOUTS = {
             ]
         },
         {
+            "name": "SdsSystemAlertModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SdsSystemAlertComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SdsSystemAlertComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "SearchListServiceModule",
             "children": [
                 {
@@ -1940,6 +2397,43 @@ const LAYOUTS = {
                     "elements": [
                         {
                             "name": "SearchListLayoutComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "SideToolbarModule",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "SideToolbarComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": []
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "SideToolbarComponent"
                         }
                     ]
                 },

@@ -71,6 +71,7 @@
     "@nrwl/nx": "7.5.0",
     "@types/qs": "^6.2.3",
     "accessible-html5-video-player": "^1.0.6",
+    "classlist.js": "^1.1.20150312",
     "core-js": "^2.5.4",
     "lodash-es": "^4.17.15",
     "ngx-bootstrap-icons": "^1.0.0",
@@ -80,6 +81,7 @@
     "rxjs": "~6.3.3",
     "rxjs-compat": "~6.3.3",
     "ts-md5": "^1.2.7",
+    "web-animations-js": "^2.3.2",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
