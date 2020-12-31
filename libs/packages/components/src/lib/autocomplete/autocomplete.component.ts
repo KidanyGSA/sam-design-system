@@ -47,7 +47,7 @@ export class SDSAutocompleteComponent implements ControlValueAccessor {
   /**
    * The data model that has the selected item
    */
-  public model: SDSSelectedItemModel;
+  public model: SDSSelectedItemModel = new SDSSelectedItemModel();
 
   public disabled: boolean;
 
@@ -87,6 +87,7 @@ export class SDSAutocompleteComponent implements ControlValueAccessor {
   // If there is a value we will just overwrite items
   // If there is no value we reset the items array to be empty
   writeValue(value: any) {
+
     if (value instanceof SDSSelectedItemModel && value.items && value.items.length && this.model.items !== value.items) {
       this.model.items = [...value.items];
       this.cd.markForCheck();

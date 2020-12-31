@@ -151,7 +151,11 @@ modulesInfo.forEach((value, demoModule) => {
   stackblitzData.files.push({name: 'src/app.module.ts', source: appModule(stackblitzData)})
   stackblitzData.files.push({name: 'src/app.component.ts', source: appComponent(stackblitzData)});
   for (const file of demoFiles) {
+
     const destFile = path.basename(file);
+    if (file.includes('result-list') && fs.lstatSync(file).isDirectory() ) {
+      console.log('DIRECTORY', file, destFile);
+    }
     try {
       stackblitzData.files.push({name: `src/app/${destFile}`, source: fs.readFileSync(file).toString()});
     } catch (exception) {

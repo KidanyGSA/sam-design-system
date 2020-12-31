@@ -9,9 +9,15 @@ import {
   AlertComponent,
   OfficialComponent
 } from './dialog-basic.component';
+import { SdsFormlyDialogModule } from '@gsa-sam/sam-formly';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, SdsDialogModule],
+  imports: [
+    CommonModule, 
+    FormsModule, 
+    SdsDialogModule,
+    SdsFormlyDialogModule,
+  ],
   exports: [DialogBasic],
   bootstrap: [DialogBasic],
   declarations: [
