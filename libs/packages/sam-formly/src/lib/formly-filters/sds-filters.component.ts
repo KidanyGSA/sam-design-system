@@ -6,17 +6,19 @@ import {
   Optional,
   OnInit,
   ChangeDetectorRef,
-  HostListener
+  HostListener,
 } from '@angular/core';
+import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { sds } from '@gsa-sam/sam-styles/src/icons/';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import * as qs from 'qs';
 import { SDSFormlyUpdateComunicationService } from './service/sds-filters-comunication.service';
-import { DatePipe } from '@angular/common';
 @Component({
   selector: 'sds-filters',
-  templateUrl: './sds-filters.component.html'
+  templateUrl: './sds-filters.component.html',
 })
 export class SdsFiltersComponent implements OnInit {
   /**
@@ -52,9 +54,14 @@ export class SdsFiltersComponent implements OnInit {
   @Input() sortMoreFilterBy = '';
 
   /**
+   * Show option to include inactive filter values
+   */
+  @Input() isInactiveValueFieldShown: boolean = false;
+
+  /**
    * Timer id for the timer awaiting the service call for more typeing
    */
-  @Input() public isHistoryEnable: boolean = true;
+  @Input() public isHistoryEnable: boolean = false;
 
   /**
    * To get clean model without null and empty
@@ -66,6 +73,7 @@ export class SdsFiltersComponent implements OnInit {
    */
   // TODO: check type -- Formly models are typically objects
   @Output() filterChange = new EventEmitter<object[]>();
+  @Output() showInactiveFiltersChange = new EventEmitter<boolean>();
 
   _isObj = (obj: any): boolean => typeof obj === 'object' && obj !== null;
   _isEmpty = (obj: any): boolean => Object.keys(obj).length === 0;
@@ -90,8 +98,11 @@ export class SdsFiltersComponent implements OnInit {
     public formlyUpdateComunicationService: SDSFormlyUpdateComunicationService,
     private cdr: ChangeDetectorRef,
     private router: Router,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    library: FaIconLibrary
+  ) {
+    library.addIconPacks(fas, sds);
+  }
 
   @HostListener('window:popstate', ['$event'])
   onpopstate(event) {
@@ -114,11 +125,13 @@ export class SdsFiltersComponent implements OnInit {
         setTimeout(() => {
           this.form.patchValue({
             ...this.model,
-            ...paramModel.sfm
+            ...paramModel.sfm,
           });
         });
         this.cdr.detectChanges();
       }
+    } else if (this.model) {
+      this.checkForHide();
     }
   }
   /**
@@ -127,25 +140,53 @@ export class SdsFiltersComponent implements OnInit {
   checkForHide() {
     let fieldWithValue = this.convertToParam(this.model);
     let keys = [];
-    Object.keys(fieldWithValue).map(key => {
+    Object.keys(fieldWithValue).map((key) => {
       keys.push(key.replace(/\[/g, '.').replace(/\]/g, ''));
     });
-    keys.forEach(key => {
+    keys.forEach((key) => {
       const [lastKey] = key.split('.').slice(-1);
-      this.fields.forEach(field => {
+      this.fields.forEach((field) => {
         if (key.includes(field.key)) {
-          let hiddenField;
           if (field.fieldGroup) {
-            hiddenField = field.fieldGroup.find(item => item.key === lastKey);
+            const fieldExists = this.findFieldInFieldGroup(
+              field.fieldGroup,
+              lastKey
+            );
+            if (fieldExists) {
+              field.hide = false;
+            }
           } else {
-            hiddenField = field;
-          }
-          if (hiddenField.hide) {
-            hiddenField.hide = false;
+            field.hide = false;
           }
         }
       });
     });
+  }
+
+  /**
+   * Recursively iterate over each field as well as potential field groups of the field
+   * to find a field with the given key. Returns true if field exists. Also toggles
+   * hide value of formly field for the key as well as it's parent fields to false.
+   * @param fields - The list of formly fields to search for the given key
+   * @param key - The key of the formly field config to search for
+   */
+  private findFieldInFieldGroup(fields: FormlyFieldConfig[], key: any) {
+    let existsInFieldGroup = false;
+    fields.forEach((field) => {
+      if (field.fieldGroup) {
+        existsInFieldGroup =
+          existsInFieldGroup ||
+          this.findFieldInFieldGroup(field.fieldGroup, key);
+        if (existsInFieldGroup) {
+          field.hide = false;
+        }
+      } else if (field.key === key) {
+        existsInFieldGroup = true;
+        field.hide = false;
+      }
+    });
+
+    return existsInFieldGroup;
   }
 
   onModelChange(change: any) {
@@ -159,7 +200,7 @@ export class SdsFiltersComponent implements OnInit {
       const params = this.convertToParam(queryObj);
       this.router.navigate(['.'], {
         relativeTo: this.route,
-        queryParams: params
+        queryParams: params,
         // TODO: Need this for future use case
         // queryParamsHandling: 'merge'
       });
@@ -181,7 +222,7 @@ export class SdsFiltersComponent implements OnInit {
     const encodedValues = qs.stringify(filters, {
       skipNulls: true,
       encode: false,
-      filter: this.shortFormatDate
+      filter: this.shortFormatDate,
     });
     if (encodedValues) {
       return this.getUrlParams(encodedValues);
@@ -191,7 +232,7 @@ export class SdsFiltersComponent implements OnInit {
   }
   getUrlParams(queryString) {
     const target = {};
-    queryString.split('&').forEach(pair => {
+    queryString.split('&').forEach((pair) => {
       if (pair !== '') {
         const splitpair = pair.split('=');
         target[splitpair[0]] =
@@ -202,10 +243,10 @@ export class SdsFiltersComponent implements OnInit {
   }
 
   shortFormatDate(prefix, value) {
-    const fixDigit = val => {
+    const fixDigit = (val) => {
       return val.toString().length === 1 ? '0' + val : val;
     };
-    const getFormattedDate = date =>
+    const getFormattedDate = (date) =>
       `${fixDigit(
         date.getMonth() + 1
       )}/${date.getDate()}/${date.getFullYear()}`;
@@ -226,7 +267,7 @@ export class SdsFiltersComponent implements OnInit {
     const encodedValues = qs.stringify(filters, {
       skipNulls: true,
       encode: false,
-      filter: this.longFormatDate
+      filter: this.longFormatDate,
     });
     obj = qs.parse(encodedValues);
     return obj;
@@ -239,5 +280,9 @@ export class SdsFiltersComponent implements OnInit {
       value = new Date(val).toISOString();
     }
     return value;
+  }
+
+  handleInactiveFilterChange(inactiveFilterValue: boolean) {
+    this.showInactiveFiltersChange.emit(inactiveFilterValue);
   }
 }

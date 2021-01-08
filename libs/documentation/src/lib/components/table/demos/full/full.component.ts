@@ -52,4 +52,8 @@ export class TableFullComponent {
     }
   };
 
+  onExpansionClicked(element:any) {
+    console.log('Expansion Clicked', element);
+  }
+
 }
