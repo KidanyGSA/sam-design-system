@@ -16,7 +16,6 @@ const samMaterialExtensions = fs.readJsonSync("libs/packages/sam-material-extens
 
 const versions = {
   angular: getVersion('@angular/core'),
-  angularLocalize: getVersion('@angular/localize'),
   typescript: getVersion('typescript'),
   samStyles: getVersion('@gsa-sam/sam-styles'),
   samLayouts: samLayoutsPackage.version,
@@ -31,7 +30,7 @@ const versions = {
   videoPlayer: getVersion('accessible-html5-video-player'),
   ngxBootstrapIcons: getVersion('ngx-bootstrap-icons'),
   ngxMarkdown: getVersion('ngx-markdown'),
-  camelcase: getVersion('camelcase'),
+  ngxToastr: getVersion('ngx-toastr'),
   qs: getVersion('qs'),
   rxjs: getVersion('rxjs'),
   zoneJs: getVersion('zone.js'),
@@ -83,7 +82,6 @@ const initialData = {
     '@angular/platform-browser-dynamic': versions.angular,
     '@angular/router': versions.angular,
     '@angular/forms': versions.angular,
-    '@angular/localize': versions.angularLocalize,
     '@gsa-sam/sam-styles': versions.samStyles,
     '@gsa-sam/layouts': versions.samLayouts,
     '@gsa-sam/components': versions.samComponents,
@@ -97,7 +95,7 @@ const initialData = {
     'accessible-html5-video-player': versions.videoPlayer,
     'ngx-bootstrap-icons': versions.ngxBootstrapIcons,
     'ngx-markdown': versions.ngxMarkdown,
-    'camelcase': versions.camelcase,
+    'ngx-toastr': versions.ngxToastr,
     'qs': versions.qs,
     'core-js': versions.coreJs,
     'rxjs': versions.rxjs,

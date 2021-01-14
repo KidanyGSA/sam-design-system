@@ -84,6 +84,7 @@
         "ngx-bootstrap-icons": "1.2.1",
         "ngx-highlightjs": "^4.1.1",
         "ngx-markdown": "^10.1.1",
+        "ngx-toastr": "^10.2.0",
         "qs": "^6.2.3",
         "raw-loader": "1.0.0",
         "rxjs": "~6.5.5",
@@ -101,8 +102,8 @@
         "codelyzer": "^6.0.0",
         "dotenv": "6.2.0",
         "eslint": "6.8.0",
+        "ejs": "3.1.5",
         "@types/jest": "^23.0.0",
-        "ngx-toastr": "^10.2.0",
         "css-loader": "^3.2.0",
         "github-release-notes": "^0.17.0",
         "jasmine-core": "~2.99.1",
@@ -116,6 +117,7 @@
         "prettier": "2.0.4",
         "protractor": "~5.4.0",
         "ts-node": "~7.0.0",
+        "tsickle": "0.39.1",
         "tslint": "~6.0.0"
     }
 }

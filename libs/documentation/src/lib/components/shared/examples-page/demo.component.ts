@@ -20,6 +20,7 @@ export class DocumentationWidgetDemoComponent {
 
   constructor(library: FaIconLibrary) {
     library.addIconPacks(fab, sds);
+    console.log(this);
   }
 
   getGithubLink() {
@@ -43,6 +44,7 @@ export class DocumentationWidgetDemoComponent {
   }
 
   getStackblitzLink() {
+    console.log(this);
     const filePath = `assets/stackblitzes/${this.component}/${this.id}/stackblitz.html`;
     return filePath;
   }
