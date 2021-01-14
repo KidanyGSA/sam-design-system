@@ -9,6 +9,7 @@ import {
 } from '@gsa-sam/components';
 @Component({
   templateUrl: './autocomplete-mincharacter.component.html',
+  selector: `sds-formly-mincharacter-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteMinCharacter  {

@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
+  selector: `sds-search-optional-demo`,
   templateUrl: './search-optional.component.html',
 })
 export class SearchOptional {

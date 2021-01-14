@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import tableDataFull from '../data';
 
 @Component({
-  templateUrl: './pagination.component.html'
+  templateUrl: './pagination.component.html',
+  selector: `sds-table-pagination-demo`,
 })
 
 export class TablePaginationComponent {

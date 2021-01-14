@@ -4,7 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './input-optional.component.html',
-  styleUrls: ['./input-optional.component.scss']
+  styleUrls: ['./input-optional.component.scss'],
+  selector: `sds-formly-input-optional-demo`,
 })
 
 export class InputOptional {

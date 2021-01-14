@@ -4,6 +4,7 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './multicheckbox-selectall.component.html',
+  selector: `sds-formly-multicheckbox-selectall-demo`,
 })
 
 export class MultiCheckboxSelectAll {

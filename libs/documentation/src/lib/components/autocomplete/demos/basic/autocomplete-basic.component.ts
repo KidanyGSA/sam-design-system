@@ -10,6 +10,7 @@ import { AutocompleteSampleDataService } from './service/autocomplete-sample.ser
 @Component({
   templateUrl: './autocomplete-basic.component.html',
   styleUrls: ['./autocomplete-basic.component.scss'],
+  selector: `sds-autocomplete-basic-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class AutocompleteBasic implements OnInit {

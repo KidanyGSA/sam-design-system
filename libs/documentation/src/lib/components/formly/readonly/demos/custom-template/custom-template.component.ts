@@ -4,7 +4,7 @@ import { FormlyUtilsService, SdsFormlyTypes } from '@gsa-sam/sam-formly';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  selector: 'gsa-sam-custom-template',
+  selector: 'sds-formly-custom-template-demo',
   templateUrl: './custom-template.component.html',
 })
 export class CustomTemplateComponent {

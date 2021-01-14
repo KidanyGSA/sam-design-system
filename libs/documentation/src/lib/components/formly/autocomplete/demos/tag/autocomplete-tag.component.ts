@@ -10,6 +10,7 @@ import {
 
 @Component({
   templateUrl: './autocomplete-tag.component.html',
+  selector: `sds-formly-tag-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteTag  {

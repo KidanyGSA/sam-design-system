@@ -10,6 +10,7 @@ import {
 
 @Component({
   templateUrl: './autocomplete-readonly.component.html',
+  selector: `sds-formly-readonly-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteReadOnly  {

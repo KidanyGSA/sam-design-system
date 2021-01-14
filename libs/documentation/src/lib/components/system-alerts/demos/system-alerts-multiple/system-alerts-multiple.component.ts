@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Alert } from '@gsa-sam/layouts';
 
 @Component({
-  selector: 'gsa-sam-system-alerts-multiple',
+  selector: 'sds-system-alerts-multiple-demo',
   templateUrl: './system-alerts-multiple.component.html',
 })
 export class SystemAlertsMultipleComponent {

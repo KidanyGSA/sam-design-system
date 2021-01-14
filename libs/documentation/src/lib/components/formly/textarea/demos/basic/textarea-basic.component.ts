@@ -4,7 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './textarea-basic.component.html',
-  styleUrls: ['./textarea-basic.component.scss']
+  styleUrls: ['./textarea-basic.component.scss'],
+  selector: `sds-formly-textarea-basic-demo`,
 })
 
 export class TextAreaBasic {

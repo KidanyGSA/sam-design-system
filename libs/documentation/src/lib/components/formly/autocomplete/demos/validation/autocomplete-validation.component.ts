@@ -12,6 +12,7 @@ import { SampleAutocompleteData } from '../../services/autocomplete-sample.data'
 
 @Component({
   templateUrl: './autocomplete-validation.component.html',
+  selector: `sds-formly-validation-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteValidation {

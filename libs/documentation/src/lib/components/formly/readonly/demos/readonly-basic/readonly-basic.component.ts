@@ -6,7 +6,7 @@ import { FormlyFieldConfig } from '@ngx-formly/core';
 import { AutocompleteSampleDataService } from '../../../../autocomplete/demos/basic/service/autocomplete-sample.service';
 
 @Component({
-  selector: 'gsa-sam-readonly-basic',
+  selector: 'sds-readonly-basic-demo',
   templateUrl: './readonly-basic.component.html',
   providers: [ AutocompleteSampleDataService ]
 

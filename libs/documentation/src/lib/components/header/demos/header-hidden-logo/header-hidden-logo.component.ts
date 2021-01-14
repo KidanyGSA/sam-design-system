@@ -6,7 +6,8 @@ import { LocationStrategy } from '@angular/common';
 
 @Component({
   templateUrl: './header-hidden-logo.component.html',
-  styleUrls: ['./header-hidden-logo.component.scss']
+  styleUrls: ['./header-hidden-logo.component.scss'],
+  selector: `sds-header-hidden-logo-demo`,
 })
 export class HeaderHiddenLogoComponent implements OnInit {
 

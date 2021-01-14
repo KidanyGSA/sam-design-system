@@ -12,6 +12,7 @@ import { SampleAutocompleteData } from '../../services/autocomplete-sample.data'
 
 @Component({
   templateUrl: './autocomplete-disable.component.html',
+  selector: `sds-formly-autocomplete-disable-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteDisable {

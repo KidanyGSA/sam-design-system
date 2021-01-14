@@ -4,7 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './radio-basic.component.html',
-  styleUrls: ['./radio-basic.component.scss']
+  styleUrls: ['./radio-basic.component.scss'],
+  selector: `sds-formly-radio-basic-demo`,
 })
 
 export class RadioBasic {

@@ -4,7 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './checkbox-basic.component.html',
-  styleUrls: ['./checkbox-basic.component.scss']
+  styleUrls: ['./checkbox-basic.component.scss'],
+  selector: `sds-formly-checkbox-demo`,
 })
 
 export class CheckboxBasic {

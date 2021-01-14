@@ -13,6 +13,7 @@ import { SampleAutocompleteData } from './services/autocomplete-sample.data';
 @Component({
   templateUrl: './autocomplete-basic.component.html',
   styleUrls: ['./autocomplete-basic.component.scss'],
+  selector: `sds-formly-autocomplete-basic-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteBasic implements OnInit {

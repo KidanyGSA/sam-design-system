@@ -4,7 +4,8 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './select-basic.component.html',
-  styleUrls: ['./select-basic.component.scss']
+  styleUrls: ['./select-basic.component.scss'],
+  selector: `sds-formly-select-demo`,
 })
 
 export class SelectBasic {

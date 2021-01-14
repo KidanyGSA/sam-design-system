@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SdsFormlyTypes } from '@gsa-sam/sam-formly';
 
 @Component({
-  selector: 'gsa-sam-readonly-wrapper',
+  selector: 'sds-readonly-wrapper-demo',
   templateUrl: './readonly-wrapper.component.html',
 })
 export class ReadonlyWrapperComponent {

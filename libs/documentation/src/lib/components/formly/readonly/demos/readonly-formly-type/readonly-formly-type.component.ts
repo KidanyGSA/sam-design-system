@@ -4,7 +4,7 @@ import { FormlyUtilsService, SdsFormlyTypes } from '@gsa-sam/sam-formly';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  selector: 'gsa-sam-readonly-formly-type',
+  selector: 'sds-readonly-formly-type-demo',
   templateUrl: './readonly-formly-type.component.html',
 })
 export class ReadonlyFormlyTypeComponent {

@@ -6,6 +6,7 @@ import { LocationStrategy } from '@angular/common';
 
 @Component({
   templateUrl: './header-alerts.component.html',
+  selector: `sds-header-alerts-demo`,
 })
 export class HeaderAlertsComponent implements OnInit {
 

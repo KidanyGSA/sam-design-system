@@ -8,6 +8,7 @@ import { AutocompleteSampleDataService } from './service/autocomplete-sample.ser
 
 @Component({
   templateUrl: './autocomplete-group.component.html',
+  selector: `sds-autocomplete-group-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class AutocompleteGroup {

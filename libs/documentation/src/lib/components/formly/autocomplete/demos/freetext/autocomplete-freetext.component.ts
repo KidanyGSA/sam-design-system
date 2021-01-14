@@ -10,6 +10,7 @@ import {
 
 @Component({
   templateUrl: './autocomplete-freetext.component.html',
+  selector: `sds-formly-autocomplete-freetext-demo`,
   providers: [AutocompleteSampleDataService]
 })
 export class FormlyAutocompleteFreetext {
