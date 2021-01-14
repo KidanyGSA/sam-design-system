@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MultiCheckboxBasic } from './demos/basic/multicheckbox-basic.component';
-import { DocumentationExamplesPage } from '../../shared/examples-page/examples.component';
-import { DocumentationAPIPage } from '../../shared/api-page/docs-api.component';
-import { DocumentationSourcePage } from '../../shared/source-page/source.component';
-import { DocumentationTemplatePage } from '../../shared/template-page/template.component';
-import {
-  DocumentationComponentsSharedModule,
-  DocumentationDemoList
-} from '../../shared/index';
-import { ComponentWrapperComponent } from '../../../shared/component-wrapper/component-wrapper.component';
+import { DocumentationExamplesPage } from '../shared/examples-page/examples.component';
+import { DocumentationAPIPage } from '../shared/api-page/docs-api.component';
+import { DocumentationSourcePage } from '../shared/source-page/source.component';
+import { DocumentationTemplatePage } from '../shared/template-page/template.component';
+import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../shared/index';
+import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 import { MultiCheckboxBasicModule } from './demos/basic/multicheckbox-basic.module';
 import { MultiCheckboxSelectAll } from './demos/selectall/multicheckbox-selectall.component';
 import { MultiCheckboxSelectAllModule } from './demos/selectall/multicheckbox-selectall.module';
@@ -24,7 +21,7 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/basic/multicheckbox-basic.component'),
     markup: require('!!raw-loader!./demos/basic/multicheckbox-basic.component.html'),
     path:
-      'libs/documentation/src/lib/components/formly/multicheckbox/demos/basic'
+      'libs/documentation/src/lib/components/formly-multicheckbox/demos/basic'
   },
   selectall: {
     title: 'Multi Checkbox with nesting',
@@ -32,7 +29,7 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/selectall/multicheckbox-selectall.component'),
     markup: require('!!raw-loader!./demos/selectall/multicheckbox-selectall.component.html'),
     path:
-      'libs/documentation/src/lib/components/formly/multicheckbox/demos/selectall'
+      'libs/documentation/src/lib/components/formly-multicheckbox/demos/selectall'
   },
   expandable: {
     title: 'Multi Checkbox with Select All expandable options',
@@ -40,7 +37,7 @@ const DEMOS = {
     code: require('!!raw-loader!./demos/expandable/multicheckbox-expandable.component'),
     markup: require('!!raw-loader!./demos/expandable/multicheckbox-expandable.component.html'),
     path:
-      'libs/documentation/src/lib/components/formly/multicheckbox/demos/expandable'
+      'libs/documentation/src/lib/components/formly-multicheckbox/demos/expandable'
   }
 };
 

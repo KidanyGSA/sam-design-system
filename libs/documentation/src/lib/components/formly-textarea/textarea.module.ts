@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TextAreaBasic } from './demos/basic/textarea-basic.component';
-import { DocumentationExamplesPage } from '../../shared/examples-page/examples.component';
-import { DocumentationAPIPage } from '../../shared/api-page/docs-api.component';
-import { DocumentationSourcePage } from '../../shared/source-page/source.component';
-import { DocumentationTemplatePage } from '../../shared/template-page/template.component';
-import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../../shared/index';
-import { ComponentWrapperComponent } from '../../../shared/component-wrapper/component-wrapper.component';
+import { DocumentationExamplesPage } from '../shared/examples-page/examples.component';
+import { DocumentationAPIPage } from '../shared/api-page/docs-api.component';
+import { DocumentationSourcePage } from '../shared/source-page/source.component';
+import { DocumentationTemplatePage } from '../shared/template-page/template.component';
+import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../shared/index';
+import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
 import { TextAreaBasicModule } from './demos/basic/textarea-basic.module';
 
 declare var require: any;
@@ -16,7 +16,7 @@ const DEMOS = {
     type: TextAreaBasic,
     code: require('!!raw-loader!./demos/basic/textarea-basic.component'),
     markup: require('!!raw-loader!./demos/basic/textarea-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/textarea/demos/basic'
+    path: 'libs/documentation/src/lib/components/formly-textarea/demos/basic'
   }
 };
 
