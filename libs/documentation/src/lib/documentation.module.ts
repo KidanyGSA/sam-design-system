@@ -246,12 +246,12 @@ export const ROUTES: Routes = [
   { path: 'components/form-field', children: FORM_FIELD_ROUTES },
   { path: 'components/filterwrapper', children: FILTER_WRAPPER_ROUTES },
   { path: 'components/accordionwrapper', children: ACCORDION_WRAPPER_ROUTES },
-  { path: 'components/group', children: GROUP_ROUTES },
-  { path: 'components/label', children: LABEL_ROUTES },
-  { path: 'components/description', children: DESCRIPTION_ROUTES },
-  { path: 'components/validation', children: VALIDATION_ROUTES },
+  { path: 'components/groupwrappers', children: GROUP_ROUTES },
+  { path: 'components/labelwrapper', children: LABEL_ROUTES },
+  { path: 'components/descriptionwrapper', children: DESCRIPTION_ROUTES },
+  { path: 'components/validationwrapper', children: VALIDATION_ROUTES },
   { path: 'components/templateoptions', children: TEMPLATEOPTIONS_ROUTES },
-  { path: 'components/readonly', children: READONLY_ROUTES },
+  { path: 'components/formly-readonly', children: READONLY_ROUTES },
 
   // Form Examples
   { path: 'pages', pathMatch: 'full', redirectTo: 'pages/formly-form' },

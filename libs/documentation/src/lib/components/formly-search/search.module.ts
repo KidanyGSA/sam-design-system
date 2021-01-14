@@ -29,7 +29,7 @@ const DEMOS = {
     markup: require('!!raw-loader!./demos/optional/search-optional.component.html'),
     path: 'libs/documentation/src/lib/components/formly-search/demos/optional'
   },
-  handleSubmit: {
+  submit: {
     title: 'Handling Submit',
     type: SearchHandleSubmit,
     code: require('!!raw-loader!./demos/submit/search-handle-submit.component'),

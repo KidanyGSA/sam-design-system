@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Alert } from '@gsa-sam/layouts';
 
 @Component({
-  selector: 'gsa-sam-system-alerts-single',
+  selector: 'system-alerts-single-demo',
   templateUrl: './system-alerts-single.component.html',
 })
 export class SystemAlertsSingleComponent {

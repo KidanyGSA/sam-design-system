@@ -2,7 +2,6 @@ import * as ejs from 'ejs';
 import * as fs from 'fs-extra';
 import * as glob from 'glob';
 import * as path from 'path';
-import { exit } from 'process';
 
 import {parseDemo} from './parse-demo';
 
@@ -151,7 +150,7 @@ modulesInfo.forEach((value, demoModule) => {
   for (const file of demoFiles) {
 
     const destFile = path.basename(file);
-    if (file.includes('result-list') && fs.lstatSync(file).isDirectory() ) {
+    if (file.includes('header') && fs.lstatSync(file).isDirectory() ) {
       console.log('DIRECTORY', file, destFile);
     }
     try {
@@ -163,38 +162,5 @@ modulesInfo.forEach((value, demoModule) => {
   fs.ensureDirSync(destinationFolder);
   fs.writeFileSync(path.join(destinationFolder, 'stackblitz.html'), stackblitzFile(stackblitzData));
 });
-// for (const demoModule of modulesInfo.keys()) {
-//   const demoFolder = path.normalize(path.dirname(demoModule));
-//   const demoFiles = glob.sync(path.join(demoFolder, '*'), {});
-//   const[, componentName, , demoName] = demoFolder.replace(root, '').split(path.sep);
-//   const modulePath = path.basename(demoModule, '.ts');
-//   const moduleInfo = modulesInfo.get(demoModule);
-
-//   const destinationFolder = path.join(base, componentName, demoName);
-
-//   const stackblitzData = {
-//     ...initialData,
-//     componentName,
-//     demoName,
-//     ...moduleInfo,
-//     modulePath: `./app/${modulePath}`,
-//     title: `ng-bootstrap - ${capitalize(componentName)} - ${capitalize(demoName)}`,
-//     tags: [...initialData.tags],
-//     files: [...initialData.files],
-//     openFile: `app/${moduleInfo.bootstrap.fileName}`
-//   };
-
-//   stackblitzData.tags.push(componentName);
-
-//   stackblitzData.files.push({name: 'src/index.html', source: indexFile(stackblitzData)});
-//   stackblitzData.files.push({name: 'src/main.ts', source: mainFile(stackblitzData)});
-//   for (const file of demoFiles) {
-//     const destFile = path.basename(file);
-//     stackblitzData.files.push({name: `src/app/${destFile}`, source: fs.readFileSync(file).toString()});
-//   }
-
-//   fs.ensureDirSync(destinationFolder);
-//   fs.writeFileSync(path.join(destinationFolder, 'stackblitz.html'), stackblitzFile(stackblitzData));
-// }
 
 console.log(`generated ${modulesInfo.size} stackblitze(s) from demo sources.`);

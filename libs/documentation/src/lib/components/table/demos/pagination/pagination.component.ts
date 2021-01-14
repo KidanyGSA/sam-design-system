@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import tableDataFull from '../data';
+import tableDataFull from './data';
 
 @Component({
   selector: `table-pagination-demo`,

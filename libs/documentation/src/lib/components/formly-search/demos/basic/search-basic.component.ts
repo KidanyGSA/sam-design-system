@@ -4,7 +4,7 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './search-basic.component.html',
-  selector: `formly-search-basic-demo`
+  selector: `search-basic-demo`
 })
 export class SearchBasic {
   form = new FormGroup({});

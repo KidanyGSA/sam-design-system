@@ -3,7 +3,8 @@ import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
-  templateUrl: './filters-showInactiveFilterValues.component.html'
+  templateUrl: './filters-showInactiveFilterValues.component.html',
+  selector: `filters-inactive-demo`
 })
 export class FiltersShowInactiveFilterValues {
   form = new FormGroup({});
