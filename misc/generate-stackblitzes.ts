@@ -13,29 +13,15 @@ const samComponentsPackage = fs.readJsonSync("libs/packages/components/package.j
 const samFormlyPackage = fs.readJsonSync("libs/packages/sam-formly/package.json");
 const samMaterialExtensions = fs.readJsonSync("libs/packages/sam-material-extensions/package.json");
 
-const versions = {
-  angular: getVersion('@angular/core'),
-  typescript: getVersion('typescript'),
-  samStyles: getVersion('@gsa-sam/sam-styles'),
-  samLayouts: samLayoutsPackage.version,
-  samComponents: samComponentsPackage.version,
-  samFormly: samFormlyPackage.version,
-  samMaterialExtension: samMaterialExtensions.version,
-  ngxFormly: getVersion('@ngx-formly/core'),
-  fontawesomeAngular: getVersion('@fortawesome/angular-fontawesome'),
-  fontawesomeSvgCore: getVersion('@fortawesome/fontawesome-svg-core'),
-  fontawesomeBrandSvg: getVersion('@fortawesome/free-brands-svg-icons'),
-  fontawesomeSolidSvg: getVersion('@fortawesome/free-solid-svg-icons'),
-  videoPlayer: getVersion('accessible-html5-video-player'),
-  ngxBootstrapIcons: getVersion('ngx-bootstrap-icons'),
-  ngxMarkdown: getVersion('ngx-markdown'),
-  ngxToastr: getVersion('ngx-toastr'),
-  qs: getVersion('qs'),
-  rxjs: getVersion('rxjs'),
-  zoneJs: getVersion('zone.js'),
-  coreJs: getVersion('core-js'),
-  tslib: getVersion('tslib'),
+let dependencies = packageJson.dependencies;
+const samDependencies = {
+  '@gsa-sam/layouts': '0.7.1',
+  '@gsa-sam/components': '0.7.1',
+  '@gsa-sam/sam-formly': '0.7.1',
+  '@gsa-sam/sam-material-extensions': '0.7.1',
 };
+
+dependencies = {...dependencies, ...samDependencies};
 
 function capitalize(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -69,38 +55,7 @@ const root = path.join('libs', 'documentation', 'src', 'lib');
 
 const initialData = {
   stackblitzUrl,
-  versions,
-  dependencies: JSON.stringify({
-    '@angular/animations': versions.angular,
-    '@angular/cdk': versions.angular,
-    '@angular/core': versions.angular,
-    '@angular/common': versions.angular,
-    '@angular/compiler': versions.angular,
-    '@angular/material': versions.angular,
-    '@angular/platform-browser': versions.angular,
-    '@angular/platform-browser-dynamic': versions.angular,
-    '@angular/router': versions.angular,
-    '@angular/forms': versions.angular,
-    '@gsa-sam/sam-styles': versions.samStyles,
-    '@gsa-sam/layouts': versions.samLayouts,
-    '@gsa-sam/components': versions.samComponents,
-    '@gsa-sam/sam-formly': versions.samFormly,
-    '@gsa-sam/sam-material-extensions': versions.samMaterialExtension,
-    '@ngx-formly/core': versions.ngxFormly,
-    '@fortawesome/angular-fontawesome': versions.fontawesomeAngular,
-    '@fortawesome/fontawesome-svg-core': versions.fontawesomeSvgCore,
-    '@fortawesome/free-brands-svg-icons': versions.fontawesomeBrandSvg,
-    '@fortawesome/free-solid-svg-icons': versions.fontawesomeSolidSvg,
-    'accessible-html5-video-player': versions.videoPlayer,
-    'ngx-bootstrap-icons': versions.ngxBootstrapIcons,
-    'ngx-markdown': versions.ngxMarkdown,
-    'ngx-toastr': versions.ngxToastr,
-    'qs': versions.qs,
-    'core-js': versions.coreJs,
-    'rxjs': versions.rxjs,
-    'zone.js': versions.zoneJs,
-    'tslib': versions.tslib,
-  }),
+  dependencies: JSON.stringify(dependencies),
   tags: ['angular'],
   styles: fileContent('misc', 'stackblitzes-templates', 'styles.css'),
   files: [
