@@ -6,44 +6,44 @@ import { DocumentationSourcePage } from '../shared/source-page/source.component'
 import { DocumentationTemplatePage } from '../shared/template-page/template.component';
 import { DocumentationComponentsSharedModule, DocumentationDemoList } from '../shared/index';
 import { ComponentWrapperComponent } from '../../shared/component-wrapper/component-wrapper.component';
-import { ReadonlyBasicComponent } from './demos/readonly-basic/readonly-basic.component';
-import { ReadonlyBasicModule } from './demos/readonly-basic/readonly-basic.module';
-import { ReadonlyWrapperComponent } from './demos/readonly-wrapper/readonly-wrapper.component';
-import { ReadonlyWrapperModule } from './demos/readonly-wrapper/readonly-wrapper.module';
-import { ReadonlyFormlyTypeModule } from './demos/readonly-formly-type/readonly-formly.module';
-import { ReadonlyFormlyTypeComponent } from './demos/readonly-formly-type/readonly-formly-type.component';
-import { CustomTemplateComponent } from './demos/custom-template/custom-template.component';
-import { CustomTemplateModule } from './demos/custom-template/custom-template.module';
+import { ReadonlyBasicComponent } from './demos/basic/readonly-basic.component';
+import { ReadonlyBasicModule } from './demos/basic/readonly-basic.module';
+import { ReadonlyWrapperComponent } from './demos/wrapper/readonly-wrapper.component';
+import { ReadonlyWrapperModule } from './demos/wrapper/readonly-wrapper.module';
+import { ReadonlyFormlyTypeModule } from './demos/formlytype/readonly-formly.module';
+import { ReadonlyFormlyTypeComponent } from './demos/formlytype/readonly-formly-type.component';
+import { CustomTemplateComponent } from './demos/customtemplate/custom-template.component';
+import { CustomTemplateModule } from './demos/customtemplate/custom-template.module';
 
 declare var require: any;
 const DEMOS = {
   basic: {
     title: 'Basic Form Readonly',
     type: ReadonlyBasicComponent,
-    code: require('!!raw-loader!./demos/readonly-basic/readonly-basic.component'),
-    markup: require('!!raw-loader!./demos/readonly-basic/readonly-basic.component.html'),
-    path: 'libs/documentation/src/lib/components/formly-readonly/demos/readonly-basic'
+    code: require('!!raw-loader!./demos/basic/readonly-basic.component'),
+    markup: require('!!raw-loader!./demos/basic/readonly-basic.component.html'),
+    path: 'libs/documentation/src/lib/components/formly-readonly/demos/basic'
   },
-  readonlyContainer: {
+  wrapper: {
     title: 'Readonly Without Formly',
     type: ReadonlyWrapperComponent,
-    code: require('!!raw-loader!./demos/readonly-wrapper/readonly-wrapper.component'),
-    markup: require('!!raw-loader!./demos/readonly-wrapper/readonly-wrapper.component.html'),
-    path: 'libs/documentation/src/lib/components/formly-readonly/demos/readonly-wrapper'
+    code: require('!!raw-loader!./demos/wrapper/readonly-wrapper.component'),
+    markup: require('!!raw-loader!./demos/wrapper/readonly-wrapper.component.html'),
+    path: 'libs/documentation/src/lib/components/formly-readonly/demos/wrapper'
   },
-  readonlyFormlyType: {
+  formlytype: {
     title: 'Readonly as Formly Type',
     type: ReadonlyFormlyTypeComponent,
-    code: require('!!raw-loader!./demos/readonly-formly-type/readonly-formly-type.component'),
-    markup: require('!!raw-loader!./demos/readonly-formly-type/readonly-formly-type.component.html'),
-    path: 'libs/documentation/src/lib/components/formly-readonly/demos/readonly-formly-type'
+    code: require('!!raw-loader!./demos/formlytype/readonly-formly-type.component'),
+    markup: require('!!raw-loader!./demos/formlytype/readonly-formly-type.component.html'),
+    path: 'libs/documentation/src/lib/components/formly-readonly/demos/formlytype'
   },
-  readonlyCustomTemplates: {
+  customtemplate: {
     title: 'Readonly Custom Templates',
     type: CustomTemplateComponent,
-    code: require('!!raw-loader!./demos/custom-template/custom-template.component'),
-    markup: require('!!raw-loader!./demos/custom-template/custom-template.component.html'),
-    path: 'libs/documentation/src/lib/components/formly-readonly/demos/custom-template'
+    code: require('!!raw-loader!./demos/customtemplate/custom-template.component'),
+    markup: require('!!raw-loader!./demos/customtemplate/custom-template.component.html'),
+    path: 'libs/documentation/src/lib/components/formly-readonly/demos/customtemplate'
   },
 };
 
@@ -83,6 +83,6 @@ export const ROUTES = [
 })
 export class ReadonlyModule {
   constructor(demoList: DocumentationDemoList) {
-    demoList.register('readonly', DEMOS);
+    demoList.register('formly-readonly', DEMOS);
   }
 }
