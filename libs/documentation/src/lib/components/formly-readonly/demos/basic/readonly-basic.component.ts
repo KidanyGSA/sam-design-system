@@ -3,7 +3,7 @@ import { FormGroup } from '@angular/forms';
 import { SDSAutocompletelConfiguration, SDSSelectedItemModel, SelectionMode } from '@gsa-sam/components';
 import { FormlyUtilsService, SdsFormlyTypes } from '@gsa-sam/sam-formly';
 import { FormlyFieldConfig } from '@ngx-formly/core';
-import { AutocompleteSampleDataService } from '../../../autocomplete/demos/basic/service/autocomplete-sample.service';
+import { AutocompleteSampleDataService } from './autocomplete-sample.service';
 
 @Component({
   selector: 'sds-readonly-basic-demo',

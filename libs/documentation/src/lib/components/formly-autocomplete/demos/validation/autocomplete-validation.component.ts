@@ -2,14 +2,12 @@ import { Component } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 import { BehaviorSubject } from 'rxjs';
-import { AutocompleteSampleDataService } from '../../services/autocomplete-sample.service';
+import { AutocompleteSampleDataService } from './autocomplete-sample.service';
 import {
   SDSAutocompletelConfiguration,
   SDSSelectedItemModel,
   SelectionMode
 } from '@gsa-sam/components';
-import { SampleAutocompleteData } from '../../services/autocomplete-sample.data';
-
 @Component({
   templateUrl: './autocomplete-validation.component.html',
   selector: `sds-formly-validation-demo`,
@@ -27,7 +25,6 @@ export class FormlyAutocompleteValidation {
   options: FormlyFormOptions = {};
   public settings = new SDSAutocompletelConfiguration();
   public autocompleteModel = new SDSSelectedItemModel();
-  private data = SampleAutocompleteData;
   public filterChange$ = new BehaviorSubject<object>(null);
   public multipleSettings = new SDSAutocompletelConfiguration();
   fields: FormlyFieldConfig[] = [
