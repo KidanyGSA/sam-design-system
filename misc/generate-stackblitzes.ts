@@ -15,10 +15,10 @@ const samMaterialExtensions = fs.readJsonSync("libs/packages/sam-material-extens
 
 let dependencies = packageJson.dependencies;
 const samDependencies = {
-  '@gsa-sam/layouts': '0.7.1',
-  '@gsa-sam/components': '0.7.1',
-  '@gsa-sam/sam-formly': '0.7.1',
-  '@gsa-sam/sam-material-extensions': '0.7.1',
+  '@gsa-sam/layouts': '10.0.5',
+  '@gsa-sam/components': '10.0.5',
+  '@gsa-sam/sam-formly': '10.0.5',
+  '@gsa-sam/sam-material-extensions': '10.0.5',
 };
 
 dependencies = {...dependencies, ...samDependencies};
