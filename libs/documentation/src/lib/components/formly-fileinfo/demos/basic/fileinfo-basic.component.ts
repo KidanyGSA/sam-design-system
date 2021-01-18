@@ -4,6 +4,7 @@ import { FormlyFormOptions, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   templateUrl: './fileinfo-basic.component.html',
+  selector: `sds-formly-fileinfo-demo`,
 })
 export class FormlyFileInfoBasic {
   results: any = {};

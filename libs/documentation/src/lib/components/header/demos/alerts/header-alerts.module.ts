@@ -11,6 +11,6 @@ import { HeaderAlertsComponent } from './header-alerts.component';
   ],
   declarations: [HeaderAlertsComponent],
   exports: [HeaderAlertsComponent],
-  entryComponents: [ HeaderAlertsComponent ],
+  bootstrap: [ HeaderAlertsComponent ],
 })
 export class HeaderAlertsModule{}

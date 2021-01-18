@@ -7,6 +7,6 @@ import { HeaderHiddenLogoComponent } from './header-hidden-logo.component';
   imports: [CommonModule, SdsHeaderModule],
   declarations: [HeaderHiddenLogoComponent],
   exports: [HeaderHiddenLogoComponent],
-  entryComponents: [ HeaderHiddenLogoComponent ],
+  bootstrap: [ HeaderHiddenLogoComponent ],
 })
 export class HeaderHiddenLogoModule {}

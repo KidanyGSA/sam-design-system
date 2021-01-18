@@ -2,6 +2,7 @@ import * as ejs from 'ejs';
 import * as fs from 'fs-extra';
 import * as glob from 'glob';
 import * as path from 'path';
+const parseArgs = require('minimist');
 
 import {parseDemo} from './parse-demo';
 
@@ -42,14 +43,31 @@ const stackblitzFile = ejs.compile(fileContent('misc', 'stackblitzes-templates',
 const appComponent = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'app.component.ejs'));
 const appModule = ejs.compile(fileContent('misc', 'stackblitzes-templates', 'app.module.ejs'));
 
-const base = path.join('apps', 'sam-design-system-site', 'src', 'assets', 'stackblitzes');
+const isFederalistBuild = parseArgs(process.argv.slice(2))['federalist'];
+
+console.log(parseArgs(process.argv.slice(2)));
+
+let styles;
+let base;
+
+if (isFederalistBuild) {
+  const stylesPaths = glob.sync(path.join('dist', 'apps', 'sam-design-system-site', 'styles.*.css').toString())
+  styles = fileContent(...stylesPaths);
+  base = path.join('dist', 'apps', 'sam-design-system-site', 'assets', 'stackblitzes');
+
+} else {
+  styles = fileContent('misc', 'stackblitzes-templates', 'styles.css');
+  base = path.join('apps', 'sam-design-system-site', 'src', 'assets', 'stackblitzes');
+}
+
 const root = path.join('libs', 'documentation', 'src', 'lib');
+console.log(styles);
 
 const initialData = {
   stackblitzUrl,
   dependencies: JSON.stringify(dependencies),
   tags: ['angular'],
-  styles: fileContent('misc', 'stackblitzes-templates', 'styles.css'),
+  styles: styles,
   files: [
     {name: 'src/polyfills.ts', source: fileContent('misc', 'stackblitzes-templates', 'polyfills.ts')},
     {name: 'tsconfig.json', source: fileContent('misc', 'stackblitzes-templates', 'tsconfig.json')},

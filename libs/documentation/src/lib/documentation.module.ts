@@ -114,7 +114,7 @@ import {
 import {
   ROUTES as FORMLY_FILEINFO_ROUTES,
   FormlyFileInfoModule,
-} from './components/formly/fileinfo/fileinfo.module';
+} from './components/formly-fileinfo/fileinfo.module';
 import {
   ROUTES as FORMLY_DATEPICKER_ROUTES,
   FormlyDatepickerModule
